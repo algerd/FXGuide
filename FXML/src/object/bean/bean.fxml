@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import object.bean.Person?>
+
+<ArrayList>
+	<Person name="Kishori" age="25" index="220064" city="London"/>	
+	<Person name="Ellen" age="35" index="220060" city="Paris"/>
+	<Person name="Kannan" age="57" index="220044" city="Berlin"/>	
+</ArrayList>    
+

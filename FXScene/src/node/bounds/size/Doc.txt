@@ -1,0 +1,164 @@
+
+The actual size of a resizable node is determined by two things:
+    • The sizing policy of the container in which the node is placed
+    • The sizing range specified by the node itself
+
+Each container has a resizing policy for its children. A resizable node may specify a range for its size (width and height), 
+which should be taken into account by an honoring container for laying out the node. A resizable node specifies 
+three types of sizes that constitute the range of its size:
+    • Preferred size
+    • Minimum size
+    • Maximum size
+
+The preferred size of a node is its ideal width and height to display its contents. For example, a button in its
+preferred size would be big enough to display all its contents, based on the current properties such as the image,
+text, font, and text wrapping. The minimum size of a node is the smallest width and height that it would like to
+have. For example, a button in its minimum size would be big enough to display the image and an ellipsis for its
+text. The maximum size of a node is the largest width and height that it would like to have. In the case of a button,
+the maximum size of a button is the same as its preferred size. Sometimes you may want to extend a node to an
+unlimited size. In those cases, the maximum width and height are set to Double.MAX_VALUE.
+
+Most of the resizable nodes compute their preferred, minimum, and maximum sizes automatically,
+based on their contents and property settings. These sizes are known as their intrinsic sizes. The Region
+and Control classes define two constants that act as sentinel values for the intrinsic sizes of nodes. Those
+constants are:
+    • USE_COMPUTED_SIZE
+    • USE_PREF_SIZE
+Both constants are of double type. The values for USE_COMPUTED_SIZE and USE_PREF_SIZE are -1 and
+Double.NEGATIVE_INFINITY, respectively. It was not documented as to why the same constants were defined
+twice. Maybe the designers did not want to move them up in the class hierarchy, as they do not apply to all
+types of nodes.
+
+If the size of a node is set to the sentinel value USE_COMPUTED_SIZE, the node will compute that size
+automatically based on its contents and properties settings. The USE_PREF_SIZE sentinel value is used to set
+the minimum and maximum sizes if they are the same as the preferred size.
+
+The Region and Control classes have six properties of the DoubleProperty type to define preferred,
+minimum, and maximum values for their width and height:
+    • prefWidth
+    • prefHeight
+    • minWidth
+    • minHeight
+    • maxWidth
+    • maxHeight
+
+By default, these properties are set to the sentinel value USE_COMPUTED_SIZE. That means, nodes compute
+these sizes automatically. You can set one of these properties to override the intrinsic size of a node. For
+example, you can set the preferred, minimum, and maximum width of a button to be 50 pixels as follows:
+    Button btn = new Button("Close");
+    btn.setPrefWidth(50);
+    btn.setMinWidth(50);
+    btn.setMaxWidth(50);
+
+The above snippet of code sets preferred, minimum, and maximum widths of the button to the same
+value that makes the button horizontally nonresizable.
+The following snippet of code sets the minimum and maximum widths of a button to the preferred
+width, where the preferred width itself is computed internally:
+    Button btn = new Button("Close");
+    btn.setMinWidth(Control.USE_PREF_SIZE);
+    btn.setMaxWidth(Control.USE_PREF_SIZE);
+
+Tip: In most cases, the internally computed values for preferred, minimum, and maximum sizes of nodes
+are fine. Use these properties to override the internally computed sizes only if they do not meet the needs of
+your application. If you need to bind the size of a node to an expression, you would need to bind the prefWidth
+and prefHeight properties.
+
+How do you get the actual preferred, minimum, and maximum sizes of a node? You might guess
+that you can get them using the getPrefWidth(), getPrefHeight(), getMinWidth(), getMinHeight(),
+getMaxWidth(), and getMaxHeight() methods. But you should not use these methods to get the actual
+sizes of a node. These sizes may be set to the sentinel values and the node will compute the actual sizes
+internally. These methods return the sentinel values or the override values. (NodeSizeSentinelValues.java)
+
+To get the actual sizes of a node, you need to use the following methods in the Node class. Note that
+the Node class does not define any properties related to sizes. The size-related properties are defined in the
+Region, Control, and other classes.
+    • double prefWidth(double height)
+    • double prefHeight(double width)
+    • double minWidth(double height)
+    • double minHeight(double width)
+    • double maxWidth(double height)
+    • double maxHeight(double width)
+
+Here you can see another twist in getting the actual sizes of a node. You need to pass the value of its
+height to get its width and vice versa. For most nodes in JavaFX, width and height are independent. However,
+for some nodes, the height depends on the width and vice versa. When the width of a node depends on
+its height or vice versa, the node is said to have a content bias. If the height of a node depends on its width,
+the node has a horizontal content bias. If the width of a node depends on its height, the node has a vertical
+content bias. Note that a node cannot have both horizontal and vertical content biases, which will lead to a
+circular dependency.
+
+The getContentBias() method of the Node class returns the content bias of a node. Its return type is the
+javafx.geometry.Orientation enum type, which has two constants: HORIZONTAL and VERTICAL. If a node
+does not have a content bias, for example, Text or ChoiceBox, the method returns null.
+
+All controls that are subclasses of the Labeled class, for example, Label, Button, or CheckBox, have a
+HORIZONTAL content bias when they have the text wrapping property enabled. For some nodes, their content
+bias depends on their orientation. For example, if the orientation of a FlowPane is HORIZONTAL, its content
+bias is HORIZONTAL; if its orientation is VERTICAL, its content bias is VERTICAL.
+
+You are supposed to use the above-listed six methods to get the sizes of a node for layout purposes. If a node
+type does not have a content bias, you need to pass -1 to these methods as the value for the other dimension. For
+example, a ChoiceBox does not have a content bias, and you would get its preferred size as follows:
+    ChoiceBox choices = new ChoiceBox();
+    ...
+    double prefWidth = choices.prefWidth(-1);
+    double prefHeight = choices.prefHeight(-1);
+
+For those nodes that have a content bias, you need to pass the biased dimension to get the other
+dimension. For example, for a button, which has a HORIZONTAL content bias, you would pass -1 to get its
+width, and you would pass its width value to get its height as follows:
+    Button b = new Button("Hello JavaFX");
+    // Enable text wrapping for the button, which will change its content bias from null (default) to HORIZONTAL
+    b.setWrapText(true);
+    ...
+    double prefWidth = b.prefWidth(-1);
+    double prefHeight = b.prefHeight(prefWidth);
+
+If a button does not have the text wrap property enabled, you can pass -1 to both methods prefWidth()
+and prefHeight(), as it would not have a content bias.
+
+The generic way to get the width and height of a node for layout purposes is outlined as follows.
+The code shows how to get the preferred width and height, and the code would be similar to get minimum
+and maximum width and height of a node:
+    Node node = get the reference of of the node;
+    ...
+    double prefWidth = -1;
+    double prefHeight = -1;
+    Orientation contentBias = b.getContentBias();
+    if (contentBias == HORIZONTAL) {
+        prefWidth = node.prefWidth(-1);
+        prefHeight = node.prefHeight(prefWidth);
+    } else if (contentBias == VERTICAL) {
+        prefHeight = node.prefHeight(-1);
+        prefWidth = node.prefWidth(prefHeight);
+    } else {
+        // contentBias is null
+        prefWidth = node.prefWidth(-1);
+        prefHeight = node.prefHeight(-1);
+    }
+
+Now you know how to get the specified values and the actual values for the preferred, minimum, and
+maximum sizes of a node. These values indicate the range for the size of a node. When a node is laid out
+inside a container, the container tries to give the node its preferred size. However, based on the container’s
+policy and the specified size of the node, the node may not get its preferred size. Instead, an honoring
+container will give a node a size that is within its specified range. This is called the current size. How do you
+get the current size of a node? The Region and Control classes define two read-only properties, width and
+height, that hold the values for the current width and height of a node.
+
+Всё выше сказанное сведено в примере NodeSizes.java.
+Все полезные методы и свойства сведены в таблицу Size-Related Methods of Resizable Nodes.png.
+
+
+Nonresizable nodes are not resized by their parents during layout. However, you can change their sizes by
+changing their properties. Nonresizable nodes (e.g., all shapes) have different properties that determine
+their sizes. For example, the width and height of a rectangle, the radius of a circle, and the (startX, startY)
+and (endX, endY) of a line determine their sizes.
+
+There are several size-related methods defined in the Node class. Those methods have no effect
+when they are called on nonresizable nodes or they return their current size. For example, calling the
+resize(double w, double h) method of the Node class on a nonresizable node has no effect. For a
+nonresizable node, the prefWidth(double h), minWidth(double h), and maxWidth(double h) methods in
+the Node class return its layoutBounds width; whereas prefHeight(double w), minHeight(double w), and
+maxHeight(double w) methods return its layoutBounds height. Nonresizable nodes do not have content
+bias. Pass -1 to all these methods as the argument for the other dimension.
+

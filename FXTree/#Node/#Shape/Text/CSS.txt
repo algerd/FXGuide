@@ -1,0 +1,79 @@
+Стилевые свойства могут быть заданы также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+-fx-bounds-type
+	Values: LOGICAL | VISUAL | LOGICAL_VERTICAL_CENTER
+	Default: LOGICAL
+	Field: ObjectProperty<TextBoundsType> boundsType
+	Property: ObjectProperty<TextBoundsType> boundsTypeProperty
+	Methods: getBoundsType(), setBoundsType(TextBoundsType)
+	Description:
+		Determines how the bounds of the text node are calculated. 
+		Logical bounds is a more appropriate default for text than the visual bounds. See TextBoundsType for more information.
+
+-fx-font
+	Values: <font>
+	Default: Font.DEFAULT
+	Comments: inherits
+	Field: ObjectProperty<Font> font
+	Property: ObjectProperty<Font> fontProperty()
+	Methods: getFont(), setFont(Font)
+	Description:
+		Defines the font of text.
+		
+-fx-font-smoothing-type
+	Values: [ gray | lcd ]
+	Default: gray
+	Field: ObjectProperty<FontSmoothingType> fontSmoothingType
+	Property: ObjectProperty<FontSmoothingType> fontSmoothingTypeProperty()
+	Methods: getFontSmoothingType(), setFontSmoothingType(FontSmoothingType)
+	Description:
+		Specifies a requested font smoothing type : gray or LCD. The width of the bounding box is defined by the widest row. 
+		Note: LCD mode doesn't apply in numerous cases, such as various compositing modes, where effects are applied and very large glyphs.
+	
+-fx-line-spacing	
+	Values: <size>
+	Default: 0
+	Field: TextAttribute attributes : DoubleProperty lineSpacing
+	Property: DoubleProperty lineSpacingProperty()
+	Methods: getLineSpacing(), setLineSpacing(double)
+	Description:
+		Defines the vertical space in pixel between lines.
+	
+-fx-strikethrough	
+	Values: <boolean>
+	Default: false
+	Field: TextAttribute attributes : BooleanProperty strikethrough
+	Property: BooleanProperty strikethroughProperty()
+	Methods: isStrikethrough(), setStrikethrough(boolean)
+	Description:
+		Defines if each line of text should have a line through it.
+
+-fx-text-alignment	
+	Values: [ left | center | right | justify ]
+	Default: left
+	Comments: inherits
+	Field: TextAttribute attributes : ObjectProperty<TextAlignment> textAlignment
+	Property: ObjectProperty<TextAlignment> textAlignmentProperty()
+	Methods: getTextAlignment(), setTextAlignment(TextAlignment)
+	Description:
+		Defines horizontal text alignment in the bounding box. The width of the bounding box is defined by the widest row. 
+		Note: In the case of a single line of text, where the width of the node is determined by the width of the text, the alignment setting has no effect.
+
+-fx-text-origin
+	Values: [ baseline | top | bottom ]
+	Default: baseline
+	Field: TextAttribute attributes : ObjectProperty<VPos> textOrigin
+	Property: ObjectProperty<VPos> textOriginProperty()
+	Methods: getTextOrigin(), setTextOrigin(VPos)
+	Description:
+		Defines the origin of text coordinate system in local coordinates. 
+		Note: in case multiple rows are rendered VPos.BASELINE and VPos.TOP define the origin of the top row while VPos.BOTTOM defines the origin of the bottom row.
+	
+-fx-underline	
+	Values: <boolean>
+	Default: false
+	Field: TextAttribute attributes : BooleanProperty underline
+	Property: BooleanProperty underlineProperty()
+	Methods: isUnderline(), setUnderline(boolean)
+	Description:
+		Defines if each line of text should have a line below it.

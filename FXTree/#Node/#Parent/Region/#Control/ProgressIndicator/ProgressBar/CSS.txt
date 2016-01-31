@@ -1,0 +1,19 @@
+ В документации даны свойства и псевдоклассы, которых я не обнаружил в классе.
+ Необходимо их проверить на их наличие.
+ 
+-fx-indeterminate-bar-length	<number>	60	 
+-fx-indeterminate-bar-escape	<boolean>	true	 
+-fx-indeterminate-bar-flip	<boolean>	true	 
+-fx-indeterminate-bar-animation-time	<number>	2.0	 
+
+CSS Pseudo-classes:
+
+determinate - applies if the indeterminate variable is false
+
+indetermindate - applies if the indeterminate variable is true
+
+
+***** Substructure: *****
+
+track — StackPane
+	bar — Region

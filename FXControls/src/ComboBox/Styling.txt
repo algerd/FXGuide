@@ -1,0 +1,37 @@
+
+The default CSS style-class name for a ComboBox is combo-box. A combo box contains several CSS
+substructures, as shown in Figure "Substructures of a combo box that can be styled separately using CSS.png".
+
+The CSS names for the substructure are:
+    • arrow-button
+    • list-cell
+    • text-input
+    • combo-box-popup
+
+An arrow-button contains a substructure called arrow. Both arrow-button and arrow are instances of
+StackPane. The list-cell area represents the ListCell used to show the selected item in a noneditable
+combo box. The text-input area is the TextField used to show the selected or entered item in an editable
+combo box. The combo-box-popup is the Popup control that shows the pop-up list when the button is clicked.
+It has two substructures: list-view and list-cell. The list-view is the ListView control that shows the
+list of items, and list-cell represents each cell in the ListView. The following CSS styles customize the
+appearance of some substructures of ComboBox:
+
+    /* The ListCell that shows the selected item in a non-editable ComboBox */
+    .combo-box .list-cell {
+        -fx-background-color: yellow;
+    }
+
+    /* The TextField that shows the selected item in an editable ComboBox */
+    .combo-box .text-input {
+        -fx-background-color: yellow;
+    }
+
+    /* Style the arrow button area */
+    .combo-box .arrow-button {
+        -fx-background-color: lightgray;
+    }
+
+    /* Set the text color in the popup list for ComboBox to blue */
+    .combo-box-popup .list-view .list-cell {
+        -fx-text-fill: blue;
+    }

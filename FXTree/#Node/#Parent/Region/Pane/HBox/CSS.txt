@@ -1,0 +1,31 @@
+
+-fx-spacing	
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty spacing
+	Property: DoubleProperty spacingProperty()
+	Methods: getSpacing(), setSpacing(double)
+	Description:
+		The amount of horizontal space between each child in the hbox.
+ 
+-fx-alignment			 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The overall alignment of children within the hbox's width and height.
+
+-fx-fill-height		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty fillHeight
+	Property: BooleanProperty fillHeightProperty()
+	Methods: isFillHeight(), setFillHeight(boolean)
+	Description:
+		Whether or not resizable children will be resized to fill the full height of the hbox 
+		or be kept to their preferred height and aligned according to the alignment vpos value. 
+		Note that if the hbox vertical alignment is set to BASELINE, then this property will be ignored 
+		and children will be resized to their preferred heights.
+

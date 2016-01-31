@@ -1,0 +1,21 @@
+
+CSS Default Style-Class Names for Menu-Related Components:
+----------------------------------------------------------
+    Menu Component      Style-Class Name
+----------------------------------------------------------
+    MenuBar             menu-bar
+    Menu                menu
+    MenuItem            menu-item
+    RadioMenuItem       radio-menu-item
+    CheckMenuItem       check-menu-item
+    CustomMenuItem      custom-menu-item
+    SeparatorMenuItem   separator-menu-item
+-----------------------------------------------------------
+
+MenuBar supports an -fx-use-system-menu-bar property, which is set to false by default. It indicates
+whether to use a system menu for the menu bar. It contains a menu substructure that holds the menus
+for the menu bar. Menu supports a showing CSS pseudo-class, which applies when the menu is showing.
+RadioMenuItem and CheckMenuItem support a selected CSS pseudo-class, which applies when the menu
+items are selected.
+You can style several components of menus. Please refer to the modena.css file for the sample styles.
+

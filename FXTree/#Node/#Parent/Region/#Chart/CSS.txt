@@ -1,0 +1,33 @@
+
+-fx-legend-side
+	Values: Side
+	Default: bottom
+	Field: ObjectProperty<Side> legendSide
+	Property: ObjectProperty<Side> legendSideProperty
+	Methods: getLegendSide(), setLegendSide(Side)
+	Description: 
+		The side of the chart where the legend should be displayed
+
+-fx-legend-visible
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty legendVisible
+	Property: BooleanProperty legendVisibleProperty
+	Methods: isLegendVisible(), setLegendVisible(boolean)
+	Description:
+		When true the chart will display a legend if the chart implementation supports a legend.
+		
+-fx-title-side 
+	Values: Side
+	Default: top
+	Field: ObjectProperty<Side> titleSide  
+	Property: ObjectProperty<Side> titleSideProperty
+	Methods: getTitleSide(), setTitleSide(Side)
+	Description:
+		The side of the chart where the title is displayed
+
+
+***** Substructure *****
+
+chart-title — Label
+chart-content — Pane		

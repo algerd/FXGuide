@@ -1,0 +1,12 @@
+
+Порядок рассмотрения примеров:
+    DepthTestCheck
+    PreDefinedShapes
+    MaterialTest
+    DrawModeTest
+    CullFaceTest
+    CameraTest
+    SubSceneTest
+    // Практически бесполезные примеры построения 3D фигур вручную
+    TriangleWithAMesh
+    Tetrahedron

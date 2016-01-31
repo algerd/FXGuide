@@ -1,0 +1,3 @@
+
+The first node in a scene graph is called the root node. The root node can
+have children nodes; however, it never has a parent node.

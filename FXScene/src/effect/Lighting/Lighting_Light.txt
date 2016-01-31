@@ -1,0 +1,55 @@
+Порядок рассмотрения примеров:
+    SurfaceTexture
+    ReflectionTypeTest + LightingUtil
+    DistantLightTest + LightingUtil
+    PointLightTest + LightingUtil
+    SpotLightTest + LightingUtil
+
+
+JavaFX provides three built-in light sources: distant light, point light, and spot light. A distant light is also
+known as a directional or linear light. A distant light source emanates parallel rays of light in a specific
+direction on the entire surface uniformly. The sun is a perfect example of a distant light source for the lighted
+surface of an object on the earth. The light source is so distant from the lighted object that the rays are
+almost parallel. A distant light source lights a surface uniformly, irrespective of its distance from the surface.
+This does not mean that the entire object is lighted. For example, when you stand in sunlight, not all parts of
+your body are lighted. However, the lighted part of your body has uniform light. The lighted part of an object
+depends on the direction of the light.
+
+A point light source emanates rays of light in all directions from an infinitesimally small point in a
+3D space. Theoretically, the light source has no dimension. It emanates light uniformly in all directions.
+Therefore, unlike the distant light, the direction of the point light source relative to the lighted object is
+immaterial. Bare light bulbs, stars (excluding the sun, which serves like a distant light), and candlelight are
+examples of point light sources. The intensity of a point light hitting a surface decreases with the square
+of the distance between the surface and the point light source. If a point light is very close to the surface,
+it creates a hotspot, which is a very bright point on the surface. To avoid hotspots, you need to move the
+light source a little away from the surface. A point light source is defined at a specific point in a 3D space,
+for example, using x, y, and z coordinates of the point.
+
+A spot light is a special type of a point light. Like a point light, it emanates rays of light radially from an
+infinitesimally small point in a 3D space. Unlike a point light, the radiation of light rays is confined to an
+area defined by a cone—the light source being at the vertex of the cone emanating light toward its base. 
+Examples of spot lights are car headlights, flashlights, spotlights, and desk lights with
+lampshades. A spot light is aimed at a point on the surface, which is the point on the surface where the cone
+axis is located. The cone axis is the line joining the vertex of the cone to the center of the base of the cone.
+The effect of a spot light is defined by the position
+of the vertex of the cone, the cone angle, and the rotation of the cone. The rotation of the cone determines
+the point on the surface that is intersected by the cone axis. The angle of the cone controls the area of the
+lighted area. The intensity of a spot light is highest along the cone axis. You can simulate a distant light using
+a spot light if you pull the spot light “far” back, so the rays of light reaching the surface are parallel.
+
+A light source is an instance of the abstract Light class. A light has a color, which is specified by using
+the color property of the Light class. For example, using a red color Light will make a Text node with a
+white fill look red.
+
+There are three subclasses of the Light class to represent specific types of light source. The subclasses
+are static inner classes of the Light class:
+    • Light.Distant
+    • Light.Point
+    • Light.Spot
+The Light.Spot class inherits from the Light.Point class.
+
+Tip: When you do not provide a light source for a lighting effect, a distant light is used, which is an instance
+of the Light.Distant class.
+
+
+

@@ -1,0 +1,39 @@
+The default CSS style-class name for a ChoiceBox is choice-box. The ChoiceBox class supports a showing
+CSS pseudo-class, which applies when the showing property is true.
+
+The ChoiceBox control contains two substructures: open-button and arrow. You can style them to
+change their appearance. Both are instances of StackPane. ChoiceBox shows the selected item in a Label.
+The list of choices are shown in a ContextMenu whose ID is set to choice-box-popup-menu. Each choice is
+displayed in a menu item whose IDs are set to choice-box-menu-item. The following styles customize the
+ChoiceBox control. Currently, there is no way to customize the pop-up menu for an individual choice box.
+The style will affect all instances of ChoiceBox control at the level (scene or layout pane) at which it is set.
+
+/* Set the text color and font size for the selected item in the control */
+.choice-box .label {
+    -fx-text-fill: blue;
+    -fx-font-size: 8pt;
+}
+
+/* Set the text color and text font size for choices in the popup list */
+#choice-box-menu-item * {
+    -fx-text-fill: blue;
+    -fx-font-size: 8pt;
+}
+
+/* Set background color of the arrow */
+.choice-box .arrow {
+    -fx-background-color: blue;
+}
+
+/* Set the background color for the open-button area */
+.choice-box .open-button {
+    -fx-background-color: yellow;
+}
+
+/* Change the background color of the popup */
+#choice-box-popup-menu {
+    -fx-background-color: yellow;
+}
+
+Tip: T here is a bug in applying the styles to the ChoiceBox pop-up. Styles are not effective until the pop-up
+is opened twice.

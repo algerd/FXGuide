@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <fx:define>
+        <Image url="@pict.jpg" fx:id="myImg"/>
+    </fx:define>
+    <!--
+    С помощью fx:reference можно сослаться к другому объекту документа, указывая
+    в аттрибуте source идентификатор fx:id ссылаемого объекта:
+        <fx:reference source="fx:id of the source element"/>
+    -->
+    <ImageView>
+        <image>
+            <fx:reference source="myImg"/>
+        </image>
+    </ImageView>
+    
+    <!--
+    Если требуется передать (напр в аттрибут) только значение объекта, а не его ссылку(?),
+    то более лаконично и понятнее использовать дереференсирующую переменную:
+    --> 
+    <ImageView image="$myImg"/>
+    <!--           
+    fx:reference обычноиспользуется только тогда, когда требуется ссылка на объект,
+    чтобы с ней потом можно было бы работать как с отдельным элементом,
+    -->
+    <fx:define>
+        <ArrayList fx:id="list">
+            <fx:reference source="myImg"/>
+            <fx:reference source="myImg"/>   
+        </ArrayList>  
+    </fx:define> 
+     
+</VBox>    

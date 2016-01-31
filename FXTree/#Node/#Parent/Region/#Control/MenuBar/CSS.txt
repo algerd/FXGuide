@@ -1,0 +1,15 @@
+
+-fx-use-system-menu-bar		
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty useSystemMenuBar
+	Property: BooleanProperty useSystemMenuBarProperty()
+	Methods: isUseSystemMenuBar(), setUseSystemMenuBar(boolean)
+	Description:
+		Use the system menu bar if the current platform supports it. This should not be set on more than one MenuBar instance per Stage. 
+		If this property is set to true on more than one MenuBar in the same Stage, then the behavior is undefined.
+
+
+*********** Substructure *************
+
+menu

@@ -1,0 +1,60 @@
+
+-fx-clockwise		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty clockwise
+	Property: BooleanProperty clockwiseProperty()
+	Methods: isClockwise(), setClockwise(boolean)
+	Description:
+		When true we start placing slices clockwise from the startAngle
+	 
+-fx-pie-label-visible			
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty labelsVisible
+	Property: BooleanProperty labelsVisibleProperty()
+	Methods: getLabelsVisible(), setLabelsVisible(boolean)
+	Description:
+		When true pie slice labels are drawn
+ 
+-fx-label-line-length			 
+	Values: <size>
+	Default: 20
+	Field: BooleanProperty labelsVisible
+	Property: BooleanProperty labelsVisibleProperty()
+	Methods: getLabelsVisible(), setLabelsVisible(boolean)
+	Description:
+		When true pie slice labels are drawn
+
+-fx-start-angle			
+	Values: <number>
+	Default: 0
+	Field: DoubleProperty startAngle
+	Property: DoubleProperty startAngleProperty()
+	Methods: getStartAngle(), setStartAngle(double)
+	Description:
+		The angle to start the first pie slice at
+
+		
+************************ Style classes ***************************
+		
+"chart-pie data<i> default-color<j>"	
+	Values: Node
+	Description:
+		Where <i> is the index of the data and <j> is the series’ color index. 
+		If the data value is negative, the "negative" style?class is added; e.g., .negative.chart-pie.	
+
+"chart-pie-label-line;"	 	
+	Values: Path
+
+"chart-pie-label;"	 	
+	Values: Text
+
+"pie-legend-symbol <i–th data item’s style?class>"		
+	Values: LegendItem		
+	Description:	
+		Each item in the legend has the style?class "pie-legend-symbol" plus the style?class of the corresponding data item
+
+
+
+ 

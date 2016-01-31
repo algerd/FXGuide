@@ -1,0 +1,35 @@
+
+A BorderPane allows you to set alignment and margin constraints on individual children. The alignment for
+a child node is defined relative to its region. The default alignments:
+    • Pos.TOP_LEFT for the top child node
+    • Pos.BOTTOM_LEFT for the bottom child node
+    • Pos.TOP_LEFT for the left child node
+    • Pos.TOP_RIGHT for the right child node
+    • Pos.CENTER for the center child node
+
+Use the setAlignment(Node child, Pos value) static method of the BorderPane class to set the alignment
+for children. The getAlignment(Node child) static method returns the alignment for a child node.
+
+    BorderPane root = new BorderPane();
+    Button top = new Button("OK");
+    root.setTop(top);
+    // Place the OK button in the top right corner (default is top left)
+    BorderPane.setAlignment(top, Pos.TOP_RIGHT);
+    ...
+    // Get the alignment of the top node
+    Pos alignment = BorderPane.getAlignment(top);
+
+Use the setMargin(Node child, Insets value) static method of the BorderPane class to set the
+margin for the children. The getMargin(Node child) static method returns the margin for a child node.
+
+    // Set 10px margin around the top child node
+    BorderPane.setMargin(top, new Insets(10));
+    ...
+    // Get the margin of the top child node
+    Insets margin = BorderPane.getMargin(top);
+
+Use null to reset the constraints to the default value. Use the clearConstraints(Node child) static
+method of the BorderPane to reset all constraints for a child at once.
+
+    // Clear the alignment and margin constraints for the top child node
+    BorderPane.clearConstraints(top);

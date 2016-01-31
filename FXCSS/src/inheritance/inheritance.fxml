@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Контейнер-родитель, который определяет значения свойств, наследуемые его детьми(Button fx:id="okButton" и Button fx:id="cancelButton")  --> 
+<HBox xmlns:fx="http://javafx.com/fxml" spacing="10" fx:id="box">
+    <!-- 
+        Вложенные дети наследуют значения свойств контейнера-родителя HBox, если свойства - это  
+        -fx-cursor, -fx-text-alignment или семейства -fx-font или значение свойств - inherit
+    -->
+    <Button fx:id="okButton" text="OK" />
+    <Button fx:id="cancelButton" text="Cancel" />
+    
+</HBox>
+
+
+
+
+
+

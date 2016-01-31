@@ -1,0 +1,30 @@
+
+Порядок рассмотрения примеров:
+    EffectTest 
+
+    Shadow:
+        DropShadowTest
+        InnerShadowTest
+        ShadowTest
+
+    Blur:
+        BoxBlurTest
+        GaussianBlurTest
+        MotionBlurTest
+
+    BloomTest
+    GlowTest
+    ReflectionTest
+    SepiaToneTest
+    DisplacementmapTest, DisplacementMapWrap
+    ColorInputTest
+    ColorAdjustTest
+    ImageInputTest
+    BlendTest
+
+    Lighting:
+        SurfaceTexture
+        ReflectionTypeTest + LightingUtil
+        DistantLightTest + LightingUtil
+        PointLightTest + LightingUtil
+        SpotLightTest + LightingUtil

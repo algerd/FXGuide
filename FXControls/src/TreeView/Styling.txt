@@ -1,0 +1,50 @@
+
+The default CSS style-class name for a TreeView is tree-view. TreeView does not add any CSS pseudo-classes
+or properties. It inherits them from the Control.
+
+A TreeView uses instances of TreeCell to display the TreeItems. Mostly you style the TreeCells in the
+TreeView. The default CSS style-class for TreeCell is tree-cell.
+
+TreeCell contains an -fx-indent property, which is the amount of space to multiply by the level of
+the cell to get its left margin. The default value is 10px.
+
+TreeCell supports two CSS pseudo-classes:
+    • expanded
+    • collapsed
+
+The expanded pseudo-class is applied when the cell is expanded. The collapsed pseudo-class applies
+when the cell is not expanded.
+
+The following style sets the text color to blue and font size to 10pt for a TreeCell:
+    .tree-cell {
+        -fx-text-fill: blue;
+        -fx-font-size: 10pt;
+    }
+
+The style-class name for the disclosure node in a cell is tree-disclosure-node. It has a substructure
+named arrow, which is the triangle showing the expanded state of the node. You can change the triangle to
+a plus or minus sign icon using the following styles. The code assumes that the image files are in the same
+directory as the CSS file containing the styles:
+
+    .tree-cell .tree-disclosure-node .arrow {
+        -fx-shape: null;
+        -fx-background-color: null;
+        -fx-background-image: url("plus_sign.jpg");
+    }
+    .tree-cell:expanded .tree-disclosure-node .arrow {
+        -fx-shape: null;
+        -fx-background-color: null;
+        -fx-background-image: url("minus_sign.jpg");
+    }
+
+You can also set the shape of the disclosure node in CSS using the SVG path. The following code sets
+plus and minus signs as the disclosure nodes for expanded and collapsed nodes, respectively. Figure 14-5
+shows a TreeView using these styles.
+
+    .tree-cell .tree-disclosure-node .arrow {
+        -fx-shape: "M0 -0.5 h2 v2 h1 v-2 h2 v-1 h-2 v-2 h-1 v2 h-2 v1z";
+    }
+    .tree-cell:expanded .tree-disclosure-node .arrow {
+        -fx-shape: "M0 -0.5 h5 v-1 h-5 v1z";
+        -fx-padding: 4 0.25 4 0.25;
+    }

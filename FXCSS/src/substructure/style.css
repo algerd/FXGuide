@@ -1,0 +1,34 @@
+
+/*
+Many controls in JavaFX consist of subnodes, which are JavaFX nodes. In the JavaFX CSS Reference Guide, 
+those subnodes are listed as substructures. For example, a CheckBox consists of a LabeledText 
+(not part of the public API) with a style class name of text and a StackPane with a style class name of box. 
+The box contains another StackPane with the style class name of mark.
+
+Substructure of CheckBox:
+    check-box - CheckBox
+        text - LabeledText
+        box - StackPane
+            mark - StackPane
+*/
+
+/* text - LabeledText */
+.check-box .text {
+    -fx-fill: blue;
+}
+
+/* box - StackPane */
+.check-box .box {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-border-style: dotted;
+    -fx-background-color: yellow;
+}
+
+/* mark - StackPane (сабструктура структуры box)
+ можно указывать селектор и без прописывания промежуточной структуры .box */
+/* .check-box .mark { */
+.check-box .box .mark {
+    -fx-background-color: green;
+}
+        

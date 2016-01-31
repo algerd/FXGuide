@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+    
+    <!--
+    С помощью fx:constant можно сослаться к константам (статической финальной или
+    enum).
+        <ConstantClass fx:constant="CONSTANT_NAME"/>
+        Long.MAX_VALUE -> <Long fx:constant="MAX_VALUE"/>
+    -->
+    <fx:define> 
+        <!-- Integer minInt = Integer.MAX_VALUE  -->  
+        <Integer fx:constant="MAX_VALUE" fx:id="minInt"/>
+    </fx:define>
+    <alignment>
+        <!-- Pos.CENTER  -->
+        <Pos fx:constant="CENTER"/>
+    </alignment>
+    <TextField text="$minInt"/>     
+    <TextField>
+        <text>
+            <!-- Long.MIN_VALUE  -->
+            <Long fx:constant="MIN_VALUE"/>
+        </text>
+    </TextField> 
+        
+</VBox>    

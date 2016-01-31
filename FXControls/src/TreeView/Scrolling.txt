@@ -1,0 +1,24 @@
+
+TreeView automatically provides vertical and horizontal scrollbars when needed. Users can use the
+scrollbars to scroll to a specific item. Sometimes you may need programmatic support for scrolling. For
+example, when you add a TreeItem to a TreeView, you may want the TreeItem visible to the user by scrolling
+it to the view. Use the scrollTo(int rowIndex) method of the TreeView class to scroll the TreeItem at the
+specified rowIndex to the view. You can get the row index of a TreeItem using the getRow(TreeItem<T>
+item) method.
+
+TreeView fires a ScrollToEvent when there is a request to scroll to a row index using the scrollTo()
+method. The ScrollToEvent class contains a getScrollTarget() method that returns the row index that
+was passed to the scrollTo() method.
+
+Tip T he ScrollToEvent is not fired when the user scrolls using the vertical scrollbar. It is fired when the
+scrollTo() method is used to scroll.
+
+The following snippet of code sets a ScrollToEvent handler for a TreeView that prints the TreeItem and
+its row index to which the scrolling was requested:
+    TreeView<String> treeView = new TreeView<String>();
+    ...
+    treeView.setOnScrollTo(e -> {
+        int rowIndex = e.getScrollTarget();
+        TreeItem<String> item = treeView.getTreeItem(rowIndex);
+        System.out.println("Scrolled to: " + item.getValue() + at " + rowIndex);
+    });

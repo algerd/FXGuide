@@ -1,0 +1,134 @@
+-fx-alignment
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: center-left	 
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		Specifies how the text and graphic within the Labeled should be aligned when there is empty space within the Labeled.
+
+-fx-text-alignment	
+	Values: [ left | center | right | justify ]
+	Default: left
+	Field: ObjectProperty<TextAlignment> textAlignment
+	Property: ObjectProperty<TextAlignment> textAlignmentProperty()
+	Methods: getTextAlignment(), setTextAlignment(TextAlignment)
+	Description:
+		text-align from CSS spec maps to textAlignment in JavaFX.
+		Specifies the behavior for lines of text when text is multiline. Unlike contentDisplayProperty() which affects the graphic and text, 
+		this setting only affects multiple lines of text relative to the text bounds.
+
+-fx-text-overrun			 
+	Values: [ center-ellipsis | center-word-ellipsis | clip | ellipsis | leading-ellipsis | leading-word-ellipsis | word-ellipsis ]
+	Default: ellipsis
+	Field:
+	Property:
+	Methods:
+	Description:
+
+-fx-wrap-text		 
+	Values: <boolean>
+	Default: false
+	Field: ObjectProperty<OverrunStyle> textOverrun
+	Property: ObjectProperty<OverrunStyle> textOverrunProperty()
+	Methods: getTextOverrun(), setTextOverrun(OverrunStyle)
+	Description:
+		Specifies the behavior to use if the text of the Labeled exceeds the available space for rendering the text.
+
+-fx-font			
+	Values: <font>
+	Default: platform dependent
+	Comments: inherits 
+	Field: ObjectProperty<Font> font
+	Property: ObjectProperty<Font> fontProperty()
+	Methods: getFont(), setFont(Font)
+	Description:
+		The initial value is that of Font.getDefault().
+		The default font to use for text in the Labeled. If the Label's text is rich text 
+		then this font may or may not be used depending on the font information embedded in the rich text, 
+		but in any case where a default font is required, this font will be used.
+
+-fx-underline			 
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty underline
+	Property: BooleanProperty underlineProperty()
+	Methods: isUnderline(), setUnderline(boolean)
+	Description:
+		Whether all text should be underlined.
+
+-fx-graphic			 
+	Values: <uri>
+	Default: null
+	Field: ObjectProperty<Node> graphic
+	Property: ObjectProperty<Node> graphicProperty()
+	Methods: getGraphic(), setGraphic(Node)
+	Description:
+		An optional icon for the Labeled. This can be positioned relative to the text by using setContentDisplay(javafx.scene.control.ContentDisplay). 
+		The node specified for this variable cannot appear elsewhere in the scene graph, otherwise the IllegalArgumentException is thrown. See the class description of Node for more detail.
+
+-fx-content-display			 
+	Values: [ top | right | bottom | left | center | right | graphic-only | text-only ]
+	Default: left
+	Field: ObjectProperty<ContentDisplay> contentDisplay
+	Property: ObjectProperty<ContentDisplay> contentDisplayProperty()
+	Methods: getContentDisplay(), setContentDisplay(ContentDisplay)
+	Description:
+		Specifies the positioning of the graphic relative to the text.
+
+
+-fx-graphic-text-gap			 
+	Values: <size>
+	Default: 4
+	Field: DoubleProperty graphicTextGap
+	Property: DoubleProperty graphicTextGapProperty()
+	Methods: getGraphicTextGap(), setGraphicTextGap(double)
+	Description:
+		The amount of space between the graphic and text
+
+-fx-label-padding			 
+	Values: <size> | <size> <size> <size> <size>
+	Default: [0,0,0,0]
+	Field: ObjectProperty<Insets> labelPadding
+	Property: ReadOnlyObjectProperty<Insets> labelPaddingProperty()
+	Methods: getLabelPadding()
+	Description:
+		The padding around the Labeled's text and graphic content. By default labelPadding is Insets.EMPTY and cannot be set to null. 
+		Subclasses may add nodes outside this padding and inside the Labeled's padding. This property can only be set from CSS.
+	
+-fx-line-spacing	
+	Values: <number>
+	Default: 0
+	Field: DoubleProperty lineSpacing
+	Property: DoubleProperty lineSpacingProperty()
+	Methods: getLineSpacing(), setLineSpacing(double)
+	Description:
+		Specifies the space in pixel between lines.	
+	
+-fx-text-fill			 
+	Values: <paint>
+	Default: black
+	Field: ObjectProperty<Paint> textFill
+	Property: ObjectProperty<Paint> textFillProperty()
+	Methods: getTextFill(), setTextFill(Paint)
+	Description:
+		The Paint used to fill the text.
+
+-fx-ellipsis-string	
+	Values: <string>
+	Default: "..."
+	Field: StringProperty ellipsisString
+	Property: StringProperty ellipsisStringProperty()
+	Methods: getEllipsisString(), setEllipsisString(String)
+	Description:
+		Specifies the string to display for the ellipsis when text is truncated.
+		Examples:
+			"..."	- Default value for most locales
+			" . . . "	
+			" [...] "	
+			"\u2026"	- The Unicode ellipsis character '…'
+			""	- No ellipsis, just display the truncated string
+		Note that not all fonts support all Unicode characters.
+	
+	
+	

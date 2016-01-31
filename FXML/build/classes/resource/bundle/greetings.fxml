@@ -1,0 +1,6 @@
+<?import javafx.scene.control.Label?>
+<!--
+    Префикс % указыает лоадеру искать локализацию "greetingText" в ResourceBundle,
+    который заранее передаётся в fxml-лоадер.
+-->
+<Label text="%greetingText"/>

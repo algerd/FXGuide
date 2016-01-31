@@ -1,0 +1,25 @@
+
+The BubbleChart is not assigned any additional style-class name other than chart.
+You can customize the appearance of the bubbles for each series or each data item in a series. Each data
+item in a BubbleChart is represented by a node. The node gets four default style-class names:
+    • chart-bubble
+    • series<i>
+    • data<j>
+    • default-color<k>
+
+Here, <i> is the series index, <j> is the data item index within a series, and <k> is the color index of
+the series.
+
+Each series is assigned a legend item, which gets the following style-class names:
+• chart-bubble
+• series<i>
+• bubble-legend-symbol
+• default-color<k>
+Here, <i> and <k> have the same meanings as described above.
+
+The following style sets the fill color for the series color index 0 to blue. The bubbles and legend symbols
+for the data items in the first series will be displayed in blue. The color will repeat for series index 8, 16, 24, etc.
+    
+    .chart-bubble.default-color0 {
+        -fx-bubble-fill: blue;
+    }

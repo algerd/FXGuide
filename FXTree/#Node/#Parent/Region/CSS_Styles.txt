@@ -1,0 +1,137 @@
+﻿Стилевые свойства могут быть заданы также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+-fx-padding
+	Values:	<size> | <size> <size> <size> <size>
+	Default: 0 0 0 0
+	Field: ObjectProperty<Insets> padding
+	Property: ObjectProperty<Insets> paddingProperty()
+	Methods: getPadding(), setPadding(Insets)
+	Description:
+		The top, right, bottom, and left padding around the region's content. 
+		This space will be included in the calculation of the region's minimum and preferred sizes.
+		A sets of four padding values, separated by commas. For each item in the series, 
+		a single padding value means that all padding are the same; and if a set of four padding values is specified, 
+		they are used for the top, right, bottom, and left edges of the region, in that order.
+	
+-fx-position-shape
+	Values:	<boolean>
+	Default: true
+	Field: BooleanProperty centerShape
+	Property: BooleanProperty centerShapeProperty()
+	Methods: isCenterShape(), setCenterShape(boolean)
+	Description:
+		Defines whether the shape is centered within the Region's width or height. 
+		true means the shape centered within the Region's width and height, false means the shape is positioned at its source position.
+		If true means the shape centered within the region's width and height, 
+		otherwise the shape is positioned at its source position. Has no effect if a shape string is not specified.
+
+-fx-scale-shape
+	Values:	<boolean>
+	Default: true
+	Field: BooleanProperty scaleShape
+	Property: BooleanProperty scaleShapeProperty()		
+	Methods: isScaleShape(), setScaleShape(boolean)
+	Description:
+		Specifies whether the shape, if defined, is scaled to match the size of the Region. 
+		true means the shape is scaled to fit the size of the Region, false means the shape is at its source size, its positioning depends on the value of centerShape.
+		If true means the shape is scaled to fit the size of the region, otherwise the shape is at its source size, 
+		and its position depends on the value of the position-shape property. Has no effect if a shape string is not specified.
+
+-fx-shape
+	Values:	<string>
+	Default: null
+	Field: ObjectProperty<Shape> shape
+	Property: ObjectProperty<Shape> shapeProperty() 	
+	Methods: getShape(), setShape(Shape)
+	Description:
+		When specified, the shape will cause the region to be rendered as the specified shape rather than as a rounded rectangle. 
+		When null, the Region is rendered as a rounded rectangle. When rendered as a Shape, any Background is used to fill the shape, 
+		although any background insets are ignored as are background radii. Any BorderStrokes defined are used for stroking the shape. 
+		Any BorderImages are ignored.
+		An SVG path string. By specifying a shape here the region takes on that shape instead of a rectangle or rounded rectangle. 
+		The syntax of this path string is specified in http://www.w3.org/TR/SVG/paths.html
+
+-fx-snap-to-pixel
+	Values:	<boolean>
+	Default: true
+	Field: BooleanProperty snapToPixel
+	Property: 	
+	Methods: isSnapToPixel(), setSnapToPixel(boolean)
+	Description:
+		Defines whether this region adjusts position, spacing, and size values of its children to pixel boundaries. 
+		This defaults to true, which is generally the expected behavior in order to have crisp user interfaces. 
+		A value of false will allow for fractional alignment, which may lead to "fuzzy" looking borders.
+		Defines whether this region rounds position/spacing and ceils size values to pixel boundaries when laying out its children.
+	
+-fx-min-height
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty minHeight
+	Property: snapToPixelProperty()
+	Methods: getMinHeight(), setMinHeight(double)
+	Description:
+		Property for overriding the region's computed minimum height. This should only be set if the region's internally computed minimum height doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that minHeight(forWidth) will return the region's internally computed minimum height.
+		Setting this value to the USE_PREF_SIZE flag will cause minHeight(forWidth) to return the region's preferred height, enabling applications to easily restrict the resizability of the region.
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.	
+ 
+-fx-pref-height
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty prefHeight 
+	Property: DoubleProperty prefHeightProperty()	
+	Methods: getPrefHeight(), setPrefHeight(double)
+	Description:
+		Property for overriding the region's computed preferred height. This should only be set if the region's internally computed preferred height doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that getPrefHeight(forWidth) will return the region's internally computed preferred width.
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.
+ 
+-fx-max-height
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty maxHeight
+	Property: DoubleProperty maxHeightProperty()	
+	Methods: getMaxHeight(), setMaxHeight(double)
+	Description:
+		Property for overriding the region's computed maximum height. This should only be set if the region's internally computed maximum height doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that getMaxHeight(forWidth) will return the region's internally computed maximum height.
+		Setting this value to the USE_PREF_SIZE flag will cause getMaxHeight(forWidth) to return the region's preferred height, enabling applications to easily restrict the resizability of the region.	
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.
+	
+-fx-min-width
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty minWidth
+	Property: DoubleProperty minWidthProperty()	
+	Methods: getMinWidth(), setMinWidth(double)
+	Description:
+		Property for overriding the region's computed minimum width. This should only be set if the region's internally computed minimum width doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that minWidth(forHeight) will return the region's internally computed minimum width.
+		Setting this value to the USE_PREF_SIZE flag will cause minWidth(forHeight) to return the region's preferred width, enabling applications to easily restrict the resizability of the region.
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.
+	
+-fx-pref-width
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty prefWidth	
+	Property: DoubleProperty prefWidthProperty()
+	Methods: getPrefWidth(), setPrefWidth(double)
+	Description:
+		Property for overriding the region's computed preferred width. This should only be set if the region's internally computed preferred width doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that getPrefWidth(forHeight) will return the region's internally computed preferred width.
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.
+	
+-fx-max-width	
+	Values:	<number>
+	Default: -1
+	Field: DoubleProperty maxWidth
+	Property: DoubleProperty maxWidthProperty()	
+	Methods: getMaxWidth(), setMaxWidth(double)
+	Description:
+		Property for overriding the region's computed maximum width. This should only be set if the region's internally computed maximum width doesn't meet the application's layout needs.
+		Defaults to the USE_COMPUTED_SIZE flag, which means that getMaxWidth(forHeight) will return the region's internally computed maximum width.
+		Setting this value to the USE_PREF_SIZE flag will cause getMaxWidth(forHeight) to return the region's preferred width, enabling applications to easily restrict the resizability of the region.
+		Percentage values are not useful since the actual value would be computed from the width and/or height of the Regions's parent before the parent is laid out.
+	
+	
+	

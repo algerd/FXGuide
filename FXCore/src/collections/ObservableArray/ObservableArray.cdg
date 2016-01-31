@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ObservableArray">
+  <ClassDiagramComponents>
+    <Interface name="Observable" package="" visibility="public" xPosition="627.0" yPosition="14.0">
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableArray&lt;T extends ObservableArray&lt;T&gt;&gt;" package="" visibility="public" xPosition="607.0" yPosition="187.0">
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ArrayChangeListener&lt;T&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ArrayChangeListener&lt;T&gt;" name="listener"/>
+        </Method>
+        <Method name="resize" returnType="void" visibility="public">
+          <Argument type="int" name="size"/>
+        </Method>
+        <Method name="ensureCapacity" returnType="void" visibility="public">
+          <Argument type="int" name="capacity"/>
+        </Method>
+        <Method name="trimToSize" returnType="void" visibility="public"/>
+        <Method name="clear" returnType="void" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ArrayChangeListener&lt;T extends ObservableArray&lt;T&gt;&gt;" package="" visibility="public" xPosition="1069.0" yPosition="167.0">
+      <Methods>
+        <Method name="onChanged" returnType="void" visibility="public">
+          <Argument type="T" name="observableArray"/>
+          <Argument type="boolean" name="sizeChanged"/>
+          <Argument type="int" name="from"/>
+          <Argument type="int" name="to"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableIntegerArray" package="" visibility="public" xPosition="25.0" yPosition="528.0">
+      <Methods>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int[]" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="ObservableIntegerArray" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="get" returnType="int" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public"/>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="toArray" returnType="int[]" visibility="public">
+          <Argument type="int[]" name="dest"/>
+        </Method>
+        <Method name="toArray" returnType="int[]" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int[]" name="dest"/>
+          <Argument type="int" name="length"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableFloatArray" package="" visibility="public" xPosition="1016.0" yPosition="528.0">
+      <Methods>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="float[]" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="ObservableFloatArray" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="get" returnType="float" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public"/>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="float" name="value"/>
+        </Method>
+        <Method name="toArray" returnType="float[]" visibility="public">
+          <Argument type="float[]" name="dest"/>
+        </Method>
+        <Method name="toArray" returnType="float[]" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="float[]" name="dest"/>
+          <Argument type="int" name="length"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="ObservableArrayBase&lt;T extends ObservableArray&lt;T&gt;&gt;" package="" visibility="public" isAbstract="true" xPosition="602.0" yPosition="556.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public" isFinal="true">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ArrayChangeListener&lt;T&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ArrayChangeListener&lt;T&gt;" name="listener"/>
+        </Method>
+        <Method name="fireChange" returnType="void" visibility="protected" isFinal="true">
+          <Argument type="boolean" name="sizeChanged"/>
+          <Argument type="int" name="from"/>
+          <Argument type="int" name="to"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ObservableFloatArrayImpl" package="" visibility="public" isFinal="true" xPosition="834.0" yPosition="972.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="clear" returnType="void" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="float[]" name="src"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="float[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="ObservableFloatArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="toArray" returnType="float[]" visibility="public">
+          <Argument type="float[]" name="dest"/>
+        </Method>
+        <Method name="get" returnType="float" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="float" name="value"/>
+        </Method>
+        <Method name="toArray" returnType="float[]" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="float[]" name="dest"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="float[]" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="ObservableFloatArray" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="resize" returnType="void" visibility="public">
+          <Argument type="int" name="newSize"/>
+        </Method>
+        <Method name="ensureCapacity" returnType="void" visibility="public">
+          <Argument type="int" name="capacity"/>
+        </Method>
+        <Method name="trimToSize" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ObservableIntegerArrayImpl" package="" visibility="public" xPosition="305.0" yPosition="972.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="clear" returnType="void" visibility="public"/>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public"/>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="addAll" returnType="void" visibility="public">
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="setAll" returnType="void" visibility="public">
+          <Argument type="int[]" name="src"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int[]" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="destIndex"/>
+          <Argument type="ObservableIntegerArray" name="src"/>
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="toArray" returnType="int[]" visibility="public">
+          <Argument type="int[]" name="dest"/>
+        </Method>
+        <Method name="get" returnType="int" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="toArray" returnType="int[]" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int[]" name="dest"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="int[]" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="copyTo" returnType="void" visibility="public">
+          <Argument type="int" name="srcIndex"/>
+          <Argument type="ObservableIntegerArray" name="dest"/>
+          <Argument type="int" name="destIndex"/>
+          <Argument type="int" name="length"/>
+        </Method>
+        <Method name="resize" returnType="void" visibility="public">
+          <Argument type="int" name="newSize"/>
+        </Method>
+        <Method name="ensureCapacity" returnType="void" visibility="public">
+          <Argument type="int" name="capacity"/>
+        </Method>
+        <Method name="trimToSize" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ObservableFaceArrayImpl" package="" visibility="public" xPosition="61.0" yPosition="1226.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="ObservableFaceArray" package="" visibility="public" xPosition="73.0" yPosition="1004.0">
+      <Methods/>
+    </Interface>
+    <Interface name="InvalidationListener" package="" visibility="public" xPosition="1069.0" yPosition="54.0">
+      <Methods>
+        <Method name="invalidated" returnType="void" visibility="public">
+          <Argument type="Observable" name="observable"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="ObservableFloatArrayImpl" target="ObservableArrayBase&lt;T extends ObservableArray&lt;T&gt;&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ObservableFloatArrayImpl" target="ObservableFloatArray"/>
+    <IsRelation name="is" source="ObservableIntegerArray" target="ObservableArray&lt;T extends ObservableArray&lt;T&gt;&gt;"/>
+    <IsRelation name="is" source="ObservableFaceArray" target="ObservableIntegerArray"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ObservableArrayBase&lt;T extends ObservableArray&lt;T&gt;&gt;" target="ObservableArray&lt;T extends ObservableArray&lt;T&gt;&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ObservableIntegerArrayImpl" target="ObservableIntegerArray"/>
+    <IsRelation name="is" source="ObservableFloatArray" target="ObservableArray&lt;T extends ObservableArray&lt;T&gt;&gt;"/>
+    <IsRelation name="is" source="ObservableFaceArrayImpl" target="ObservableIntegerArrayImpl"/>
+    <IsRelation name="is" source="ObservableIntegerArrayImpl" target="ObservableArrayBase&lt;T extends ObservableArray&lt;T&gt;&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ObservableFaceArrayImpl" target="ObservableFaceArray"/>
+    <IsRelation name="is" source="ObservableArray&lt;T extends ObservableArray&lt;T&gt;&gt;" target="Observable"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

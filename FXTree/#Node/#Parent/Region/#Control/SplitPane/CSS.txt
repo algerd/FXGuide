@@ -1,0 +1,39 @@
+
+-fx-orientation
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation 
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of the SplitPane can either be horizontal or vertical.
+
+
+******* CSS Pseudo-classes: ****************
+
+horizontal
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this Slider is horizontal.
+		horizontal = (orientationProperty != Orientation.VERTICAL)
+		orientationProperty : 
+			The orientation of the Slider can either be horizontal or vertical.
+
+vertical	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this Slider is vertical.
+		vertical = (orientationProperty == Orientation.VERTICAL)
+		orientationProperty : 
+			The orientation of the Slider can either be horizontal or vertical.
+
+			
+****** Substructure **********
+
+split-pane-divider — StackPane
+	vertical-grabber — StackPane
+	horizontal-grabber — StackPane
+	
+	

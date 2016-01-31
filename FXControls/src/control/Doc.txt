@@ -1,0 +1,90 @@
+Control classes do not expose the list of its children through the
+getChildren() method, and therefore, you cannot add any children to them.
+Control classes expose the list of their internal unmodifiable children through the
+getChildrenUnmodifiable() method, which returns an ObservableList<Node>.
+
+Properties Declared in the Control Class:
+--------------------------------------------------------------------------------
+Property         Type                           Description
+--------------------------------------------------------------------------------
+contextMenu     ObjectProperty<ContextMenu>     Specifies the content menu for the control.
+skin            ObjectProperty<Skin<?>>         Specifies the skin for the control.
+tooltip         ObjectProperty<Tooltip>         Specifies the tool tip for the control.
+--------------------------------------------------------------------------------
+
+The contextMenu property specifies the context menu for the control. A context menu gives a list of
+choices to the user. Each choice is an action that can be taken on the control in its current state. Some
+controls have their default context menus. For example, a TextField, when right-clicked, displays a context
+menu with choices like Undo, Cut, Copy, and Paste.
+
+Controls can display a short message called a tool tip when the mouse hovers over the control for a
+short period. An object of the Tooltip class represents a tool tip in JavaFX. The tooltip property in the
+Control class specifies the tool tip for a control.
+
+Properties Declared in the Labeled Class:
+--------------------------------------------------------------------------------
+Property         Type                           Description
+--------------------------------------------------------------------------------
+alignment       ObjectProperty<Pos>         It specifies the alignment of the content of
+                                            the control within the content area. Its effect
+                                            is visible when the content area is bigger than
+                                            the content (text + graphic). The default value
+                                            is Pos.CENTER_LEFT.
+
+contentDisplay  ObjectProperty<ContentDisplay>  It specifies positioning of the graphic relative
+                                                to the text.
+
+ellipsisString  StringProperty              It specifies the string to display for the ellipsis
+                                            when the text is truncated because the
+                                            control has a smaller size than the preferred
+                                            size. The default value is "..." for most
+                                            locales. Specifying an empty string for this
+                                            property does not display an ellipsis string in
+                                            truncated text.
+
+font            ObjectProperty<Font>        It specifies the default font for the text.
+
+graphic         ObjectProperty<Node>        It specifies an optional icon for the control.
+
+graphicTextGap  DoubleProperty              It specifies the amount of text between the
+                                            graphic and text.
+
+labelPadding    ReadOnlyObjectProperty<Insets> It is the padding around the content area of
+                                            the control. By default, it is Insets.EMPTY.
+
+lineSpacing     DoubleProperty              It specifies the space between adjacent lines
+                                            when the control displays multiple lines.
+
+mnemonicParsing BooleanProperty             It enables or disables text parsing to detect
+                                            a mnemonic character. If it is set to true,
+                                            the text for the control is parsed for an
+                                            underscore (_) character. The character
+                                            following the first underscore is added as
+                                            the mnemonic for the control. Pressing the
+                                            Alt key on Windows computers highlights
+                                            mnemonics for all controls.
+
+textAlignment   ObjectProperty<TextAlignment>   It specifies the text alignment within the text
+                                            bounds for multiline text.
+
+textFill        ObjectProperty<Paint>       It specifies the text color.
+
+textOverrun     ObjectProperty<OverrunStyle> It specifies how to display the text when the
+                                            text content exceeds the available space.
+
+text            StringProperty              It specifies the text content.
+
+underline       BooleanProperty             It specifies whether the text content should
+                                            be underlined.
+wrapText        BooleanProperty             It specifies whether the text should be
+                                            wrapped if the text cannot be displayed in
+                                            one line.
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

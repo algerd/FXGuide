@@ -1,0 +1,74 @@
+
+Every node has a geometric shape and it is positioned in a coordinate space. The size and the position
+of a node are collectively known as its bounds. The bounds of a node are defined in terms of a bounding
+rectangular box that encloses the entire geometry of the node.
+
+An instance of the javafx.geometry.Bounds class represents the bounds of a node. The Bounds class
+is an abstract class. The BoundingBox class is a concrete implementation of the Bounds class. The Bounds
+class is designed to handle bounds in a 3D space. It encapsulates the coordinates of the upper left corner
+with the minimum depth in the bounding box and the width, height, and depth of the bounding box. The
+methods getMinX(), getMinY(), and getMinZ() are used to get the coordinates. The three dimensions of the
+bounding box are accessed using the getWidth() getHeight(), and getDepth() methods. The Bounds class
+contains the getMaxX() getMaxY() and getMaxZ() methods that return the coordinates of the lower right
+corner, with the maximum depth, in the bounding box.
+
+In a 2D space, the minX and minY define the x and y coordinates of the upper left corner of the
+bounding box, respectively, and the maxX and maxY define the x and y coordinates of the lower right corner,
+respectively. In a 2D space, the values of the z coordinate and the depth for a bounding box are zero.
+
+The Bounds class contains isEmpty(), contains(), and intersects() utility methods. The isEmpty()
+method returns true if any of the three dimensions (width, height, or depth) of a Bounds is negative. The
+contains() method lets you check if a Bounds contains another Bounds, a 2D point, or a 3D point. The
+intersects() method lets you check if the interior of a Bounds intersects the interior of another Bounds, a 2D
+point, or a 3D point.
+
+A node in a scene graph has three types of bounds defined as three read-only properties in the Node class:
+    • layoutBounds
+    • boundsInLocal
+    • boundsInParent
+
+When you are trying to understand the three types of the bounds of a node, you need to look for
+three points:
+    • How the (minX, minY) values are defined. They define the coordinates of the upper
+    left corner of the bounding box described by the Bounds object.
+    • Remember that coordinates of a point are always defined relative to a coordinate
+    space. Therefore, pay attention to the coordinate space in which the coordinates, as
+    described in the first step, are defined.
+    • What properties of the node—geometry, stroke, effects, clip, and transformations—
+    are included in a particular type of bounds.
+
+Table lists the properties that contribute to a particular type of the bounds of a node and the
+coordinate space in which the bounds are defined. The boundsInLocal and boundsInParent of a node
+are also known as its physical bounds as they correspond to the physical properties of the node. The
+layoutBounds of a node is known as the logical bounds as it is not necessarily tied to the physical bounds of
+the node. When the geometry of a node is changed, all bounds are recomputed.
+
+Contributing Properties to the Bounds of a Node:
+--------------------------------------------------------------------------------
+Bounds Type         Coordinate Space            Contributors
+--------------------------------------------------------------------------------
+layoutBounds    Node (Untransformed)            Geometry of the node
+                                                Nonzero stroke
+
+boundsInLocal   Node (Untransformed)            Geometry of the node
+                                                Nonzero stroke
+                                                Effects
+                                                Clip
+
+boundsInParent  Parent                          Geometry of the node
+                                                Nonzero stroke
+                                                Effects
+                                                Clip
+                                                Transformations
+--------------------------------------------------------------------------------
+
+Tip: T he boundsInLocal and BoundsInParent are known as physical or visual bounds as they correspond
+to how the node looks visually. The layoutBounds is also known as the logical bounds as it does
+not necessarily
+correspond to the physical bounds of the node.
+
+
+
+
+
+

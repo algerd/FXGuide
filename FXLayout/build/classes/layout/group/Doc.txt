@@ -1,0 +1,15 @@
+
+Group is used to manipulate a collection of nodes as a single node (or as a group).
+Transformations, effects, and properties applied to a Group are applied to all nodes in the Group.
+A Group has its own layout policy, which does not provide any specific layout to its children, except
+giving them their preferred size:
+    • It renders nodes in the order they are added.
+    • It does not position its children. All children are positioned at (0, 0) by default. You
+        need to write code to position child nodes of a Group. Use the layoutX and layoutY
+        properties of the children nodes to position them within the Group.
+    • By default, it resizes all its children to their preferred size. The auto-sizing behavior
+        can be disabled by setting its autoSizeChildren property to false. Note that if you
+        disable the auto-sizing property, all nodes, except shapes, will be invisible as their
+        size will be zero, by default.
+A Group does not have a size of its own. It is not resizable directly. Its size is the collective bounds
+of its children. Its bounds change, as the bounds of any or all of its children change.

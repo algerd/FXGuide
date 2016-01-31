@@ -1,0 +1,35 @@
+
+-fx-minor-tick-count
+	Values: <size>
+	Default: 5
+	Field: IntegerProperty minorTickCount
+	Property: IntegerProperty minorTickCountProperty()
+	Methods: getMinorTickCount(), setMinorTickCount(int)
+	Description:
+		The number of minor tick divisions to be displayed between each major tick mark. 
+		The number of actual minor tick marks will be one less than this.
+
+-fx-minor-tick-length
+	Values: <size>
+	Default: 5
+	Field: DoubleProperty minorTickLength
+	Property: DoubleProperty minorTickLengthProperty()
+	Methods: getMinorTickLength(), setMinorTickLength(double)
+	Description:
+		The length of minor tick mark lines. Set to 0 to not display minor tick marks.
+
+-fx-minor-tick-visible
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty minorTickVisible
+	Property: BooleanProperty minorTickVisibleProperty()
+	Methods: isMinorTickVisible(), setMinorTickVisible(boolean)
+	Description:
+		true if minor tick marks should be displayed
+		
+	
+**************** Substructure *********************
+
+axis-minor-tick-mark — Path
+
+	

@@ -1,0 +1,5 @@
+
+Substructure:
+
+chart-legend-item — Label
+chart-legend-item-symbol — Node (the Label's graphic)

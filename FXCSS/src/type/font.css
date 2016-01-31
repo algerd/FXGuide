@@ -1,0 +1,36 @@
+
+#fontBox {
+    -fx-background-color: white;
+    -fx-max-width: 800px;
+    -fx-padding: 10px;
+}
+
+/*
+Type <font> inherit.
+Все значения свойств типа <font> наследуются вложенными елементами из контейнеров-родителей.
+    1) Указание отдельных font-свойств:
+        -fx-font-family: <font-family>;
+            <font-family> = <string>. Допускается указывать только один шрифт или семейство,
+            перечисление через запятую не допускается. Шрифт можно указывать без ковычек, если он состоит из одного слова.
+        -fx-font-style: <font-style>;
+            <font-style> = [ normal | italic | oblique ]
+        -fx-font-weight: <font-weight>;
+            <font-weight> = [ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+        -fx-font-size: <size>
+            <size> = <number>[[ px | mm | cm | in | pt | pc | em | ex ]? | %]
+
+    2) Сокращённая запись с обязательным порядком следования свойств:
+        -fx-font: [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+*/
+
+#fontButton {
+    -fx-font-family: 'Arial';
+    -fx-font-style: italic;
+    -fx-font-weight: normal;
+    -fx-font-size: 14px;
+}
+#fontBox {
+    -fx-font: bold italic 14px 'Arial';
+}
+
+

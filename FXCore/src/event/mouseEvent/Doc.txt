@@ -1,0 +1,96 @@
+An object of the MouseEvent class represents a mouse event. The MouseEvent class defines the following
+mouse-related event types constants. All constants are of the type EventType<MouseEvent>. The Node class
+contains the convenience onXXX properties for most of the mouse event types that can be used to add one
+event handler of a specific mouse event type for a node:
+    • ANY: It is the supertype of all mouse event types. If a node wants to receive all types of
+        mouse events, you would register handlers for this type. The InputEvent.ANY is the
+        supertype of this event type.
+    • MOUSE_PRESSED: Pressing a mouse button generates this event. The getButton()
+        method of the MouseEvent class returns the mouse button that is responsible for the
+        event. A mouse button is represented by the NONE, PRIMARY, MIDDLE, and SECONDARY
+        constants defined in the MouseButton enum.
+    • MOUSE_RELEASED: Releasing a mouse button generates this event. This event is
+        delivered to the same node on which the mouse was pressed. For example, you can
+        press a mouse button on a circle, drag the mouse outside the circle, and release the
+        mouse button. The MOUSE_RELEASED event will be delivered to the circle, not the
+        node on which the mouse button was released.
+    • MOUSE_CLICKED: This event is generated when a mouse button is clicked on a node.
+        The button should be pressed and released on the same node for this event to occur.
+    • MOUSE_MOVED: Moving the mouse without pressing any mouse buttons generates
+        this event.
+    • MOUSE_ENTERED: This event is generated when the mouse enters a node. The event
+        capture and bubbling phases do not take place for this event. That is, event filters
+        and handlers of the parent nodes of the event target of this event are not called.
+    • MOUSE_ENTERED_TARGET: This event is generated when the mouse enters a node. It is
+        a variant of the MOUSE_ENTERED event type. Unlike the MOUSE_ENTER event, the event
+        capture and bubbling phases take place for this event.
+    • MOUSE_EXITED: This event is generated when the mouse leaves a node. The event
+        capture and bubbling phases do not take place for this event, that is, it is delivered
+        only to the target node.
+    • MOUSE_EXITED_TARGET: This event is generated when the mouse leaves a node. It is
+        a variant of the MOUSE_EXITED event type. Unlike the MOUSE_EXITED event, the event
+        capture and bubbling phases take place for this event.
+    • DRAG_DETECTED: This event is generated when the mouse is pressed and dragged over
+        a node over a platform-specific distance threshold.
+    • MOUSE_DRAGGED: Moving the mouse with a pressed mouse button generates this
+        event. This event is delivered to the same node on which the mouse button was
+        pressed, irrespective of the location of the mouse pointer during the drag.
+
+Typically, a mouse has three buttons. You will also find some that have only one or two buttons. Some platforms
+provide ways to simulate the missing mouse buttons. The MouseButton enum in the javafx.scene.input
+package contains constants to represent mouse button. Table 9-2 contains the list of constants defined in the
+MouseButton enum.
+
+Constants for the MouseButton Enum:
+    NONE           It represents no button.
+    PRIMARY        It represents the primary button. Usually it is the left button in the mouse.
+    MIDDLE         It represents the middle button.
+    SECONDARY      It represents the secondary button. Usually it is the right button in the mouse.
+
+The MouseEvent object that represents a mouse event contains the state of the mouse buttons at the time the
+event occurs. The MouseEvent class contains many methods to report the state of mouse buttons. Table 9-3
+contains a list of such methods with their descriptions.
+
+Methods Related to the State of Mouse Buttons in the MouseEvent Class:
+    MouseButton getButton()         It returns the mouse button responsible for the mouse event.
+    int getClickCount()             It returns the number of mouse clicks associated with the mouse event.
+    boolean isPrimaryButtonDown()   It returns true if the primary button is currently pressed. Otherwise,
+                                    it returns false.
+    boolean isMiddleButtonDown()    It returns true if the middle button is currently pressed. Otherwise,
+                                    it returns false.
+    boolean isSecondaryButtonDown() It returns true if the secondary button is currently pressed.
+                                    Otherwise, it returns false.
+    boolean isPopupTrigger()        It returns true if the mouse event is the pop-up menu trigger event
+                                    for the platform. Otherwise, it returns false.
+    boolean isStillSincePress()     It returns true if the mouse cursor stays within a small area, which
+                                    is known as the system-provided hysteresis area, between the last
+                                    mouse-pressed event and the current mouse event.
+
+Methods, Related to the State of Modifier Keys, in the MouseEvent Class
+    boolean isAltDown()         It returns true if the Alt key is down for this mouse event. Otherwise,
+                                it returns false.
+    boolean isControlDown()     It returns true if the Ctrl key is down for this mouse event. Otherwise,
+                                it returns false.
+    boolean isMetaDown()        It returns true if the Meta key is down for this mouse event. Otherwise,
+                                it returns false.
+    boolean isShiftDown()       It returns true if the Shift key is down for this mouse event. Otherwise,
+                                it returns false.
+    boolean isShortcutDown()    It returns true if the platform-specific shortcut key is down for this
+                                mouse event. Otherwise, it returns false. The shortcut modifier key is
+                                the Ctrl key on Windows and Meta key on Mac.
+
+Typically, during a mouse-click event, the mouse is moved by a very tiny distance between the
+mouse-pressed and mouse-released events. Sometimes it is important to take into account the distance the
+mouse is moved during a mouse click. The isStillSincePress() method returns true if the mouse stays in
+the system-provided hysteresis area since the last mouse-pressed event and the current event. This method
+is important when you want to consider a mouse-drag action. If this method returns true, you may ignore
+mouse drags as the mouse movement is still within the hysteresis distance from the point where the mouse
+was last pressed.
+
+A mouse event can be generated using several types of devices, such as a mouse, track pad, or touch screen.
+Some actions on a touch screen generate mouse events, which are considered synthesized mouse events.
+The isSynthesized() method of the MouseEvent class returns true if the event is synthesized from using a
+touch screen. Otherwise, it returns false.
+When a finger is dragged on a touch screen, it generates both a scrolling gesture event and a mouse-drag
+event. The return value of the isSynthesized() method can be used inside the mouse-drag event handlers to
+detect if the event is generated by dragging a finger on a touch screen or by dragging a mouse.

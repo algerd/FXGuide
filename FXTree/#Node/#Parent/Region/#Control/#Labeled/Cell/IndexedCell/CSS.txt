@@ -1,0 +1,24 @@
+CSS Pseudo-classes:
+
+even	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this cell's index is even.
+		If ReadOnlyIntegerWrapper index is even: even = ((index % 2) == 0)
+		ReadOnlyIntegerWrapper index :
+			The location of this cell in the virtualized control (e.g: ListView, TreeView, TableView, etc). 
+			This is the model index which corresponds exactly with the Cell item property. 
+			For example, in the case of a ListView, this means the following: cell.item == listView.getItems().get(cell.getIndex())
+		
+odd	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this cell's index is odd.
+		If ReadOnlyIntegerWrapper index is odd: odd = ((index % 2) != 0)
+		ReadOnlyIntegerWrapper index :
+			The location of this cell in the virtualized control (e.g: ListView, TreeView, TableView, etc). 
+			This is the model index which corresponds exactly with the Cell item property. 
+			For example, in the case of a ListView, this means the following: cell.item == listView.getItems().get(cell.getIndex())
+		

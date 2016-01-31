@@ -1,0 +1,72 @@
+
+The default CSS style-class name for a Pagination control is pagination. Pagination adds several CSS
+properties:
+    • -fx-max-page-indicator-count
+        The -fx-max-page-indicator-count property specifies the maximum number of page indicators to
+        display. The default value is 10.
+
+    • -fx-arrows-visible
+       The -fx-arrows-visible property specifies whether the previous and
+       next page buttons are visible. The default value is true.
+
+    • -fx-tooltip-visible
+        The -fx-tooltip-visible property specifies
+        whether a tool tip is displayed when the mouse hovers over a page indicator. The default value is true.
+
+    • -fx-page-information-visible
+        The -fx-page-information-visible specifies whether the selected page label is visible. The default value
+        is true.
+
+    • -fx-page-information-alignment
+        The -fx-page-information-alignment specifies the location of the selected page label relative to
+        the page indicators. The possible values are top, right, bottom, and left. The default value is bottom, which
+        displays the selected page indicator below the page indicators.
+
+The Pagination control has two substructures of StackPane type:
+    • page
+    • pagination-control
+
+The page substructure represents the content area. The pagination-control substructure represents
+the navigation area and it has the following substructures:
+    • left-arrow-button
+        The left-arrow-button and right-arrow-button substructures are of the Button type. They represent
+        the previous and next page buttons, respectively.
+        The left-arrow-button substructure has a left-arrow
+        substructure, which is a StackPane, and it represents the arrow in the previous page button.
+
+    • right-arrow-Button
+        The rightarrow-button substructure has a right-arrow substructure, which is a StackPane, and it represents the
+        arrow in the next page button.
+
+    • bullet-button
+        The bullet-button is of the ToggleButton type, and
+        they represent the page indicators.
+
+    • number-button
+        The number-button is of the ToggleButton type, and
+        they represent the page indicators.
+
+    • page-information
+        The page-information substructure is a Label that holds the selected
+        page information. The pagination-control substructure holds the previous and next page buttons and the
+        page indicators in a substructure called control-box, which is an HBox.
+
+The following styles make the selected page label invisible, set the page background to light gray, and
+draw a border around the previous, next, and page indicator buttons. Please refer to the modena.css file for
+more details on how to style a Pagination control.
+
+    .pagination {
+        -fx-page-information-visible: false;
+    }
+    .pagination > .page {
+        -fx-background-color: lightgray;
+    }
+    .pagination > .pagination-control > .control-box {
+        -fx-padding: 2;
+        -fx-border-style: dashed;
+        -fx-border-width: 1;
+        -fx-border-radius: 5;
+        -fx-border-color: blue;
+    }
+
+

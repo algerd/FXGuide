@@ -1,0 +1,200 @@
+
+An object of the ColumnConstraints class represents constraints for a column and an object of the
+RowConstraints class represents constraints for a row. Both classes declare several properties that represent
+the constraints.
+
+The List of Properties for the ColumnConstraints Class:
+--------------------------------------------------------------------------------
+Property            Type                Description
+--------------------------------------------------------------------------------
+fillWidth    BooleanProperty        It specifies whether the children in the column are expanded beyond
+                                    their preferred width to fill the width of the column. The default value
+                                    is true.
+
+halignment  ObjectProperty<HPos>    It specifies the default horizontal alignment of the children in a
+                                    column. Its default value is null. By default, all children in a column
+                                    are horizontally aligned to HPos.LEFT. An individual child node in the
+                                    column may override this constraint.
+
+hgrow   ObjectProperty<Priority>    It specifies the horizontal grow priority for the column. This property
+                                    is used to give additional space to the column when the GridPane is
+                                    resized larger than its preferred width. If the percentWidth property
+                                    is set, the value for this property is ignored.
+
+minWidth,   DoubleProperty          They specify the minimum, preferred, and maximum widths of the
+prefWidth,                          column. If the percentWidth property is set, the values for these
+maxWidth                            properties are ignored.
+                                    The default values for these properties are set to USE_COMPUTED_SIZE.
+                                    By default, the minimum width of a column is the largest of the
+                                    minimum widths of children in the column; the preferred width is
+                                    the largest of the preferred widths of children in the column; and, the
+                                    maximum width is the smallest of the maximum widths of children in
+                                    the column.
+
+percentWidth DoubleProperty         It specifies the width percentage of the column relative to the width
+                                    of the content area of the GridPane. If it is set to a value greater than
+                                    zero, the column is resized to have the width that is this percentage
+                                    of the available width of the GridPane. If this property is set, the
+                                    minWidth, prefWidth, maxWidth, and hgrow properties are ignored.
+--------------------------------------------------------------------------------
+
+
+Properties for the RowConstraints Class
+--------------------------------------------------------------------------------
+Property            Type                Description
+--------------------------------------------------------------------------------
+fillHeight      BooleanProperty         It specifies whether the children in the row are expanded beyond
+                                        their preferred height to fill the height of the row. The default value
+                                        is true.
+
+valignment      ObjectProperty<HPos>    It specifies the default vertical alignment of the children in a row. Its
+                                        default value is null. By default, all children in a row are vertically
+                                        aligned to VPos.CENTER. An individual child node in the row may
+                                        override this constraint.
+
+vgrow       ObjectProperty<Priority>    It specifies the vertical grow priority for the row. This property
+                                        is used to give additional space to the row when the GridPane
+                                        is resized larger than its preferred height. If the percentHeight
+                                        property is set, the value for this property is ignored.
+
+minHeight,      DoubleProperty          They specify the minimum, preferred, and maximum heights of
+prefHeight,                             the row. If the percentHeight property is set, the values for these
+maxHeight                               properties are ignored.    
+                                        The default values for these properties are set to USE_COMPUTED_SIZE.
+                                        By default, the minimum height of a row is the largest of the
+                                        minimum heights of children in the row; the preferred height is
+                                        the largest of the preferred heights of children in the row; and, the
+                                        maximum height is the smallest of the maximum heights of children
+                                        in the row.
+
+percentHeight   DoubleProperty          It specifies the height percentage of the row relative to the height of
+                                        the content area of the GridPane. If it is set to a value greater than
+                                        zero, the row is resized to have the height that is this percentage
+                                        of the available height for the GridPane. If this property is set, the
+                                        minHeight, prefHeight, maxHeight, and vgrow properties are
+                                        ignored.
+--------------------------------------------------------------------------------
+
+The ColumnConstraints and RowConstraints classes provide several constructors to create their
+objects. Their no-args constructors create their objects with default property values.
+
+    // Create a ColumnConstraints object with default property values
+    ColumnConstraints cc1 = new ColumnConstraints();
+    // Set the percentWidth to 30% and horizontal alignment to center
+    cc1.setPercentWidth(30);
+    cc1.setHalignment(HPos.CENTER);
+
+If you want to create a fixed width/height column/row, you can use one of the convenience contractors.
+
+    // Create a ColumnConstraints object with a fixed column width of 100px
+    ColumnConstraints cc2 = new ColumnConstraints(100);
+    // Create a RowConstraints object with a fixed row height of 80px
+    RowConstraints rc2 = new RowConstraints(80);
+
+If you want to achieve the same effect of having a fixed width column, you can do so by setting the
+preferred width to the desired fixed width value and setting the minimum and maximum widths to use the
+preferred width as shown below.
+
+    // Create a ColumnConstraints object with a fixed column width of 100px
+    ColumnConstraints cc3 = new ColumnConstraints();
+    cc3.setPrefWidth(100);
+    cc3.setMinWidth(Region.USE_PREF_SIZE);
+    cc3.setMaxWidth(Region.USE_PREF_SIZE);
+
+
+The following snippet of code sets the column width to 30% of the GridPane width and the horizontal
+alignment for the children in the column as center.
+
+    ColumnConstraints cc4 = new ColumnConstraints();
+    cc4.setPercentWidth(30); // 30% width
+    cc4.setHalignment(HPos.CENTER);
+
+In a GridPane, the width/height of different columns/rows may be computed differently. Some
+columns/row may set percent width/height, some fixed sizes, and some may choose to compute their sizes
+based on their content. The percent size is given the first preference in allocating the space. For example,
+if two columns set their widths based on percentage and one uses a fixed width, the available width will be
+allocated first to the two columns using the percentage width, and then, to the column using the fixed width.
+
+Tip: It is possible that the sum of the percentage width/height of all columns/rows exceeds 100.
+For example, it is permissible to set the percentage width of columns in a GridPane to 30%, 30%, 30%, and
+30%. In this case, the percentage value is used as weights and each of the four columns will be given
+one-fourth (30/120) of the available width. As an another example, if columns use 30%, 30%, 60%, and 60% as
+percentage width, they will be treated as weights, allocating them one-sixth (30/180), one-sixth (30/180),
+one-third (60/180), and one-third (60/180) of the available width, respectively.
+
+A GridPane stores the constraints for columns and rows in ObservableList of ColumnConstraints
+and RowConstraints. You can obtain the reference of the lists using the getColumnConstraints() and
+getRowConstraints() methods. The element at a particular index in the list stores the constraints object
+for the column/row at the same index in the GridPane. The first element in the list, for example, stores the
+column/row constraints for the first column/row, the second elements for the second column/row, etc. It is
+possible to set the column/row constraints for some column/row, not for others. In this case, the constraints
+for column/row for which the column/row constraints are absent will be computed based on the default
+values. The following snippet of code creates three ColumnConstraints objects, sets their properties, and
+adds them to the list of column constraints of a GridPane. Using RowConstraints objects for setting row
+constraints would use the similar logic.
+
+When you set column/row constraints, you cannot skip some columns/rows in the middle. That is,
+you must set the constraints for columns/rows sequentially starting from the first column/row. Setting null
+for a constraint’s object throws a NullPointerException at runtime. If you want to skip setting custom
+constraints for a row/column in the list, set it to a constraints object that is created using the no-args
+constructor, which will use the default settings. The following snippet of code sets the column constraints for
+the first three columns. The second column uses default settings for the constraints.
+
+    // With 100px fied width
+    ColumnConstraints cc1 = new ColumnConstraints(100);
+    // Use all default settings
+    ColumnConstraints defaultCc2 = new ColumnConstraints();
+    // With 200px fied width
+    ColumnConstraints cc3 = new ColumnConstraints(200);
+    GridPane gpane = new GridPane();
+    gpane.getColumnConstraints().addAll(cc1, defaultCc2, cc3);
+
+Tip: Some column/row constraints set on a column/row can be overridden by children in the column/row
+individually. Some constraints can be set on children in a column/row and may affect the entire column/row.
+
+Table lists the constraints that can be set for the children in a GridPane. The GridPane class contains
+two sets of static methods to set these constraints:
+    • The setConstraints() methods
+    • The setXxx(Node child, CType cvalue) methods, where Xxx is the constraint name and CType is its type
+To remove a constraint for a child node, set it to null
+
+List of Constraints That Can Be Set for the Children in a GridPane:
+--------------------------------------------------------------------------------
+Constraint      Type                Description
+--------------------------------------------------------------------------------
+columnIndex     Integer     It is the column index where the layout area of the child node starts. The first
+                            column has the index 0. The default value is 0.
+rowIndex        Integer     It is the row index where the layout area of the child node starts. The first row
+                            has the index 0. The default value is 0.
+columnSpan      Integer     It is the number of columns the layout area of a child node spans. The default is 1.
+rowSpan         Integer     It is the number of columns the layout area of a child node spans. The default is 1.
+halignment      HPos        It specifies the horizontal alignment of the child node within its layout area.
+valignment      VPos        It specifies the vertical alignment of the child node within its layout area.
+hgrow           Priority    It specifies the horizontal grow priority of the child node.
+vgrow           Priority    It specifies the vertical grow priority of the child node.
+margin          Insets      It specifies the margin space around the outside of the layout bounds of the
+                            child node.
+--------------------------------------------------------------------------------
+
+Use the setMargin(Node child, Insets value) static method of the GridPane class to set the margin
+(the space around the layout bounds) for children. The getMargin(Node child) static method returns the
+margin for a child node.
+    // Set 10px margin around the b1 child node
+    GridPane.setMargin(b1, new Insets(10));
+    ...
+    // Get the margin of the b1 child node
+    Insets margin = GridPane.getMargin(b1);
+Use null to reset the margin to the default value, which is zero.
+
+Use the clearConstraints(Node child) static method of the GridPane class to reset all constraints
+(columnIndex, rowIndex, columnSpan, rowSpan, halignment, valignment, hgrow, vgrow, margin) for a child at
+once.
+    // Clear all constraints for the b1 child node
+    GridPane.clearConstraints(b1);
+
+
+
+
+
+
+

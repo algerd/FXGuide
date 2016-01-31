@@ -1,0 +1,17 @@
+
+The default CSS style-class name for a TextArea is text-area. It does not add any CSS properties to the
+ones present in its ancestor TextInputControl. It contains scroll-pane and content substructures, which
+are a ScrollPane and a Region, respectively. The scroll-pane is the scroll pane that appears when its text
+exceeds its width or height. The content is the region that displays the text.
+
+The following styles set the horizontal and vertical scrollbar policies to always, so the scrollbars should
+always appear in TextArea. Padding for the content area is set to 10px:
+
+    .text-area > .scroll-pane {
+        -fx-hbar-policy: always;
+        -fx-vbar-policy: always;
+    }
+
+    .text-area .content {
+        -fx-padding: 10;
+    }

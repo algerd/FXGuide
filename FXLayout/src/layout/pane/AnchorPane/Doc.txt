@@ -1,0 +1,70 @@
+
+An AnchorPane lays out its children by anchoring the four edges of its children to its own four edges at a
+specified distance.
+
+An AnchorPane may be used for two purposes:
+    • For aligning children along one or more edges of the AnchorPane
+    • For stretching children when the AnchorPane is resized
+
+The specified distance between the edges of the children and the edges of the AnchorPane is called the
+anchor constraint for the sides it is specified. For example, the distance between the top edge of the children
+and the top edge of the AnchorPane is called topAnchor constraint, etc. You can specify at most four anchor
+constraints for a child node: topAnchor, rightAnchor, bottomAnchor, and leftAnchor.
+When you anchor a child node to the two opposite edges (top/bottom or left/right), the children are
+resized to maintain the specified anchor distance as the AnchorPane is resized.
+
+Tip: Anchor distance is measured from the edges of the content area of the AnchorPane and the edges
+of the children. That is, if the AnchorPane has a border and padding, the distance is measured from the inner
+edges the insets (border + padding).
+
+You need to keep two points in mind while working with an AnchorPane:
+    • By default, an AnchorPane places its children at (0, 0). You need to specify anchor
+    constraints for the children to anchor them to one or more edges of the AnchorPane
+    at a specified distance.
+    • The preferred size of the AnchorPane is computed based on the children preferred
+    sizes and their anchor constraints. It adds the preferred width, left anchor, and right
+    anchor for each child node. The child having maximum of this value determines the
+    preferred width of the AnchorPane. It adds the preferred height, left anchor, and right
+    anchor for each child node. The child having the maximum of this value determines
+    the preferred height of the AnchorPane. It is possible that children will overlap.
+    Children are drawn in the order they are added.
+
+Table lists the constraints that can be set for the children in a AnchorPane. Note that the anchor distance
+is measured from the edges of the content area of the AnchorPane, not the edges of the layout bounds. Recall
+that a Region has padding and border insets between the edges of the content area and the layout bounds.
+
+The List of Constraints That Can Be Set for the Children in a AnchorPane:
+--------------------------------------------------------------------------------
+Constraint      Type        Description
+topAnchor       Double      It specifies the distance between the top edge of the content area of the
+                            AnchorPane and the top edge of the child node.
+
+rightAnchor     Double      It specifies the distance between the right edge of the content area of the
+                            AnchorPane and the right edge of the child node.
+
+bottomAnchor    Double      It specifies the distance between the bottom edge of the content area of the
+                            AnchorPane and the bottom edge of the child node.
+
+leftAnchor      Double      It specifies the distance between the left edge of the content area of the
+                            AnchorPane and the left edge of the child node.
+--------------------------------------------------------------------------------
+
+Use the clearConstraints(Node child) static method to clear the values for all four anchor
+constraints for a child node.
+
+The setXxxAnchor(Node child, Double value) method takes a Double value as its second
+parameters. Therefore, you must pass a double value or a Double object to these methods. When you pass
+a double value, the autoboxing feature of Java will box the value into a Double object for you. A common
+mistake is to pass an int value:
+
+    Button b1 = new Button("A button");
+    AnchorPane.setTopAnchor(b1, 10); // An error: 10 is an int, not a double
+The above code generates an error:
+
+    Error(18): error: method setTopAnchor in class AnchorPane cannot be applied to given types;
+
+The error is generated because we have passed 10 as the second argument. The value 10 is an int literal,
+which is boxed to an Integer object, not a Double object. Changing 10 to 10D or 10.0 will make it a double
+value and will fix the error.
+
+

@@ -1,0 +1,26 @@
+The default CSS style-class name for a ColorPicker is color-picker. You can style almost every part of a
+ColorPicker, for example, color indicator, color label, color palette dialog, and custom color dialog. Please
+refer to the modena.css file for complete reference.
+
+The -fx-color-label-visible CSS property of the ColorPicker sets whether the color label is visible
+or not. Its default value is true. The following code makes the color label invisible:
+    .color-picker {
+        -fx-color-label-visible: false;
+    }
+
+The color indicator is a rectangle, which has a style class name of picker-color-rect. The color label
+is a Label, which has a style class name of color-picker-label. The following code shows the color label in
+blue and sets a 2px thick black stroke around the color indicator rectangle:
+    .color-picker .color-picker-label {
+        -fx-text-fill: blue;
+    }
+    .color-picker .picker-color .picker-color-rect {
+        -fx-stroke: black;
+        -fx-stroke-width: 2;
+    }
+
+The style class name for the color palette is color-palette. The following code hides the Custom
+Colors… hyperlink on the color palette:
+    .color-palette .hyperlink {
+        visibility: hidden;
+    }

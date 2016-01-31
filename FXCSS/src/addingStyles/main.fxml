@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+Класс Node (а сл-но и его дети) имеет свойство StringProperty style, куда можно
+добавлять стили инлайн, каждое стилевое свойство разделяя точкой с запятой.
+Для укзазния инлайн стилей в java-файле надо воспользоваться методом setStyle().
+Для укзазния инлайн стилей в fxml-файле, надо воспользоваться аттрибутом style=""
+или тегом-свойством <style></style>
+При этом инлайн-стиль, загруженный в java-файле, будет приоритетнее этого же стиля 
+в fxml-файле (наверное, потому что он подключается позже, после загрузки fxml-документа).
+-->
+<VBox xmlns:fx="http://javafx.com/fxml" style="-fx-border-width: 2.0; -fx-border-color: red;">
+    <!--
+    Можно задать инлайн-стиль элементу только 1 раз, поэтому чтобы включить стиль-свойство <style>,
+    надо убрать аттрибут style="" из VBox. Стиль в аттрибутe приоритетнее стиля в теге-свойстве.
+    -->
+    <style>
+        -fx-background-color: yellow;
+        -fx-border-radius: 10;
+    </style>
+    
+    <children>
+        <Button fx:id="yes" text="Yes"/>
+        <Button fx:id="no" text="No"/>
+        <Button fx:id="cansel" text="Cansel"/>
+    </children>    
+</VBox>    

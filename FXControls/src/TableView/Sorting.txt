@@ -1,0 +1,152 @@
+
+By default, data in all columns in a TableView can be sorted. Users can sort data in columns by clicking
+the column headers. The first click sorts the data in ascending order. The second click sorts the data in
+descending order. The third click removes the column from the sort order list.
+By default, single column sorting is enabled. That is, if you click a column, the records in the TableView
+are sorted based on the data only in the clicked column. To enable multicolumn sorting, you need to press
+the Shift key while clicking the headers of the columns to be sorted.
+
+The sortable property of a TableColumn determines whether the column is sortable. By default, it is set to
+true. Set it to false to disable the sorting for a column:
+    // Disable sorting for fNameCol column
+    fNameCol.setSortable(false);
+
+
+Specifying the Sort Type of a Column:
+-------------------------------------
+A TableColumn has a sort type, which can be ascending or descending. It is specified through the sortType
+property. The ASCENDING and DESCENDING constants of TableColumn.SortType enum represent the
+ascending and descending, respectively, sort types for columns. The default value for the sortType property
+is TableColumn.SortType.ASCENDING. The DESCENDING constant is set as follows:
+    // Set the sort type for fNameCol column to descending
+    fNameCol.setSortType(TableColumn.SortType.DESCENDING);
+
+
+Specifying the Comparator for a Column:
+-----------------------------------------
+A TableColumn uses a Comparator to sort its data. You can specify the Comparator for a TableColumn using its
+comparator property. The comparator is passed in the objects in two cells being compared. A TableColumn
+uses a default Comparator, which is represented by the constant TableColumn.DEFAULT_COMPARATOR.
+The default comparator compares data in two cells using the following rules:
+    • It checks for null values. The null values are sorted first. If both cells have null,
+    they are considered equal.
+    • If the first value being compared is an instance of the Comparable interface, it calls
+    the compareTo() method of the first object passing the second object as an argument
+    to the method.
+    • If neither of the above two conditions are true, it converts the two objects into
+    strings calling their toString() methods and uses a Collator to compare the two
+    String values.
+In most cases, the default comparator is sufficient. The following snippet of code uses a custom
+comparator for a String column that compares only the first characters of the cell data:
+
+    TableColumn<Person, String> fNameCol = new TableColumn<>("First Name");
+    // Set a custom comparator
+    fNameCol.setComparator((String n1, String n2) -> {
+        if (n1 == null && n2 == null) {
+            return 0;
+        }
+        if (n1 == null) {
+            return -1;
+        }
+        if (n2 == null) {
+            return 1;
+        }
+        String c1 = n1.isEmpty()? n1:String.valueOf(n1.charAt(0));
+        String c2 = n2.isEmpty()? n2:String.valueOf(n2.charAt(0));
+        return c1.compareTo(c2);
+    });
+
+
+Specifying the Sort Order of Columns:
+----------------------------------------
+The TableView class contains several properties that are used in sorting. To sort columns, you need to
+add them to sort order list of the TableView. The sortOrder property specifies the sort order. It is an
+ObservableList of TableColumn. The order of a TableColumn in the list specifies the order of the column in
+the sort. Rows are sorted based on the first column in the list. If values in two rows in the column are equal,
+the second column in the sort order list is used to determine the sort order of the two rows and so on.
+The following snippet of code adds two columns to a TableView and specifies their sort order. Notice
+that both columns will be sorted in ascending order, which is the default sort type. If you want to sort them
+in descending order, set their sortType property as follows:
+    // Create a TableView with data
+    TableView<Person> table = new TableView<>(PersonTableUtil.getPersonList());
+    TableColumn<Person, String> lNameCol = PersonTableUtil.getLastNameColumn();
+    TableColumn<Person, String> fNameCol = PersonTableUtil.getFirstNameColumn();
+    // Add columns to the TableView
+    table.getColumns().addAll(lNameCol, fNameCol );
+    // Add columns to the sort order to sort by last name followed by first name
+    table.getSortOrder().addAll(lNameCol, fNameCol);
+
+The sortOrder property of the TableView is monitored for changes. If it is modified, the TableView is
+sorted immediately based on the new sort order. Adding a column to a sort order list does not guarantee
+inclusion of the column in sorting. The column must also be sortable to be included in sorting. The
+sortType property of the TableColumn is also monitored for changes. Changing the sort type of a column,
+which are in the sort order list, resorts the TableView data immediately.
+
+
+Specifying the Sort Policy:
+---------------------------
+A TableView has a sort policy to specify how the sorting is performed. It is a Callback object. The TableView
+is passed in as an argument to the call() method. The method returns true if the sorting successes.
+It returns false or null if the sorting fails.
+
+The TableView class contains a DEFAULT_SORT_POLICY constant, which is used as a default sort policy
+for a TableView. It sorts the items list of the TableView using its comparator property. Specify a sort policy to
+take full charge of the sorting algorithm. The call() method of the sort policy Callback object will perform
+the sorting of the items of the TableView.
+
+As a trivial example, setting the sort policy to null will disable the sorting, as no sorting will be
+performed when sorting is requested by the user or program:
+    TableView<Person> table = ...
+    // Disable sorting for the TableView
+    table.setSortPolicy(null);
+
+Sometimes it is useful to disable sorting temporarily for performance reasons. Suppose you have a
+sorted TableView with a large number of items and you want to make several changes to the sort order list.
+Every change in the sort order list will trigger a sort on the items. In this case, you may disable the sorting by
+setting the sort policy to null, make all your changes, and enable the sorting by restoring the original sort
+policy. A change in the sort policy triggers an immediate sort. This technique will sort the items only once:
+    TableView<Person> table = ...
+    ...
+    // Store the current sort policy
+    Callback<TableView<Person>, Boolean> currentSortPolicy = table.getSortPolicy();
+    // Disble the sorting
+    table.setSortPolicy(null)
+    // Make all changes that might need or trigger sorting
+    ...
+    // Restore the sort policy that will sort the data once immediately
+    table.setSortPolicy(currentSortPolicy);
+
+
+Sorting Data Manually:
+---------------------
+TableView contains a sort() method that sorts the items in the TableView using the current sort order
+list. You may call this method to sort items after adding a number of items to a TableView. This method is
+automatically called when the sort type of a column, the sort order, or sort policy changes.
+
+
+Handling Sorting Event:
+----------------------
+TableView fires a SortEvent when it receives a request for sorting and just before it applies the sorting
+algorithm to its items. Add a SortEvent listener to perform any action before the actual sorting is performed:
+    TableView<Person> table = ...
+    table.setOnSort(e -> {/* Code to handle the sort event */});
+
+If the SortEvent is consumed, the sorting is aborted. If you want to disable sorting for a TableView,
+consume the SortEvent as follows:
+    // Disable sorting for the TableView
+    table.setOnSort(e -> e.consume());
+
+
+Disabling Sorting for a TableView:
+---------------------------------
+There are several ways you can disable sorting for a TableView.
+    • Setting the sortable property for a TableColumn disables sorting only for that
+    column. If you set the sortable property to false for all columns in a TableView,
+    the sorting for the TableView is disabled.
+    • You can set the sort policy for the TableView to null.
+    • You can consume the SortEvent for the TableView.
+    • Technically, it is possible, though not recommended, to override the sort() method
+    of the TableView class and provide an empty body for the method.
+
+The best way to disable sorting partially or completely for a TableView is to disable sorting for some or
+all of its columns.

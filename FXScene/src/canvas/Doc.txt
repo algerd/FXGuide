@@ -1,0 +1,58 @@
+Through the javafx.scene.canvas package, JavaFX provides the Canvas API that offers a drawing surface to
+draw shapes, images, and text using drawing commands. The API also gives pixel-level access to the drawing
+surface where you can write any pixels on the surface. The API consists of only two classes:
+    • Canvas
+    • GraphicsContext
+
+A canvas is a bitmap image, which is used as a drawing surface. An instance of the Canvas class
+represents a canvas. It inherits from the Node class. Therefore, a canvas is a node. It can be added to a scene
+graph, and effects and transformations can be applied to it.
+
+A canvas has a graphics context associated with it that is used to issue drawing commands to the
+canvas. An instance of the GraphicsContext class represents a graphics context.
+
+The Canvas class has two constructors. The no-args constructor creates an empty canvas. Later, you can
+set the size of the canvas using its width and height properties. The other constructor takes the width and
+height of the canvas as parameters:
+
+    // Create a Canvas of zero width and height
+    Canvas canvas = new Canvas();
+    // Set the canvas size
+    canvas.setWidth(400);
+    canvas.setHeight(200);
+    // Create a 400X200 canvas
+    Canvas canvas = new Canvas(400, 200);
+
+Once you create a canvas, you need to get its graphics context using the getGraphicsContext2D() method,
+as in the following snippet of code:
+
+    // Get the graphics context of the canvas
+    GraphicsContext gc = canvas.getGraphicsContext2D();
+
+All drawing commands are provided in the GraphicsContext class as methods. Drawings that fall
+outside the bounds of the canvas are clipped. The canvas uses a buffer. The drawing commands push
+necessary parameters to the buffer. It is important to note that you should use the graphics context from
+any one thread before adding the Canvas to the scene graph. Once the Canvas is added to the scene graph,
+the graphics context should be used only on the JavaFX Application Thread. 
+
+The GraphicsContext class contains methods to draw the following types of objects:
+    • Basic shapes
+    • Text
+    • Paths
+    • Images
+    • Pixels
+
+
+The canvas is a transparent area. Pixels will have colors and opacity depending on what is drawn at those
+pixels. Sometimes you may want to clear the whole or part of the canvas so the pixels are transparent again.
+The clearRect() method of the GraphicsContext lets you clears a specified area on the canvas:
+
+    // Clear the top-left 100X100 rectangular area from the canvas
+    gc.clearRect(0, 0, 100, 100);
+    
+
+
+
+
+
+

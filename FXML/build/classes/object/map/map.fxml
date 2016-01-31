@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    Если класс реализует интерфес Map, то его объект будет создан напрямую,
+    а его свойства будут представлять пары ключ=значение в карте, инициализируемые
+    map-методами put() и get()
+ -->
+<!-- Через аттрибуты -->
+<HashMap foo="123" bar="456"/> 
+
+<!-- Через свойства: 
+<HashMap>
+    <foo>123</foo>
+    <bar>456</bar>
+</HashMap>	 
+ -->

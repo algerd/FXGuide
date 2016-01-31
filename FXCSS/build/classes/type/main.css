@@ -1,0 +1,34 @@
+
+.root {
+    -fx-pref-width: 600px;
+    -fx-spacing: 15;
+}
+
+/*
+Type <string>:
+    Значение заключается в одиночные или двойные ковычки.
+    Ковычки внутри значения надо экранировать \" or \22, \' or \27.
+    Значение не может быть разбито на строки. Чтобы включить новую линию в
+    строчное значение, надо использовать \A or \00000a.
+*/
+.root {
+   /* -fx-font-family: "Arial"; */
+   -fx-font-family: 'Arial';   
+}
+
+/*
+Type <uri> = url([\"\']? <address> [\"\']?)
+    <address> - абсолютный или относительный адрес ресурса.
+    Если перед <address> нет слеша - адрес относительно текущего css-документа,
+    если есть слеш - адресс относительно сlasspath.
+*/
+.root {
+    -fx-background-image: url(/type/border_with_traingles.jpg);
+    /*-fx-background-image: url(border_with_traingles.jpg);*/
+    /*-fx-background-image: url("http://jdojo.com/myimage.png");*/
+}
+
+/*
+Type <boolean> = true | false
+*/
+

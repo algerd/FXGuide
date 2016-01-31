@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox>
+    <!--
+    Значение статического свойства класса задаётся через вызов другого класса:   
+    <SuperClass>
+        <SubClass>
+            <SuperClass.property>
+                <ClassProperty attribute="value"/>
+            </SuperClass.property>
+        </SubClass>             
+    </ClassSuper>     
+    Это аналогично вызову статического метода класса(не обязательно того, чьё свойство задаётся) для задания свойства:
+    sub = new SubClass();
+    SuperClass.setProperty(sub, value);
+    
+    Button btn = new Button("OK");
+    Insets insets = new Insets(20.0);
+    VBox.setMargin(btn, insets);
+    VBox vbox = new VBox(btn);
+    -->
+    <VBox>
+        <Button text="OK">
+            <VBox.margin>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+
+    <!--
+    Для примитивного типа статического свойства его значение можно задать через аттрибут:
+    <SuperClass>
+        <SubClass SuperClass.proprty="value"/>             
+    </ClassSuper> 
+
+    Button btn = new Button();
+    GridPane.setRowIndex(btn, 0);
+    GridPane.setColumnIndex(btn, 0);      
+    -->
+    <GridPane>
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Cancel"/>
+    </GridPane>
+              
+</VBox>    

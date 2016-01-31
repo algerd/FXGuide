@@ -1,0 +1,136 @@
+﻿Стилевые свойства могут быть заданы также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+Класс Background имеет два свойства, которые определяют наборы свойств для background:
+	final List<BackgroundFill> fills; - список объектов BackgroundFill с css-свойствами: 
+		-fx-background-color
+		-fx-background-radius
+		-fx-background-insets
+	final List<BackgroundImage> images; - список объектов BackgroundImage с css-свойствами:  
+		-fx-background-image 
+		-fx-background-repeat
+		-fx-background-position
+		-fx-background-size
+	
+Пример задания трёх наборов свойств BackgroundFill для одного элемента Region (каждый набор берёт значения по порядку из свойств color, insets и radius):
+	.my-background-fill {
+		-fx-background-color: 	red,      green, 	    blue;
+		-fx-background-insets: 	5 5 5 5,  10 15 10 10,  15 20 15 15;
+		-fx-background-radius: 	5 5 5 5,  0 0 10 10,    0 20 5 10;
+	}
+	
+Аналогично работают наборы свойств BackgroundImage для background элемента Region (каждый набор берёт значения по порядку из свойств -fx-background-image, -fx-background-repeat, -fx-background-position and -fx-background-size).
+Обязательно указывать в наборе BackgroundImage как минимум одно свойство -fx-background-image. Каждому position, repeat или size должно соответствовать image.
+	.my-background-image {
+		-fx-background-image: 	 url(tl.png), 		 url(tr.png);
+		-fx-background-position: left 10px top 15px, 10px 15px;
+		-fx-background-repeat: 	 repeat-x repeat-y,  no-repeat; 
+		-fx-background-size: 	 150px 150px, 		 100% 50%;
+	}
+
+------------------------------------------------------------------------------------	
+	
+-fx-region-background
+	Values: javafx.scene.layout.Background
+	Default: null
+	Field: ObjectProperty<Background> background
+	Property: ObjectProperty<Background> backgroundProperty() 			
+	Methods: getBackground(), setBackground(Background) 
+	Description:
+		The background of the Region, which is made up of zero or more BackgroundFills, and zero or more BackgroundImages. 
+		It is possible for a Background to be empty, where it has neither fills nor images, and is semantically equivalent to null.
+	Сomments: 
+		This cannot be set directly from CSS but is created from the property values of -fx-background-color, -fx-background-image, 
+		-fx-background-insets, -fx-background-position, -fx-background-radius, -fx-background-repeat, -fx-background-size from
+		javafx.scene.layout.Background class.
+		
+		
+************** BackgroundFill ***************** Свойства css задаются в соответствии с правилами http://www.w3.org/TR/css3-background/#backgrounds	 
+	
+-fx-background-color
+	Values: <paint> [ , <paint> ]*
+	Default: transparent
+	Field: ObjectProperty<Background> background : List<BackgroundFill> fills : Paint fill
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:
+		A series of paint values separated by commas.
+		The Paint to use for filling the background of the Region.
+		The number of colors in the list determines the number of rectangles that will be painted. 
+		You need to specify the radius values for four corners and insets for four sides, for each rectangle, 
+		using the other two properties. The number of color values must match the number of radius values and inset values.
+		
+-fx-background-insets
+	Values: <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+	Default: 0 0 0 0
+	Field: ObjectProperty<Background> background : List<BackgroundFill> fills : Insets insets
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:
+		A series of size values or sets of four size values, separated by commas. 
+		A single size value means all insets are the same. Otherwise, the four values for each inset are given 
+		in the order top, right, bottom, left. Each comma-separated value or set of values in the series applies 
+		to the corresponding background color.
+		Each inset indicates at what distance from the Region's bounds the drawing should begin.
+		The -fx-background-insets property is a list of a comma-separated set of four inset values for the
+		rectangles to be filled. A set of inset values in the list may specify only one value, for example, 10, or four
+		values separated by whitespaces, for example, 10 5 15 20. The inset values are specified for the top, right,
+		bottom, and left sides in order. If only one inset value is specified, the same inset value is used for all sides.
+	
+-fx-background-radius
+	Values: [<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+	Default: 0 0 0 0
+	Field: ObjectProperty<Background> background : List<BackgroundFill> fills : CornerRadii radii
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description: 
+		The same syntax and semenatics as CSS Backgrounds and Borders Module Level 3: Curve Radii (http://www.w3.org/TR/css3-background/#the-border-radius) applies to -fx-background-radius. 
+		Note that JavaFX supports only the short-hand syntax.
+		Each comma-separated value or set of values in the series applies to the corresponding background color.
+		When applied to a Region with a defined shape, the corner radii are ignored.	
+		The -fx-background-radius property is a list of a comma-separated set of four radius values for the
+		rectangles to be filled. A set of radius values in the list may specify only one value, for example, 10, or four
+		values separated by whitespaces, for example, 10 5 15 20. The radius values are specified for the top-left,
+		top-right, bottom-right, and bottom-left corners in order. If only one radius value is specified, the same
+		radius value is used for all corners.
+	
+	
+*********** BackgroundImage ************* Свойства css задаются в соответствии с правилами http://www.w3.org/TR/css3-background/#the-background-image
+
+-fx-background-image
+	Values: <uri> [ , <uri> ]*
+	Default: null
+	Field: ObjectProperty<Background> background : List<BackgroundImage> images : Image image
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:
+		A series of image URIs separated by commas.
+		A BackgroundImage must have an Image specified (it cannot be null)
+	
+	
+-fx-background-position
+	Values: <bg-position> [ , <bg-position> ]*
+		where <bg-position> = [ [ [ <size> | left | center | right ] [ <size> | top | center | bottom ]? ] | [ [ center | [ left | right ] <size>? ] || [ center | [ top | bottom ] <size>? ]
+	Default: 0% 0%
+	Field: ObjectProperty<Background> background : List<BackgroundImage> images : BackgroundPosition position
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:
+		A series of <bg-position> values separated by commas. Each bg-position item in the series applies to the corresponding image in the background-image series.
+		The position property defines how to position the image on the Region.
+		
+-fx-background-repeat
+	Values: <repeat-style> [ , <repeat-style> ]*
+		where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | stretch | no-repeat]
+	Default: repeat repeat
+	Field: ObjectProperty<Background> background : List<BackgroundImage> images : BackgroundRepeat repeatX repeatY
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:
+		A series of <repeat-style> values separated by commas. Each repeat-style item in the series applies to the corresponding image in the background-image series.
+		The repeatX and repeatY properties define how the image is to be repeated in each direction.
+	
+-fx-background-size
+	Values: <bg-size> [ , <bg-size> ]*
+		where <bg-size> = [ <size> | auto ]{1,2} | cover | contain | stretch
+	Default: auto auto
+	Field: ObjectProperty<Background> background : List<BackgroundImage> images : BackgroundSize size
+	Property: ObjectProperty<Background> backgroundProperty() (общее для всех свойств background)
+	Description:	
+		A series of <bg-size> values separated by commas. Each bg-size item in the series applies to the corresponding image in the background-image series.
+		The size property defines the size of the image on the Region. For example, the size might be defined with cover = true, 
+		meaning the image should be stretched to cover the entire rendering surface of the Region.
+

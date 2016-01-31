@@ -1,0 +1,98 @@
+Порядок примеров:
+    Примеры неправильной реализации concurrency
+        UnresponsiveUI
+        BadUI
+        ResponsiveUI
+    Task:    
+        OneShotTask + PrimeFinderTask
+        PrimeFinderService + PrimeFinderTask
+        PrimeFinderScheduledService + PrimeFinderTask
+
+
+The JavaFX concurrency framework consists of one interface, four classes, and one enum.
+An instance of the Worker interface represents a task that needs to be performed in one or more
+background threads. The state of the task is observable from the JavaFX Application Thread.
+
+The Task, Service, and ScheduledService classes implement the Worker interface. They represent
+different types of tasks. They are abstract classes. An instance of the Task class represents a one-shot task.
+A Task cannot be reused. An instance of the Service class represents a reusable task. The ScheduledService
+class inherits from the Service class. A ScheduledService is a task that can be scheduled to run repeatedly
+after a specified interval.
+
+The constants in the Worker.State enum represent different states of a Worker.
+An instance of the WorkerStateEvent class represents an event that occurs as the state of a Worker
+changes. You can add event handlers to all three types of tasks to listen to the change in their states.
+
+The Worker<V> interface provides the specification for any task performed by the JavaFX concurrency
+framework. A Worker is a task that is performed in one or more background threads. The generic parameter V
+is the data type of the result of the Worker. Use Void as the generic parameter if the Worker does not produce
+a result. The state of the task is observable. The state of the task is published on the JavaFX Application
+Thread, making it possible for the task to communicate with the scene graph, as is commonly required in a
+GUI application.
+
+During the life cycle, a Worker transitions through different states. The constants in the Worker.State enum
+represent the valid states of a Worker.
+    • Worker.State.READY
+    • Worker.State.SCHEDULED
+    • Worker.State.RUNNING
+    • Worker.State.SUCCEEDED
+    • Worker.State.CANCELLED
+    • Worker.State.FAILED
+
+When a Worker is created, it is in the READY state. It transitions to the SCHEDULED state, before it starts
+executing. When it starts running, it is in the RUNNING state. Upon successful completion, a Worker transitions
+from the RUNNING state to the SUCCEEDED state. If the Worker throws an exception during its execution, it
+transitions to the FAILED state. A Worker may be cancelled using the cancel() method. It may transition to
+the CANCELLED state from the READY, SCHEDULED, and RUNNING states. These are the normal state transitions
+for a one-shot Worker.
+A reusable Worker may transition from the CANCELLED, SUCCEEDED, and FAILED states to the READY state.
+
+The Worker interface contains nine read-only properties that represent the internal state of the task.
+    • title
+    • message
+    • running
+    • state
+    • progress
+    • workDone
+    • totalWork
+    • value
+    • exception
+When you create a Worker, you will have a chance to specify these properties. The properties can also be
+updated as the task progresses.
+
+The title property represents the title for the task. Suppose a task generates prime numbers. You may
+give the task a title “Prime Number Generator.”
+
+The message property represents a detailed message during the task processing. Suppose a task
+generates several prime numbers; you may want to give feedback to the user at a regular interval or at
+appropriate times with a message such as “Generating X of Y prime numbers.”
+
+The running property tells whether the Worker is running. It is true when the Worker is in the SCHEDULED
+or RUNNING states. Otherwise, it is false.
+
+The state property specifies the state of the Worker. Its value is one of the constants of the
+Worker.State enum.
+
+The totalWork, workDone, and progress properties represent the progress of the task. The totalWork is
+the total amount of work to be done. The workDone is the amount of work that has been done. The progress
+is the ratio of workDone and totalWork. They are set to -1.0 if their values are not known.
+
+The value property represents the result of the task. Its value is non-null only when the Worker finishes
+successfully reaching the SUCCEEDED state. Sometimes, a task may not produce a result. In those cases, the
+generic parameter V would be Void and the value property will always be null.
+
+A task may fail by throwing an exception. The exception property represents the exception that is
+thrown during the processing of the task. It is non-null only when the state of the Worker is FAILED. It is of the
+type Throwable.
+
+Typically, when a task is in progress, you want to display the task details in a scene graph. The
+concurrency framework makes sure that the properties of a Worker are updated on the JavaFX Application
+Thread. Therefore, it is fine to bind the properties of the UI elements in a scene graph to these properties.
+You can also add Invalidation and ChangeListener to these properties and access a live scene graph from
+inside those listeners.
+
+
+
+
+
+

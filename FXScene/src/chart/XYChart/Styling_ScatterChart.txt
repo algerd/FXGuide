@@ -1,0 +1,25 @@
+The ScatterChart is not assigned any additional style-class name other than chart.
+You can customize the appearance of the symbols for each series or each data item in a series. Each
+data item in a ScatterChart is represented by a node. The node gets four default style-class names:
+    • chart-symbol
+    • series<i>
+    • data<j>
+    • default-color<k>
+    • negative
+Please refer to the section Styling the BarChart with CSS for more details on the meanings of <i>, <j>,
+and <k> in these style-class names.
+
+Each legend item in a scatter chart is given the following style-class names:
+    • chart-symbol
+    • series<i>
+    • data<j>
+    • default-color<k>
+
+The following style will display the data items in the first series as triangles filled in blue. Note that
+only eight color series are defined. After that, colors are repeated as discussed at length in the section on
+the pie chart.
+
+    .chart-symbol.default-color0 {
+        -fx-background-color: blue;
+        -fx-shape: "M5, 0L10, 5L0, 5z";
+    }

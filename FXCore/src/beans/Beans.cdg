@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Beans">
+  <ClassDiagramComponents>
+    <Class name="NumberExpressionBase" package="" visibility="public" isAbstract="true" xPosition="577.0" yPosition="940.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="numberExpression" returnType="NumberExpressionBase" visibility="public" isStatic="true">
+          <Argument type="ObservableNumberValue" name="value"/>
+        </Method>
+        <Method name="add" returnType="NumberBinding" visibility="public"/>
+        <Method name="subtract" returnType="NumberBinding" visibility="public"/>
+        <Method name="multiply" returnType="NumberBinding" visibility="public"/>
+        <Method name="divide" returnType="NumberBinding" visibility="public"/>
+        <Method name="greaterThan" returnType="BooleanBinding" visibility="public"/>
+        <Method name="greaterThanOrEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="isEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="isNotEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="lessThan" returnType="BooleanBinding" visibility="public"/>
+        <Method name="lessThanOrEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="asString" returnType="StringBinding" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IntegerExpression" package="" visibility="public" isAbstract="true" xPosition="683.0" yPosition="1322.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="integerExpression" returnType="IntegerExpression" visibility="public" isStatic="true">
+          <Argument type="ObservableIntegerValue" name="value"/>
+        </Method>
+        <Method name="integerExpression" returnType="IntegerExpression" visibility="public" isStatic="true">
+          <Argument type="ObservableValue&lt;T&gt;" name="value"/>
+        </Method>
+        <Method name="getValue" returnType="Integer" visibility="public"/>
+        <Method name="intValue" returnType="int" visibility="public"/>
+        <Method name="longValue" returnType="long" visibility="public"/>
+        <Method name="floatValue" returnType="float" visibility="public"/>
+        <Method name="doubleValue" returnType="double" visibility="public"/>
+        <Method name="add" returnType="DoubleBinding" visibility="public">
+          <Argument type="double" name="other"/>
+        </Method>
+        <Method name="add" returnType="FloatBinding" visibility="public">
+          <Argument type="float" name="other"/>
+        </Method>
+        <Method name="add" returnType="LongBinding" visibility="public">
+          <Argument type="long" name="other"/>
+        </Method>
+        <Method name="add" returnType="IntegerBinding" visibility="public">
+          <Argument type="int" name="other"/>
+        </Method>
+        <Method name="divide" returnType="DoubleBinding" visibility="public">
+          <Argument type="double" name="other"/>
+        </Method>
+        <Method name="divide" returnType="FloatBinding" visibility="public">
+          <Argument type="float" name="other"/>
+        </Method>
+        <Method name="divide" returnType="LongBinding" visibility="public">
+          <Argument type="long" name="other"/>
+        </Method>
+        <Method name="divide" returnType="IntegerBinding" visibility="public">
+          <Argument type="int" name="other"/>
+        </Method>
+        <Method name="multiply" returnType="DoubleBinding" visibility="public">
+          <Argument type="double" name="other"/>
+        </Method>
+        <Method name="multiply" returnType="FloatBinding" visibility="public">
+          <Argument type="float" name="other"/>
+        </Method>
+        <Method name="multiply" returnType="LongBinding" visibility="public">
+          <Argument type="long" name="other"/>
+        </Method>
+        <Method name="multiply" returnType="IntegerBinding" visibility="public">
+          <Argument type="int" name="other"/>
+        </Method>
+        <Method name="negate" returnType="IntegerBinding" visibility="public"/>
+        <Method name="subtract" returnType="DoubleBinding" visibility="public">
+          <Argument type="double" name="other"/>
+        </Method>
+        <Method name="subtract" returnType="FloatBinding" visibility="public">
+          <Argument type="float" name="other"/>
+        </Method>
+        <Method name="subtract" returnType="LongBinding" visibility="public">
+          <Argument type="long" name="other"/>
+        </Method>
+        <Method name="subtract" returnType="IntegerBinding" visibility="public">
+          <Argument type="int" name="other"/>
+        </Method>
+        <Method name="asObject" returnType="ObjectExpression&lt;Integer&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ReadOnlyIntegerProperty" package="" visibility="public" isAbstract="true" xPosition="804.0" yPosition="1957.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="readOnlyIntegerProperty" returnType="ReadOnlyProperty&lt;T&gt;" visibility="public" isStatic="true">
+          <Argument type="ReadOnlyProperty&lt;T&gt;" name="property"/>
+        </Method>
+        <Method name="asObject" returnType="ReadOnlyObjectProperty&lt;Integer&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IntegerProperty" package="" visibility="public" isAbstract="true" xPosition="1526.0" yPosition="807.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="integerProperty" returnType="void" visibility="public">
+          <Argument type="Property&lt;Integer&gt;" name="property"/>
+        </Method>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="Number" name="v"/>
+        </Method>
+        <Method name="bindBidirectional" returnType="void" visibility="public">
+          <Argument type="Property&lt;Number&gt;" name="other"/>
+        </Method>
+        <Method name="unbindBidirectional" returnType="void" visibility="public">
+          <Argument type="Property&lt;Number&gt;" name="other"/>
+        </Method>
+        <Method name="asObject" returnType="ObjectProperty&lt;Integer&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IntegerPropertyBase" package="" visibility="public" isAbstract="true" xPosition="1447.0" yPosition="1068.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="get" returnType="int" visibility="public"/>
+        <Method name="set" returnType="int" visibility="public">
+          <Argument type="int" name="newValue"/>
+        </Method>
+        <Method name="isBound" returnType="boolean" visibility="public"/>
+        <Method name="bind" returnType="ObservableValue&lt;? extends Number&gt;" visibility="public">
+          <Argument type="ObservableValue&lt;? extends Number&gt;" name="rawObservable"/>
+        </Method>
+        <Method name="unbind" returnType="void" visibility="public"/>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="fireValueChangedEvent" returnType="void" visibility="protected"/>
+        <Method name="invalidated" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="SimpleIntegerProperty" package="" visibility="public" xPosition="1649.0" yPosition="1433.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getBean" returnType="Object" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ReadOnlyIntegerWrapper" package="" visibility="public" xPosition="1538.0" yPosition="1629.0">
+      <Fields>
+        <Field name="readOnlyProperty" type="ReadOnlyPropertyImpl" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getReadOnlyProperty" returnType="ReadOnlyIntegerProperty" visibility="public"/>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="fireValueChangedEvent" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ReadOnlyIntegerPropertyBase" package="" visibility="public" isAbstract="true" xPosition="1124.0" yPosition="2194.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="fireValueChangedEvent" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ReadOnlyPropertyImpl" package="" visibility="private" xPosition="1538.0" yPosition="1909.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="get" returnType="int" visibility="public"/>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="fireValueChangedEvent" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="WeakChangeListener&lt;T&gt;" package="" visibility="public" xPosition="1580.0" yPosition="191.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="changed" returnType="void" visibility="public">
+          <Argument type="ObservableValue&lt;? extends T&gt;" name="observable"/>
+          <Argument type="T" name="oldValue"/>
+          <Argument type="T" name="newValue"/>
+        </Method>
+        <Method name="wasGarbageCollected" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WeakInvalidationListener" package="" visibility="public" xPosition="1238.0" yPosition="195.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="invalidated" returnType="void" visibility="public">
+          <Argument type="Observable" name="observable"/>
+        </Method>
+        <Method name="wasGarbageCollected" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IntegerBinding" package="" visibility="public" isAbstract="true" xPosition="190.0" yPosition="1446.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Number&gt;" name="listener"/>
+        </Method>
+        <Method name="bind" returnType="void" visibility="public">
+          <Argument type="Observable" name="dependencies"/>
+        </Method>
+        <Method name="unbind" returnType="void" visibility="public">
+          <Argument type="Observable" name="dependencies"/>
+        </Method>
+        <Method name="getDependencies" returnType="ObservableList" visibility="public"/>
+        <Method name="get" returnType="int" visibility="public"/>
+        <Method name="invalidate" returnType="void" visibility="public" isFinal="true"/>
+        <Method name="isValid" returnType="boolean" visibility="public"/>
+        <Method name="computeValue" returnType="int" visibility="protected" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="ObservableValueBase&lt;T&gt;" package="javafx.beans.value" visibility="public" isAbstract="true" xPosition="29.0" yPosition="162.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super T&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super T&gt;" name="listener"/>
+        </Method>
+        <Method name="fireValueChangedEvent" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ExpressionValue" package="com.sun.javafx.fxml.BeanAdapter" visibility="public" xPosition="15.0" yPosition="659.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getValue" returnType="Object" visibility="public"/>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Object&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super Object&gt;" name="listener"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IntegerConstant" package="com.sun.javafx.binding" visibility="public" isFinal="true" xPosition="1191.0" yPosition="868.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="valueOf" returnType="int" visibility="public" isStatic="true">
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="get" returnType="int" visibility="public"/>
+        <Method name="getValue" returnType="Integer" visibility="public"/>
+        <Method name="intValue" returnType="int" visibility="public"/>
+        <Method name="longValue" returnType="long" visibility="public"/>
+        <Method name="floatValue" returnType="float" visibility="public"/>
+        <Method name="doubleValue" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Observable" package="javafx.beans" visibility="public" xPosition="668.0" yPosition="15.0">
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="InvalidationListener" name="listener"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableValue&lt;T&gt;" package="javafx.beans.value" visibility="public" xPosition="655.0" yPosition="187.0">
+      <Methods>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super T&gt;" name="listener"/>
+        </Method>
+        <Method name="removeListener" returnType="void" visibility="public">
+          <Argument type="ChangeListener&lt;? super T&gt;" name="listener"/>
+        </Method>
+        <Method name="getValue" returnType="T" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableNumberValue" package="" visibility="public" xPosition="740.0" yPosition="394.0">
+      <Methods>
+        <Method name="intValue" returnType="int" visibility="public"/>
+        <Method name="longValue" returnType="long" visibility="public"/>
+        <Method name="floatValue" returnType="float" visibility="public"/>
+        <Method name="doubleValue" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="NumberExpression " package="" visibility="public" xPosition="702.0" yPosition="587.0">
+      <Methods>
+        <Method name="add" returnType="NumberBinding" visibility="public"/>
+        <Method name="subtract" returnType="NumberBinding" visibility="public"/>
+        <Method name="multiply" returnType="NumberBinding" visibility="public"/>
+        <Method name="divide" returnType="NumberBinding" visibility="public"/>
+        <Method name="negate" returnType="NumberBinding" visibility="public"/>
+        <Method name="greaterThan" returnType="NumberBinding" visibility="public"/>
+        <Method name="greaterThanOrEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="isEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="isNotEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="lessThan" returnType="BooleanBinding" visibility="public"/>
+        <Method name="lessThanOrEqualTo" returnType="BooleanBinding" visibility="public"/>
+        <Method name="asString" returnType="StringBinding" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ReadOnlyProperty&lt;T&gt;" package="" visibility="public" xPosition="1149.0" yPosition="394.0">
+      <Methods>
+        <Method name="getBean" returnType="Object" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Property&lt;T&gt;" package="" visibility="public" xPosition="1517.0" yPosition="576.0">
+      <Methods>
+        <Method name="bind" returnType="void" visibility="public">
+          <Argument type="ObservableValue&lt;? extends T&gt;" name="observable"/>
+        </Method>
+        <Method name="unbind" returnType="void" visibility="public"/>
+        <Method name="isBound" returnType="boolean" visibility="public"/>
+        <Method name="bindBidirectional" returnType="void" visibility="public">
+          <Argument type="Property&lt;T&gt;" name="other"/>
+        </Method>
+        <Method name="unbindBidirectional" returnType="void" visibility="public">
+          <Argument type="Property&lt;T&gt;" name="other"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="WritableValue&lt;T&gt;" package="" visibility="public" xPosition="1956.0" yPosition="360.0">
+      <Methods>
+        <Method name="getValue" returnType="T" visibility="public"/>
+        <Method name="setValue" returnType="T" visibility="public">
+          <Argument type="T" name="value"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="WritableNumberValue" package="" visibility="public" xPosition="1953.0" yPosition="642.0">
+      <Methods/>
+    </Interface>
+    <Interface name="WritableIntegerValue" package="" visibility="public" xPosition="1939.0" yPosition="840.0">
+      <Methods>
+        <Method name="get" returnType="int" visibility="public"/>
+        <Method name="set" returnType="int" visibility="public">
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="Number" name="value"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="InvalidationListener" package="javafx.beans" visibility="public" xPosition="1091.0" yPosition="15.0">
+      <Methods>
+        <Method name="invalidated" returnType="void" visibility="public">
+          <Argument type="Observable" name="observable"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ChangeListener&lt;T&gt;" package="javafx.beans" visibility="public" xPosition="1739.0" yPosition="15.0">
+      <Methods>
+        <Method name="changed" returnType="void" visibility="public">
+          <Argument type="ObservableValue&lt;? extends T&gt;" name="observable"/>
+          <Argument type="T" name="oldValue"/>
+          <Argument type="T" name="newValue"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="WeakListener" package="" visibility="public" xPosition="1436.0" yPosition="15.0">
+      <Methods>
+        <Method name="wasGarbageCollected" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ObservableIntegerValue" package="" visibility="public" xPosition="1149.0" yPosition="642.0">
+      <Methods>
+        <Method name="get" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Binding&lt;T&gt;" package="" visibility="public" xPosition="380.0" yPosition="394.0">
+      <Methods>
+        <Method name="isValid" returnType="boolean" visibility="public"/>
+        <Method name="invalidate" returnType="void" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getDependencies" returnType="ObservableList" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="NumberBinding" package="" visibility="public" xPosition="380.0" yPosition="940.0">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="IntegerBinding" target="IntegerExpression"/>
+    <IsRelation name="is" source="javafx.beans.value.ObservableValue&lt;T&gt;" target="javafx.beans.Observable"/>
+    <IsRelation name="is" source="Binding&lt;T&gt;" target="javafx.beans.value.ObservableValue&lt;T&gt;"/>
+    <IsRelation name="is" source="IntegerExpression" target="NumberExpressionBase"/>
+    <IsRelation name="is" source="WritableNumberValue" target="WritableValue&lt;T&gt;"/>
+    <IsRelation name="is" source="ReadOnlyPropertyImpl" target="ReadOnlyIntegerPropertyBase"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="IntegerBinding" target="NumberBinding"/>
+    <IsRelation name="is" source="ReadOnlyProperty&lt;T&gt;" target="javafx.beans.value.ObservableValue&lt;T&gt;"/>
+    <IsRelation name="is" source="Property&lt;T&gt;" target="ReadOnlyProperty&lt;T&gt;"/>
+    <HasRelation name="readOnlyProperty" source="ReadOnlyPropertyImpl" target="ReadOnlyIntegerWrapper" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="NumberExpression " target="ObservableNumberValue"/>
+    <IsRelation name="is" source="SimpleIntegerProperty" target="IntegerPropertyBase"/>
+    <IsRelation name="is" source="com.sun.javafx.fxml.BeanAdapter.ExpressionValue" target="javafx.beans.value.ObservableValueBase&lt;T&gt;"/>
+    <IsRelation name="is" source="ReadOnlyIntegerPropertyBase" target="ReadOnlyIntegerProperty"/>
+    <IsRelation name="is" source="IntegerPropertyBase" target="IntegerProperty"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sun.javafx.binding.IntegerConstant" target="ObservableIntegerValue"/>
+    <IsRelation name="is" source="ObservableIntegerValue" target="ObservableNumberValue"/>
+    <IsRelation name="is" source="ObservableNumberValue" target="javafx.beans.value.ObservableValue&lt;T&gt;"/>
+    <IsRelation name="is" source="ReadOnlyIntegerWrapper" target="SimpleIntegerProperty"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="WeakInvalidationListener" target="javafx.beans.InvalidationListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="IntegerProperty" target="WritableIntegerValue"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="WeakChangeListener&lt;T&gt;" target="WeakListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="IntegerExpression" target="ObservableIntegerValue"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="NumberExpressionBase" target="NumberExpression "/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="WeakChangeListener&lt;T&gt;" target="javafx.beans.ChangeListener&lt;T&gt;"/>
+    <IsRelation name="is" source="ReadOnlyIntegerProperty" target="IntegerExpression"/>
+    <IsRelation name="is" source="IntegerProperty" target="ReadOnlyIntegerProperty"/>
+    <IsRelation name="is" source="NumberBinding" target="NumberExpression "/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="WeakInvalidationListener" target="WeakListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="IntegerProperty" target="Property&lt;T&gt;"/>
+    <IsRelation name="is" source="WritableIntegerValue" target="WritableNumberValue"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="javafx.beans.value.ObservableValueBase&lt;T&gt;" target="javafx.beans.value.ObservableValue&lt;T&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

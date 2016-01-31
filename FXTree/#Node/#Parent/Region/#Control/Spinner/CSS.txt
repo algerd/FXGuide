@@ -1,0 +1,20 @@
+
+Note that the default style class, "spinner", puts arrows on right, stacked vertically. The following style classes can also be used in combination with the default style class in order to control the layout of the Spinner.
+
+Style classes:
+
+spinner 					- по умолчанию
+arrows-on-right-horizontal	- The arrows are placed on the right of the Spinner, pointing horizontally (i.e. left and right)
+arrows-on-left-vertical		- The arrows are placed on the left of the Spinner, pointing vertically (i.e. up and down)
+arrows-on-left-horizontal	- The arrows are placed on the left of the Spinner, pointing horizontally (i.e. left and right)
+split-arrows-vertical		- The arrows are placed above and beneath the spinner, stretching to take the entire width
+split-arrows-horizontal		- The decrement arrow is placed on the left of the Spinner, and the increment on the right
+
+
+******* Substructure: ***********
+
+text-field - TextField
+increment-arrow-button - StackPane
+	increment-arrow - Region
+decrement-arrow-button - StackPane
+	decrement-arrow - Region

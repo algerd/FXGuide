@@ -1,0 +1,44 @@
+ 
+CSS Pseudo-class:
+
+editable	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty editable
+	Property: BooleanProperty editableProperty()
+	Methods: isEditable(), setEditable(boolean)
+	Description:
+		Applies when the editable variable is true.
+		Specifies whether the ComboBox allows for user input. When editable is true, the ComboBox has a text input area that a user may type in to. 
+		This input is then available via the value property.
+		Note that when the editable property changes, the value property is reset, along with any other relevant state.
+
+showing	
+	Values: <boolean>
+	Default: false
+	Field: ReadOnlyBooleanWrapper showing
+	Property: ReadOnlyBooleanProperty showingProperty()
+	Methods: isShowing()
+	Description:
+		Applies when the showing variable is true.
+		Represents the current state of the ComboBox popup, and whether it is currently visible on screen (although it may be hidden behind other windows).
+
+armed	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty armed
+	Property: BooleanProperty armedProperty()
+	Methods: isArmed()
+	Description:
+		Applies when the armed variable is true.
+		Indicates that the ComboBox has been "armed" such that a mouse release will cause the ComboBox show() method to be invoked. 
+		This is subtly different from pressed. Pressed indicates that the mouse has been pressed on a Node and has not yet been released. 
+		arm however also takes into account whether the mouse is actually over the ComboBox and pressed.
+	
+
+**************** Substructure *****************
+
+arrow-button — StackPane
+	arrow — StackPane
+	
+	

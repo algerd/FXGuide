@@ -1,0 +1,14 @@
+
+The TextInputControl class introduces a CSS pseudo-class named readonly, which applies when the
+control is not editable. It adds the following style properties:
+    • -fx-font
+    • -fx-text-fill
+    • -fx-prompt-text-fill
+    • -fx-highlight-fill
+    • -fx-highlight-text-fill
+    • -fx-display-caret
+
+The -fx-font property is inherited from the parent by default. The value for the -fx-display-caret
+property could be true or false. When it is true, the caret is displayed when the control has focus. Otherwise,
+the caret is not displayed. Its default value is true. Most of the other properties affect background and
+text colors.

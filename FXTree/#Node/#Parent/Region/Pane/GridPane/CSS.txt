@@ -1,0 +1,39 @@
+
+-fx-hgap
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty hgap
+	Property: DoubleProperty hgapProperty()
+	Methods: getHgap(), setHgap(double)
+	Description:
+		The width of the horizontal gaps between columns.
+	 	
+-fx-vgap	
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty vgap
+	Property: DoubleProperty vgapProperty()
+	Methods: getVgap(), setVgap(double)
+	Description:
+		The height of the vertical gaps between rows.
+	
+-fx-alignment			 	
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The alignment of of the grid within the gridpane's width and height.
+
+-fx-grid-lines-visible		
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty gridLinesVisibleProperty
+	Property: BooleanProperty gridLinesVisibleProperty
+	Methods: isGridLinesVisible(), setGridLinesVisible(boolean)
+	Description:
+		For debug purposes only: controls whether lines are displayed to show the gridpane's rows and columns.
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox>
+    <!--
+        Если свойство является дефолтным, т.е оно имеет аннотацию @DefaultProperty,
+        то тег-свойство можно опустить. 
+        Пример: 
+            свойство children является дефолтным для класса Pane и всех его детей(VBox):
+            @DefaultProperty("children")
+            public class Pane extends Region {
+    --> 
+    <VBox> 
+        <children>
+            <Button text="OK1" /> 
+            <Button text="Cancel1" /> 
+        </children>
+    </VBox>  
+    
+    <!-- опускаем children-теги -->
+    <VBox>
+        <Button text="OK2"/> 
+        <Button text="Cancel2"/> 
+    </VBox>  
+              
+</VBox>    

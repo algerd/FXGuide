@@ -1,0 +1,27 @@
+
+ObservableArray можно создавать только с типами данных int и float.
+
+Объекты ObservableArray типа можно создавать напрямую через реализации классов:
+    new ObservableFloatArrayImpl()
+    new ObservableFloatArrayImpl(float... elements)
+    new ObservableFloatArrayImpl(ObservableFloatArray src)
+    new ObservableIntegerArrayImpl()
+    new ObservableIntegerArrayImpl(int... elements)
+    new ObservableIntegerArrayImpl(ObservableIntegerArray src)
+
+Или же используя фабричные методы класса FXCollections, которые полностью повторяют создание объектов
+через реализации классов ObservableFloatArrayImpl и ObservableIntegerArrayImpl:
+    ObservableFloatArray observableFloatArray()
+    ObservableFloatArray observableFloatArray(float... values)
+    ObservableFloatArray observableFloatArray(ObservableFloatArray array)
+    ObservableIntegerArray observableIntegerArray()
+    ObservableIntegerArray observableIntegerArray(int... values)
+    ObservableIntegerArray observableIntegerArray(ObservableIntegerArray array)
+
+
+
+
+
+
+
+

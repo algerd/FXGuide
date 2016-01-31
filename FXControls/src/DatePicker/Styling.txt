@@ -1,0 +1,18 @@
+
+The default CSS style-class name for a DatePicker is date-picker, and for its pop-up, the class name is
+date-picker-popup. You can style almost every part of a DatePicker, for example, the month-year pane in
+the top area of the pop-up, day cells, week number cells, and current day cell. Please refer to the modena.css
+file for complete reference.
+
+The CSS style-class name for day cell is day-cell. The day cell for the current date has the style-class
+name as today. The following styles display the current day number in bold and all day numbers in blue:
+
+    /* Display current day numbers in bolder font */
+    .date-picker-popup > * > .today {
+        -fx-font-weight: bolder;
+    }
+
+    /* Display all day numbers in blue */
+    .date-picker-popup > * > .day-cell {
+        -fx-text-fill: blue;
+    }

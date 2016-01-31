@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<!-- Для использования блока определений объектов необходимо указать пространство имён xmlns:fx -->
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <!--
+    Объекты, определённые в блоке fx:define, не входят в дерево fxml-документа и являются самостоятельными
+    единицами, которые можно использовать позже, в любом месте fxml-документа. Поэтому ,чтобы можно было
+    обращаться к этим объектам, им устанавливают идентификаторы fx:id     
+    --> 
+    <fx:define>
+        <Insets fx:id="margin" top="5.0" right="5.0" bottom="5.0" left="5.0"/>
+        <ToggleGroup fx:id="genderGroup"/>
+    </fx:define>
+    <children>
+        <Label text="Gender" VBox.margin="$margin"/>
+        <RadioButton text="Male" toggleGroup="$genderGroup"/>
+        <RadioButton text="Female" toggleGroup="$genderGroup"/>
+        <RadioButton text="Unknown" toggleGroup="$genderGroup" selected="true"/>
+        <Button text="Close" VBox.margin="$margin"/> 
+    </children> 
+       
+</VBox>    

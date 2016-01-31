@@ -1,0 +1,88 @@
+﻿
+Node				disabled
+					focused
+					hover
+					pressed
+					
+	ContextMenuContent	selected
+						disabled
+						checked	
+						
+	TableColumnHeader	last-visible
+	
+	ComboBoxBase		editable
+						showing
+						armed
+						
+	ButtonBase			armed
+		Button				cancel
+							default							
+		CheckBox			selected
+							determinate	
+							indeterminate							
+		Hyperlink			visited	
+		MenuButton			openvertically
+							showing							
+		ToggleButton		selected
+		
+	Cell				empty
+						filled
+						selected	
+		IndexedCell			even
+							odd							
+			TableCell			last-visible						
+			TreeCell			expanded
+								collapsed								
+			TreeTableCell		last-visible			
+			TreeTableRow		expanded
+								collapsed
+								
+	TitledPane			expanded
+						collapsed
+						
+	TextInputControl	readonly
+	
+	ListView			horizontal
+						vertical
+						
+	ProgressIndicator	determinate	
+						indetermindate
+						
+	ScrollBar			horizontal
+						vertical
+						
+	ScrollPane			pannable
+						fitToWidth
+						fitToHeight
+						
+	Separator			horizontal
+						vertical
+						
+	Slider				horizontal
+						vertical
+						
+	SplitPane			horizontal
+						vertical
+						
+	TableView			cell-selection
+						row-selection
+						
+	TabPane				top
+						right
+						bottom
+						left
+						
+	ToolBar				horizontal
+						vertical
+						
+	TreeTableView		cell-selection
+						row-selection
+						
+								
+								
+								
+								
+
+
+
+

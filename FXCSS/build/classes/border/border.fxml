@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:id="box">
+    
+    <StackPane fx:id="borderStrokeSingle1">
+        <Text>borderStrokeSingle1</Text> 
+    </StackPane>
+    
+    <StackPane fx:id="borderStrokeSingle2">
+        <Text>borderStrokeSingle2</Text> 
+    </StackPane> 
+       
+    <StackPane fx:id="borderStrokeMultiple1">
+        <Text>borderStrokeMultiple1</Text> 
+    </StackPane> 
+    
+    <StackPane fx:id="borderStrokeMultiple2">
+        <Text>borderStrokeMultiple2</Text> 
+    </StackPane> 
+    
+    <StackPane fx:id="borderImage">
+        <Text>borderImage</Text> 
+    </StackPane> 
+                            
+</VBox>
+
+
+
+
+
+

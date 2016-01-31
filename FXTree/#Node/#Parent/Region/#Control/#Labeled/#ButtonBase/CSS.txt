@@ -1,0 +1,14 @@
+
+CSS Pseudo-class:	
+
+armed	
+	Values: <boolean>
+	Default: false
+	Field: ReadOnlyBooleanWrapper armed
+	Property: ReadOnlyBooleanProperty armedProperty()
+	Methods: isArmed()
+	Description:
+		Applies when the armed variable is true.
+		Indicates that the button has been "armed" such that a mouse release will cause the button's action to be invoked. 
+		This is subtly different from pressed. Pressed indicates that the mouse has been pressed on a Node and has not yet been released. 
+		arm however also takes into account whether the mouse is actually over the button and pressed.

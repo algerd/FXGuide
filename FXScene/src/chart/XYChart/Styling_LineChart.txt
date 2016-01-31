@@ -1,0 +1,36 @@
+The LineChart is not assigned any additional style-class name other than chart. The following style specifies
+that the LineChart should not create symbols.
+    .chart {
+        -fx-create-symbols: false;
+    }
+
+The LineChart creates a Path node to show the lines connecting all data points for a series. A line for
+a series is assigned the following style-class names:
+    • chart-series-line
+    • series<i>
+    • default-color<j>
+Here, <i> is the series index and <j> is the color index of the series.
+
+If the createSymbols property is set to true, a symbol is created for each data point. Each symbol node
+is assigned the following style-class name:
+    • chart-line-symbol
+    • series<i>
+    • data<j>
+    • default-color<k>
+Here, <i> is the series index, <j> is the data item index within a series, and <k> is the color index
+of the series.
+
+Each series is assigned a legend item, which gets the following style-class names:
+    • chart-line-symbol
+    • series<i>
+    • default-color<j>
+
+The following styles set the line stroke for the color index 0 of series to blue. The symbol is for the series
+is also shown in blue.
+
+    .chart-series-line.default-color0 {
+        -fx-stroke: blue;
+    }
+    .chart-line-symbol.default-color0 {
+        -fx-background-color: blue, white;
+    }

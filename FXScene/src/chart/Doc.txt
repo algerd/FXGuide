@@ -1,0 +1,35 @@
+
+The abstract Chart is the base class for all charts. It inherits the Node class. Charts can be added to a scene
+graph. They can also be styled with CSS as any other nodes. 
+JavaFX divides charts into two categories:
+    • Charts having no-axis
+    • Charts having an x-axis and a y-axis
+The PieChart class falls into the first category. It has no axis, and it is used to draw a pie chart.
+The XYChart class falls into the second category. It is the abstract base class for all charts having two
+axes. Its subclasses, for example, LineChart, BarChart, etc., represent specific type of charts.
+
+Every chart in JavaFX has three parts:
+    • A title
+    • A legend
+    • Content (or data)
+
+Different types of charts define their data differently. The Chart class contains the following properties
+that are common to all types of charts:
+    • title
+    • titleSide
+    • legend
+    • legendSide
+    • legendVisible
+    • animated
+The title property specifies the title for a chart. The titleSide property specifies the location of the
+title. By default, the title is placed above the chart content. Its value is one of the constants of the Side enum:
+TOP (default), RIGHT, BOTTOM, and LEFT.
+
+Typically, a chart uses different types of symbols to represent data in different categories. A legend
+lists symbols with their descriptions. The legend property is a Node and it specifies the legend for the chart.
+By default, a legend is placed below the chart content. The legendSide property specifies the location of
+the legend, which is one of the constants of the Side enum: TOP, RIGHT, BOTTOPM (default), and LEFT. The
+legendVisible property specifies whether the legend is visible. By default, it is visible.
+
+The animated property specifies whether the change in the content of the chart is shown with some
+type of animation. By default, it is true.

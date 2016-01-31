@@ -1,0 +1,31 @@
+
+All properties in JavaFX are observable. They can be observed for invalidation and value changes. 
+There can be read/write or read-only properties.
+All read/write properties support binding.
+
+Свойства сделаны для примитивных типов данных (нет для byte, short и char), строк, объектов и некоторых коллекций.
+Классы свойств в пакете javafx.beans.property и имеют классы:
+
+abstract XxxProperty (ObjectProperty<T>)
+    abstract XxxPropertyBase
+        SimpleXxxProperty
+            ReadOnlyXxxWrapper
+    
+Xxx: 
+    Boolean
+    Double
+    Float
+    Integer
+    Long
+    String
+    Object
+    List
+    Map
+    Set
+
+Иерархия классов для разных типов одинакова (см. иерархию классов для Integer в пакете base).
+
+Property classes provide two pairs of getter and setter methods: get()/set() and getValue()/ setValue().
+Для примитивные типов свойств get()/set() - возвращают и передают примитивные двнные, 
+getValue()/ setValue() - возвращают и передают объектные данные путём автобоксинга (анбоксинга и боксинга соответственно).
+Для объектных типов свойств get()/set() и getValue()/ setValue() работают одинаково и возвращают и передают объектные данные.

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox>
+    <!--
+    Если свойство является read-only Map (оно не имеет сеттера) и его геттер
+    возвращает Map, то аттрибуты соответствующего тег-свойства являюются парами
+    ключ=значение карты:
+    <Class>
+        <mapPpoperty key1="value" key2="value"/>
+    </Class> 
+    или через свойства:
+    <Class>
+        <mapPpoperty key1="value" key2="value"/>
+            <key1>value</key1>
+            <key2>value</key2>
+        </mapPpoperty>
+    </Class> 
+    
+     properties это ObservableMap-свойство класса Node - родителя большинства JavaFX-элементов   
+    -->      
+    <Button>
+        <properties key1="123" key2="456"/>
+        <text>OK</text>
+    </Button>
+    <Button>
+        <properties foo="123" bar="Hello"/>
+        <text>Cancel</text>
+    </Button>
+       
+</VBox>

@@ -1,0 +1,52 @@
+
+JavaFX provides two controls named ScrollBar and ScrollPane that provide scrolling features to other
+controls. Typically, these controls are not used alone. They are used to support scrolling in other controls.
+
+ScrollBar is a basic control that does not provide the scrolling feature by itself. It is represented as a
+horizontal or vertical bar that lets users choose a value from a range of values.
+
+A ScrollBar control consists of four parts:
+• An increment button to increase the value
+• A decrement button to decrease the value
+• A thumb (or knob) to show the current value
+• A track where the thumb moves
+
+The increment and decrement buttons in a vertical ScrollBar are on the bottom and top, respectively.
+The ScrollBar class provides a default constructor that creates a horizontal scrollbar. You can set its
+orientation to vertical using the setOrientation() method:
+
+    // Create a horizontal scroll bar
+    ScrollBar hsb = new ScrollBar();
+    // Create a vertical scroll bar
+    ScrollBar vsb = new ScrollBar();
+    vsb.setOrientation(Orientation.VERTICAL);
+
+The min and max properties represent the range of its value. Its value property is the current value.
+The default values for min, max, and value properties are 0, 100, and 0, respectively. If you are interested in
+knowing when the value property changes, you need to add a ChangeListener to it. The following code
+would set the value properties to 0, 200, and 150:
+
+    ScrollBar hsb = new ScrollBar();
+    hsb.setMin(0);
+    hsb.setMax(200);
+    hsb.setValue(150);
+
+The current value of a scrollbar may be changed three different ways:
+    • Programmatically using the setValue(), increment(), and decrement() methods
+    • By the user dragging the thumb on the track
+    • By the user clicking the increment and decrement buttons
+
+The blockIncrement and unitIncrement properties specify the amount to adjust the current value
+when the user clicks the track and the increment or decrement buttons, respectively. Typically, the block
+increment is set to a larger value than the unit increment.
+
+The default CSS style-class name for a ScrollBar control is scroll-bar. ScrollBar supports two CSS
+pseudo-classes: horizontal and vertical. Some of its properties can be set using CSS.
+
+ScrollBar is rarely used directly by developers. It is used to build complete controls that support
+scrolling, for example, the ScrollPane control. If you need to provide scrolling capability to a control, use the
+ScrollPane, which I will discuss in the next section.
+
+
+
+

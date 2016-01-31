@@ -1,0 +1,18 @@
+
+#box {
+    -fx-cursor: hand;
+    -fx-border-color: blue;
+    -fx-border-width: 5px;    
+    -fx-font: italic bold 20px Arial;
+} 
+
+#okButton {
+    -fx-border-color: red;
+    -fx-border-width: inherit;   
+}
+
+#box > .button {
+    -fx-border-width: 5px;
+}
+        
+

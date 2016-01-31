@@ -1,0 +1,36 @@
+
+TableView automatically provides vertical and horizontal scrollbars when rows or columns fall beyond
+the available space. Users can use the scrollbars to scroll to a specific row or column. Sometimes you need
+programmatic support for scrolling. For example, when you append a row to a TableView, you may want the
+row visible to the user by scrolling it to the view. The TableView class contains four methods that can be used
+to scroll to a specific row or column:
+
+    • scrollTo(int rowIndex)
+    • scrollTo(S item)
+    • scrollToColumn(TableColumn<S,?> column)
+    • scrollToColumnIndex(int columnIndex)
+
+The scrollTo() method scrolls the row with the specified index or item to the view. The
+scrollToColumn() and scrollToColumnIndex() methods scroll to the specified column and columnIndex,
+respectively.
+
+TableView fires a ScrollToEvent when there is a request to scroll to a row or column using one of the
+above-mentioned scrolling methods. The ScrollToEvent class contains a getScrollTarget() method that
+returns the row index or the column reference depending on the scroll type:
+
+    TableView<Person> table = ...
+
+    // Add a ScrollToEvent for row scrolling
+    table.setOnScrollTo(e -> {
+        int rowIndex = e.getScrollTarget();
+        System.out.println("Scrolled to row " + rowIndex);
+    });
+
+    // Add a ScrollToEvent for column scrolling
+    table.setOnScrollToColumn(e -> {
+        TableColumn<Person, ?> column = e.getScrollTarget();
+        System.out.println("Scrolled to column " + column.getText());
+    });
+
+Tip: The ScrollToEvent is not fired when the user scrolls through the rows and columns. It is fired when
+you call one of the four scrolling-related methods of the TableView class.

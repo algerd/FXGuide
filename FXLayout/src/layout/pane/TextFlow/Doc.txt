@@ -1,0 +1,26 @@
+
+The List of Properties Declared in the GridPane Class:
+--------------------------------------------------------------------------------
+Property        Type                Description
+--------------------------------------------------------------------------------
+lineSpacing     DoubleProperty      It specifies the vertical space between lines. Its default value is 0px.
+
+textAlignment   ObjectProperty      It specifies the alignment of the content of the TextFlow. Its value
+                <TextAlignment>     is one of the constants of the TextAlignment enum: LEFT, RIGHT,
+                                    CENTER, and JUSTIFY. Its default value is LEFT.
+--------------------------------------------------------------------------------
+
+The lineSpacing property specifies the vertical space (in pixel) between lines in a TextFlow. We have
+used it in our previous examples.
+    
+    TextFlow tflow = new TextFlow();
+    tflow.setLineSpacing(5); // 5px lineSpacing
+
+The textAlignment property specifies the alignment of the overall content of the TextFlow. By default,
+the content is aligned to the left.
+    
+    // Set the textAlignment to CENTER
+    root.setTextAlignment(TextAlignment.CENTER);
+
+TextFlow does not allow you to add any constraints to its children, not even a margin!!!
+

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Event">
+  <ClassDiagramComponents>
+    <Class name="EventObject" package="" visibility="public" xPosition="741.0" yPosition="29.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getSource" returnType="Object" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Event" package="" visibility="public" xPosition="707.0" yPosition="183.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;Event&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTarget" returnType="EventTarget" visibility="public"/>
+        <Method name="getEventType" returnType="EventType" visibility="public"/>
+        <Method name="fireEvent" returnType="void" visibility="public" isStatic="true">
+          <Argument type="EventTarget" name="eventTarget"/>
+          <Argument type="Event" name="event"/>
+        </Method>
+        <Method name="copyFor" returnType="Event" visibility="public">
+          <Argument type="Object" name="newSource"/>
+          <Argument type="EventTarget" name="newTarget"/>
+        </Method>
+        <Method name="isConsumed" returnType="boolean" visibility="public"/>
+        <Method name="consume" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ActionEvent" package="" visibility="public" xPosition="474.0" yPosition="595.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;ActionEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ACTION" type="EventType&lt;ActionEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DialogEvent" package="" visibility="public" xPosition="22.0" yPosition="733.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIALOG_SHOWING" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIALOG_SHOWN" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIALOG_HIDING" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIALOG_HIDDEN" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DIALOG_CLOSE_REQUEST" type="EventType&lt;DialogEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DirectEvent" package="" visibility="public" xPosition="1344.0" yPosition="8.0">
+      <Fields>
+        <Field name="DIRECT" type="EventType&lt;DirectEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FocusUngrabEvent" package="" visibility="public" xPosition="1293.0" yPosition="294.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;FocusUngrabEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="FOCUS_UNGRAB" type="EventType&lt;FocusUngrabEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="InputEvent" package="" visibility="public" xPosition="704.0" yPosition="1208.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;InputEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MediaErrorEvent" package="" visibility="public" xPosition="22.0" yPosition="595.0">
+      <Fields>
+        <Field name="MEDIA_ERROR" type="EventType&lt;MediaErrorEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RedirectedEvent" package="" visibility="public" xPosition="1317.0" yPosition="149.0">
+      <Fields>
+        <Field name="REDIRECTED" type="EventType&lt;RedirectedEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ScrollToEvent&lt;T&gt;" package="" visibility="public" xPosition="1378.0" yPosition="619.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;ScrollToEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="SortEvent&lt;C&gt;" package="" visibility="public" xPosition="1390.0" yPosition="776.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;SortEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="TransformChangedEvent" package="" visibility="public" xPosition="1206.0" yPosition="446.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;TransformChangedEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TRANSFORM_CHANGED" type="EventType&lt;TransformChangedEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WebErrorEvent" package="" visibility="public" xPosition="22.0" yPosition="222.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;WebErrorEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WebEvent&lt;T&gt;" package="" visibility="public" xPosition="22.0" yPosition="19.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;WebEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="RESIZED" type="EventType&lt;WebEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="STATUS_CHANGED" type="EventType&lt;WebEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="VISIBILITY_CHANGED" type="EventType&lt;WebEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ALERT" type="EventType&lt;WebEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WindowEvent" package="" visibility="public" xPosition="857.0" yPosition="659.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WINDOW_SHOWING" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WINDOW_SHOWN" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WINDOW_HIDING" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WINDOW_HIDDEN" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WINDOW_CLOSE_REQUEST" type="EventType&lt;WindowEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WorkerStateEvent" package="" visibility="public" xPosition="22.0" yPosition="352.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_READY" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_SCHEDULED" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_RUNNING" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_SUCCEEDED" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_CANCELLED" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="WORKER_STATE_FAILED" type="EventType&lt;WorkerStateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MediaMarkerEvent" package="" visibility="public" xPosition="528.0" yPosition="788.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ContextMenuEvent" package="" visibility="public" xPosition="1198.0" yPosition="1178.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;ContextMenuEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CONTEXT_MENU_REQUESTED" type="EventType&lt;ContextMenuEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DragEvent" package="" visibility="public" xPosition="28.0" yPosition="990.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_DONE" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_DROPPED" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_ENTERED" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_ENTERED_TARGET" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_EXITED" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_EXITED_TARGET" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_OVER" type="EventType&lt;DragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="InputMethodEvent" package="" visibility="public" xPosition="1182.0" yPosition="988.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;InputMethodEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="INPUT_METHOD_TEXT_CHANGED" type="EventType&lt;InputMethodEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="KeyEvent" package="" visibility="public" xPosition="1314.0" yPosition="1360.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;KeyEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="KEY_PRESSED" type="EventType&lt;KeyEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="KEY_RELEASED" type="EventType&lt;KeyEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="KEY_TYPED" type="EventType&lt;KeyEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="TouchEvent" package="" visibility="public" xPosition="1287.0" yPosition="1586.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;TouchEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TOUCH_MOVED" type="EventType&lt;TouchEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TOUCH_PRESSED" type="EventType&lt;TouchEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TOUCH_RELEASED" type="EventType&lt;TouchEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TOUCH_STATIONARY" type="EventType&lt;TouchEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MouseEvent" package="" visibility="public" xPosition="22.0" yPosition="1265.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DRAG_DETECTED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_CLICKED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAGGED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_ENTERED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_ENTERED_TARGET" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_EXITED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_EXITED_TARGET" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_MOVED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_PRESSED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_RELEASED" type="EventType&lt;MouseEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MouseDragEvent" package="" visibility="public" xPosition="22.0" yPosition="1610.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_ENTERED" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_ENTERED_TARGET" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_EXITED" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_EXITED_TARGET" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_OVER" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MOUSE_DRAG_RELEASED" type="EventType&lt;MouseDragEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GestureEvent" package="" visibility="public" xPosition="818.0" yPosition="1647.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;GestureEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RotateEvent" package="" visibility="public" xPosition="22.0" yPosition="1911.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;RotateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ROTATE" type="EventType&lt;RotateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ROTATION_STARTED" type="EventType&lt;RotateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ROTATION_FINISHED" type="EventType&lt;RotateEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ScrollEvent" package="" visibility="public" xPosition="528.0" yPosition="1911.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;ScrollEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SCROLL" type="EventType&lt;ScrollEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SCROLL_STARTED" type="EventType&lt;ScrollEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SCROLL_FINISHED" type="EventType&lt;ScrollEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="SwipeEvent" package="" visibility="public" xPosition="1324.0" yPosition="1911.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;SwipeEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SWIPE_LEFT" type="EventType&lt;SwipeEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SWIPE_RIGHT" type="EventType&lt;SwipeEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SWIPE_UP" type="EventType&lt;SwipeEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SWIPE_DOWN" type="EventType&lt;SwipeEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ZoomEvent" package="" visibility="public" xPosition="948.0" yPosition="1911.0">
+      <Fields>
+        <Field name="ANY" type="EventType&lt;ZoomEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ZOOM" type="EventType&lt;ZoomEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ZOOM_STARTED" type="EventType&lt;ZoomEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="ZOOM_FINISHED" type="EventType&lt;ZoomEvent&gt;" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Event" target="EventObject"/>
+    <IsRelation name="is" source="GestureEvent" target="InputEvent"/>
+    <IsRelation name="is" source="ActionEvent" target="Event"/>
+    <IsRelation name="is" source="ZoomEvent" target="GestureEvent"/>
+    <IsRelation name="is" source="SwipeEvent" target="GestureEvent"/>
+    <IsRelation name="is" source="RedirectedEvent" target="Event"/>
+    <IsRelation name="is" source="ScrollToEvent&lt;T&gt;" target="Event"/>
+    <IsRelation name="is" source="KeyEvent" target="InputEvent"/>
+    <IsRelation name="is" source="MouseEvent" target="InputEvent"/>
+    <IsRelation name="is" source="WorkerStateEvent" target="Event"/>
+    <IsRelation name="is" source="DragEvent" target="InputEvent"/>
+    <IsRelation name="is" source="DialogEvent" target="Event"/>
+    <IsRelation name="is" source="InputMethodEvent" target="InputEvent"/>
+    <IsRelation name="is" source="MouseDragEvent" target="MouseEvent"/>
+    <IsRelation name="is" source="InputEvent" target="Event"/>
+    <IsRelation name="is" source="MediaErrorEvent" target="Event"/>
+    <IsRelation name="is" source="WebEvent&lt;T&gt;" target="Event"/>
+    <IsRelation name="is" source="ContextMenuEvent" target="InputEvent"/>
+    <IsRelation name="is" source="ScrollEvent" target="GestureEvent"/>
+    <IsRelation name="is" source="TouchEvent" target="InputEvent"/>
+    <IsRelation name="is" source="WebErrorEvent" target="Event"/>
+    <IsRelation name="is" source="DirectEvent" target="Event"/>
+    <IsRelation name="is" source="FocusUngrabEvent" target="Event"/>
+    <IsRelation name="is" source="SortEvent&lt;C&gt;" target="Event"/>
+    <IsRelation name="is" source="TransformChangedEvent" target="Event"/>
+    <IsRelation name="is" source="MediaMarkerEvent" target="ActionEvent"/>
+    <IsRelation name="is" source="WindowEvent" target="Event"/>
+    <IsRelation name="is" source="RotateEvent" target="GestureEvent"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

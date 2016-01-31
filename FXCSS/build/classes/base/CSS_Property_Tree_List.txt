@@ -1,0 +1,287 @@
+﻿Class				CSS-Property			Default						Value				
+------------------------------------------------------------------------------------------------------------------------------------
+
+Tooltip			-fx-text-overrun			ellipsis			[ center-ellipsis | center-word-ellipsis | clip | ellipsis | leading-ellipsis | leading-word-ellipsis | word-ellipsis ]
+				-fx-text-alignment			left				[ left | center | right | justify ]
+				-fx-wrap-text				false				<boolean>
+				-fx-graphic					null				<uri>		
+				-fx-content-display			left				[ top | right | bottom | left | center | right | graphic-only | text-only ]
+				-fx-graphic-text-gap		4					<size>
+				-fx-font					default					<font> = [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+				-fx-font-family				default				<string>
+				-fx-font-style				default				[ normal | italic | oblique ]			
+				-fx-font-weight				default				[ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+				-fx-font-size				default				<size>	
+
+Node			-fx-blend-mode				null				[ add | blue | color-burn | color-dodge | darken | difference | exclusion | green | hard-light | lighten | multiply | overlay | red | screen | soft-light | src-atop | src-in | src-out | src-over ]
+				-fx-cursor					null				[ null | crosshair | default | hand | move | e-resize | h-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize | v-resize | text | wait ] | <url>	
+				-fx-effect					null				<effect> = <dropshadow> | <innershadow>
+				-fx-focus-traversable		false				<boolean>
+				-fx-opacity					1					<number> = [0.0 ... 1.0]			
+				-fx-rotate					0					<number>
+				-fx-scale-x					1					<number>
+				-fx-scale-y					1					<number>
+				-fx-scale-z					1					<number>
+				-fx-translate-x				0					<number>
+				-fx-translate-y				0					<number>
+				-fx-translate-z				0					<number>	
+				visibility				true(i.e, visible)		[ visible | hidden | collapse | inherit ] | <boolean>
+
+	Shape			-fx-fill					BLACK				<paint>
+					-fx-smooth					true				<boolean>
+					-fx-stroke					null				<paint>
+					-fx-stroke-type				centered			[ inside | outside | centered ]
+					-fx-stroke-dash-array		-					<size>[ <size>]+
+					-fx-stroke-dash-offset		0					<number>
+					-fx-stroke-line-cap			square				[ square | butt | round ]
+					-fx-stroke-line-join		miter				[ miter | bevel | round ]
+					-fx-stroke-miter-limit		10					<number>
+					-fx-stroke-width			1					<size>
+					
+		Rectangle		-fx-arc-height				0					<size>
+						-fx-arc-width				0					<size>	
+											
+		Text			-fx-bounds-type				LOGICAL				LOGICAL | VISUAL | LOGICAL_VERTICAL_CENTER		
+						-fx-font					Font.DEFAULT		<font> = [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+						-fx-font-family				default				<string>
+						-fx-font-style				default				[ normal | italic | oblique ]			
+						-fx-font-weight				default				[ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+						-fx-font-size				default				<size>	
+						-fx-font-smoothing-type 	gray				[ gray | lcd ]
+						-fx-line-spacing			0					<size>	
+						-fx-strikethrough			false				<boolean>		
+						-fx-text-alignment			left				[ left | center | right | justify ]
+						-fx-text-origin				baseline			[ baseline | top | bottom ]
+						-fx-underline				false				<boolean>
+						
+	ImageView		-fx-image					null				<uri>
+	
+	WebView			-fx-context-menu-enabled	true				<boolean>
+					-fx-font-smoothing-type		lcd					[ gray | lcd ]
+					-fx-font-scale				1					<number>
+					-fx-min-width				0					<size>
+					-fx-min-height				0					<size>
+					-fx-pref-width				800					<size>
+					-fx-pref-height				600					<size>
+					-fx-max-width				Double.MAX_VALUE	<size>
+					-fx-max-height				Double.MAX_VALUE	<size>
+					-fx-zoom					-					<number>
+	
+		
+	Region			-fx-background-color		transparent			<paint> [ , <paint> ]*
+					-fx-background-insets		0 0 0 0				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+					-fx-background-radius		0 0 0 0				[<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+					-fx-background-image		null				<uri> [ , <uri> ]*
+					-fx-background-position 	0% 0%				<bg-position> [ , <bg-position> ]* 	where <bg-position> = [ [ [ <size> | left | center | right ] [ <size> | top | center | bottom ]? ] | [ [ center | [ left | right ] <size>? ] || [ center | [ top | bottom ] <size>? ]
+					-fx-background-repeat		repeat repeat		<repeat-style> [ , <repeat-style> ]*  where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | stretch | no-repeat]
+					-fx-background-size			auto auto			<bg-size> [ , <bg-size> ]*  where <bg-size> = [ <size> | auto ]{1,2} | cover | contain | stretch
+					-fx-border-color			null				<paint> | <paint> <paint> <paint> <paint> [ , [<paint> | <paint> <paint> <paint> <paint>] ]*
+					-fx-border-insets			null				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+					-fx-border-radius			null				[<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+					-fx-border-style			null				<border-style> [ , <border-style> ]*
+					-fx-border-width			null				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+					-fx-border-image-source 	null				<uri> [ , <uri> ]*
+					-fx-border-image-insets		0 0 0 0				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+					-fx-border-image-repeat		repeat repeat		<repeat-style> [ , <repeat-style> ]*  where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
+					-fx-border-image-slice		100%				[<size> | <size> <size> <size> <size> ] fill? [ , [ <size> | <size> <size> <size> <size> <size> ] fill? ]*
+					-fx-border-image-width		1 1 1 1				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*	
+					-fx-padding					0 0 0 0				<size> | <size> <size> <size> <size>
+					-fx-position-shape			true				<boolean>
+					-fx-scale-shape				true				<boolean>
+					-fx-shape					null				<string>
+					-fx-snap-to-pixel			true				<boolean>
+					-fx-min-height				-1					<number>
+					-fx-pref-height				-1					<number>
+					-fx-max-height				-1					<number>
+					-fx-min-width				-1					<number>
+					-fx-pref-width				-1					<number>
+					-fx-max-width				-1					<number>
+					
+		Axis			-fx-side					null				Side
+						-fx-tick-length				8					<size>
+						-fx-tick-label-font			8px					<font>
+						-fx-tick-label-fill			black				<paint>
+						-fx-tick-label-gap			3					<size>
+						-fx-tick-mark-visible		true				<boolean>
+						-fx-tick-labels-visible 	true				<boolean>	
+					
+			ValueAxis		-fx-minor-tick-count		5					<size>
+							-fx-minor-tick-length		5 					<size>
+							-fx-minor-tick-visible		true				<boolean>
+						
+				NumberAxis		-fx-tick-unit				5					<number>
+				
+			CategoryAxis 	-fx-start-margin			5					<number>
+							-fx-end-margin				5					<number>
+							-fx-gap-start-and-end		true				<boolean>	
+						
+		Chart			-fx-legend-side				bottom				Side
+						-fx-legend-visible			true				<boolean>
+						-fx-title-side				top					Side
+						
+			XYChart			-fx-alternative-column-fill-visible	true		<boolean>
+							-fx-alternative-row-fill-visible	true		<boolean>
+							-fx-horizontal-grid-lines-visible	true		<boolean>
+							-fx-horizontal-zero-line-visible	true		<boolean>
+							-fx-vertical-grid-lines-visible		true		<boolean>
+							-fx-vertical-zero-line-visible		true		<boolean>
+
+				AreaChart			-fx-create-symbols			true		<boolean>
+				LineChart			-fx-create-symbols			true		<boolean>	
+				StackedAreaChart	-fx-create-symbols			true		<boolean>
+									-fx-category-gap			10			<number>							
+				BarChart			-fx-bar-gap					4			<number>
+									-fx-category-gap			10			<number>
+
+			PieChart		-fx-clockwise				true				<boolean>	
+							-fx-pie-label-visible		true				<boolean>	
+							-fx-label-line-length		20					<size>
+							-fx-start-angle				0					<number>
+							
+
+		Control			-fx-skin					null				<string>
+
+			DatePicker		-fx-show-week-numbers		true				<boolean>	
+							
+			Labeled			-fx-alignment				center-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+							-fx-text-alignment			left				[ left | center | right | justify ]
+							-fx-text-overrun			ellipsis			[ center-ellipsis | center-word-ellipsis | clip | ellipsis | leading-ellipsis | leading-word-ellipsis | word-ellipsis ]
+							-fx-wrap-text				false				<boolean>
+							-fx-underline				false				<boolean>
+							-fx-graphic					null				<uri>
+							-fx-content-display			left				[ top | right | bottom | left | center | right | graphic-only | text-only ]
+							-fx-graphic-text-gap		4					<size>
+							-fx-label-padding			[0,0,0,0]			<size> | <size> <size> <size> <size>
+							-fx-line-spacing			0					<number>
+							-fx-text-fill				black				<paint>
+							-fx-ellipsis-string			"..."				<string>
+							-fx-font					default				<font> = [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+							-fx-font-family				default				<string>
+							-fx-font-style				default				[ normal | italic | oblique ]			
+							-fx-font-weight				default				[ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+							-fx-font-size				default				<size>					
+			
+				TitledPane		-fx-animated				true				<boolean>
+								-fx-collapsible				true				<boolean>
+
+				TreeCell		-fx-indent ???				10					<size>				
+		
+			TextInputControl -fx-font					default  			<font> = [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+							-fx-font-family			  	default				<string>
+							-fx-font-style				default				[ normal | italic | oblique ]			
+							-fx-font-weight				default				[ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+							-fx-font-size				default				<size>	
+
+				TextArea		-fx-pref-column-count		40					<number>
+								-fx-pref-row-count			10					<number>
+								-fx-wrap-text				false				<boolean>
+								
+				TextField		-fx-alignment				center-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+								-fx-pref-column-count		12					<number>
+																
+			ListView		-fx-orientation				vertical			[ horizontal | vertical ]
+							-fx-fixed-cell-size			-					<number>
+
+			MenuBar			-fx-use-system-menu-bar		false				<boolean>
+
+			Pagination		-fx-max-page-indicator-count  	10				<number>
+							-fx-arrows-visible ?		true				<boolean>
+							-fx-tooltip-visible	?		false				<boolean>
+							-fx-page-information-visible? 	true			<boolean>
+							-fx-page-information-alignment ? bottom			[ top | bottom | left | right ]
+
+
+			ProgressIndicator -fx-indeterminate-segment-count ? 8			<number>
+							-fx-progress-color ?		null				<paint>
+							-fx-spin-enabled ?			false				<boolean>
+							
+				ProgressBar		-fx-indeterminate-bar-length ?	60				<number>	
+								-fx-indeterminate-bar-escape ?	true			<boolean>		 
+								-fx-indeterminate-bar-flip ?	true			<boolean>	 
+								-fx-indeterminate-bar-animation-time ? 2.0 		<number>	 
+
+
+			ScrollBar		-fx-orientation				horizontal			[ horizontal | vertical ]
+							-fx-block-increment			10					<number>
+							-fx-unit-increment			1					<number>
+							
+			ScrollPane		-fx-fit-to-width			false				<boolean>
+							-fx-fit-to-height			false				<boolean>
+							-fx-pannable				false				<boolean>	
+							-fx-hbar-policy				as-needed			[ never | always | as-needed ]
+							-fx-vbar-policy				as-needed			[ never | always | as-needed ]
+							
+			Separator		-fx-orientation				horizontal			[ horizontal | vertical ]
+							-fx-halignment				center				[ left | center | right ]
+							-fx-valignment				center				[ top | center | baseline | bottom ]
+							
+			Slider			-fx-orientation				horizontal			[ horizontal | vertical ]
+							-fx-show-tick-labels		false				<boolean>
+							-fx-show-tick-marks			false				<boolean>
+							-fx-major-tick-unit			25					<number>
+							-fx-minor-tick-count		2					<integer>
+							-fx-snap-to-ticks			false				<boolean>
+							-fx-block-increment			10					<integer>	
+							
+			SplitPane		-fx-orientation				horizontal			[ horizontal | vertical ]
+							
+			TableView		-fx-fixed-cell-size			-1					<size>
+							
+			TabPane			-fx-tab-min-width			0					<integer>??
+							-fx-tab-max-width			Double.MAX_VALUE	<integer>??
+							-fx-tab-min-height			0					<integer>??
+							-fx-tab-max-height			Double.MAX_VALUE	<integer>??	
+							-fx-open-tab-animation ?  	grow				[ grow | none ]
+							-fx-close-tab-animation	?	grow				[ grow | none ]
+							
+			ToolBar			-fx-orientation				horizontal			[ horizontal | vertical ]
+							
+			TreeTableView	-fx-fixed-cell-size			-1					<size>
+							
+			TreeView		-fx-fixed-cell-size			-1					<size>
+
+		DialogPane		-fx-graphic					null				<uri>
+		
+		FlowPane		-fx-hgap					0					<size>
+						-fx-vgap					0					<size>
+						-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						-fx-column-halignment		left				[ left | center | right ]
+						-fx-row-valignment			center				[ top | center | baseline | bottom ]
+						-fx-orientation				horizontal			[ horizontal | vertical ]
+						
+		GridPane		-fx-hgap					0					<size>
+						-fx-vgap					0					<size>
+						-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						-fx-grid-lines-visible		false				<boolean>
+						
+		HBox			-fx-spacing					0					<size>
+						-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						-fx-fill-height				true				<boolean>
+						
+		VBox			-fx-spacing					0					<size>
+						-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]						
+						-fx-fill-width				true				<boolean>
+						
+		StackPane		-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+					
+		TextFlow		-fx-text-alignment			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						-fx-line-spacing			0					<size>
+						
+		TilePane		-fx-orientation				horizontal			[ horizontal | vertical ]
+						-fx-pref-rows				5					<integer>
+						-fx-pref-columns			5					<integer>
+						-fx-pref-tile-width			-1					<size>
+						-fx-pref-tile-height		-1					<size>
+						-fx-hgap					0					<size>
+						-fx-vgap					0					<size>
+						-fx-alignment				top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						-fx-tile-alignment			center				[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+						
+		TableColumnHeader -fx-size					20					<size>
+						
+
+
+
+
+
+

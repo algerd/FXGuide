@@ -1,0 +1,18 @@
+
+DEFAULT_STYLE_CLASS = "date-picker"
+
+-fx-show-week-numbers		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty showWeekNumbers
+	Property: public final BooleanProperty showWeekNumbersProperty()
+	Methods: isShowWeekNumbers(), setShowWeekNumbers(boolean)
+	Description:
+		true if the resource bundle property "DatePicker.showWeekNumbers" contains the country code.
+		Whether the DatePicker popup should display a column showing week numbers.
+		The default value is specified in a resource bundle, and depends on the country of the current locale.
+	
+	
+**** Substructure: ****
+
+date-picker-display-node — TextField

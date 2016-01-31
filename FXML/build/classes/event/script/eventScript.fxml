@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Объвление скриптового языка, используемого в fxml-документе.
+    Разрешается объявлять только один язык на документ.
+-->
+<?language javascript?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <Label fx:id="msgLbl" text="FXML is cool!" prefWidth="150"/>
+    <!-- 
+        JavaFX классы имеют onXxx-свойства чтобы установить обработчик события для Xxx-события.
+        Напр, Button наследуетя от ButtonBase свойство onAction, которому задаётся обработчик события Action.       
+    -->    
+    <Button text="Say Hello from FXML" onAction="sayHello();"/> 
+    <Button text="Say Hello from Console" onAction="f1(); f2();"/>
+    <Button text="Say Hello from external js-file" onAction="sayHi();"/>   
+    <Button text="Close" onAction="msgLbl.setText('Close');"/>
+    <!-- 
+        Скрипты скриптовых обработчиков событий.
+        Должны располагаться в корневом элкменте, в котором должно быть задано пространство имён xmlns:fx="http://javafx.com/fxml". 
+    -->
+    <fx:script>		
+		function sayHello() {
+            // обращаемся к объекту с fx:id="msgLbl"
+			msgLbl.setText("Hello from FXML!");
+		}
+        function f1() {
+            // вывод в консоли
+            java.lang.System.out.print("Hello from ");
+        };
+        function f2() {
+            java.lang.System.out.print("Console!");
+        };
+	</fx:script>   
+    <!--
+        Подключение скриптов из внешнего файла - предпочтительнее чем инлайн-подключение скрипта
+        Но из внешних файлов нельзя ссылаться к объектам документа.
+    -->
+    <fx:script source="hello.js"/>   
+    
+</VBox>     
+

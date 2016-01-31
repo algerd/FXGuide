@@ -1,0 +1,38 @@
+
+-fx-size
+	Values: <size>
+	Default: 20
+	Field: DoubleProperty size
+	Property: DoubleProperty sizeProperty()
+	Methods: getSize(), setSize(double)
+	Description:
+		The table column header size.
+		
+				
+********* CSS Pseudo-class ************
+
+last-visible	
+	Values: <boolean>
+	Default: getTableColumn() != null && columnIndex != -1 && columnIndex == getTableViewSkin().getVisibleLeafColumns().size() - 1; 
+	Description:
+		Applies if this is the last visible column in the table.	
+
+
+********* Substructure ***************
+
+column-resize-line — Region
+column-overlay — Region
+placeholder — StackPane
+column-header-background — StackPane
+	nested-column-header
+		column-header
+	filler — Region
+	show-hide-columns-button — StackPane
+		show-hide-column-image — StackPane
+	column-drag-header — StackPane
+		label — Label
+
+
+
+
+	

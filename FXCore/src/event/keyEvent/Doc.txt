@@ -1,0 +1,40 @@
+Constants in the KeyEvent Class to Represent Key Event Types:
+    ANY             It is the supertype of other key events types.
+    KEY_PRESSED     It occurs when a key is pressed.
+    KEY_RELEASED    It occurs when a key is released.
+    KEY_TYPED       It occurs when a Unicode character is entered.
+
+Tip: I t may not be obvious that shapes, for example circles or rectangles, can also receive key events.
+The criterion for a node to receive key events is that the node should have focus. By default, shapes are not part
+of the focus traversal chain and mouse clicks do not bring focus to them. Shape nodes can get focus by calling
+the requestFocus() method.
+
+
+Methods in the KeyEvent Class Returning Key Details:
+------------------------------------------------------------
+Method                  Valid for               Description
+------------------------------------------------------------
+KeyCode getCode()       KEY_PRESSED         The KeyCode enum contains a constant to represent all keys
+                        KEY_RELEASED        on the keyboard. This method returns the KeyCode enum
+                                            constant that is associated with the key being pressed
+                                            or released. For the key-typed events, it always returns
+                                            KeyCode.UNDEFINED, because the key-typed event may not
+                                            necessarily be triggered by a single keystroke.
+
+String getText()        KEY_PRESSED         It returns a String description of the KeyCode associated
+                        KEY_RELEASED        with the key-pressed and key-released events. It always
+                                            returns an empty string for the key-typed events.
+
+String getCharacter()   KEY_TYPED           It returns a character or a sequence of character associated
+                                            with a key-typed event as a String. For the key-pressed
+                                            and key-released events, it always returns KeyEvent.
+                                            CHAR_UNDEFINED.
+-------------------------------------------------------------------
+
+It is interesting to note that the return type of the getCharacter() method is String, not char. The
+design is intentional. Unicode characters outside the basic multilingual plane cannot be represented in one
+character. Some devices may produce multiple characters using a single keystroke. The return type of String
+for the getCharacter() method covers these odd cases.
+
+The KeyEvent class contains isAltDown(), isControlDown(), isMetaDown(), isShiftDown(), and
+isShortcutDown() methods that let you check whether modifier keys are down when a key event occurs.

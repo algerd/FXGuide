@@ -1,0 +1,31 @@
+
+Порядок примеров:
+    SimplePressDragRelease
+    FullPressDragRelease
+    DragAndDropTest
+    ImageDragAndDrop
+    CustomDataTransfer
+
+
+A press-drag-release gesture is a user action of pressing a mouse button, dragging the mouse with the pressed
+button, and releasing the button. The gesture can be initiated on a scene or a node. Several nodes and scenes
+may participate in a single press-drag-release gesture. The gesture is capable of generating different types of
+events and delivering those events to different nodes. The type of generated events and nodes receiving the
+events depends on the purpose of the gesture. A node can be dragged for different purposes:
+    • You may want to change the shape of a node by dragging its boundaries or move it
+    by dragging it to a new location. In this case, the gesture involves only one node: the
+    node on which the gesture was initiated.
+    • You may want to drag a node and drop it onto another node to connect them in
+    some fashion, for example, connecting two nodes with a symbol in a flow chart. In
+    this case, the drag gesture involves multiple nodes. When the source node is dropped
+    onto the target node, an action takes place.
+    • You can drag a node and drop it onto another node to transfer data from the source
+    node to the target node. In this case, the drag gesture involves multiple nodes. A data
+    transfer occurs when the source node is dropped.
+
+JavaFX supports three types of drag gestures:
+    • A simple press-drag-release gesture
+    • A full press-drag-release gesture
+    • A drag-and-drop gesture
+
+Подробное описание drag-and-drop gesture смотреть в K.Sharan 1049-1056.

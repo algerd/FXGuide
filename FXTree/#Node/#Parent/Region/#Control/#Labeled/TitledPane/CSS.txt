@@ -1,0 +1,48 @@
+
+-fx-animated		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty animated
+	Property: BooleanProperty animatedProperty()
+	Methods: isAnimated(), setAnimated(boolean)
+	Description:
+		The animated state of the TitledPane.
+	 
+-fx-collapsible		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty collapsible
+	Property: BooleanProperty collapsibleProperty()
+	Methods: isCollapsible(), setCollapsible(boolean)
+	Description:
+		The collapsible state of the TitledPane.
+
+		
+***** Pseudo-classes: ******
+
+expanded	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty expanded
+	Property: BooleanProperty expandedProperty()
+	Methods: isExpanded(), setExpanded(boolean)
+	Description: The expanded state of the TitledPane.
+		Applies if this TitledPane is expanded.
+	
+collapsed	
+	Values: <boolean>
+	Default: false
+	Field: !BooleanProperty expanded
+	Property: !BooleanProperty expandedProperty()
+	Methods: !isExpanded(), setExpanded(boolean)
+	Description:
+		Applies if this TitledPane is collapsed (is not expanded).
+
+		
+***** Substructure *******
+
+title — HBox
+	text — Label
+	arrow-button — StackPane
+		arrow — StackPane
+content — StackPane

@@ -1,0 +1,10 @@
+
+-fx-alignment		 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left	
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The default alignment of children within the stackpane's width and height. 
+		This may be overridden on individual children by setting the child's alignment constraint.

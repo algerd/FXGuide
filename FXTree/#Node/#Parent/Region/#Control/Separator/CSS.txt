@@ -1,0 +1,55 @@
+﻿
+-fx-orientation		
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation 
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of the Separator can either be horizontal or vertical.
+	 
+-fx-halignment			
+	Values: [ left | center | right ]
+	Default: center
+	Field: ObjectProperty<HPos> halignment
+	Property: ObjectProperty<HPos> halignmentProperty()
+	Methods: getHalignment(), setHalignment(HPos)
+	Description:
+		For vertical separators, specifies the horizontal position of the separator line within the separator control's space. 
+		Ignored for horizontal separators.
+ 
+-fx-valignment		
+	Values: [ top | center | baseline | bottom ]
+	Default: center
+	Field: ObjectProperty<VPos> valignment
+	Property: ObjectProperty<VPos> valignmentProperty()
+	Methods: getValignment(), setValignment(VPos)
+	Description:
+		For horizontal separators, specifies the vertical alignment of the separator line within the separator control's space. Ignored for vertical separators.
+
+
+
+******* CSS Pseudo-classes: ****************
+
+¬ зависимости от orientationProperty мен¤ютс¤ значени¤ псевдоклассов.
+
+horizontal
+	Values: <boolean>
+	Default: orientationProperty != Orientation.VERTICAL
+	Description:
+		Applies if this Separator is horizontal.
+	
+vertical	
+	Values: <boolean>
+	Default: orientationProperty == Orientation.VERTICAL
+	Description:
+		Applies if this Separator is vertical.
+	
+	
+******* Substructure: ******************
+
+line - Region
+
+
+
+

@@ -1,0 +1,39 @@
+
+-fx-pref-column-count
+	Values: <number>
+	Default: 40
+	Field: IntegerProperty prefColumnCount
+	Property: IntegerProperty prefColumnCountProperty()
+	Methods: getPrefColumnCount(), setPrefColumnCount(int)
+	Description:
+		The preferred number of text columns. This is used for calculating the TextArea's preferred width.
+ 
+-fx-pref-row-count
+	Values: <number>
+	Default: 10
+	Field: IntegerProperty prefRowCount
+	Property: IntegerProperty prefRowCountProperty()
+	Methods: getPrefRowCount(), setPrefRowCount(int)
+	Description:
+		The preferred number of text rows. This is used for calculating the TextArea's preferred height.
+
+	 
+-fx-wrap-text
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty wrapText
+	Property: BooleanProperty wrapTextProperty()
+	Methods: isWrapText(), setWrapText(boolean)
+	Description:
+		If a run of text exceeds the width of the TextArea, then this variable indicates whether the text should wrap onto another line.
+	
+	
+********** Substructure **********************
+
+scroll-pane — ScrollPane
+	content — Region	
+
+
+
+
+	 

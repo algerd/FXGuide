@@ -1,0 +1,36 @@
+Using the Color Class:
+
+The Color class represents a solid uniform color from the RGB color space. Every color has an alpha value
+defined between 0.0 to 1.0 or 0 to 255. An alpha value of 0.0 or 0 means the color is completely transparent,
+and an alpha value of 1.0 or 255 denotes a completely opaque color. By default, the alpha value is set to 1.0.
+You can have an instance of the Color class in three ways:
+    • Using the constructor
+    • Using one of the factory methods
+    • Using one of the color constants declared in the Color class
+
+The Color class has only one constructor that lets you specify the RGB and opacity in the range of 1,0 and 1.0:
+    public Color(double red, double green, double blue, double opacity)
+
+The following snippet of code creates a completely opaque blue color:
+    Color blue = new Color(0.0, 0.0, 1.0, 1.0);
+
+You can use the following static methods in the Color class to create Color objects. The double values
+need to be between 0.0 and 1.0 and int values between 0 and 255:
+    • Color color(double red, double green, double blue)
+    • Color color(double red, double green, double blue, double opacity)
+    • Color hsb(double hue, double saturation, double brightness)
+    • Color hsb(double hue, double saturation, double brightness, double opacity)
+    • Color rgb(int red, int green, int blue)
+    • Color rgb(int red, int green, int blue, double opacity)
+
+The valueOf() and web() factory methods let you create Color objects from strings in web color value
+formats. The following snippet of code creates blue Color objects using different string formats:
+    Color blue = Color.valueOf("blue");
+    Color blue = Color.web("blue");
+    Color blue = Color.web("#0000FF");
+    Color blue = Color.web("0X0000FF");
+    Color blue = Color.web("rgb(0, 0, 255)");
+    Color blue = Color.web("rgba(0, 0, 255, 0.5)"); // 50% transparent blue
+
+The Color class defines about 140 color constants, for example, RED, WHITE, TAN, BLUE, among others.
+Colors defined by these constants are completely opaque.

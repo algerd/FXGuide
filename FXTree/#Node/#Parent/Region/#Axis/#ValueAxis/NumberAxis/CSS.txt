@@ -1,0 +1,10 @@
+
+-fx-tick-unit
+	Values: <number>
+	Default: 5
+	Field: DoubleProperty tickUnit
+	Property: DoubleProperty tickUnitProperty()
+	Methods: getTickUnit(), setTickUnit(double)
+	Description:
+		The value between each major tick mark in data units.
+		This is automatically set if we are auto-ranging.

@@ -1,0 +1,35 @@
+Sometimes you may want to place logically related controls side by side horizontally or vertically. For better
+appearance, controls are grouped using different types of separators. Sometimes using a border suffices;
+but sometimes you will use the TitledPane controls. The Separator and SplitPane controls are solely
+meant for visually separating two controls or two groups of controls.
+
+A Separator is a horizontal or vertical line that separates two groups of controls. Typically, they are used in
+menus or combo boxes.
+
+The default constructor creates a horizontal Separator. To create a vertical Separator, you can specify a
+vertical orientation in the constructor or use the setOrientation() method, as shown in the following code:
+
+    // Create a horizontal separator
+    Separator separator1 = new Separator();
+    // Change the orientation to vertical
+    separator1.setOrientation(Orientation.VERTICAL);
+    // Create a vertical separator
+    Separator separator2 = new Separator(Orientation.VERTICAL);
+
+A separator resizes itself to fill the space allocated to it. A horizontal Separator resizes horizontally
+and a vertical Separator resizes vertically. Internally, a Separator is a Region. You can change its color and
+thickness using a CSS.
+
+The Separator class contains three properties:
+    • orientation
+    • halignment
+    • valignment
+
+The orientation property specifies the orientation of the control. The possible values are one of the
+two constants of the Orientation enum: HORIZONTAL and VERTICAL. The halignment property specifies the
+horizontal alignment of the separator line within the width of a vertical separator. This property is ignored
+for a horizontal separator. The possible values are one of the constants of the HPos enum: LEFT, CENTER,
+and RIGHT. The default value is CENTER. The valignment property specifies the vertical alignment of the
+separator line within the height of a horizontal separator. This property is ignored for a vertical separator.
+The possible values are one of the constants of the VPos enum: BASELINE, TOP, CENTER, and BOTTOM. The
+default value is CENTER.

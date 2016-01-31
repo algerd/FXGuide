@@ -1,0 +1,102 @@
+
+-fx-fit-to-width		
+	Values: <boolean>
+	Default: false	
+	Field: BooleanProperty fitToWidth
+	Property: BooleanProperty fitToWidthProperty()
+	Methods: isFitToWidth(), setFitToWidth(boolean)
+	Description:
+		If true and if the contained node is a Resizable, then the node will be kept resized to match the width of the ScrollPane's viewport. 
+		If the contained node is not a Resizable, this value is ignored.
+
+-fx-fit-to-height			
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty fitToHeight
+	Property: BooleanProperty fitToHeightProperty()
+	Methods: isFitToHeight(), setFitToHeight(boolean)
+	Description:
+		If true and if the contained node is a Resizable, then the node will be kept resized to match the height of the ScrollPane's viewport. 
+		If the contained node is not a Resizable, this value is ignored.
+
+-fx-pannable		 
+	Values: <boolean>
+	Default: false	
+	Field: BooleanProperty pannable
+	Property: BooleanProperty pannableProperty()
+	Methods: isPannable(), setPannable(boolean)
+	Description:
+		Specifies whether the user should be able to pan the viewport by using the mouse. 
+		If mouse events reach the ScrollPane (that is, if mouse events are not blocked by the contained node or one of its children) 
+		then pannable is consulted to determine if the events should be used for panning.
+
+-fx-hbar-policy		
+	Values: [ never | always | as-needed ]
+	Default: as-needed	
+	Field: ObjectProperty<ScrollPane.ScrollBarPolicy> hbarPolicy
+	Property: ObjectProperty<ScrollPane.ScrollBarPolicy> hbarPolicyProperty()
+	Methods: getHbarPolicy(), setHbarPolicy(ScrollBarPolicy)
+	Description: 
+		Specifies the policy for showing the horizontal scroll bar.
+
+ 
+-fx-vbar-policy		
+	Values: [ never | always | as-needed ]
+	Default: as-needed	
+	Field: ObjectProperty<ScrollPane.ScrollBarPolicy> vbarPolicy
+	Property: ObjectProperty<ScrollPane.ScrollBarPolicy> vbarPolicyProperty()
+	Methods: getVbarPolicy(), setVbarPolicy(ScrollBarPolicy)
+	Description:
+		Specifies the policy for showing the vertical scroll bar.
+		
+		
+****** CSS Pseudo-classes: ********
+		
+pannable	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty pannable
+	Property: BooleanProperty pannableProperty()
+	Methods: isPannable(), setPannable(boolean)
+	Description:
+		Applies if this ScrollPane is pannable.
+		Specifies whether the user should be able to pan the viewport by using the mouse. 
+		If mouse events reach the ScrollPane (that is, if mouse events are not blocked by the contained node or one of its children) 
+		then pannable is consulted to determine if the events should be used for panning.
+
+fitToWidth	
+	Values: <boolean>
+	Default: false	
+	Field: BooleanProperty fitToWidth
+	Property: BooleanProperty fitToWidthProperty()
+	Methods: isFitToWidth(), setFitToWidth(boolean)
+	Description:
+		Applies if this ScrollPane is fitToWidth.
+		If true and if the contained node is a Resizable, then the node will be kept resized to match the width of the ScrollPane's viewport. 
+		If the contained node is not a Resizable, this value is ignored.
+
+fitToHeight		
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty fitToHeight
+	Property: BooleanProperty fitToHeightProperty()
+	Methods: isFitToHeight(), setFitToHeight(boolean)
+	Description:
+		Applies if this ScrollPane is fitToHeight.
+		If true and if the contained node is a Resizable, then the node will be kept resized to match the height of the ScrollPane's viewport. 
+		If the contained node is not a Resizable, this value is ignored.
+
+		
+********* Substructure: *************
+
+viewport — StackPane
+	* — StackPane
+		The ScrollPane's content
+scroll-bar:vertical — ScrollBar
+scroll-bar:horizontall — ScrollBar
+corner — StackPane	
+	
+	
+	
+	
+		

@@ -1,0 +1,95 @@
+﻿
+-fx-tab-min-width
+	Values: <integer>
+	Default: 0
+	Field: DoubleProperty tabMinWidth
+	Property: DoubleProperty tabMinWidthProperty()
+	Methods: getTabMinWidth(), setTabMinWidth(double)
+	Description:
+		The minimum width of the tabs in the TabPane.
+ 
+-fx-tab-max-width
+	Values: <integer>
+	Default: Double.MAX_VALUE
+	Field: DoubleProperty tabMaxWidth
+	Property: DoubleProperty tabMaxWidthProperty()
+	Methods: getTabMaxWidth(), setTabMaxWidth(double)
+	Description:
+		The maximum width of the tabs in the TabPane.
+	 
+-fx-tab-min-height	 
+	Values: <integer>
+	Default: 0
+	Field: DoubleProperty tabMinHeight
+	Property: DoubleProperty tabMinHeightProperty()
+	Methods: getTabMinHeight(), setTabMinHeight(double)
+	Description:
+		The minimum height of the tab.
+
+-fx-tab-max-height		
+	Values: <integer>
+	Default: Double.MAX_VALUE
+	Field: DoubleProperty tabMaxHeight
+	Property: DoubleProperty tabMaxHeightProperty()
+	Methods: getTabMaxHeight(), setTabMaxHeight(double)
+	Description:
+		The maximum height of the tabs in the TabPane.
+
+
+Ёти два свойства в классе не обнаружил. Ќеобходимо их проверить!!!	
+	 
+-fx-open-tab-animation			
+	Values: [ grow | none ]
+	Default: grow
+	Description: 'none' disables Tab opening animation
+	
+-fx-close-tab-animation		
+	Values: [ grow | none ]	
+	Default: grow
+	Description: 'none' disables Tab closing animation
+	
+	
+	
+**************** CSS Pseudo-classes *********************
+
+¬ зависимости от ObjectProperty<Side> sideProperty измен¤ютс¤ значени¤ псевдоклассов.
+ObjectProperty<Side> sideProperty : The position of the tabs in the TabPane. (top, right, left, bottom)
+
+top	
+	Values: <boolean>
+	Default: sideProperty == Side.TOP
+	Description:
+		Applies if the side is top.
+
+right	
+	Values: <boolean>
+	Default: sideProperty == Side.RIGHT
+	Description:
+		Applies if the side is rght.
+
+bottom	
+	Values: <boolean>
+	Default: sideProperty == Side.BOTTOM
+	Description:
+		Applies if the side is bottom.
+
+left	
+	Values: <boolean>
+	Default: sideProperty == Side.LEFT
+	Description:
+		Applies if the side is left.
+		
+		
+******** Substructure **********
+
+tab-header-area - StackPane
+	headers-region - StackPane
+	tab-header-background - StackPane
+	control-buttons-tab - StackPane
+		tab-down-button - Pane
+			arrow - StackPane
+	tab - Tab
+		tab-label - Label
+		tab-close-button - StackPane
+tab-content-area - StackPane		
+

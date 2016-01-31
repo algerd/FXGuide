@@ -1,0 +1,12 @@
+	
+	Style class	:
+
+"chart-bubble series<i> data<j> default-color<k>"	
+	Values: Node
+	Description:
+		Where <i> is the index of the series, <j> is the index of the data within the series, and <k> is the series’ color index
+	
+"chart-bubble series<i> bubble-legend-symbol default-color<j>"	
+	Values: LegendItem
+	Description:
+		Where <i> is the index of the series and <j> is the series’ color index	

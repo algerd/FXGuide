@@ -1,0 +1,84 @@
+.root{
+    -fx-pref-width: 400px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+StackPane {
+    -fx-min-width: 300px;
+    -fx-min-height: 100px;
+}
+
+/*
+BorderStroke:
+    -fx-border-color : <paint> | <paint> <paint> <paint> <paint> [ , [<paint> | <paint> <paint> <paint> <paint>] ]*   
+    -fx-border-insets : <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+        Отступы бордера от краёв.
+    -fx-border-radius : [<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+         10/20 - эллиптическое скругление по координатам x и y
+    -fx-border-width : <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*     
+    -fx-border-style : <border-style> [ , <border-style> ]*
+		where <border-style> = <dash-style> [phase <number>]? [centered | inside | outside]? [line-join [miter <number> | bevel | round]]? [line-cap [square | butt | round]]?
+		where <dash-style> = [ none | solid | dotted | dashed | segments( <number>, <number> [, <number>]*) ]		
+		Kishori Sharan Learn JavaFX 8 стр.244:
+		<border-style> = <dash-style> [phase <number>] [<stroke-type>] [line-join <line-join-value>] [line-cap <line-cap-value>]
+			<dash-style> : none, solid, dotted, dashed, or segments(<number>, <number>...) - (segments(dash-length, gap-length, dash-length, ...).
+			<stroke-type> : centered, inside, or outside.
+			<line-join-value> : <number>, bevel, or round
+			<line-cap-value> : square, butt, or round.		
+*/
+#borderStrokeSingle1 {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+    -fx-border-style: solid line-join bevel line-cap square;
+}
+
+#borderStrokeSingle2 {
+    -fx-border-color: red black red black;
+    -fx-border-width: 5;
+    -fx-border-radius: 0;
+    -fx-border-insets: 10;
+    -fx-border-style: solid line-join bevel line-cap round;
+}
+
+#borderStrokeMultiple1 {
+    -fx-border-color: red,          black;
+    -fx-border-width: 5,            5;
+    -fx-border-radius: 0,           0;
+    -fx-border-insets: 0,           5;
+    -fx-border-style: solid inside, dotted outside;
+}
+
+#borderStrokeMultiple2 {
+    -fx-border-color: black,            black;
+    -fx-border-width: 1,                1;
+    -fx-border-radius: 0,               0;
+    -fx-border-insets: 0,               5;
+    -fx-border-style: solid centered,   solid centered;
+}
+
+/*
+BorderImage:
+    -fx-border-image-source : <uri> [ , <uri> ]*
+    -fx-border-image-insets : <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+        Default: 0 0 0 0
+    -fx-border-image-repeat	: <repeat-style> [ , <repeat-style> ]*
+		where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
+        Default: repeat repeat
+    -fx-border-image-slice : [<size> | <size> <size> <size> <size> ] fill? [ , [ <size> | <size> <size> <size> <size> <size> ] fill? ]*
+        Default: 100%
+    -fx-border-image-width : <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+        Default: 1 1 1 1 
+    Можно задать несколько изображений бордера, тогда количество значений свойства бордера
+    должно соответствовать числу изображений бордера.
+*/
+#borderImage {
+    -fx-border-image-source: url('border.png');
+    -fx-border-image-insets: 5;
+    -fx-border-image-repeat: round;
+    -fx-border-image-width: 10;
+    -fx-border-image-slice: 33%;
+}
+
+

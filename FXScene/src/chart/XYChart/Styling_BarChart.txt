@@ -1,0 +1,46 @@
+By default, a BarChart is given style-class names: chart and bar-chart.
+The following style sets the default values for the barGap and categoryGap properties for all bar charts
+to 0px and 20px. The bars in the same category will be placed next to each other.
+    
+    .bar-chart {
+        -fx-bar-gap: 0;
+        -fx-category-gap: 20;
+    }
+
+You can customize the appearance of the bars for each series or each data item in a series. Each data
+item in a BarChart is represented by a node. The node gets four default style-class names:
+    • chart-bar
+    • series<i>
+    • data<j>
+    • default-color<k>
+    • negative
+
+In series<i>, <i> is the series index. For example, the first series is given the style-class name as
+series0, the second as series1, etc.
+
+In data<j>, <j> is the index of the data item within a series. For example, the first data item in each
+series gets a style-class name as data0, the second as data1, etc.
+
+In default-color<k>, <k> is the series color index. For example, each data item in the first series will
+get a style-class name as default-color0, in the second series default-color1, etc. The default CS defines
+only eight series colors. The value for <k> is equal to (i%8), where i is the series index. That is, series colors
+will repeat if you have more than eight series in a bar chart. Please refer to the pie chart section on how to
+use unique colors for series with index greater than eight. The logic will be similar to the one used for a pie
+chart, with a difference that, this time, you will be looking up the bar-legend-symbol within a series instead
+of a pie-legend-symbol.
+
+The negative class is added if the data value is negative.
+Each legend item in a bar chart is given the following style-class names:
+    • chart-bar
+    • series<i>
+    • bar-legend-symbol
+    • default-color<j>
+
+In series<i>, <i> is the series index. In default-color<j>, <j> is the color index of the series.
+The legend color will repeat, as the bar colors do, if the number of series exceeds 8.
+The following style defines the color of the bars for the all data items in series with series index 0, 8,
+16, 24, etc., as blue.
+
+    .chart-bar.default-color0 {
+        -fx-bar-fill: blue;
+    }

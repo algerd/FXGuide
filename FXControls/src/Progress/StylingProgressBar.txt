@@ -1,0 +1,35 @@
+The default CSS style-class name for a ProgressBar is progress-bar. It supports the CSS style properties:
+    • -fx-indeterminate-bar-length
+    • -fx-indeterminate-bar-escape
+    • -fx-indeterminate-bar-flip
+    • -fx-indeterminate-bar-animation-time
+
+All properties apply to the bar that shows the indeterminate progress. The default bar length is 60px.
+Use the -fx-indeterminate-bar-length property to specify a different bar length.
+
+When the -fx-indeterminate-bar-escape property is true, the bar starting edge starts at the starting edge
+of the track and the bar trailing edge ends at the ending edge of the track. That is, the bar is displayed beyond
+the track length. When this property is false, the bar moves within the track length. The default value is true.
+
+The -fx-indeterminate-bar-flip property indicates whether the bar moves only in one direction or
+both. The default value is true, which means the bar moves in both directions by flipping its direction at the
+end of each edge.
+
+The -fx-indeterminate-bar-animation-time property is the time in seconds that the bar should take
+to go from one edge to the other. The default value is 2.
+
+The ProgressBar contains two substructures:
+    • A track substructure, which is a StackPane
+    • A bar substructure, which is a region
+
+The following styles modify the background color and radius of the bar and track of ProgressBar:
+    
+    .progress-bar .track {
+        -fx-background-color: lightgray;
+        -fx-background-radius: 5;
+    }
+    
+    .progress-bar .bar {
+        -fx-background-color: blue;
+        -fx-background-radius: 5;
+    }

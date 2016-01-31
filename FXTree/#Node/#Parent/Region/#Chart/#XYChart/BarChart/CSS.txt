@@ -1,0 +1,34 @@
+
+-fx-bar-gap	
+	Values: <number>
+	Default: 4
+	Field: DoubleProperty barGap
+	Property: DoubleProperty barGapProperty()
+	Methods: getBarGap(), setBarGap(double)
+	Description: 
+		The gap to leave between bars in the same category
+
+-fx-category-gap
+	Values: <number>
+	Default: 10
+	Field: DoubleProperty categoryGap
+	Property: DoubleProperty categoryGapProperty()
+	Methods: getCategoryGap(), setCategoryGap(double)
+	Description:
+		The gap to leave between bars in separate categories
+		
+				
+************** Style class (?) **********************
+
+"bar-chart"	 	 
+
+"chart-bar series<i> data<j> default-color<k>"
+	Value: Node
+	Description:
+		Where <i> is the index of the series, <j> is the index of the data within the series, and <k> is the series’ color index. 
+		If the data value is negative, the "negative" style class is added; e.g., .negative.chart-bar.	
+
+"chart-bar series<i> bar-legend-symbol default-color<j>"
+	Value: LegendItem
+	Description:
+		Where <i> is the index of the series and <j> is the series’ color index	

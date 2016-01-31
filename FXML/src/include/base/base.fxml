@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    Элемент fx:include загружает содержимое fxml-документа из файла в source аттрибуте
+    в то место, где этот fx:include элемент написан в документе.
+-->
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <!-- Если в аттрибуте source путь начинается без слеша - путь относительно данного документа -->
+    <fx:include source="include.fxml"/>
+    
+    <!-- Если в аттрибуте source путь начинается со слеша - путь относительно CLASSPATH -->
+    <fx:include source="/include/base/include.fxml"/> 
+    
+    <!-- Элемент fx:include может содержать все аттрибуты корневого элемента загружаемого
+    fxml-документа, при этом значения аттрибутов в fx:include будут приоритетнее тех же
+    значений в корне загружаемого документа    
+    -->
+    <fx:include source="include.fxml" text="OK"/>
+    
+    <!-- Элемент fx:include может содержать аттрибуты resources для подключения файла
+    локализации для загружаемого документа и аттрибут кодировки.
+    Использование resources имеет баг и его решенте и разбор использования рассмотрен в
+    пакете include.resource
+    -->  
+    <fx:include source="include.fxml" charset="utf-8"/>  
+    
+                  
+</VBox>    

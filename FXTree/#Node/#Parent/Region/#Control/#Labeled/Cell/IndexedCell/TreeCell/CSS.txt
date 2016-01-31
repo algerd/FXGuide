@@ -1,0 +1,21 @@
+
+-fx-indent (В классе TreeCell не обнаружил таких свойств)
+	Values: <size>
+	Default: 10
+	Description:
+		The amout of space to multiply by the treeItem.level to get the left margin
+
+
+CSS Pseudo-classes:
+
+expanded	
+	Values: <boolean>
+	Default: false
+	Description: 
+		Applies if this cell is expanded.
+	
+collapsed	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this cell is collapsed (is not expanded).

@@ -1,0 +1,27 @@
+
+A TreeView is a control that displays hierarchical data in a tree-like structure.
+You can think of a TreeView as displaying a tree upside down—the root of the tree being at the top. Each item
+in a TreeView is an instance of the TreeItem class. TreeItems form parent-child relationships
+
+A TreeItem is also referred to as a node. The TreeItem class does not inherit from the Node class.
+Therefore, a TreeItem is not a JavaFX Node and it cannot be added to a scene graph.
+
+A TreeItem serves as the data model in a TreeView. Each TreeItem uses an instance of the TreeCell
+class to render its value. A TreeCell in a TreeView can be customized using a cell factory. By default, a
+TreeCell is not editable.
+
+TreeView is a virtualized control. It creates only as many instances of TreeCell as needed to display the
+items for its current height. Cells are recycled as you scroll through items. Virtualization makes it possible
+to use TreeView for viewing very large number of items without using a large amount of memory. Note,
+however, that loading TreeItems always takes memory. Virtualization helps only in viewing the items by
+recycling the cells used in viewing them.
+
+Порядок рассмотрения примеров:
+    TreeViewTest + TreeViewUtil
+    TreeViewCellFactory
+    TreeItemAddDeleteTest
+    TreeViewCheckBoxTest
+    TreeViewChoiceComboBoxesTest
+    TreeViewTextFieldData
+    FileSystemBrowser + PathTreeItem
+    

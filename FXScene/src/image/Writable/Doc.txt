@@ -1,0 +1,7 @@
+Порядок примеров:
+    ReadPixelInfo
+    BulkPixelReading
+    CopyingImage
+    CreatingImage
+    SaveImage + ImageUtil
+    NodeSnapshot

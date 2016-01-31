@@ -1,0 +1,12 @@
+Commonly Used Properties of the Scene Class:
+
+Type Name Property and Description
+ObjectProperty<Cursor> 			cursor 			It defines the mouse cursor for the Scene.
+ObjectProperty<Paint> 			fill 			It defines the background fill of the Scene.
+ReadOnlyObjectProperty<Node> 	focusOwner 		It defines the node in the Scene that owns the focus.
+ReadOnlyDoubleProperty 			height 			It defines the height of the Scene.
+ObjectProperty<Parent> 			root 			It defines the root Node of the scene graph.
+ReadOnlyDoubleProperty 			width 			It defines the width of the Scene.
+ReadOnlyObjectProperty<Window> 	window 			It defines the Window for the Scene.
+ReadOnlyDoubleProperty 			x 				It defines the horizontal location of the Scene on the Window.
+ReadOnlyDoubleProperty 			y 				It defines the vertical location of the Scene on the window.

@@ -1,0 +1,22 @@
+
+-fx-fixed-cell-size	
+	Values: <size>
+	Default: -1
+	Field: DoubleProperty fixedCellSize
+	Property: DoubleProperty fixedCellSizeProperty()
+	Methods: getFixedCellSize(), setFixedCellSize(double)
+	Description:
+		A value greater than zero sets the fixed cell size of the table. 
+		A value of zero or less disables fixed cell size.
+		
+		Specifies whether this control has cells that are a fixed height (of the specified value). 
+		If this value is less than or equal to zero, then all cells are individually sized and positioned. 
+		This is a slow operation. Therefore, when performance matters and developers are not dependent 
+		on variable cell sizes it is a good idea to set the fixed cell size value. Generally cells are around 24px, 
+		so setting a fixed cell size of 24 is likely to result in very little difference in visuals, but a improvement to performance.
+		
+		To set this property via CSS, use the -fx-fixed-cell-size property. This should not be confused with the -fx-cell-size property. 
+		The difference between these two CSS properties is that -fx-cell-size will size all cells to the specified size, 
+		but it will not enforce that this is the only size (thus allowing for variable cell sizes, 
+		and preventing the performance gains from being possible). Therefore, when performance matters use -fx-fixed-cell-size, 
+		instead of -fx-cell-size. If both properties are specified in CSS, -fx-fixed-cell-size takes precedence.

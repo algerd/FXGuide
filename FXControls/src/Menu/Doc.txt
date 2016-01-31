@@ -1,0 +1,10 @@
+
+Using a menu is a multistep process. The following sections describe the steps in detail. The following is
+the summary of steps:
+    1. Create a menu bar and add it to a container.
+    2. Create menus and add them to the menu bar.
+    3. Create menu items and add them to the menus.
+    4. Add ActionEvent handlers to the menu items to perform actions when they are
+    clicked.
+
+

@@ -1,0 +1,10 @@
+
+CSS Pseudo-class:
+	
+last-visible
+	Values: <boolean>
+	Default: false
+	Description:
+		true if this is the last visible cell, typically the right-most cell in the TreeTableView.
+		If the last cell is visible (i.e. the right-most is visible):
+		last-visible = getTableColumn() != null && columnIndex != -1 && columnIndex == tv.getVisibleLeafColumns().size() - 1;

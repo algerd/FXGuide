@@ -1,0 +1,14 @@
+The observable collections in JavaFX have two additional features:
+    • They support invalidation notifications as they are inherited from the Observable interface.
+    • They support change notifications. You can register change listeners to them, which
+        are notified when their contents change.
+
+The javafx.collections.FXCollections class is a utility class to work with JavaFX collections. It
+consists of all static methods.
+
+JavaFX does not expose the implementation classes of observable lists, sets, maps and arrays. You need
+to use one of the factory methods in the FXCollections class to create objects of the ObservableList,
+ObservableSet, ObservableMap and ObservableArray interfaces.
+
+In simple terms, an observable collection in JavaFX is a list, set, map or array that may be observed for
+invalidation and content changes.

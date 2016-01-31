@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="event.spec.EventSpecController">
+    <Label fx:id="msgLbl" text="FXML is cool!" prefWidth="150"/>
+    <!-- 4) Special handlers for collections and properties
+        Коллекции(напр. свойство children) и object properties не могут быть слушателями чтобы использовать setOnEvent() методы.
+        Поэтому надо использовать специальные методы-обработчики (нескриптовые, а контроллерные). 
+        ObservableList, ObservableMap or ObservableSet используют специальные onChange-аттрибуты, 
+        чтобы указать метод-обработчик с ListChangeListner.Change, MapChangeListener.Change or SetChangeListener.Change
+        параметром соответственно.
+    -->
+    <VBox>
+        <children onChange="#handleChildrenChange"/>
+    </VBox>
+</VBox>     
+

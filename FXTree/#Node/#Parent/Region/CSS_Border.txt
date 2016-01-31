@@ -1,0 +1,206 @@
+﻿Стилевые свойства могут быть заданы также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+Класс Background имеет два свойства, которые определяют наборы свойств для background:
+	List<BorderStroke> strokes; - список объектов BorderStroke с css-свойствами:
+		-fx-border-color
+		-fx-border-insets
+		-fx-border-radius
+		-fx-border-style
+		-fx-border-width
+	List<BorderImage> images; - список объектов BorderImage с css-свойствами: 
+		-fx-border-image-source
+		-fx-border-image-insets
+		-fx-border-image-repeat
+		-fx-border-image-slice
+		-fx-border-image-width
+		
+Пример задания трёх наборов свойств BorderStroke для одного элемента Region (каждый набор берёт значения по порядку из свойств	color, insets, radius, style, width)
+	.my-border-stroke {
+		-fx-border-color: 	black, 			red black red black, 	red green;
+		-fx-border-width: 	5, 				1 2, 					1 2 3 4;
+		-fx-border-radius: 	0,				2 5	;					1 2 3 4;
+		-fx-border-insets: 	0;				5 10; 					10 20 20 39;
+		-fx-border-style:   solid centered, dotted outside,      	solid line-join bevel line-cap square;	
+	}	
+		
+Пример задания наборов свойств BorderImage для одного элемента Region (каждый набор берёт значения по порядку из свойств image-source, image-insets, image-repeat, image-slice, image-width)
+Обязательно указывать в наборе BorderImage как минимум одно свойство -fx-border-image-source. 
+Каждому image-insets, image-repeat, image-slice, image-width должно соответствовать image.	
+	.my-border-image {
+		-fx-border-image-source: url(tl.png), 		url(tr.png);
+		-fx-border-image-insets: 10,				12 15 15 20;
+		-fx-border-image-repeat: repeat,			no-repeat;
+		-fx-border-image-slice:  20,				5% 10% 15% 20%;
+		-fx-border-image-width:	 2,					1 2 3 4;	
+	}
+
+-------------------------------------------------------------------------
+-fx-region-border
+	Values: javafx.scene.layout.Border
+	Default: null
+	Field: ObjectProperty<Border> border
+	Property: ObjectProperty<Border> borderProperty()		
+	Methods: getBorder(), setBorder(Border)
+	Description:
+		The border of the Region, which is made up of zero or more BorderStrokes, and zero or more BorderImages. 
+		It is possible for a Border to be empty, where it has neither strokes nor images, and is semantically equivalent to null.
+	Сomments:
+		This cannot be set directly from CSS but is created from the property values of -fx-border-color, -fx-border-insets, 
+		-fx-border-radius, -fx-border-style, -fx-border-width, -fx-border-image-insets, -fx-border-image-repeat, -fx-border-image-slice, 
+		-fx-border-image-source, -fx-border-image-width from javafx.scene.layout.Border class.
+		
+									
+************** BorderStroke ***************** Свойства css задаются в соответствии с правилами http://www.w3.org/TR/css3-background/#borders			
+	
+	Defines the stroke to use on a Border for styling a Region. The stroke is a vector-based rendering that outlines the border area. 
+	It can be inset (or outset) from the Region's edge, and the values of the stroke are taken into account when computing the Region's insets (for defining the content area). 
+	The stroke visuals are not used when any BorderImages are in use.
+	When applied BorderStroke to a Region with a defined shape, the border width and stroking information for the top is used, while the other attributes are ignored.
+	The BorderStroke visuals are not used when any BorderImages are in use.
+	
+-fx-border-color
+	Values: <paint> | <paint> <paint> <paint> <paint> [ , [<paint> | <paint> <paint> <paint> <paint>] ]*
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderStroke> strokes : Paint topStroke rightStroke bottomStroke leftStroke
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		Defines the fill of sides of this border.
+		A series of paint values or sets of four paint values, separated by commas. For each item in the series, 
+		if a single paint value is specified, then that paint is used as the border for all sides of the region; 
+		and if a set of four paints is specified, they are used for the top, right, bottom, and left borders of the region, 
+		in that order. If the border is not rectangular, only the first paint value in the set is used.
+		
+-fx-border-insets
+	Values: <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderStroke> strokes : Insets insets
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		The insets define the distance from the edge of the Region to the inner-most edge of the border, 
+		if that distance is non-negative. The values in these outsets are strictly non-negative.	
+		A series of inset or sets of four inset values, separated by commas. For each item in the series, 
+		a single inset value means that all insets are the same; and if a set of four inset values is specified, 
+		they are used for the top, right, bottom, and left edges of the region, in that order. 
+		Each item in the series of insets applies to the corresponding item in the series of border colors.
+
+-fx-border-radius
+	Values: [<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderStroke> strokes : CornerRadii radii
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		Defines the radii for each corner of this BorderStroke.
+		Refer to CSS Backgrounds and Borders Module Level 3: Curve Radii http://www.w3.org/TR/css3-background/#the-border-radius. JavaFX supports only the short-hand syntax.
+		Each comma-separated value or set of values in the series applies to the corresponding border color.
+
+-fx-border-style - хорошее пояснение в книге 
+	Values: <border-style> [ , <border-style> ]*
+		where <border-style> = <dash-style> [phase <number>]? [centered | inside | outside]? [line-join [miter <number> | bevel | round]]? [line-cap [square | butt | round]]?
+		where <dash-style> = [ none | solid | dotted | dashed | segments( <number>, <number> [, <number>]*) ]		
+		Kishori Sharan Learn JavaFX 8 стр.244:
+		<border-style> = <dash-style> [phase <number>] [<stroke-type>] [line-join <line-join-value>] [line-cap <line-cap-value>]
+			<dash-style> : none, solid, dotted, dashed, or segments(<number>, <number>...) - (segments(dash-length, gap-length, dash-length, ...).
+			<stroke-type> : centered, inside, or outside.
+			<line-join-value> : <number>, bevel, or round
+			<line-cap-value> : square, butt, or round.		
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderStroke> strokes : BorderStrokeStyle topStyle rightStyle bottomStyle leftStyle
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		Defines the styles of sides of this border.
+		A series of border style values, separated by commas. Each item in the series applies to the corresponding item in the series of border colors.
+		The segments dash-style defines a sequence representing the lengths of the dash segments. 
+		Alternate entries in the sequence represent the lengths of the opaque and transparent segments of the dashes. This corresponds to the strokeDashArray variable of Shape.
+		The optional phase parameter defines the point in the dashing pattern that will correspond to the beginning of the stroke. This corresponds to the strokeDashOffset variable of Shape.
+		
+-fx-border-width
+	Values: <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderStroke> strokes : BorderWidths widths
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		Defines the thickness of each side of the BorderStroke.
+		A series of width or sets of four width values, separated by commas. For each item in the series, a single width value means that all border widths are the same; 
+		and if a set of four width values is specified, they are used for the top, right, bottom, and left border widths, in that order. 
+		If the border is not rectangular, only the first width value is used. Each item in the series of widths applies to the corresponding item in the series of border colors.
+
+	
+
+************** BorderImage ***************** Свойства css задаются в соответствии с правилами http://www.w3.org/TR/css3-background/#border-images
+	
+	Defines properties describing how to render an image as the border of some Region. A BorderImage must have an Image specified (it cannot be null). 
+	The repeatX and repeatY properties define how the image is to be repeated in each direction. 
+	The slices property defines how to slice up the image such that it can be stretched across the Region, 
+	while the widths defines the area on the Region to fill with the border image. 
+	Finally, the outsets define the distance outward from the edge of the border over which the border extends. 
+	The outsets of the BorderImage contribute to the outsets of the Border, which in turn contribute to the bounds of the Region.
+	When applied to a Region with a defined shape, a BorderImage is ignored.
+
+-fx-border-image-source
+	Values: <uri> [ , <uri> ]*
+	Default: null
+	Field: ObjectProperty<Border> border : List<BorderImage> images : Image image
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		The image to be used. This will never be null. If this image fails to load, 
+		then the entire BorderImage will be skipped at rendering time and will not contribute to any bounds or other computations.
+		A series of image URIs, separated by commas.
+	
+-fx-border-image-insets
+	Values: <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+	Default: 0 0 0 0
+	Field: ObjectProperty<Border> border : List<BorderImage> images : Insets insets 
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		A series of inset or sets of four inset values, separated by commas. For each item in the series, 
+		a single inset value means that all insets are the same; and if a set of four inset values is specified, 
+		they are used for the top, right, bottom, and left edges of the region, in that order. 
+		Each item in the series of insets applies to the corresponding image in the series of border images.
+		
+-fx-border-image-repeat	
+	Values: <repeat-style> [ , <repeat-style> ]*
+		where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
+	Default: repeat repeat
+	Field: ObjectProperty<Border> border : List<BorderImage> images : BorderRepeat repeatX repeatY
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		Indicates in what manner (if at all) the border image is to be repeated along the x(y)-axis of the region.
+		A series of repeat-style values, separated by commas. Each item in the series applies to the corresponding image 
+		in the series of border images.
+		
+-fx-border-image-slice
+	Values: [<size> | <size> <size> <size> <size> ] fill? [ , [ <size> | <size> <size> <size> <size> <size> ] fill? ]*
+	Default: 100%
+	Field: ObjectProperty<Border> border : List<BorderImage> images : BorderWidths slices
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		A series of image slice values or sets of four values, separated by commas. Each item in the series applies to the corresponding image
+		in the series of border images. For each item in the series, if four values are given, they specify the size of the top, right, bottom, and left slices. 
+		This effectively divides the image into nine regions: an upper left corner, a top edge, an upper right corner, a right edge, a lower right corner, 
+		a bottom edge, a lower left corner, a left edge and a middle. If one value is specified, this value is used for the slice values for all four edges. 
+		If 'fill' is present, the middle slice is preserved, otherwise it is discarded. Percentage values may be used here, 
+		in which case the values are considered proportional to the source image.
+		
+		Defines the slices of the image. JavaFX uses a 4-slice scheme where the slices each divide up an image into 9 patches. 
+		The top-left patch defines the top-left corner of the border. The top patch defines the top border and the image making up 
+		this patch is stretched horizontally (or whatever is defined for repeatX) to fill all the required space. 
+		The top-right patch goes in the top-right corner, and the right patch is stretched vertically (or whatever is defined for repeatY) 
+		to fill all the required space. And so on. The center patch is stretched (or whatever is defined for repeatX, repeatY) in each dimension. 
+		By default the center is omitted (ie: not drawn).
+		
+-fx-border-image-width
+	Values: <size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+	Default: 1 1 1 1
+	Field: ObjectProperty<Border> border : List<BorderImage> images : BorderWidths widths
+	Property: ObjectProperty<Border> borderProperty() (общее для всех свойств background)
+	Description:
+		The widths of the border on each side. These can be defined as either to be absolute widths or percentages of the size of the Region, BorderWidths for more details.
+		A series of width or sets of four width values, separated by commas. For each item in the series, 
+		a single width value means that all border widths are the same; and if a set of four width values is specified, 
+		they are used for the top, right, bottom, and left border widths, in that order. 
+		If the border is not rectangular, only the first width value is used. Each item in the series of widths applies 
+		to the corresponding item in the series of border images. Percentage values may be used here, 
+		in which case the values are considered proportional to the border image area.
+
+	
+			

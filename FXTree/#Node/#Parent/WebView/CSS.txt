@@ -1,0 +1,92 @@
+
+-fx-context-menu-enabled		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty contextMenuEnabled
+	Property: BooleanProperty contextMenuEnabledProperty()
+	Methods: isContextMenuEnabled(), setContextMenuEnabled(boolean)
+	Description:
+		Specifies whether context menu is enabled.
+	 
+-fx-font-smoothing-type		
+	Values: [ gray | lcd ]
+	Default: lcd	
+	Field: ObjectProperty<FontSmoothingType> fontSmoothingType
+	Property: ObjectProperty<FontSmoothingType> fontSmoothingTypeProperty()
+	Methods: getFontSmoothingType(), setFontSmoothingType(FontSmoothingType)
+	Description:
+		Specifies a requested font smoothing type : gray or LCD. The width of the bounding box is defined by the widest row. 
+		Note: LCD mode doesn't apply in numerous cases, such as various compositing modes, where effects are applied and very large glyphs.
+ 
+-fx-font-scale
+	Values: <number>
+	Default: 1
+	Field: DoubleProperty fontScale
+	Property: DoubleProperty fontScaleProperty()
+	Methods: getFontScale(), setFontScale(double)
+	Description:
+		Specifies scale factor applied to font. This setting affects text content but not images and fixed size elements.
+ 
+-fx-min-width
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty minWidth
+	Property: DoubleProperty minWidthProperty()
+	Methods: getMinWidth(), setMinWidth(double)
+	Description:
+		Minimum width property.
+ 
+-fx-min-height 
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty minHeight
+	Property: DoubleProperty minHeightProperty()
+	Methods: getMinHeight(), setMinHeight(double)
+	Description:
+		Minimum height property.
+
+-fx-pref-width
+	Values: <size>
+	Default: 800
+	Field: DoubleProperty prefWidth
+	Property: DoubleProperty prefWidthProperty()
+	Methods: getPrefWidth(), setPrefWidth(double)
+	Description:
+		Preferred width property.
+ 
+-fx-pref-height
+	Values: <size>
+	Default: 600
+	Field: DoubleProperty prefHeight
+	Property: DoubleProperty prefHeightProperty()
+	Methods: getPrefHeight(), setPrefHeight(double)
+	Description:
+		Preferred height property.
+	
+-fx-max-width		
+	Values: <size>
+	Default: Double.MAX_VALUE
+	Field: DoubleProperty maxWidth
+	Property: DoubleProperty maxWidthProperty()
+	Methods: getMaxWidth(), setMaxWidth(double)
+	Description:
+		Maximum width property.	
+	 
+-fx-max-height			 
+	Values: <size>
+	Default: Double.MAX_VALUE
+	Field: DoubleProperty maxHeight
+	Property: DoubleProperty maxHeightProperty()
+	Methods: getMaxHeight(), setMaxHeight(double)
+	Description:
+		Maximum height property.
+
+-fx-zoom	
+	Values: <number>
+	Default:
+	Field: DoubleProperty zoom
+	Property: DoubleProperty zoomProperty()
+	Methods: getZoom(), setZoom(double value)
+	Description:
+		Returns zoom property object.
+

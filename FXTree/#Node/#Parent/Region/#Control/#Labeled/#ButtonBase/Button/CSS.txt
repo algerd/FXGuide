@@ -1,0 +1,24 @@
+
+CSS Pseudo-class:
+
+cancel	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty cancelButton
+	Property: BooleanProperty cancelButtonProperty()
+	Methods: isCancelButton(), setCancelButton(boolean)
+	Description:
+		Applies if this Button receives VK_ESC if the event is not otherwise consumed.
+		A Cancel Button is the button that receives a keyboard VK_ESC press, if no other node in the scene consumes it.
+
+default	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty defaultButton
+	Property: BooleanProperty defaultButtonProperty()
+	Methods: isDefaultButton(), setDefaultButton(boolean)
+	Description:
+		Applies if this Button receives VK_ENTER if the event is not otherwise consumed.
+		A default Button is the button that receives a keyboard VK_ENTER press, if no other node in the scene consumes it.
+		
+		

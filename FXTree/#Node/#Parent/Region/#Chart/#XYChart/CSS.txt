@@ -1,0 +1,73 @@
+
+-fx-alternative-column-fill-visible			
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty alternativeColumnFillVisible
+	Property: alternativeColumnFillVisibleProperty
+	Methods: isAlternativeColumnFillVisible(), setAlternativeColumnFillVisible(boolean)
+	Description:
+		If true then alternative vertical columns will have fills
+	
+-fx-alternative-row-fill-visible		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty alternativeRowFillVisible
+	Property: BooleanProperty alternativeRowFillVisibleProperty()
+	Methods: isAlternativeRowFillVisible(), setAlternativeRowFillVisible(boolean)
+	Description:
+		If true then alternative horizontal rows will have fills
+	 
+-fx-horizontal-grid-lines-visible		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty horizontalGridLinesVisible
+	Property: BooleanProperty horizontalGridLinesVisibleProperty()
+	Methods: isHorizontalGridLinesVisible(), setHorizontalGridLinesVisible(boolean)
+	Description:
+		True if horizontal grid lines should be drawn
+	 
+-fx-horizontal-zero-line-visible		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty horizontalZeroLineVisibleProperty
+	Property: BooleanProperty horizontalZeroLineVisibleProperty()
+	Methods: isHorizontalZeroLineVisible(), setHorizontalZeroLineVisible(boolean)
+	Description:
+		If this is true and the horizontal axis has both positive and negative values then a additional axis line will be drawn at the zero point
+	 
+-fx-vertical-grid-lines-visible			
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty verticalGridLinesVisible
+	Property: BooleanProperty verticalGridLinesVisibleProperty()
+	Methods: getVerticalGridLinesVisible(), setVerticalGridLinesVisible(boolean)
+	Description:
+		True if vertical grid lines should be drawn
+
+-fx-vertical-zero-line-visible		
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty verticalZeroLineVisible
+	Property: BooleanProperty verticalZeroLineVisibleProperty()
+	Methods: isVerticalZeroLineVisible(), setVerticalZeroLineVisible(boolean)
+	Description:
+		If this is true and the vertical axis has both positive and negative values then a additional axis line will be drawn at the zero point
+
+		
+****************** Substructure ********************
+
+plot-content — Group
+chart-plot-background — Region
+chart-alternative-column-fill — Path
+chart-alternative-row-fill — Path
+chart-vertical-grid-lines — Path
+chart-horizontal-grid-lines — Path
+chart-vertical-zero-line — Line
+chart-horizontal-zero-line — Line
+		
+		
+		
+		
+		
+		
+		

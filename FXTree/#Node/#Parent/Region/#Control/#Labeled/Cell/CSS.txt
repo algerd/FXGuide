@@ -1,0 +1,60 @@
+
+Pseudo-classes:
+
+PSEUDO_CLASS_SELECTED = PseudoClass.getPseudoClass("selected")
+PSEUDO_CLASS_FOCUSED = PseudoClass.getPseudoClass("focused");
+PSEUDO_CLASS_EMPTY = PseudoClass.getPseudoClass("empty");
+PSEUDO_CLASS_FILLED = PseudoClass.getPseudoClass("filled");
+
+
+empty	
+	Values: <boolean>
+	Default: false
+	Field: ReadOnlyBooleanWrapper empty
+	Property: ReadOnlyBooleanProperty emptyProperty
+	Methods: isEmpty()
+	Description:
+		Applies when the empty variable is true.
+		A property used to represent whether the cell has any contents. 
+		If true, then the Cell contains no data and is not associated with any data item in the virtualized Control.
+		When a cell is empty, it can be styled differently via the 'empty' CSS pseudo class state. For example, 
+		it may not receive any alternate row highlighting, or it may not receive hover background fill when hovered.
+
+filled	
+	Values: <boolean>
+	Default: false
+	Field: !ReadOnlyBooleanWrapper empty
+	Property: !ReadOnlyBooleanProperty emptyProperty()
+	Methods: !isEmpty()
+	Description:
+		Applies when the empty variable is false.
+
+selected	
+	Values: <boolean>
+	Default: false
+	Field: ReadOnlyBooleanWrapper selected
+	Property: ReadOnlyBooleanProperty selectedProperty()
+	Methods: isEditing()
+	Description:
+		Applies when the selected variable is true.
+		Property representing whether this cell is currently in its editing state.
+		Indicates whether or not this cell has been selected. For example, a ListView defines zero or more cells as being the "selected" cells.
+
+focused (from Node) 
+	Values: <boolean>
+	Default: false
+	Comments: applies when the focused variable is true
+	Field: Node : FocusedProperty focused
+	Property: Node : ReadOnlyBooleanProperty focusedProperty()
+	Methods: Node : isFocusTraversable(), setFocusTraversable(boolean)
+	Description:
+		Specifies whether this Node should be a part of focus traversal cycle. 
+		When this property is true focus can be moved to this Node and from this Node using regular focus traversal keys. 
+		On a desktop such keys are usually TAB for moving focus forward and SHIFT+TAB for moving focus backward. 
+		When a Scene is created, the system gives focus to a Node whose focusTraversable variable is true and that is eligible to receive the focus, 
+		unless the focus had been set explicitly via a call to requestFocus().
+
+
+************* Substructure ******************
+
+text — Labeled

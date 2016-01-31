@@ -1,0 +1,26 @@
+
+A Text node does not have a default CSS style-class name. In addition to all CSS properties of the Shape,
+a Text node supports the following CSS properties:
+    • -fx-font
+    • -fx-font-smoothing-type
+    • -fx-text-origin
+    • -fx-text-alignment
+    • -fx-strikethrough
+    • -fx-underline
+
+The -fx-font property is inherited from the parent. 
+If the parent does not set the property, the default system font is used. The valid values for the
+-fx-font-smoothing-type property are lcd and gray. The valid values for the -fx-text-origin property are
+baseline, top, and bottom. Let us create a style named my-text as follows. It sets a font and a linear gradient
+fill. The fill starts as a light gray color and ends as black.
+
+    .my-text {
+        -fx-font: 36 Arial;
+        -fx-fill: linear-gradient(from 0% 0% to 100% 0%, lightgray 0%, black 100%);
+        -fx-font-smoothing-type: lcd;
+        -fx-underline: true;
+    }
+
+    //creates a Text node and sets it style-class name to my-text.
+    Text t1 = new Text("Styling Text Nodes!");
+    t1.getStyleClass().add("my-text");

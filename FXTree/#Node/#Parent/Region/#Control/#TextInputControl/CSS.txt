@@ -1,0 +1,27 @@
+
+
+-fx-font
+	Values: <font>
+	Default: null
+	Comments: inherits
+	Field: ObjectProperty<Font> font
+	Property: ObjectProperty<Font> fontProperty()
+	Methods: getFont(), setFont(Font)
+	Description:
+		The default font to use for text in the TextInputControl. If the TextInputControl's text is rich text 
+		then this font may or may not be used depending on the font information embedded in the rich text, 
+		but in any case where a default font is required, this font will be used.
+		
+
+CSS Pseudo-class:
+		
+readonly			
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty editable
+	Property: BooleanProperty editableProperty()
+	Methods: isEditable(), setEditable(boolean)
+	Description:
+		Applies if this TextInputControl is not editable.
+		Indicates whether this TextInputControl can be edited by the user.
+

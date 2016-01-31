@@ -1,0 +1,18 @@
+
+-fx-alignment		 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: center-left	
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		Specifies how the text should be aligned when there is empty space within the TextField.
+
+-fx-pref-column-count
+	Values: <number>
+	Default: 12
+	Field: IntegerProperty prefColumnCount
+	Property: IntegerProperty prefColumnCountProperty()
+	Methods: getPrefColumnCount(), setPrefColumnCount(int)
+	Description:
+		The preferred number of text columns. This is used for calculating the TextField's preferred width.

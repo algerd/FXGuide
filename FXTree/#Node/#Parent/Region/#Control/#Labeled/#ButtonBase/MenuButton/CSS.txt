@@ -1,0 +1,25 @@
+
+CSS Pseudo-classes:
+
+openvertically	
+	Values: <boolean>
+	Default: true
+	Description:
+		Applies if the popupSidepProperty is Side.TOP or Side.BOTTOM.
+		openvertically = (popupSidepProperty == Side.TOP) || (popupSidepProperty == Side.BOTTOM)
+		popupSidepProperty : 
+			Indicates on which side the ContextMenu should open in relation to the MenuButton. 
+			Menu items are generally laid out vertically in either case. 
+			For example, if the menu button were in a vertical toolbar on the left edge of the application, 
+			you might change popupSide to Side.RIGHT so that the popup will appear to the right of the MenuButton.
+			Default value : Side.BOTTOM
+
+showing	
+	Values: <boolean>
+	Default: false
+	Field: 
+	Property: ReadOnlyBooleanProperty showingProperty()
+	Methods: isShowing()
+	Description:
+		Applies if the showing variable is true.
+		Indicates whether the ContextMenu is currently visible.

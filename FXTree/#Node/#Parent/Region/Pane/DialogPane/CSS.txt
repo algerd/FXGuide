@@ -1,0 +1,17 @@
+
+-fx-graphic		
+	Values: <uri>
+	Default: null	
+	Field: ObjectProperty<Node> graphic
+	Property: ObjectProperty<Node> graphicProperty()
+	Methods: getGraphic(), setGraphic(Node)
+	Description:
+		The dialog graphic, presented either in the header, if one is showing, or to the left of the content.
+		
+		
+***** Substructure *******
+
+header-panel — BoderPane
+	graphic-container — StackPane
+content — Label
+button-bar — ButtonBar		

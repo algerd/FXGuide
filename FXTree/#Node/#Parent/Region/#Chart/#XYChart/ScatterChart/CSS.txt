@@ -1,0 +1,11 @@
+
+Style class:
+
+"chart-symbol series<i> data<j> default-color<k>"	
+	Values: Node
+	Description:
+		Where <i> is the index of the series, <j> is the index of the data within the series, and <k> is the series’ color index
+ 	
+	
+????	
+	The LegendItem symbols are assigned the style?class of the first symbol of the series.	LegendItem

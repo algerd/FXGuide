@@ -1,0 +1,73 @@
+
+The default CSS style-classes for a cell, a row, and a column header are table-cell, 
+table-row-cell, and column-header, respectively:
+
+    /* Set the font for the cells */
+    .table-row-cell {
+        -fx-font-size: 10pt;
+        -fx-font-family: Arial;
+    }
+    /* Set the font size and text color for column headers */
+    .table-view .column-header .label{
+        -fx-font-size: 10pt;
+        -fx-text-fill: blue;
+    }
+
+TableView supports the following CSS pseudo-classes:
+    • cell-selection
+    • row-selection
+    • constrained-resize
+
+The cell-selection pseudo-class is applied when the cell-level selection is enabled, whereas the
+row-selection pseudo-class is applied for row-level selection. The constrained-resize pseudo-class is
+applied when the column resize policy is CONSTRAINED_RESIZE_POLICY.
+
+Alternate rows in a TableView are highlighted by default. The following code removes the alternate row
+highlighting. It sets the white background color for all rows:
+
+    .table-row-cell {
+        -fx-background-color: white;
+    }
+    .table-row-cell .table-cell {
+        -fx-border-width: 0.25px;
+        -fx-border-color: transparent gray gray transparent;
+    }
+
+TableView shows empty rows to fill its available height. The following code removes the empty rows. In
+fact, it makes them appear as removed:
+
+    .table-row-cell:empty {
+        -fx-background-color: transparent;
+    }
+    .table-row-cell:empty .table-cell {
+        -fx-border-width: 0px;
+    }
+
+TableView contains several substructures that can be styled separately:
+    • column-resize-line
+    • column-overlay
+    • placeholder
+    • column-header-background
+
+The column-resize-line substructure is a Region and is shown when the user tries to resize a
+column. The column-overlay substructure is a Region and is shown as an overlay for the column being
+moved. The placeholder substructure is a StackPane and is shown when the TableView does not have
+columns or data, as in the following code:
+
+    /* Make the text in the placeholder red and bold */
+    .table-view .placeholder .label {
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    }
+
+The column-header-background substructure is a StackPane, and it is the area behind the column
+headers. It contains several substructures. Its filler substructure, which is a Region, is the area between the
+rightmost column and the right edge of the TableView in the header area. Its show-hide-columns-button
+substructure, which is a StackPane, is the area that shows the menu button to display the list of columns to
+show and hide. Please refer to the modena.css file and the JavaFX CSS Reference Guide for a complete list of
+properties of TableView that can be styled. The following code sets the filler background to white:
+    /* Set the filler background to white*/
+
+    .table-view .column-header-background .filler {
+        -fx-background-color: white;
+    }

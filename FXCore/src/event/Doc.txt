@@ -1,0 +1,124 @@
+Classes Involved in Event Processing:
+-------------------------------------------------------------------------------------------------------------
+Name            Class/Interface         Description
+-------------------------------------------------------------------------------------------------------------
+Event           Class                   An instance of this class represents an event. Several subclasses of
+                                        the Event class exist to represent specific types of events.
+
+EventTarget     Interface               An instance of this interface represents an event target.
+
+EventType       Class                   An instance of this class represents an event type, for example,
+                                        mouse pressed, mouse released, mouse moved.
+
+EventHandler    Interface               An instance of this interface represents an event handler or an event
+                                        filter. Its handle() method is called when the event for which it has
+                                        been registered occurs.
+-------------------------------------------------------------------------------------------------------------
+
+UI element that wants to respond to events must implement the EventTarget interface.
+The Window, Scene, and Node classes implement the EventTarget interface. This means that all nodes,
+including windows and scenes, can respond to events. The classes for some UI elements, for example, Tab,
+TreeItem, and MenuItem, do not inherit from the Node class. They can still respond to events because they
+implement the EventTarget interface. If you develop a custom UI element, you will need to implement this
+interface if you want your UI element to respond to events.
+
+
+An event route traversal consists of two phases:
+    • Capture phase
+    • Bubbling phase
+During the route traversal, a node can consume the event in event filters or handlers, thus completing
+the processing of the event. Consuming an event is simply calling the consume() method on the event object.
+When an event is consumed, the event processing is stopped, even though some of the nodes in the route
+were not traversed at all.
+
+
+****** Event Capture Phase:
+
+During the capture phase, an event travels from the head to the tail of its event dispatch chain:
+    Stage -> Scene -> HBox -> Circle
+
+You can register multiple event filters for a node. If the node consumes the event in one of its event
+filters, its other event filters, which have not been executed yet, are executed before the event processing
+stops. Suppose you have registered five event filters for the Scene in our example, and the first event filter
+that is executed consumes the event. In this case, the other four event filters for the Scene will still be
+executed. After executing the fifth event filter for the Scene, the event processing will stop, without the event
+traveling to the remaining nodes (HBox and Circle).
+
+In the event capture phase, you can intercept events (and provide a generic response) that are targeted
+at the children of a node. For example, you can add event filters for the mouse-clicked event to the Stage in
+our example to intercept all mouse-clicked events for all its children. You can block events from reaching
+their targets by consuming the event in event filters for a parent node. For example, if you consume the
+mouse-clicked event in a filter for the Stage, the event will not reach its target, in our example, the Circle.
+
+***** Event Bubbling Phase:
+
+During the bubbling phase, an event travels from the tail to the head of its event dispatch chain.
+    Stage <- Scene <- HBox <- Circle
+
+As the event passes through a node, the registered event handlers for the node are executed. 
+Note that the event bubbling phase executes event handlers for the current node, 
+whereas the event capture phase executes the event filters.
+
+In our example, the event handlers for the Circle, HBox, Scene, and Stage are executed in order,
+assuming none of the event filters consumes the event. Note that the event bubbling phase starts at the
+target of the event and travels up to the topmost parent in the parent-children hierarchy.
+
+You can register multiple event handlers for a node. If the node consumes the event in one of its
+event handlers, its other event handlers, which have not been executed yet, are executed before the event
+processing stops. Suppose you have registered five event handlers for the Circle in our example, and the
+first event handler that is executed consumes the event. In this case, the other four event handlers for the
+Circle will still be executed. After executing the fifth event handler for the Circle, the event processing will
+stop, without the event traveling to the remaining nodes (HBox, Scene, and Stage).
+
+
+******** Handling Events:
+
+Handling an event means executing the application logic in response to the occurrence of the event.
+The application logic is contained in the event filters and handlers, which are objects of the EventHandler
+interface, as shown in the following code:
+
+    public interface EventHandler<T extends Event> extends EventListener
+        void handle(T event);
+    }
+
+Both event filters and handlers are objects of the same EventHandler interface. You cannot tell whether
+an EventHandler object is an event filter or an event handler by just looking at it. In fact, you can register
+the same EventHandler object as event filters as well as handlers at the same time. The distinction between
+the two is made when they are registered to a node. Nodes provide different methods to register them.
+Internally, nodes know whether an EventHandler object was registered as an event filter or a handler.
+Another distinction between them is made based on the event traversal phase in which they are called.
+During the event capture phase, the handle() method of registered filters is called, whereas the handle()
+method of registered handlers is called in the event bubbling phase.
+
+    EventHandler<MouseEvent> aHandler = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent e) {
+            /* Event handling code goes here */
+        }
+    };
+
+    // using lambda expressions:
+    EventHandler<MouseEvent> aHandler = e -> /* Event handling code goes here */;
+
+JavaFX provides two ways to register and unregister event filters and handlers to nodes:
+    • Using the addEventFilter(), addEventHandler(), removeEventFilter(), and removeEventHandler() methods (EventRegistration.java)
+    • Using the onXXX convenience properties (EventHandlerProperties.java)
+ 
+There are some execution order rules for event filters and handlers for both similar and different nodes:
+    - Event filters are called before event handlers. Event filters are executed from the
+        topmost parent to the event target in the parent-child order. Event handlers are
+        executed in the reverse order of the event filters. That is, the execution of the event
+        handlers starts at the event target and moves up in the child-parent order.
+    - For the same node, event filters and handlers for a specific event type are called
+        before the event filters and handlers for generic types. Suppose you have registered
+        event handlers to a node for MouseEvent.ANY and MouseEvent.MOUSE_CLICKED. Event
+        handlers for both event types are capable of handling mouse-clicked events. When the
+        mouse is clicked on the node, the event handler for the MouseEvent.MOUSE_CLICKED
+        event type is called before the event handler for the MouseEvent.ANY event type. Note
+        that a mouse-pressed event and a mouse-released event occur before a mouse-clicked
+        event occurs. In our example, these events will be handled by the event handler for the
+        MouseEvent.ANY event type.
+    - The order in which the event filters and handlers for the same event type for a node
+        are executed is not specified. There is one exception to this rule. Event handlers
+        registered to a node using the addEventHandler() method are executed before the
+        event handlers registered using the setOnXXX() convenience methods.

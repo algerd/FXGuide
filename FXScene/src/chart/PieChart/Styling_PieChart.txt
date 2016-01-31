@@ -1,0 +1,36 @@
+All properties, except the data property, defined in the PieChart class, can be styled using CSS as shown below.
+    .chart {
+        -fx-clockwise: false;
+        -fx-pie-label-visible: true;
+        -fx-label-line-length: 10;
+        -fx-start-angle: 90;
+    }
+
+Four style classes are added to each pie slice added to a pie chart:
+    • chart-pie
+    • data<i>
+    • default-color<j>
+    • negative
+The <i> in the style-class name data<i> is the slice index. The first slice has the class data0, the second
+data1, the third data2, etc.
+The <j> in the style-class name default-color<j> is the color index of the series. In a pie chart, you can
+think of each slice as a series. The default CSS (Modena.css) defines eight series colors. If your pie slice has
+more than eight slices, the slice color will be repeated. 
+
+The negative style-class is added only when the data for the slice is negative.
+
+Define a style for chart-pie style-class-name if you want that style to apply to all pie slices. The following
+style will set a white border with 2px of background insets for all pie slices. It will show a wider gap between
+two slices as you have set 2px insets.
+    .chart-pie {
+        -fx-border-color: white;
+        -fx-background-insets: 2;
+    }
+
+You can define colors for pie slices using the following styles. It defines colors for only five slices. Slices
+beyond the sixth one will use default colors.
+    .chart-pie.default-color0 {-fx-pie-color: red;}
+    .chart-pie.default-color1 {-fx-pie-color: green;}
+    .chart-pie.default-color2 {-fx-pie-color: blue;}
+    .chart-pie.default-color3 {-fx-pie-color: yellow;}
+    .chart-pie.default-color4 {-fx-pie-color: tan;}

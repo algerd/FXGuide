@@ -1,0 +1,45 @@
+
+#effectBox {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+#effectBox .button {
+    -fx-font-size: 16px;
+}
+
+/*
+Type <effect>: <dropshadow> | <innershadow>
+
+    <dropshadow> = dropshadow(<blur-type>, <color>, <radius>, <spread>, <x-offset>, <y-offset>)
+    <innershadow> = innershadow(<blur-type>, <color>, <radius>, <choke>, <x-offset>, <y-offset>)    
+       
+        <blur-type> = [ gaussian | one-pass-box | three-pass-box | two-pass-box ]
+        <color> The shadow Color.
+        <radius> = <number> The radius of the shadow blur kernel. In the range [0.0 ... 127.0], typical value 10.
+        <spread> = <number> The spread of the shadow. The spread is the portion of the radius where the contribution of the source material will be 100%. 
+            The remaining portion of the radius will have a contribution controlled by the blur kernel. 
+            A spread of 0.0 will result in a distribution of the shadow determined entirely by the blur algorithm.
+            A spread of 1.0 will result in a solid growth outward of the source material opacity to the limit of the radius with a very sharp cutoff to transparency at the radius. 
+            Values should be in the range [0.0 ... 1.0].
+        <choke> = <number> The choke of the shadow. The choke is the portion of the radius where the contribution of the source material will be 100%. 
+            The remaining portion of the radius will have a contribution controlled by the blur kernel.
+            A choke of 0.0 will result in a distribution of the shadow determined entirely by the blur algorithm. 
+            A choke of 1.0 will result in a solid growth inward of the shadow from the edges to the limit of the radius with a very sharp cutoff to transparency inside the radius. 
+            Values should be in the range [0.0 ... 1.0].
+        <x-offset> = <number> The shadow offset in the x direction, in pixels. 
+        <y-offset> = <number> The shadow offset in the y direction, in pixels.
+*/
+
+#dropShadowGaussen {
+    -fx-effect: dropshadow(gaussian, gray, 10, 0.6, 10, 10);
+}
+#dropShadowOnePassBox {
+    -fx-effect: dropshadow(one-pass-box, gray, 10, 0.6, 10, 10);
+}
+#innerShadowGaussen {
+    -fx-effect: innershadow(gaussian, gray, 10, 0.6, 10, 10);
+}
+#innerShadowOnePassBox {
+    -fx-effect: innershadow(one-pass-box, gray, 10, 0.6, 10, 10);
+}

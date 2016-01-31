@@ -1,0 +1,81 @@
+
+The default CSS style-class name for a Slider control is slider. Slider contains the following CSS
+properties, each of them corresponds to its Java property in the Slider class:
+    • -fx-orientation
+    • -fx-show-tick-labels
+    • -fx-show-tick-marks
+    • -fx-major-tick-unit
+    • -fx-minor-tick-count
+    • -fx-show-tick-labels
+    • -fx-snap-to-ticks
+    • -fx-block-increment
+
+Slider supports horizontal and vertical CSS pseudo-classes that apply to horizontal and vertical
+sliders, respectively. A Slider control contains three substructures that can be styled:
+    • axis
+    • track
+    • thumb
+
+The axis substructure is a NumberAxis. It displays the tick marks and tick labels. The following code sets
+the tick label color to blue, major tick length to 15px, minor tick length to 5px, major tick color to red, and
+minor tick color to green:
+
+    .slider > .axis {
+        -fx-tick-label-fill: blue;
+        -fx-tick-length: 15px;
+        -fx-minor-tick-length: 5px
+    }
+    .slider > .axis > .axis-tick-mark {
+        -fx-stroke: red;
+    }
+    .slider > .axis > .axis-minor-tick-mark {
+        -fx-stroke: green;
+    }
+
+The track substructure is a StackPane. The following code changes the background color of track
+to red:
+
+    .slider > .track {
+        -fx-background-color: red;
+    }
+
+The thumb substructure is a StackPane. The thumb looks circular because it is given a background
+radius. If you remove the background radius, it will look rectangular, as shown in the following code:
+
+.slider .thumb {
+    -fx-background-radius: 0;
+}
+
+You can make an image like a thumb by setting the background of the thumb substructure to an image
+as follows (assuming that the thumb.jpg image file exists in the same directory as the CSS file containing
+the style):
+
+.slider .thumb {
+    -fx-background-image: url("thumb.jpg");
+}
+
+You can give the thumb any shape using the -fx-shape CSS property.The following code gives the
+thumb a triangular shape. The triangle is inverted for a horizontal slider and is pointed to the right for a
+vertical slider. 
+
+    /* An inverted triangle */
+    .slider > .thumb {
+        -fx-shape: "M0, 0L10, 0L5, 10 Z";
+    }
+    /* A triangle pointing to the right*/
+        .slider:vertical > .thumb {
+        -fx-shape: "M0, 0L10, 5L0, 10 Z";
+    }
+
+The following code gives the thumb a shape of a triangle placed beside a rectangle. The triangle is
+inverted for a horizontal slider and is pointed to the right for a vertical slider. 
+
+    /* An inverted triangle below a rectangle*/
+        .slider > .thumb {
+        -fx-shape: "M0, 0L10, 0L10, 5L5, 10L0, 5 Z";
+    }
+    /* A triangle pointing to the right by the right side of a rectangle */
+        .slider:vertical > .thumb {
+        -fx-shape: "M0, 0L5, 0L10, 5L5, 10L0, 10 Z";
+    }
+

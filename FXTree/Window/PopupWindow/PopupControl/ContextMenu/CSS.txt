@@ -1,0 +1,17 @@
+
+Style class: context-menu
+
+Substructure:
+
+context-menu — a Region
+	scroll-arrow — a StackPane
+		menu-up-arrow — a StackPane
+	scroll-arrow — a StackPane
+		menu-down-arrow — a StackPane
+	* — a VBox
+		menu-item — a Region
+			label — a Label
+			left-container — a StackPane (for radio buttons and check boxes)
+			right-container — a StackPane (for pull-right menus)
+				arrow — a Region
+			graphic-container — a StackPane (for MenuItem graphic)

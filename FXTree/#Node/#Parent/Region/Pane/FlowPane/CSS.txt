@@ -1,0 +1,65 @@
+
+-fx-hgap 
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty hgap
+	Property: DoubleProperty hgapProperty()
+	Methods: getHgap(), setHgap(double)
+	Description:
+		The amount of horizontal space between each node in a horizontal flowpane or the space between columns in a vertical flowpane.
+
+-fx-vgap	 
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty vgap
+	Property: DoubleProperty vgapProperty()
+	Methods: getVgap(), setVgap(double)
+	Description:
+		The amount of vertical space between each node in a vertical flowpane or the space between rows in a horizontal flowpane.
+
+-fx-alignment			 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The overall alignment of the flowpane's content within its width and height.
+		For a horizontal flowpane, each row will be aligned within the flowpane's width using the alignment's hpos value, 
+		and the rows will be aligned within the flowpane's height using the alignment's vpos value.
+		For a vertical flowpane, each column will be aligned within the flowpane's height using the alignment's vpos value, 
+		and the columns will be aligned within the flowpane's width using the alignment's hpos value.
+
+-fx-column-halignment			 
+	Values: [ left | center | right ]
+	Default: left
+	Field: ObjectProperty<HPos> columnHalignment
+	Property: ObjectProperty<HPos> columnHalignmentProperty()
+	Methods: getColumnHalignment(), setColumnHalignment(HPos)
+	Description:
+		The horizontal alignment of nodes within each column of a vertical flowpane. 
+		The property is ignored for horizontal flowpanes.
+
+-fx-row-valignment			 
+	Values: [ top | center | baseline | bottom ]
+	Default: center
+	Field: ObjectProperty<VPos> rowValignment
+	Property: ObjectProperty<VPos> rowValignmentProperty()
+	Methods: getRowValignment(), setRowValignment(VPos)
+	Description:
+		The vertical alignment of nodes within each row of a horizontal flowpane. 
+		If this property is set to VPos.BASELINE, then the flowpane will always resize children to their preferred heights, 
+		rather than expanding heights to fill the row height. The property is ignored for vertical flowpanes.
+
+-fx-orientation	
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of this flowpane. A horizontal flowpane lays out children left to right, 
+		wrapping at the flowpane's width boundary. A vertical flowpane lays out children top to bottom,
+		wrapping at the flowpane's height. The default is horizontal.
+
+

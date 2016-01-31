@@ -1,0 +1,8 @@
+
+Порядок рассмотрения примеров:
+    TextTest
+    TextCentering
+    MultilineText
+    TextFontTest
+    InstalledFonts
+    TextCustomFont

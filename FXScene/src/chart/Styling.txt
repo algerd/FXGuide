@@ -1,0 +1,49 @@
+
+You can style all types of charts. The Chart class defines properties common to all types of charts. The
+default CSS style-class name for a chart is chart. You can specify the legendSide, legendVisible, and
+titleSide properties for all charts in a CSS as shown:
+
+    .chart {
+        -fx-legend-side: top;
+        -fx-legend-visible: true;
+        -fx-title-side: bottom;
+    }
+
+Every chart defines two substructures:
+    • chart-title
+    • chart-content
+The chart-title is a Label and the chart-content is a Pane. The following styles sets the background
+color for all charts to yellow and the title font to Arial 16px bold.
+
+    .chart-content {
+        -fx-background-color: yellow;
+    }
+    .chart-title {
+        -fx-font-family: "Aeial";
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
+    }
+
+The default style-class name for legends is chart-legend. The following style sets the legend background
+color to light gray.
+
+    .chart-legend {
+        -fx-background-color: lightgray;
+    }
+
+Every legend has two substructures:
+    • chart-legend-item
+    • chart-legend-item-symbol
+
+The chart-legend-item is a Label, and it represents the text in the legend. The chart-legend-itemsymbol
+is a Node, and it represents the symbol next to the label, which is a circle by default. The following
+style sets the font size for the labels in legends to 10px and the legend symbols to an arrow.
+
+    .chart-legend-item {
+        -fx-font-size: 16px;
+    }
+    .chart-legend-item-symbol {
+        -fx-shape: "M0 -3.5 v7 l 4 -3.5z";
+    }
+
+

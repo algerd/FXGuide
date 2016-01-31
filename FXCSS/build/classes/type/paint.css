@@ -1,0 +1,70 @@
+#paintBox {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+#paintBox .button {
+    -fx-font-size: 20px;
+}
+
+/*
+Type <paint> = <color> | <linear-gradient> | <radial-gradient> | <image-pattern> <repeating-image-pattern>
+*/
+
+/*
+<linear-gradient> = linear-gradient([[from <point> to <point>] | [to <side-or-corner>],]? [[repeat | reflect],]? <color-stop>[,<color-stop>]+) 
+    where <side-or-corner> = [left | right] || [top | bottom]
+    Linear gradient creates a gradient going though all the stop colors along the line between the "from" <point> and the "to" <point>. 
+    If the points are percentages, then they are relative to the size of the area being filled. Percentage and length sizes can not be mixed in a single gradient function.
+    If neither repeat nor reflect are given, then the CycleMethod defaults "NO_CYCLE".
+    If neither [from <point> to <point>] nor [ to <side-or-corner> ] are given, then the gradient direction defaults to 'to bottom'.
+*/
+/*This example will create a gradient from top left to bottom right of the filled area with red at the top left corner and black at the bottom right.*/
+#linearGradientSimply {
+    -fx-background-color: linear-gradient(to bottom right, red, black);
+    /*This is equivalent to:*/
+    /*-fx-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, red 0%, black 100%);*/
+}
+#linearGradientComplex {
+    /*This more complex example will create a 50% high bar at the top with a 3 color gradient with white underneath for the rest of the filled area.*/
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 50%, gray, darkgray 50%, dimgray 99%, white);
+}
+
+/*
+<radial-gradient> = radial-gradient([focus-angle <angle>,]? [focus-distance <percentage>,]? [center <point>,]? radius [<length> | <percentage>] [[repeat | reflect],]? <color-stop>[,<color-stop>]+)
+    Radial gradient creates a gradient going though all the stop colors radiating outward from the center point to the radius. 
+    If the center point is not given, the center defaults to (0,0). Percentage values are relative to the size of the area being filled. 
+    Percentage and length sizes can not be mixed in a single gradient function.
+    If neither repeat nor reflect are given, then the CycleMethod defaults "NO_CYCLE".
+*/
+
+#radialGradientSimply {
+    -fx-background-color: radial-gradient(radius 100%, red, darkgray, black);
+}
+#radialGradientComplex {
+    -fx-background-color: radial-gradient(focus-angle 45deg, focus-distance 20%, center 25% 25%, radius 50%, reflect, gray, darkgray 75%, dimgray);
+} 
+
+/*
+<image-pattern> = image-pattern(<string>, [<size>, <size>, <size>, <size>[, <boolean>]?]?) | repeating-image-pattern(<string>)
+<image-pattern> = image-pattern(<url>, [<origin-x>, <origin-y>, <width>, <height>[, <proportional-flag>]?]?) | repeating-image-pattern(<url>)
+
+    <url> = <string> The URL of the image.
+    <origin-x> = <size> The x origin of the anchor rectangle.
+    <origin-y> = <size> The y origin of the anchor rectangle.
+    <width> = <size> The width of the anchor rectangle.
+    <height> = <size> The height of the anchor rectangle.
+    <proportional-flag> = <boolean> The proportional flag which indicates whether start and end locations are proportional or absolute
+*/
+#imagePatternProportional {
+    -fx-background-color: image-pattern("/type/border_with_traingles.jpg", 20%, 20%, 80%, 80%, true);
+}
+#imagePatternAbsolute {
+    -fx-background-color: image-pattern("/type/border_with_traingles.jpg", 20, 20, 80, 80, false);
+}
+#repeatingImagePattern {
+    -fx-background-color: repeating-image-pattern("/type/border_with_traingles.jpg");
+    /* это аналогично */
+    /* -fx-background-color: image-pattern("/type/border_with_traingles.jpg", 0, 0, imageWidth, imageHeight, false);*/
+}
+

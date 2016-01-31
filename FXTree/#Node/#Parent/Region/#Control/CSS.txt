@@ -1,0 +1,13 @@
+
+-fx-skin
+	Values: <string>
+	Default: null
+	Field: ObjectProperty<Skin<?>> skin
+	Property: ObjectProperty<Skin<?>> skinProperty()
+	Methods: getSkin(), setSkin(Skin)
+	Description:
+		The class name of the Control's Skin.
+		Skin is responsible for rendering this Control. From the perspective of the Control, the Skin is a black box. 
+		It listens and responds to changes in state in a Control.
+		There is a one-to-one relationship between a Control and its Skin. Every Skin maintains a back reference to the Control 
+		via the Skin.getSkinnable() method. A skin may be null.

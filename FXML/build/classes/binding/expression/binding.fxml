@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+ 
+    <!--
+    После загрузки fxml-документа объекты документа статичны и чтобы изменить
+    значения их свойств после загрузки документа используют binding expression.
+    Чтобы связать значение одного свойства со значением другого, используют
+    выражение:
+        <Class property="${fx:id.property}" />
+    -->
+    <TextField fx:id="mainText" text="Hello"/>
+    <TextField text="${mainText.text}" disable="true"/> 
+    
+    <!--
+    Значение свойства объекта можно связать с выражением, состоящим
+    из поддерживаемых операторов и констант. 
+        <Class property="${expression}"
+    -->  
+    <TextField text="${mainText.text != 'Hello'}" disable="true"/>
+    <!--
+    Список поддерживаемых операторов и констант в expression
+        Both arguments must be of type Comparable
+        "string" 'string'      A string constant
+        true false             A boolean constant
+        null                    A constant representing the null value
+        50.0 3e5 42             A numerical constant
+        - (unary operator)      Unary minus operator, applied on a number
+        ! (unary operator)      Unary negation of a boolean
+        + - * / %               Numerical binary operators
+        && ||                   Boolean binary operators
+        > >= < <= == !=         Binary operators of comparison.
+    -->
+</VBox>    

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox>
+    <!--
+        Если свойство является read-only List (оно не имеет сеттера) и его геттер
+        возвращает List, то такое свойство нициализируется только через тег-свойство
+        (не через аттрибут), который даёт доступ к свойству для его заполнения до закрывающего тега.
+        <Class>
+            <listPpoperty>
+                <value1/>
+                <value2/>
+            </listPpoperty>
+        </Class>
+        
+        children - это List свойство Parent - родителя AnchorPane   
+    -->  
+    <children>
+        <Button text="OK" /> 
+        <Button text="Cancel" /> 
+    </children>    
+       
+</VBox>    

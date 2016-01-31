@@ -1,0 +1,87 @@
+#colorBox {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+
+/*
+Type <color> = <named-color> | <looked-up-color> | <rgb-color> | <hsb-color> | <color-function>
+    <named-color> : red, green, blue и т.д.
+*/
+#namedColorButton { -fx-background-color: red }
+
+/*
+    <looked-up-color>:
+        В любом узле сцены можно задать ссылку на цвет. И тогда любой ребёнок(вложенный элемент)
+        может использовать эту ссылку как цвет.
+*/
+.root { abc: #b0e0e6 }
+#lookedUpColorButton { -fx-background-color: abc }
+
+/*
+    <rgb-color>:
+        #<digit><digit><digit>
+        | #<digit><digit><digit><digit><digit><digit>
+        | rgb( <integer> , <integer> , <integer> )
+        | rgb( <integer> %, <integer>% , <integer>% )
+        | rgba( <integer> , <integer> , <integer> , <number> ) 
+        | rgba( <integer>% , <integer>% , <integer> %, <number> )
+
+        <digit>: hex
+        <integer> :  range 0 — 255
+        <integer>%: 100% -> 255
+        <number>:  range 0.0 (representing completely transparent) and 1.0 (completely opaque)
+*/
+#rgbColorButton {
+    -fx-background-color: #ff0;
+    -fx-background-color: #7cfc00;   
+    -fx-background-color: rgb(0, 255, 150);   
+    -fx-background-color: rgb(0%, 50%, 100%);   
+    -fx-background-color: rgba(0, 255, 150, 0.5);
+    -fx-background-color: rgba(0%, 50%, 100%, 0.5);
+}
+
+/*
+    <hsb-color> :
+        hsb( <number> , <number>% , <number>% ) 
+        | hsba( <number> , <number>% , <number>% , <number> )
+        The first number is hue in the range 0 to 360 degrees.
+        The second number is saturation in the range 0% to 100%. 
+        The third number is brightness in the range 0% to 100%.
+        The fourth number is alpha in the range 0.0 to 1.0, specifying completely transparent and completely opaque 
+*/
+#hsbColorButton {
+    -fx-background-color: hsba(150, 40%, 70%, 0.6);
+}
+
+/*
+    <color-function>: <derive> | <ladder>
+        <derive> = derive( <color> , <number>% )
+            Positive percentages indicate brighter colors and negative percentages indicate darker colors. 
+            A value of -100% means completely black, 0% means no change in brightness, and 100% means completely white.
+        
+        <ladder> = ladder(<color> , <color-stop> [, <color-stop>]+)
+            Возвращет цвет из color-stop, если яркость этого color-stop будет соответствовать цвету color. (пример ниже) 
+            Регулируя динамически яркость <color> можно получать разные цвета из ladder().
+        Type <color-stop> = <color><stop-distance>
+            <stop-distance> = [<percentage> | <length>]?
+            Стоп-дистанция - это дистанция в линейном или радиальном градиенте цвета: #7cfc00 45%; 
+*/
+/* <color-function>: <derive> */
+#deriveButton {
+    -fx-background-color: derive(red, -35%);
+}
+
+/*
+    <color-function>: <ladder>:
+    Если яркость(brightness) цвета в ссылке background <= 49%, тогда функцией ladder() будет возвращен цвет white,
+    если >= 50%, тогда функцией ladder() будет возвращён black.
+    Это полезно например для привязки цвета текста к цвету фона
+*/
+.root {
+    background: black;
+    -fx-background-color: background;
+}
+#ladderButton {
+    -fx-text-fill: ladder(background, white 49%, black 50%);
+}

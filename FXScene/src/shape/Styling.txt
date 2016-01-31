@@ -1,0 +1,36 @@
+
+All shapes do not have a default style-class name. If you want to apply styles to shapes using CSS, you need
+to add style-class names to them. All shapes can use the following CSS properties:
+    • -fx-fill
+    • -fx-smooth
+    • -fx-stroke
+    • -fx-stroke-type
+    • -fx-stroke-dash-array
+    • -fx-stroke-dash-offset
+    • -fx-stroke-line-cap
+    • -fx-stroke-line-join
+    • -fx-stroke-miter-limit
+    • -fx-stroke-width
+
+All CSS properties correspond to the properties in the Shape class, which I have discussed at length in
+the previous section. Rectangle supports two additional CSS properties to specify arc width and height for
+rounded rectangles:
+    • -fx-arc-height
+    • -fx-arc-width
+
+The following snippet of code creates a Rectangle and adds rectangle as its style-class name:
+    
+    Rectangle r1 = new Rectangle(200, 50);
+    r1.getStyleClass().add("rectangle");
+
+The following style will produce a rectangle:
+    
+    .rectangle {
+        -fx-fill: lightgray;
+        -fx-stroke: black;
+        -fx-stroke-width: 4;
+        -fx-stroke-dash-array: 15 5 5 10;
+        -fx-stroke-dash-offset: 20;
+        -fx-stroke-line-cap: round;
+        -fx-stroke-line-join: bevel;
+    }

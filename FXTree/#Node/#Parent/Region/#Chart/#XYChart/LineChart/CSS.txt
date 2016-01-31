@@ -1,0 +1,30 @@
+
+-fx-create-symbols
+	Values: <boolean>	
+	Default: true
+	Field: BooleanProperty createSymbols
+	Property: BooleanProperty createSymbolsProperty()
+	Methods: getCreateSymbols(), setCreateSymbols(boolean)
+	Description:
+		When true, CSS styleable symbols are created for any data items that don't have a symbol node specified.
+		
+	
+************* Style class **************
+	
+"chart-series-line series<i> default-color<j>"
+	Values: Node
+	Description:
+		Where <i> is the index of the series and <j> is the series’ color index	
+
+"chart-line-symbol series<i> data<j> default-color<k>"	
+	Values: Node
+	Description:
+		Where <i> is the index of the series, <j> is the index of the data within the series, and <k> is the series’ color index
+
+"chart-line-symbol series<i> default-color<j>"			
+	Values: LegendItem
+	Description:
+		Where <i> is the index of the series and <j> is the series’ color index	
+	
+	
+	

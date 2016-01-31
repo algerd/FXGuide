@@ -1,0 +1,10 @@
+
+DEFAULT_STYLE_CLASS = "combo-box"
+
+Substructure :
+
+list-cell — a ListCell instance used to show the selection in the button area of a non-editable ComboBox
+text-input — a TextField instance used to show the selection and allow input in the button area of an editable ComboBox
+combo-box-popup — a PopupControl that is displayed when the button is pressed
+	list-view — a ListView
+		list-cell — a ListCell

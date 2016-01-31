@@ -1,0 +1,54 @@
+#numberBox {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+/*
+Type <number>: [+|-]? [[0-9]+|[0-9]*"."[0-9]+]
+    0.5; 105; -2.4; .54
+    целое или десятичное число, положительное или отрицательное(если разрешено css-свойством).        
+
+Type <size> = <number><length> или <number><percentage>
+    Не позволяется делать пробелы между типами <number> и <length> или <percentage> : 250px (нельзя 250 px)
+    Тип <size> состоит из <number> типа с указанием дополнительного типа <length> или <percentage>.                    
+        
+<length>: [ px | mm | cm | in | pt | pc | em | ex ]?
+    150px; 1.5em; 2ex 
+    Relative
+        px: pixels, relative to the viewing device
+        em: the 'font-size' of the relevant font
+        ex: the 'x-height' of the relevant font
+    Absolute
+        in: inches — 1 inch is equal to 2.54 centimeters.
+        cm: centimeters
+        mm: millimeters
+        pt: points — the points used by CSS 2.1 are equal to 1/72nd of an inch.
+        pc: picas — 1 pica is equal to 12 points.
+               
+<percentage>: [ % ]
+    45.5%; 65%
+*/
+#sizeButton {
+    -fx-font-size: 20px;
+    -fx-background-radius: 0.5em;
+    -fx-border-width: 10%;
+}
+
+/*
+Type <angle>: <number>[ deg | rad | grad | turn ]
+*/
+#angleButton {
+    -fx-rotate: 45deg;
+}
+
+/*
+Type <duration>: [<number>[ s | ms ]] | indefinite : 15.5s; 200ms; indefinite       
+    s: duration in seconds
+    ms: duration in milliseconds. One second is 1000 milliseconds.
+    indefinite: время неопределено
+*/
+
+/*
+Type <point>: [ [ <length> <length> ] | [ <percentage> | <percentage> ] ]
+    A point is an {x,y} coordinate, for example: 0 0; 100, 0; 90% 67%
+*/

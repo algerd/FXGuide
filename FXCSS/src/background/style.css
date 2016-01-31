@@ -1,0 +1,66 @@
+.root{
+    -fx-pref-width: 500px;
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+StackPane {
+    -fx-min-width: 200px;
+    -fx-min-height: 100px;
+}
+
+/*
+BackgroundFill:
+    -fx-background-color : <paint> [ , <paint> ]*
+        Default: transparent
+
+    -fx-background-insets : <size> | <size> <size> <size> <size> [,[<size> | <size> <size> <size> <size>]]*
+        Default: 0 0 0 0
+        Отступы фона от краёв контейнера-родителя
+
+    -fx-background-radius : [<size>]{1,4} [/[<size>]{1,4}]? [,[<size>]{1,4} [/[<size>]{1,4}]?]*
+        Default: 0 0 0 0
+        10/20 - эллиптическое скругление по координатам x и y
+    
+*/
+#singleBackground {
+    -fx-background-color: #00ffff;
+    -fx-background-insets: 10;
+    -fx-background-radius: 10;
+}
+
+#multipleBackground {
+    -fx-background-color:   red,        green,          #00ffff;
+    -fx-background-insets:  5 5 5 5,    10 15 10 10,    15 20 15 15;
+    -fx-background-radius:  5 5 5 5,    0  0  10 10,    0  20 5  30;
+}
+
+
+/*
+BackgroundImage:
+    -fx-background-image : <uri> [ , <uri> ]*
+
+    -fx-background-position : <bg-position> [ , <bg-position> ]*
+		where <bg-position> = [[[<size> | left | center | right] [<size> | top | center | bottom]?] | [[center | [left | right] <size>?] || [center | [top | bottom] <size>?]
+        Default: 0% 0%
+    
+    -fx-background-repeat : <repeat-style> [, <repeat-style>]*
+		where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | stretch | no-repeat]
+        Default: repeat repeat 
+
+    -fx-background-size : <bg-size> [ , <bg-size> ]*
+		where <bg-size> = [ <size> | auto ]{1,2} | cover | contain | stretch
+        Default: auto auto    
+*/
+#singleBackgroundImage {
+    -fx-background-image: 	 url('border_with_traingles.jpg');
+	-fx-background-position: left 10px top 15px;
+	-fx-background-repeat: 	 repeat-x; 
+	-fx-background-size: 	 150px 150px;
+}
+
+#multipleBackgroundImage {
+    -fx-background-image: 	 url('border_with_traingles.jpg'),  url('india_flag.jpg');
+	-fx-background-position: left 10px top 15px,                100px 15px;
+	-fx-background-repeat: 	 repeat-x,                          repeat-y; 
+	-fx-background-size: 	 40px 40px,                       20% 20%;
+}

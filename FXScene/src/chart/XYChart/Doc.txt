@@ -1,0 +1,48 @@
+Порядок примеров:
+    XYChartDataUtil
+    VerticalBarChart
+    HorizontalBarChart
+    VerticalStackedBarChart
+    ScatterChartTest
+    LineChartTest
+    AreaChartTest
+    StackedAreaChartTest
+    CustomizingCharts
+
+    Representing Axes in an XYChart:
+---------------------------------------
+
+An instance of a concrete subclass of the abstract Axis<T> class defines an axis in the XYChart.
+
+abstract Axis<T>
+    abstract ValueAxis<T>
+        NumberAxis
+    CategoryAxis
+
+The abstract Axis<T> class is the base class for all classes representing axes. The generic parameter T is
+the type of the values plotted along the axis, for example, String, Number, etc. An axis displays ticks and tick
+labels. The Axis<T> class contains properties to customize the ticks and tick labels. An axis can have a label,
+which is specified in the label property.
+
+The concrete subclasses CategoryAxis and NumberAxis are used for plotting String and Number
+data values along an axis, respectively. They contain properties specific to the data values. For example,
+NumberAxis inherits ValueAxis<T> ’s lowerBound and upperBound properties, which specify the lower and
+upper bounds of the data plotted on the axis. By default, the range of the data on an axis is automatically
+determined based on the data. You can turn off this feature by setting the autoRanging property in
+the Axis<T> class to false. The following snippet of code creates an instance of the CategoryAxis and
+NumberAxis and sets their labels.
+
+    CategoryAxis xAxis = new CategoryAxis();
+    xAxis.setLabel("Country");
+    NumberAxis yAxis = new NumberAxis();
+    yAxis.setLabel("Population (in millions)");
+
+Tip: Use a CategoryAxis to plot String values along an axis, and use a NumberAxis to plot numeric values
+along an axis.    
+---------------------------------------------------------------
+
+Tip: Each bar in a bar chart is represented with a node. The user can interact with the bars in a bar chart,
+by adding event handlers to the nodes representing the data items. Please refer to the PieSliceTest.java 
+on the pie chart for an example in which you added tooltips for the pie slices.
+
+

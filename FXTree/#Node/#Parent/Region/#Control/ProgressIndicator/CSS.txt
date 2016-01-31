@@ -1,0 +1,46 @@
+﻿
+***** Cвойства, которые не нашЄл в классе, но они указаны в документации. Проверить их и искать их корни. ****
+
+-fx-indeterminate-segment-count	
+	Values: <number>
+	Default: 8
+-fx-progress-color
+	Values: <paint>
+	Default: null	
+-fx-spin-enabled
+	Values: <boolean>
+	Default: false
+
+	
+***** CSS Pseudo-classes ******
+
+determinate	
+	Values: <boolean>
+	Default: false
+	Field: !ReadOnlyBooleanWrapper indeterminate
+	Property: !ReadOnlyBooleanProperty indeterminateProperty
+	Methods: !isIndeterminate()
+	Description:
+		Applies if the indeterminate variable is false.
+
+indetermindate		
+	Values: <boolean>
+	Default: false
+	Field: !ReadOnlyBooleanWrapper indeterminate
+	Property: ReadOnlyBooleanProperty indeterminateProperty
+	Methods: isIndeterminate()
+	Description:
+		Applies if the indeterminate variable is true.
+		A flag indicating whether it is possible to determine the progress of the ProgressIndicator. 
+		Typically indeterminate progress bars are rendered with some form of animation indicating potentially "infinite" progress.
+
+
+		
+***** Substructure ******
+
+indicator - StackPane
+progress - StackPane
+percentage - Text
+tick - StackPane
+
+		

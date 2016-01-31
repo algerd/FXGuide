@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Классы c valueOf(String arg) необходимо импортировать.-->
+<?import object.valueof.Person?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <fx:define>
+        <!-- 
+        Если класс имеет статический метод valueOf(String arg) для создвния объекта, 
+        аргумент которого - строчный элумент, то в fxml объект такого класса создаётся через аттрибут fx:valueOf.
+        Классы необходимо импортировать.
+
+        Xxx x = Xxx.valueOf("a value") в fxml <Xxx fx:value="a value"/>    
+        -->
+        <String fx:value="Hello, World!" fx:id="hello"/>
+        <Double fx:value="1.0" fx:id="db"/>
+        <Boolean fx:value="false" fx:id="bool"/>
+
+        <!-- Создать пустой объект из класса с безаргументным конструктором -->
+        <String fx:id="empty"/>
+
+        <!-- 
+        Пользовательские объекты, которые реализуют статический метод valueOf(String arg),
+        могут быть инициализированы таким же способом.
+        --> 
+        <Person fx:value="Alex" fx:id="alex"/>
+    </fx:define>     
+</VBox>     
+

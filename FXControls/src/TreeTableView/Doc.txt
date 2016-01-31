@@ -1,0 +1,47 @@
+
+The TreeTableView control combines the features of the TableView and TreeView controls. It displays a
+TreeView inside a TableView. A TreeView is used to view hierarchical data; a TableView is used to view
+tabular data. A TreeTableView is used to view hierarchical data in a tabular form.
+
+TreeTableView inherits from Control, not from TreeView or TableView. TreeTableView reuses most
+of the code used for TreeView and TableView. Most of the classes in the API are inherited from a common
+abstract base class for all three controls. For example, the TableColumn and TreeTableColumn classes are
+used to define columns in TableView and TreeTableView, respectively, and both are inherited from the
+TableColumnBase class.
+
+TreeTableView supports the following features:
+    • You can add multiple columns.
+    • You can have nested columns.
+    • You can resize columns at runtime.
+    • You can reorder columns at runtime.
+    • You can sort data on a single or multiple columns.
+    • You can add a context menu for columns.
+    • You can set a cell value factory for a column to populate its cells.
+    • You can set a cell factory for a column to customize its cells rendering.
+    • You can edit data in cells.
+
+TreeItems provide the model in a TreeView. Each node in the TreeView derives its data from the
+corresponding TreeItem. Recall that you can visualize each node (or TreeItem) in a TreeView as a row with
+only one column.
+
+An ObservableList provides the model in a TableView. Each item in the observable list provides data
+for a row in the TableView. A TableView can have multiple columns.
+
+TreeTableView also uses a model for its data. Because it is a combination of TreeView and TableView,
+it has to decide which type of model it uses. It uses the model based on TreeView. That is, each row in a
+TreeTableView is defined by a TreeItem in a TreeView. TreeTableView supports multiple columns. Data
+for columns in a row are derived from the TreeItem for that row. Table 15-1 compares the model support for
+the three controls.
+
+Comparing the Model Support for TreeView, TableView, and TreeTableView:
+--------------------------------------------------------------------------------
+            TreeView                TableView                       TreeTableView
+--------------------------------------------------------------------------------
+Model       TreeItems          An ObservableList                    TreeItems
+Row         A TreeItem         An item from the ObservableList      A TreeItem
+Column      Only one column    Multiple columns                     Multiple columns
+--------------------------------------------------------------------------------
+
+Порядок рассмотрения примеров:
+    TreeTableViewTest + TreeTableUtil
+    TreeTableViewEditing

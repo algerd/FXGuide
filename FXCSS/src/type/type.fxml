@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:id="box">
+    
+    <TextFlow fx:id="fontBox"> 
+        <Text>
+            TextFlow is special layout designed to lay out rich text. It can be used to layout several Text nodes in a single text flow.
+            The TextFlow uses the text and the font of each Text node inside of it plus it own width and text alignment to determine 
+            the location for each child.     
+        </Text>
+        <Button fx:id="fontButton" text="FontButton" />
+    </TextFlow>
+    
+    <HBox fx:id="colorBox">
+        <Button fx:id="namedColorButton" text="named-color" />
+        <Button fx:id="lookedUpColorButton" text="looked-up-color" />
+        <Button fx:id="rgbColorButton" text="rgb-color" />
+        <Button fx:id="hsbColorButton" text="hsb-color" />
+        <Button fx:id="deriveButton" text="derive()" />
+        <Button fx:id="ladderButton" text="ladder()" />     
+    </HBox>    
+      
+    <HBox fx:id="numberBox">
+        <Button fx:id="sizeButton" text="size" />
+        <Button fx:id="angleButton" text="angle" />
+    </HBox>
+    
+    <HBox fx:id="effectBox">       
+        <Button fx:id="dropShadowGaussen" text="DropShadowGaussen"/>
+        <Button fx:id="dropShadowOnePassBox" text="DropShadowOnePassBox"/>
+        <Button fx:id="innerShadowGaussen" text="InnerShadowGaussen"/>
+        <Button fx:id="innerShadowOnePassBox" text="InnerShadowOnePassBox"/>      
+    </HBox> 
+    
+    <VBox fx:id="paintBox">       
+        <Button fx:id="linearGradientSimply" text="LinearGradientSimply"/>
+        <Button fx:id="linearGradientComplex" text="LinearGradientComplex"/>
+        <Button fx:id="radialGradientSimply" text="RadialGradientSimply"/>
+        <Button fx:id="radialGradientComplex" text="RadialGradientComplex"/>
+        <Button fx:id="imagePatternProportional" text="ImagePatternProportional"/>
+        <Button fx:id="imagePatternAbsolute" text="ImagePatternAbsolute"/>
+        <Button fx:id="repeatingImagePattern" text="RepeatingImagePattern"/>      
+    </VBox>    
+           
+</VBox>
+
+
+
+
+
+

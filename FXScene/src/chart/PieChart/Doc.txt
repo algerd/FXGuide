@@ -1,0 +1,6 @@
+Порядок примеров:
+    PieChartTest, PieSliceTest
+    PieChartExtraColor
+    PieChartCustomSlice
+
+

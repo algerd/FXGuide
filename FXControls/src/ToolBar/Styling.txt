@@ -1,0 +1,21 @@
+
+The default CSS style-class name for a ToolBar is tool-bar. It contains an -fx-orientation CSS property
+that specifies its orientation with the possible values of horizontal and vertical. It supports horizontal and
+vertical CSS pseudo-classes that apply when its orientation is horizontal and vertical, respectively.
+
+A toolbar uses a container to arrange the items. The container is an HBox for a horizontal orientation
+and a VBox for a vertical orientation. The CSS style-class name for the container is container. You can use all
+CSS properties for the HBox and VBox for the container. The -fx-spacing CSS property specifies the spacing
+between two adjacent items in the container. You can set this property for the toolbar or the container. Both
+of the following styles have the same effect on a horizontal toolbar:
+
+    .tool-bar {
+        -fx-spacing: 2;
+    }
+        .tool-bar > .container {
+        -fx-spacing: 2;
+    }
+
+A toolbar contains a tool-bar-overflow-button substructure to represent the overflow button. It is a
+StackPane. The tool-bar-overflow-button contains an arrow substructure to represent the arrow in the
+overflow button. It is also a StackPane.

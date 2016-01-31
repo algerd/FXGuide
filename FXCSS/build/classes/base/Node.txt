@@ -1,0 +1,82 @@
+# - abstract class
+
+#Node
+    #Camera
+        ParallelCamera
+        PerspectiveCamera
+    Canvas
+    ImageView
+    #LightBase
+        AmbientLight
+        PointLight
+    MediaView
+    #Parent 
+        Group
+            OverlayWarning
+        Region
+            #Axis
+                CategoryAxis
+                #ValueAxis
+                    NumberAxis
+            #Chart
+                PieChart
+                #XYChart
+                    AreaChart
+                    BarChart
+                    BubbleChart
+                    LineChart
+                    ScatterChart
+                    StackedAreaChart
+                    StackedBarChart           
+            ColorPalette
+            ContextMenuContent
+            ContextMenuContent.MenuItemContainer
+            #Control
+                см. Control.txt
+            Pane
+                AnchorPane
+                BorderPane
+                DialogPane
+                ErrorPane
+                FlowPane
+                GridPane
+                HBox
+                    CustomColorDialog
+                StackPane
+                    EmbeddedTextContextMenuContent
+                    TableHeaderRow
+                TextFlow
+                TilePane
+                    Legend
+                VBox
+                    DatePickerContent
+                        DatePickerHijrahContent
+            TableColumnHeader
+                NestedTableColumnHeader
+            VirtualFlow
+        WebView
+    #Shape 
+        Arc
+        Circle
+        CubicCurve
+        Ellipse
+        Line
+        Path
+        Polygon
+        Polyline
+        QuadCurve
+        Rectangle
+        SVGPath
+        Text
+            LabeledText
+    #Shape3D
+        Box
+        Cylinder
+        MeshView
+        Sphere
+    SubScene
+
+
+
+
+

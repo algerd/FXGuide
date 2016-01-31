@@ -1,0 +1,63 @@
+﻿
+Pseudo-classes:
+---------------
+
+disabled
+	Values: <boolean>
+	Default: false
+	Comments: applies when the disabled variable is true
+	Field: ReadOnlyBooleanWrapper disabled
+	Property: ReadOnlyBooleanProperty disabledProperty()	
+	Methods: isDisabled(), setDisabled(boolean)
+	Description:
+		Indicates whether or not this Node is disabled. A Node will become disabled if disable is set to true on either itself 
+		or one of its ancestors in the scene graph. A disabled Node should render itself differently to indicate its disabled 
+		state to the user. Such disabled rendering is dependent on the implementation of the Node. The shape classes contained 
+		in javafx.scene.shape do not implement such rendering by default, therefore applications using shapes for handling input 
+		must implement appropriate disabled rendering themselves. 
+		The user-interface controls defined in javafx.scene.control will implement disabled-sensitive rendering, however.
+		A disabled Node does not receive mouse or key events.
+
+focused
+	Values: <boolean>
+	Default: false
+	Comments: applies when the focused variable is true
+	Field: FocusedProperty focused
+	Property: ReadOnlyBooleanProperty focusedProperty()
+	Methods: isFocusTraversable(), setFocusTraversable(boolean)
+	Description:
+		Specifies whether this Node should be a part of focus traversal cycle. 
+		When this property is true focus can be moved to this Node and from this Node using regular focus traversal keys. 
+		On a desktop such keys are usually TAB for moving focus forward and SHIFT+TAB for moving focus backward. 
+		When a Scene is created, the system gives focus to a Node whose focusTraversable variable is true and that is eligible to receive the focus, 
+		unless the focus had been set explicitly via a call to requestFocus().
+
+hover
+	Values: <boolean>
+	Default: false
+	Comments: applies when the hover variable is true
+	Field: ReadOnlyBooleanWrapper hover
+	Property: ReadOnlyBooleanProperty hoverProperty()
+	Methods: isHover(), setHover(boolean)
+	Description:
+		Whether or not this Node is being hovered over. Typically this is due to the mouse being over the node, 
+		though it could be due to a pen hovering on a graphics tablet or other form of input.
+		Note that current implementation of hover relies on mouse enter and exit events to determine whether this Node is in the hover state; 
+		this means that this feature is currently supported only on systems that have a mouse. 
+		Future implementations may provide alternative means of supporting hover.
+	
+pressed
+	Values: <boolean>
+	Default: false
+	Comments: applies when the pressed variable is true
+	Field: ReadOnlyBooleanWrapper pressed
+	Property: ReadOnlyBooleanProperty pressedProperty()
+	Methods: isPressed(), setPressed(boolean)
+	Description: 
+		Whether or not the Node is pressed. Typically this is true when the primary mouse button is down, 
+		though subclasses may define other mouse button state or key state to cause the node to be "pressed".
+
+show-mnemonic - Deprecated
+	Comments: apples when the mnemonic affordance (typically an underscore) should be shown
+	
+	

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox>
+    <!--
+    Для создания URL-ссылки на ресурсы используется префикс "@".
+    Если после префикса идёт слэш - это путь относительно CLASSPATH,
+    если нет слэша - путь относительно fxml-документа.
+    --> 
+    <ImageView>
+        <image>
+            <Image url="@pict.jpg"/>
+        </image>
+    </ImageView>
+    
+    <!-- image - дефолтное свойство ImageView -->
+    <ImageView>
+        <Image url="@/location/pict.jpg"/>
+    </ImageView>
+                
+</VBox>    

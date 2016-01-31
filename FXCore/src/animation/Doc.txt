@@ -1,0 +1,50 @@
+Порядок рассмотрения примеров:
+    DurationTest
+    ScrollingText
+    CuePointTest
+    InterpolatorTest
+
+To understand how animation is performed, it is important to understand some key concepts.
+    • Timeline
+    • Key frame
+    • Key value
+    • Interpolator
+
+Animation is performed over a period of time. A timeline denotes the progression of time during
+animation with an associated key frame at a given instant. A key frame represents the state of the node being
+animated at a specific instant on the timeline. A key frame has associated key values. A key value represents
+the value of a property of the node along with an interpolator to be used.
+
+The developer provides timelines, key frames, and key values. To provide a smooth animation, 
+JavaFX needs to interpolate the position at any instant on the timeline. 
+That is, JavaFX needs to create intermediate key frames between two consecutive provided key
+frames. JavaFX does this with the help of an interpolator. By default, it uses a linear interpolator, which
+changes the property being animated linearly with time. That is, if the time on the timeline passes x%, the
+value of the property will be x% between the initial and final target values.
+
+The abstract Animation class represents an Animation. It contains common properties and methods
+used by all types of animation.
+JavaFX supports two types of animations.
+    • Timeline animations
+    • Transitions
+
+In a timeline animation, you create a timeline and add key frames to it. JavaFX creates the intermediate
+key frames using an interpolator. An instance of the Timeline class represents a timeline animation. This
+type of animation requires a little more code, but it gives you more control.
+
+Using timeline animation is not easy in all cases. Consider moving a node in a circular
+path. Creating key frames and setting up a timeline to move the node on the circular path are not easy.
+JavaFX contains a number of classes (known as transitions) that let you animate nodes using predefined
+properties.
+
+All transition classes inherit from the Transition class, which, in turn, inherits from the Animation
+class. All methods and properties in the Animation class are also available for use in creating transitions.
+The transition classes take care of creating the key frames and setting up the timeline. You need to specify
+the node, duration for the animation, and end values that are interpolated. Special transition classes are
+available to combine multiple animations that may run sequentially or in parallel.
+
+The Transition class contains an interpolator property that specifies the interpolator to be used
+during animation. By default, it uses Interpolator.EASE_BOTH, which starts the animation slowly,
+accelerates it, and slows it down toward the end.
+
+

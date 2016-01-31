@@ -1,0 +1,28 @@
+
+-fx-start-margin
+	Values: <number>
+	Default: 5
+	Field: DoubleProperty startMargin
+	Property: DoubleProperty startMarginProperty()
+	Methods: getEndMargin(), setEndMargin(double)
+	Description: 
+		The margin between the axis start and the first tick-mark
+
+-fx-end-margin
+	Values: <number>
+	Default: 5
+	Field: DoubleProperty endMargin
+	Property: DoubleProperty endMarginProperty()
+	Methods: getEndMargin(), setEndMargin(double)
+	Description:
+		The margin between the last tick mark and the axis end
+
+-fx-gap-start-and-end
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty gapStartAndEnd
+	Property: BooleanProperty gapStartAndEndProperty()
+	Methods: isGapStartAndEnd(), setGapStartAndEnd(boolean)
+	Description:
+		If this is true then half the space between ticks is left at the start and end
+

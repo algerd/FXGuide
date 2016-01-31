@@ -1,0 +1,225 @@
+
+CSS-Property				Class				Default						Value				
+------------------------------------------------------------------------------------------------------------------------------------
+-fx-blend-mode				Node				null				[ add | blue | color-burn | color-dodge | darken | difference | exclusion | green | hard-light | lighten | multiply | overlay | red | screen | soft-light | src-atop | src-in | src-out | src-over ]
+-fx-cursor					Node				null				[ null | crosshair | default | hand | move | e-resize | h-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize | v-resize | text | wait ] | <url>	
+-fx-effect					Node				null				<effect> = <dropshadow> | <innershadow>
+-fx-focus-traversable		Node				false				<boolean>
+-fx-opacity					Node				1					<number> = [0.0 ... 1.0]			
+-fx-rotate					Node				0					<number>
+-fx-scale-x					Node				1					<number>
+-fx-scale-y					Node				1					<number>
+-fx-scale-z					Node				1					<number>
+-fx-translate-x				Node				0					<number>
+-fx-translate-y				Node				0					<number>
+-fx-translate-z				Node				0					<number>	
+visibility					Node				true(i.e, visible)	[ visible | hidden | collapse | inherit ] | <boolean>
+-fx-text-overrun			Tooltip				ellipsis			[ center-ellipsis | center-word-ellipsis | clip | ellipsis | leading-ellipsis | leading-word-ellipsis | word-ellipsis ]
+-fx-wrap-text				Tooltip				false				<boolean>
+-fx-graphic					Tooltip				null				<uri>		
+-fx-content-display			Tooltip				left				[ top | right | bottom | left | center | right | graphic-only | text-only ]
+-fx-graphic-text-gap		Tooltip				4					<size>
+-fx-fill					Shape				BLACK				<paint>
+-fx-smooth					Shape				true				<boolean>
+-fx-stroke					Shape				null				<paint>
+-fx-stroke-type				Shape				centered			[ inside | outside | centered ]
+-fx-stroke-dash-array		Shape				-					<size>[ <size>]+
+-fx-stroke-dash-offset		Shape				0					<number>
+-fx-stroke-line-cap			Shape				square				[ square | butt | round ]
+-fx-stroke-line-join		Shape				miter				[ miter | bevel | round ]
+-fx-stroke-miter-limit		Shape				10					<number>
+-fx-stroke-width			Shape				1					<size>
+-fx-arc-height				Rectangle			0					<size>
+-fx-arc-width				Rectangle			0					<size>
+-fx-bounds-type				Text				LOGICAL				LOGICAL | VISUAL | LOGICAL_VERTICAL_CENTER		
+-fx-font			Text, Tooltip, Labeled, TextInputControl	  Font.DEFAULT	<font> = [[ <font-style> || <font-weight> ]? <font-size> <font-family> ]
+-fx-font-family		Text, Tooltip, Labeled, TextInputControl	  default		<string>
+-fx-font-style		Text, Tooltip, Labeled, TextInputControl	  default		[ normal | italic | oblique ]			
+-fx-font-weight		Text, Tooltip, Labeled, TextInputControl	  default		[ normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 ]
+-fx-font-size		Text, Tooltip, Labeled, TextInputControl	  default		<size>	
+-fx-font-smoothing-type 	Text				gray				[ gray | lcd ]
+-fx-line-spacing			Text				0					<size>	
+-fx-strikethrough			Text				false				<boolean>		
+-fx-text-alignment			Text, Tooltip		left				[ left | center | right | justify ]
+-fx-text-origin				Text				baseline			[ baseline | top | bottom ]
+-fx-underline				Text				false				<boolean>
+-fx-image					ImageView			null				<uri>
+-fx-background-color		Region				transparent			<paint> [ , <paint> ]*
+-fx-background-insets		Region				0 0 0 0				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+-fx-background-radius		Region				0 0 0 0				[<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+-fx-background-image		Region				null				<uri> [ , <uri> ]*
+-fx-background-position 	Region				0% 0%				<bg-position> [ , <bg-position> ]* 	where <bg-position> = [ [ [ <size> | left | center | right ] [ <size> | top | center | bottom ]? ] | [ [ center | [ left | right ] <size>? ] || [ center | [ top | bottom ] <size>? ]
+-fx-background-repeat		Region				repeat repeat		<repeat-style> [ , <repeat-style> ]*  where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | stretch | no-repeat]
+-fx-background-size			Region				auto auto			<bg-size> [ , <bg-size> ]*  where <bg-size> = [ <size> | auto ]{1,2} | cover | contain | stretch
+-fx-border-color			Region				null				<paint> | <paint> <paint> <paint> <paint> [ , [<paint> | <paint> <paint> <paint> <paint>] ]*
+-fx-border-insets			Region				null				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+-fx-border-radius			Region				null				[<size>]{1,4} [ / [<size>]{1,4} ]? [ , [<size>]{1,4} [ / [<size>]{1,4} ]? ]*
+-fx-border-style			Region				null				<border-style> [ , <border-style> ]*
+-fx-border-width			Region				null				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+-fx-border-image-source 	Region				null				<uri> [ , <uri> ]*
+-fx-border-image-insets		Region				0 0 0 0				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*
+-fx-border-image-repeat		Region				repeat repeat		<repeat-style> [ , <repeat-style> ]*  where <repeat-style> = repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}
+-fx-border-image-slice		Region				100%				[<size> | <size> <size> <size> <size> ] fill? [ , [ <size> | <size> <size> <size> <size> <size> ] fill? ]*
+-fx-border-image-width		Region				1 1 1 1				<size> | <size> <size> <size> <size> [ , [ <size> | <size> <size> <size> <size>] ]*	
+-fx-padding					Region				0 0 0 0				<size> | <size> <size> <size> <size>
+-fx-position-shape			Region				true				<boolean>
+-fx-scale-shape				Region				true				<boolean>
+-fx-shape					Region				null				<string>
+-fx-snap-to-pixel			Region				true				<boolean>
+-fx-min-height				Region				-1					<number>
+-fx-pref-height				Region				-1					<number>
+-fx-max-height				Region				-1					<number>
+-fx-min-width				Region				-1					<number>
+-fx-pref-width				Region				-1					<number>
+-fx-max-width				Region				-1					<number>
+-fx-side					Axis				null				Side
+-fx-tick-length				Axis				8					<size>
+-fx-tick-label-font			Axis				8px					<font>
+-fx-tick-label-fill			Axis				black				<paint>
+-fx-tick-label-gap			Axis				3					<size>
+-fx-tick-mark-visible		Axis				true				<boolean>
+-fx-tick-labels-visible 	Axis				true				<boolean>	
+-fx-minor-tick-count		ValueAxis			5					<size>
+-fx-minor-tick-length		ValueAxis			5 					<size>
+-fx-minor-tick-visible		ValueAxis			true				<boolean>			
+-fx-tick-unit				NumberAxis			5					<number>
+-fx-start-margin			CategoryAxis		5					<number>
+-fx-end-margin				CategoryAxis		5					<number>
+-fx-gap-start-and-end		CategoryAxis		true				<boolean>	
+-fx-legend-side				Chart				bottom				Side
+-fx-legend-visible			Chart				true				<boolean>
+-fx-title-side				Chart				top					Side
+-fx-alternative-column-fill-visible	XYChart		true				<boolean>
+-fx-alternative-row-fill-visible	XYChart		true				<boolean>
+-fx-horizontal-grid-lines-visible	XYChart		true				<boolean>
+-fx-horizontal-zero-line-visible	XYChart		true				<boolean>
+-fx-vertical-grid-lines-visible		XYChart		true				<boolean>
+-fx-vertical-zero-line-visible		XYChart		true				<boolean>
+-fx-create-symbols		AreaChart, LineChart, StackedAreaChart		true		<boolean>
+-fx-bar-gap					BarChart			4					<number>
+-fx-category-gap			BarChart, StackedBarChart	10			<number>
+-fx-clockwise				PieChart			true				<boolean>	
+-fx-pie-label-visible		PieChart			true				<boolean>	
+-fx-label-line-length		PieChart			20					<size>
+-fx-start-angle				PieChart			0					<number>
+-fx-skin					Control				null				<string>
+-fx-show-week-numbers		DatePicker			true				<boolean>	
+-fx-alignment				Labeled				center-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-text-alignment			Labeled				left				[ left | center | right | justify ]
+-fx-text-overrun			Labeled				ellipsis			[ center-ellipsis | center-word-ellipsis | clip | ellipsis | leading-ellipsis | leading-word-ellipsis | word-ellipsis ]
+-fx-wrap-text				Labeled				false				<boolean>
+-fx-underline				Labeled				false				<boolean>
+-fx-graphic					Labeled				null				<uri>
+-fx-content-display			Labeled				left				[ top | right | bottom | left | center | right | graphic-only | text-only ]
+-fx-graphic-text-gap		Labeled				4					<size>
+-fx-label-padding			Labeled				[0,0,0,0]			<size> | <size> <size> <size> <size>
+-fx-line-spacing			Labeled				0					<number>
+-fx-text-fill				Labeled				black				<paint>
+-fx-ellipsis-string			Labeled				"..."				<string>
+-fx-animated				TitledPane			true				<boolean>
+-fx-collapsible				TitledPane			true				<boolean>
+-fx-indent ???				TreeCell			10					<size>
+-fx-pref-column-count		TextArea			40					<number>
+-fx-pref-row-count			TextArea			10					<number>
+-fx-wrap-text				TextArea			false				<boolean>
+-fx-alignment				TextField			center-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-pref-column-count		TextField			12					<number>
+-fx-orientation				ListView			vertical			[ horizontal | vertical ]
+-fx-fixed-cell-size			ListView			-					<number>
+-fx-use-system-menu-bar		MenuBar				false				<boolean>
+-fx-max-page-indicator-count  Pagination		10					<number>
+-fx-arrows-visible ?		Pagination			true				<boolean>
+-fx-tooltip-visible	?		Pagination			false				<boolean>
+-fx-page-information-visible? 		Pagination 	true				<boolean>
+-fx-page-information-alignment ? 	Pagination 	bottom				[ top | bottom | left | right ]
+-fx-indeterminate-segment-count ? 	ProgressIndicator	 8			<number>
+-fx-progress-color ?		ProgressIndicator 	null				<paint>
+-fx-spin-enabled ?			ProgressIndicator 	false				<boolean>
+-fx-indeterminate-bar-length ?	ProgressBar		60					<number>	
+-fx-indeterminate-bar-escape ?	ProgressBar		true				<boolean>		 
+-fx-indeterminate-bar-flip ?	ProgressBar		true				<boolean>	 
+-fx-indeterminate-bar-animation-time ? 	ProgressBar		<number>	2.0	 
+-fx-orientation				ScrollBar			horizontal			[ horizontal | vertical ]
+-fx-block-increment			ScrollBar			10					<number>
+-fx-unit-increment			ScrollBar			1					<number>
+-fx-fit-to-width			ScrollPane			false				<boolean>
+-fx-fit-to-height			ScrollPane			false				<boolean>
+-fx-pannable				ScrollPane			false				<boolean>	
+-fx-hbar-policy				ScrollPane			as-needed			[ never | always | as-needed ]
+-fx-vbar-policy				ScrollPane			as-needed			[ never | always | as-needed ]
+-fx-orientation				Separator			horizontal			[ horizontal | vertical ]
+-fx-halignment				Separator			center				[ left | center | right ]
+-fx-valignment				Separator			center				[ top | center | baseline | bottom ]
+-fx-orientation				Slider				horizontal			[ horizontal | vertical ]
+-fx-show-tick-labels		Slider				false				<boolean>
+-fx-show-tick-marks			Slider				false				<boolean>
+-fx-major-tick-unit			Slider				25					<number>
+-fx-minor-tick-count		Slider				2					<integer>
+-fx-snap-to-ticks			Slider				false				<boolean>
+-fx-block-increment			Slider				10					<integer>	
+-fx-orientation				SplitPane			horizontal			[ horizontal | vertical ]
+-fx-fixed-cell-size			TableView			-1					<size>
+-fx-tab-min-width			TabPane				0					<integer>??
+-fx-tab-max-width			TabPane				Double.MAX_VALUE	<integer>??
+-fx-tab-min-height			TabPane				0					<integer>??
+-fx-tab-max-height			TabPane				Double.MAX_VALUE	<integer>??	
+-fx-open-tab-animation ?  	TabPane				grow				[ grow | none ]
+-fx-close-tab-animation	?	TabPane				grow				[ grow | none ]
+-fx-orientation				ToolBar				horizontal			[ horizontal | vertical ]
+-fx-fixed-cell-size			TreeTableView		-1					<size>
+-fx-fixed-cell-size			TreeView			-1					<size>
+-fx-graphic					DialogPane			null				<uri>
+-fx-hgap					FlowPane			0					<size>
+-fx-vgap					FlowPane			0					<size>
+-fx-alignment				FlowPane			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-column-halignment		FlowPane			left				[ left | center | right ]
+-fx-row-valignment			FlowPane			center				[ top | center | baseline | bottom ]
+-fx-orientation				FlowPane			horizontal			[ horizontal | vertical ]	
+-fx-hgap					GridPane			0					<size>
+-fx-vgap					GridPane			0					<size>
+-fx-alignment				GridPane			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-grid-lines-visible		GridPane			false				<boolean>
+-fx-spacing					HBox, VBox			0					<size>
+-fx-alignment				HBox, VBox			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-fill-height				HBox				true				<boolean>
+-fx-fill-width				VBox				true				<boolean>
+-fx-alignment				StackPane			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-text-alignment			TextFlow			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-line-spacing			TextFlow			0					<size>
+-fx-orientation				TilePane			horizontal			[ horizontal | vertical ]
+-fx-pref-rows				TilePane			5					<integer>
+-fx-pref-columns			TilePane			5					<integer>
+-fx-pref-tile-width			TilePane			-1					<size>
+-fx-pref-tile-height		TilePane			-1					<size>
+-fx-hgap					TilePane			0					<size>
+-fx-vgap					TilePane			0					<size>
+-fx-alignment				TilePane			top-left			[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-tile-alignment			TilePane			center				[ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+-fx-size					TableColumnHeader	20					<size>
+-fx-context-menu-enabled	WebView				true				<boolean>
+-fx-font-smoothing-type		WebView				lcd					[ gray | lcd ]
+-fx-font-scale				WebView				1					<number>
+-fx-min-width				WebView				0					<size>
+-fx-min-height				WebView				0					<size>
+-fx-pref-width				WebView				800					<size>
+-fx-pref-height				WebView				600					<size>
+-fx-max-width				WebView				Double.MAX_VALUE	<size>
+-fx-max-height				WebView				Double.MAX_VALUE	<size>
+-fx-zoom					WebView				-					<number>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

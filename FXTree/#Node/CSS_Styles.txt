@@ -1,0 +1,149 @@
+﻿Стилевые свойства могут быть получены также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+-fx-blend-mode	
+	Values: [ add | blue | color-burn | color-dodge | darken | difference | exclusion | green | hard-light | lighten | multiply | overlay | red | screen | soft-light | src-atop | src-in | src-out | src-over ]
+	Default: null
+	Field: ObjectProperty<BlendMode> blendMode
+	Property: ObjectProperty<BlendMode> blendModeProperty()
+	Methods: getBlendMode(), setBlendMode(BlendMode)
+	Description:
+		The BlendMode used to blend this individual node into the scene behind it. 
+		If this node happens to be a Group then all of the children will be composited 
+		individually into a temporary buffer using their own blend modes and then that 
+		temporary buffer will be composited into the scene using the specified blend mode. 
+		A value of null is treated as pass-though this means no effect on a parent such 
+		as a Group and the equivalent of SRC_OVER for a single Node.
+
+-fx-cursor
+	Values: [ null | crosshair | default | hand | move | e-resize | h-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize | v-resize | text | wait ] | <url>		
+	Default: null
+	Comments: inherits
+	Field: MiscProperties miscProperties : ObjectProperty<Cursor> cursor
+	Property: ObjectProperty<Cursor> cursorProperty()
+	Methods: getCursor(), setCursor(Cursor)
+	Description:
+		Defines the mouse cursor for this Node and subnodes. If null, then the cursor of the first parent node 
+		with a non-null cursor will be used. If no Node in the scene graph defines a cursor, then the cursor of the Scene will be used.
+	
+-fx-effect
+	Values: <effect>
+	Default: null
+	Field: MiscProperties miscProperties : ObjectProperty<Effect> effect
+	Property: ObjectProperty<Effect> effectProperty()	
+	Methods: getEffect(), setEffect(Effect)
+	Description:	
+		Specifies an effect to apply to this Node. Note that this is a conditional feature. 
+		See ConditionalFeature.EFFECT for more information. There is a known limitation of mixing Effect with a 3D Transform. 
+		Effect is essentially a 2D image operation. The result of an Effect set on a Group node with 3D transformed children 
+		will cause its children to be rendered in order without Z-buffering applied between those children.
+	
+-fx-focus-traversable
+	Values: <boolean>
+	Default: false		
+	Comments: The default value for controls is true, although there are some exceptions. See Controls for details.	
+	Field: BooleanProperty focusTraversable
+	Property: BooleanProperty focusTraversableProperty()		
+	Methods: setFocusTraversable(), setFocusTraversable(boolean)
+	Description:
+		Specifies whether this Node should be a part of focus traversal cycle. 
+		When this property is true focus can be moved to this Node and from this Node using regular focus traversal keys. 
+		On a desktop such keys are usually TAB for moving focus forward and SHIFT+TAB for moving focus backward. 
+		When a Scene is created, the system gives focus to a Node whose focusTraversable variable is true 
+		and that is eligible to receive the focus, unless the focus had been set explicitly via a call to requestFocus().
+	
+-fx-opacity
+	Values: <number>
+	Default: 1 
+	Range: [0.0 ... 1.0]
+	Comments:
+		Opacity can be thought of conceptually as a postprocessing operation. 
+		Conceptually, after the node (including its descendants) is rendered into an RGBA offscreen image, 
+		the opacity setting specifies how to blend the offscreen rendering into the current composite rendering.
+	Field: DoubleProperty opacity
+	Property: DoubleProperty opacityProperty()		
+	Methods: getOpacity(), setOpacity(double)
+	Description:
+		Specifies how opaque (that is, solid) the Node appears. A Node with 0% opacity is fully translucent. 
+		That is, while it is still visible and rendered, you generally won't be able to see it. 
+		The exception to this rule is when the Node is combined with a blending mode and blend effect 
+		in which case a translucent Node may still have an impact in rendering. An opacity of 50% will render 
+		the node as being 50% transparent. A visible node with any opacity setting still receives mouse events 
+		and can receive keyboard focus. For example, if you want to have a large invisible rectangle overlay 
+		all Nodes in the scene graph in order to intercept mouse events but not be visible to the user, 
+		you could create a large Rectangle that had an opacity of 0%.
+		Opacity is specified as a value between 0 and 1. Values less than 0 are treated as 0, values greater than 1 are treated as 1.
+		On some platforms ImageView might not support opacity variable. There is a known limitation of mixing opacity < 1.0 with a 3D Transform. 
+		Opacity/Blending is essentially a 2D image operation. The result of an opacity < 1.0 set on a Group node 
+		with 3D transformed children will cause its children to be rendered in order without Z-buffering applied between those children.
+
+-fx-rotate
+	Values: <number>
+	Default: 0
+	Comments:
+		This is the angle of the rotation in degrees. Zero degrees is at 3 o'clock (directly to the right). 
+		Angle values are positive clockwise. Rotation is about the center.
+	Field: NodeTransformation nodeTransformation : DoubleProperty rotate
+	Property: DoubleProperty rotateProperty()	
+	Methods: getRotate(), setRotate(double)
+	Description:
+		Defines the angle of rotation about the Node's center, measured in degrees. This is used to rotate the Node.
+		This rotation factor is not included in layoutBounds by default, which makes it ideal for rotating 
+		the entire node after all effects and transforms have been taken into account.
+		The pivot point about which the rotation occurs is the center of the untransformed layoutBounds.
+		Note that because the pivot point is computed as the center of this Node's layout bounds, 
+		any change to the layout bounds will cause the pivot point to change, which can move the object. 
+		For a leaf node, any change to the geometry will cause the layout bounds to change. 
+		For a group node, any change to any of its children, including a change in a child's geometry, 
+		clip, effect, position, orientation, or scale, will cause the group's layout bounds to change. 
+		If this movement of the pivot point is not desired, applications should instead use 
+		the Node's transforms ObservableList, and add a Rotate transform, which has a user-specifiable pivot point.		
+
+-fx-scale-x
+-fx-scale-y
+-fx-scale-z
+	Values: <number>
+	Default: 1
+	Comments: scale about the center.
+	Field: NodeTransformation NodeTransformation : DoubleProperty scaleX; DoubleProperty scaleY; DoubleProperty scaleZ;
+	Property: DoubleProperty scaleXProperty(), scaleYProperty(), scaleZProperty()	
+	Methods: getScaleX(), setScaleX(double); getScaleY(), setScaleY(double); getScaleZ(), setScaleZ(double);	
+	Description:
+		Defines the factor by which coordinates are scaled about the center of the object along the X(Y, Z) axis of this Node. 
+		This is used to stretch or animate the node either manually or by using an animation.
+		This scale factor is not included in layoutBounds by default, which makes it ideal for scaling the entire node 
+		after all effects and transforms have been taken into account.
+		The pivot point about which the scale occurs is the center of the untransformed layoutBounds.
+		-fx-scale-z:
+		The pivot point about which the scale occurs is the center of the rectangular bounds formed by taking 
+		boundsInLocal and applying all the transforms in the transforms ObservableList.
+		Note that this is a conditional feature. See ConditionalFeature.SCENE3D for more information.
+	
+-fx-translate-x
+-fx-translate-y
+-fx-translate-z
+	Values: <number>
+	Default: 0
+	Field: NodeTransformation NodeTransformation : DoubleProperty translateX; DoubleProperty translateY; DoubleProperty translateZ;
+	Property: DoubleProperty translateXProperty(), translateYProperty(), translateZProperty()
+	Methods: getTranslateX(), setTranslateX(double); getTranslateY(), setTranslateY(double); getTranslateZ(), setTranslateZ(double);	
+	Description:
+		Defines the X(Y, Z) coordinate of the translation that is added to this Node's transform.
+		The node's final translation will be computed as layoutX + translateX, 
+		where layoutX establishes the node's stable position and translateX optionally makes dynamic adjustments to that position.
+		This variable can be used to alter the location of a node without disturbing its layoutBounds, which makes it useful for animating a node's location.
+		Z: Note that this is a conditional feature. See ConditionalFeature.SCENE3D for more information.
+
+visibility
+	Values: [ visible | hidden | collapse | inherit ] | <boolean>
+	Default: true (i.e, visible)
+	Comments: See W3C visibility property
+	Field: BooleanProperty visible
+	Property: BooleanProperty visibleProperty()
+	Methods: isVisible(), setVisible(boolean)
+	Description:
+		Specifies whether this Node and any subnodes should be rendered as part of the scene graph. 
+		A node may be visible and yet not be shown in the rendered scene if, for instance, 
+		it is off the screen or obscured by another Node. Invisible nodes never receive mouse events or keyboard focus 
+		and never maintain keyboard focus when they become invisible.
+
+		

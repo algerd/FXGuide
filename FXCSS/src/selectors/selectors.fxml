@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--   --> 
+<HBox xmlns:fx="http://javafx.com/fxml" spacing="10" fx:id="box" styleClass = "box1">
+    <!--   
+    Некоторые JavaFX-классы не имеют дефолтного style-class имени. Например, классы Region, Pane, HBox, VBox.
+    Чтобы определить имеет ли класс дефолтное style-class имя, надо посмотреть его константу DEFAULT_STYLE_CLASS
+    или конструктор класса, в котором может быть добавлено имя класса:
+        getStyleClass().setAll(DEFAULT_STYLE_CLASS);
+    или с указанием конкретного класса
+        getStyleClass().add("text-area");
+    Для ускорения определения наличия дефолтного имени стилевого класса запустить программку Снеск,
+    предварительно прописав там искомый класс.
+    
+    Чтобы использовать селектор класса для классов без style-class имён, надо явно задать
+    им имя, используя ObservableList<String> styleClass свойство родителя Node. 
+    Это можно сделать в Java-коде с помощью метода getStyleClass() (см. пакет selectors.classes) 
+    или в fxml-документе c помощью тег-свойства <styleClass> или аттрибут styleClass(см. выше).
+    Любому классу, расширяющему Node, можно дать любое количество style-class имён.     
+    -->
+    <styleClass>
+        <String fx:value="box"/>
+        <String fx:value="hbox"/>
+    </styleClass>
+    
+    <!-- В отличие от web-css можно указать один id разным объектам fxml-документа, 
+        но это противоречит логике и потому не рекомендуется. 
+        В имени идентификатора нельзя применять дефис.
+    -->
+    <Button fx:id="okButton" text="OK" />
+    <Button fx:id="cancelButton" text="Cancel" />
+    
+</HBox>
+
+
+
+
+
+

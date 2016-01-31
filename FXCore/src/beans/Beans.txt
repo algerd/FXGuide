@@ -1,0 +1,150 @@
+--------------
+Classes:
+--------------
+#NumberExpressionBase implements NumberExpression (NumberBinding и BooleanBinding - методы приведены в сокращённом виде) )
+    static <S extends Number> NumberExpressionBase numberExpression(final ObservableNumberValue value)
+    NumberBinding add(final ObservableNumberValue other)
+    NumberBinding subtract(final ObservableNumberValue other)
+    NumberBinding multiply(final ObservableNumberValue other)
+    NumberBinding divide(final ObservableNumberValue other)
+    BooleanBinding greaterThan(ObservableNumberValue other)
+    BooleanBinding greaterThanOrEqualTo(ObservableNumberValue other)
+    BooleanBinding isEqualTo(ObservableNumberValue other, double epsilon)
+    BooleanBinding isNotEqualTo(ObservableNumberValue other)
+    BooleanBinding isNotEqualTo(ObservableNumberValue other, double epsilon)
+    BooleanBinding lessThan(ObservableNumberValue other)
+    BooleanBinding lessThanOrEqualTo(ObservableNumberValue other)
+
+
+    #IntegerExpression implements ObservableIntegerValue
+        static IntegerExpression integerExpression(final ObservableIntegerValue value)
+        static <T extends Number> IntegerExpression integerExpression(final ObservableValue<T> value)
+        Integer getValue()
+        int intValue()
+        long longValue()
+        float floatValue()
+        double doubleValue()
+        DoubleBinding add(final double other)
+        FloatBinding add(final float other)
+        LongBinding add(final long other)
+        IntegerBinding add(final int other)
+        DoubleBinding divide(final double other)
+        FloatBinding divide(final float other)
+        LongBinding divide(final long other)
+        IntegerBinding divide(final int other)
+        DoubleBinding multiply(final double other)
+        FloatBinding multiply(final float other)
+        LongBinding multiply(final long other)
+        IntegerBinding multiply(final int other)
+        IntegerBinding negate()
+        DoubleBinding subtract(final double other)
+        FloatBinding subtract(final float other)
+        LongBinding subtract(final long other)
+        IntegerBinding subtract(final int other)
+
+        #ReadOnlyIntegerProperty implements ReadOnlyProperty<Number>
+            static <T extends Number> ReadOnlyIntegerProperty readOnlyIntegerProperty(final ReadOnlyProperty<T> property)
+
+            #IntegerProperty implements Property<Number>, WritableIntegerValue
+                static IntegerProperty integerProperty(final Property<Integer> property)
+                setValue(Number v)
+                bindBidirectional(Property<Number> other)
+                unbindBidirectional(Property<Number> other)
+
+                #IntegerPropertyBase
+                    __IntegerPropertyBase(int initialValue)
+                    int get()
+                    set(int newValue)    
+                    boolean isBound()
+                    bind(final ObservableValue<? extends Number> rawObservable)
+                    unbind()
+                    addListener(InvalidationListener listener)
+                    addListener(ChangeListener<? super Number> listener)
+                    removeListener(InvalidationListener listener)
+                    removeListener(ChangeListener<? super Number> listener)
+
+                    SimpleIntegerProperty
+                        __SimpleIntegerProperty()
+                        __SimpleIntegerProperty(int initialValue)
+                        __SimpleIntegerProperty(Object bean, String name)
+                        __SimpleIntegerProperty(Object bean, String name, int initialValue)    
+                        Object getBean()
+                        String getName()
+
+                        ReadOnlyIntegerWrapper
+                            __ReadOnlyIntegerWrapper()
+                            __ReadOnlyIntegerWrapper(int initialValue)
+                            __ReadOnlyIntegerWrapper(Object bean, String name)
+                            __ReadOnlyIntegerWrapper(Object bean, String name, int initialValue)
+                            ReadOnlyIntegerProperty getReadOnlyProperty()
+                            addListener(InvalidationListener listener)
+                            addListener(ChangeListener<? super Number> listener)
+                            removeListener(InvalidationListener listener)
+                            removeListener(ChangeListener<? super Number> listener)
+                            
+-------------
+Interfaces:
+-------------
+Observable
+    addListener(InvalidationListener listener)
+    removeListener(InvalidationListener listener)
+
+    ObservableValue<T>
+        addListener(ChangeListener<? super T> listener)
+        removeListener(ChangeListener<? super T> listener)
+        T getValue()
+
+        ObservableNumberValue
+            int intValue()
+            long longValue()
+            float floatValue()
+            double doubleValue()
+    
+            NumberExpression: (BooleanBinding - методы приведены в сокращённом виде)   
+                NumberBinding add(final ObservableNumberValue other)
+                NumberBinding subtract(final ObservableNumberValue other)
+                NumberBinding multiply(final ObservableNumberValue other)
+                NumberBinding divide(final ObservableNumberValue other)
+                NumberBinding negate()
+                BooleanBinding greaterThan(ObservableNumberValue other)
+                BooleanBinding greaterThanOrEqualTo(ObservableNumberValue other)
+                BooleanBinding isEqualTo(ObservableNumberValue other, double epsilon)
+                BooleanBinding isNotEqualTo(ObservableNumberValue other)
+                BooleanBinding isNotEqualTo(ObservableNumberValue other, double epsilon)
+                BooleanBinding lessThan(ObservableNumberValue other)
+                BooleanBinding lessThanOrEqualTo(ObservableNumberValue other)
+
+            ObservableIntegerValue
+                int get()
+
+        ReadOnlyProperty<T>
+            Object getBean()
+            String getName()
+
+            Property<T> extends WritableValue<T>
+                bind(ObservableValue<? extends T> observable)
+                unbind()
+                boolean isBound()
+                bindBidirectional(Property<T> other)
+                unbindBidirectional(Property<T> other)
+
+WritableValue<T> 
+    T getValue()
+    setValue(T value)
+    
+    WritableNumberValue
+
+        WritableIntegerValue
+            int get()
+            set(int value)
+            setValue(Number value)
+
+
+-----------------------
+FunctionalInterfaces:
+-----------------------
+InvalidationListener
+    invalidated(Observable observable)
+
+ChangeListener<T>
+    changed(ObservableValue<? extends T> observable, T oldValue, T newValue)

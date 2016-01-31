@@ -1,0 +1,46 @@
+
+The List of Properties Declared in the FlowPane Class:
+--------------------------------------------------------------------------------
+Property            Type                    Description
+--------------------------------------------------------------------------------
+alignment           ObjectProperty<Pos>     It specifies the alignment of rows and columns relative
+                                            to the content area of the FlowPane. The default value is
+                                            Pos.TOP_LEFT.
+
+rowValignment       ObjectProperty<VPos>    It specifies the vertical alignment of the children within
+                                            each row in a horizontal FlowPane. It is ignored for a
+                                            vertical FlowPane.
+
+columnHalignment    ObjectProperty<HPos>   It specifies the horizontal alignment of the children
+                                            within each column in a vertical FlowPane. It is ignored
+                                            for a horizontal FlowPane.
+
+hgap, vgap          DoubleProperty          They specify the horizontal and vertical gaps between
+                                            children. The default is zero.
+
+orientation         ObjectProperty<Orientation>     It specifies the orientation of the FlowPane. It defaults
+                                            to HORIZONTAL.
+
+prefWrapLength      DoubleProperty          It is the preferred width in a horizontal FlowPane and
+                                            the preferred height in a vertical FlowPane where the
+                                            content should wrap. The default is 400.
+----------------------------------------------------------------------------------
+
+The prefWrapLength property is the preferred width in a horizontal FlowPane or the preferred height in
+a vertical FlowPane where content should wrap. This is only used to compute the preferred size of the
+FlowPane. It defaults to 400. Treat the value of this property as a hint to resize your FlowPane. Suppose you
+set this value to less than the largest preferred width or height of a child node. In this case, this value will not
+be respected, as a row cannot be shorter than the widest child node in a horizontal FlowPane or a column
+cannot be shorter than the tallest child node in a vertical FlowPane. If 400px is too wide or tall for your
+FlowPane, set this value to a reasonable value.
+
+Using the hgap and vgap properties is straightforward. In a horizontal FlowPane, the hgap property specifies
+the horizontal spacing between adjacent children in a row and the vgap property specifies the spacing
+between adjacent rows. In a vertical FlowPane, the hgap property specifies the horizontal spacing between
+adjacent columns and the vgap property specifies the spacing between adjacent children in a column. You
+can set these properties in the constructors or using the setter methods. 
+    // Create a FlowPane with 5px hgap and 10px vgap
+    FlowPane fpane = new FlowPane(5, 10);
+    // Change the hgap to 15px and vgap to 25px
+    fpane.setHgap(15);
+    fpane.setVgap(25);

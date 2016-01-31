@@ -1,0 +1,56 @@
+
+A GridPane lays out its children in a dynamic grid of cells arranged in rows and columns. The grid is
+dynamic because the number and size of cells in the grid are determined based on the number of children.
+They depend on the constraints set on children. Each cell in the grid is identified by its position in the
+column and row. The indexes for columns and rows start at 0. A child node may be placed anywhere in the
+grid spanning more than one cell. All cells in a row are of the same height. Cells in different rows may have
+different heights. All cells in a column are of the same width. Cells in different columns may have different
+widths. By default, a row is tall enough to accommodate the tallest child node in it. A column is wide enough
+to accommodate the widest child node in it. You can customize the size of each row and column. GridPane
+also allows for vertical spacing between rows and horizontal spacing between columns.
+
+In a GridPane, rows are indexed from top to bottom. The top row has an index of 0. Columns are
+indexed from left to right or from right to left. If the nodeOrientation property for the GridPane is set to
+LEFT_TO_RIGHT, the leftmost column has index 0. If it is set to RIGHT_TO_LEFT, the rightmost column has an
+index of 0.
+
+Tip: A question that is often asked about the GridPane is, “How many cells, and of what sizes, do we need
+to lay out children in a GridPane?” The answer is simple but sometimes perplexing to beginners. You specify the
+cell positions and cell spans for the children. GridPane will figure out the number of cells (rows and columns)
+and their sizes for you. That is, GridPane computes the number of cells and their sizes based on the constraints
+that you set for the children.
+
+The List of Properties Declared in the GridPane Class:
+--------------------------------------------------------------------------------
+Property        Type            Description
+--------------------------------------------------------------------------------
+alignment           ObjectProperty<Pos>     It specifies the alignment of the grid (the content of the
+                                            GridPane) relative to its content area. It defaults to
+                                            Pos.TOP_LEFT.
+
+gridLinesVisible    BooleanProperty         It is recommend to be used for debug purposes only.
+                                            It controls whether grid lines are visible or not. It defaults
+                                            to false.
+
+hgap, vgap          DoubleProperty          They specify the gaps between adjacent columns and rows.
+                                            The hgap property specifies the horizontal gap between
+                                            adjacent columns. The vgap property specifies the vertical
+                                            gap between adjacent rows. They default to zero.
+--------------------------------------------------------------------------------
+
+The GridPane class contains a gridLinesVisible property of the BooleanProperty type. It controls the
+visibility of the grid lines. By default, it is set to false and the grid lines are invisible. It exists for debugging
+purposes only. Use it when you want to see the positions of children in the grid.
+    GridPane gpane = new GridPane();
+    gpane.setGridLinesVisible(true); // Make grid lines visible
+
+Like most of the other layout panes, a GridPane stores its children in an ObservableList<Node> whose
+reference is returned by the getChildren() method. You should not add children to the GridPane directly to
+the list. Rather, you should use one of the convenience methods to add children to the GridPane. You should
+specify constraints for children when you add them to a GridPane. The minimum constraints would be the
+column and row indexes to identify the cell in which they are placed.
+In a GridPane, by default, all children are added in the first cell (c0, r0) spanning only one column and
+one row, thus overlapping each other. They are drawn in the order they are added.
+
+
+

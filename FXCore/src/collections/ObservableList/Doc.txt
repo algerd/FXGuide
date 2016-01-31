@@ -1,0 +1,20 @@
+
+The addListener() and removeListener() methods in the ObservableList interface allow you to add
+and remove ListChangeListeners, respectively. Other methods perform operations on the list, which affect
+multiple elements.
+
+If you want to receive notifications when changes occur in an ObservableList, you need to add a
+ListChangeListener interface whose onChanged() method is called when a change occurs in the list. The
+Change class is a static inner class of the ListChangeListener interface. A Change object contains a report of
+the changes in an ObservableList. It is passed to the onChanged() method of the ListChangeListener.
+
+You can add or remove invalidation listeners to or from an ObservableList using the following two
+methods that it inherits from the Observable interface:
+    • void addListener(InvalidationListener listener)
+    • void removeListener(InvalidationListener listener)
+Note that an ObservableList contains all of the methods of the List interface as it inherits them from
+the List interface.
+
+JavaFX library provides two classes named FilteredList and SortedList that are in the
+javafx.collections.transformation package. A FilteredList is an ObservableList that filters its
+contents using a specified Predicate. A SortedList sorts its contents.

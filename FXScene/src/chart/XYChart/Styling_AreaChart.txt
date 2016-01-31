@@ -1,0 +1,60 @@
+The AreaChart is not assigned any additional style-class name other than chart. The following style specifies
+that the AreaChart should not create symbols for representing the data points.
+
+    .chart {
+        -fx-create-symbols: false;
+    }
+
+Each series in an AreaChart is represented by a Group containing two Path nodes. One Path represents
+the line segment connecting all data points in the series, and another Path represents the area covered by
+the series. The Path node representing the line segment for a series is assigned the following style-class
+names:
+    • chart-series-area-line
+    • series<i>
+    • default-color<j>
+Here, <i> is the series index and <j> is the color index of the series.
+
+The Path node representing the area for a series is assigned the following style-class names:
+    • chart-series-area-fill
+    • series<i>
+    • default-color<j>
+Here, <i> is the series index and <j> is the color index of the series.
+
+If the createSymbols property is set to true, a symbol is created for each data point. Each symbol node
+is assigned the following style-class name:
+    • chart-area-symbol
+    • series<i>
+    • data<j>
+    • default-color<k>
+Here, <i> is the series index, <j> is the data item index within a series, and <k> is the color index
+of the series.
+
+Each series is assigned a legend item, which gets the following style-class names:
+    • chart-area-symbol
+    • series<i>
+    • area-legend-symbol
+    • default-color<j>
+Here, <i> is the series index and <j> is the color index of the series.
+
+The following style sets the area fill color for the color index 0 for the series to blue with 20% opacity.
+Make sure to set transparent colors for the area fills as areas overlap in an AreaChart.
+
+    .chart-series-area-fill.default-color0 {
+        -fx-fill: rgba(0, 0, 255, 0.20);
+    }
+
+The following styles set the blue as the color for symbols, line segment, and legend symbol for the color
+index 0 for the series.
+
+    /* Data point symbols color */
+    .chart-area-symbol.default-color0. {
+        -fx-background-color: blue, white;
+    }
+    /* Series line segment color */
+    .chart-series-area-line.default-color0 {
+        -fx-stroke: blue;
+    }
+    /* Series legend symbol color */
+    .area-legend-symbol.default-color0 {
+        -fx-background-color: blue, white;
+    }

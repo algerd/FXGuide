@@ -1,0 +1,19 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<!--
+    fxml-документ может иметь только 1 контроллер (в корне).
+    Но каждый внедряемый с помощью fx:include fxml-документ может иметь свой контроллер.
+    FXMLLoader позволяет передавать ссылки контроллеров вложенных документов в контроллер
+    главного документа. Для этого надо следовать правилам именования контроллеров вложенных 
+    документов:
+        - fx:id вложенного с помощью fx:include корневого элемента + Controller = closeBtn + Controller
+    В нашем случае fx:id="closeBtn" для корневого элемента Button в closebutton.fxml,
+    поэтому имя вложенного контроллера closeBtnController.
+    И главный контроллер главного документа получает ссылку(поле) на вложенный контроллер.    
+    Имя ссылки вложенного контроллера в главном контроллере должна соответствовать правилу:
+        - fx:id элемента fx:include + Controller = includedCloseBtn + Controller 
+-->
+<VBox fx:controller="include.controller.MainDocController" xmlns:fx="http://javafx.com/fxml">	
+	<fx:include source="closebutton.fxml" fx:id="includedCloseBtn"/>    
+</VBox>

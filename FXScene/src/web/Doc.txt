@@ -1,0 +1,10 @@
+   
+Пояснения смотреть в книге K.Sharan
+ 
+Порядок примеров:
+    WebViewTest   
+    BasicWebBrowser + WebOptionsMenu + NavigationBar + BrowserHistory
+    JSCommandTest + BrowserPane + JSHandlers
+
+
+

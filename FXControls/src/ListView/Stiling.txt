@@ -1,0 +1,53 @@
+
+The default CSS style-class name for a ListView is list-view and for ListCell it is list-cell. The ListView
+class has two CSS pseudo-classes: horizontal and vertical. The -fx-orientation CSS property controls
+the orientation of the ListView, which can be set to horizontal or vertical.
+You can style a ListView as you style any other controls. Each item is displayed in an instance of
+ListCell. ListCellprovides several CSS pseudo-classes:
+    • empty
+    • filled
+    • selected
+    • odd
+    • even
+
+The empty pseudo-class applies when the cell is empty. The filled pseudo-class applies when the cell
+is not empty. The selected pseudo-class applies when the cell is selected. The odd and even pseudo-classes
+apply to cells with an odd and even index, respectively. The cell representing the first item is index 0 and it is
+considered an even cell.
+
+The following CSS styles will highlight even cells with tan and odd cells with light gray:
+
+    .list-view .list-cell:even {
+        -fx-background-color: tan;
+    }
+
+    .list-view .list-cell:odd {
+        -fx-background-color: lightgray;
+    }
+
+Developers often ask how to remove the default alternate cell highlighting in a ListView. In the
+modena.css file, the default background color for all list cells is set to -fx-control-inner-background,
+which is a CSS-derived color. For all odd list cells, the default color is set to derive(-fx-control-innerbackground,-
+5%). To keep the background color the same for all cells, you need to override the background
+color of odd list cells as follows:
+    .list-view .list-cell:odd {
+        -fx-background-color: -fx-control-inner-background;
+    }
+
+This only solves half of the problem; it only takes care of the background colors of the list cells in a
+normal state inside a ListView. A list cell can be in several states, for example, focused, selected, empty,
+or filled. To completely address this, you will need to set the appropriate background colors for list cells
+for all states. Please refer to the modena.css file for a complete list of states that you will need to modify the
+background colors for list cells.
+
+The ListCell class supports an -fx-cell-size CSS property that is the height of the cells in a vertical
+ListView and the width of cells in a horizontal ListView.
+
+The list cell could be of the type ListCell, TextFieldListCell, ChoiceBoxListCell,
+ComboBoxListCell, or CheckBoxListCell. The default CSS style-class names for subclasses of ListCell
+are text-field-list-cell, choice-box-list-cell, combo-box-list-cell, and check-box-list-cell.
+You can use these style class names to customize their appearance. The following CSS style will show the
+TextField in an editable ListView in yellow background:
+    .list-view .text-field-list-cell .text-field {
+        -fx-background-color: yellow;
+    }

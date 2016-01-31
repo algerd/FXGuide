@@ -1,0 +1,32 @@
+Package javafx.geometry provides the set of 2D classes for defining 
+and performing operations on objects related to two-dimensional geometry.
+
+Class                           Description
+--------------------------------------------------------------------------------
+BoundingBox     A rectangular bounding box which is used to describe the bounds of a node or other scene graph object.
+Bounds          The base class for objects that are used to describe the bounds of a node or other scene graph object.
+Dimension2D     A 2D dimension object that contains a width and a height.
+Insets          A set of inside offsets for the 4 side of a rectangular area
+Point2D         A 2D geometric point that usually represents the x, y coordinates.
+Point3D         A 3D geometric point that usually represents the x, y, z coordinates.
+Rectangle2D     A 2D rectangle used to describe the bounds of an object.
+--------------------------------------------------------------------------------
+
+
+Enum                            Description
+--------------------------------------------------------------------------------
+HorizontalDirection     Enumeration representing a horizontal direction.
+HPos                    A set of values for describing horizontal positioning and alignment.
+NodeOrientation         A set of values for describing the flow of visual data for a node.
+Orientation             Orientation
+Pos                     A set of values for describing vertical and horizontal positioning and alignment.
+Side                    Enum for which side of a rectangle something should be.
+VerticalDirection       Enumeration representing a vertical direction.
+VPos                    A set of values for describing vertical positioning and alignment.
+--------------------------------------------------------------------------------
+
+
+
+
+
+

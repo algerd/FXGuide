@@ -1,0 +1,15 @@
+
+The default CSS style-class name for an Accordion is accordion. Accordion does not add any CSS
+properties. It contains a first-titled-pane substructure, which is the first TitledPane. The following style
+sets the background color and insets of the title bar of all TitledPanes:
+
+    .accordion > .titled-pane > .title {
+        -fx-background-color: burlywood;
+        -fx-background-insets: 1;
+    }
+
+The following style sets the background color of the title bar of the first TitledPane of the Accordion:
+
+    .accordion > .first-titled-pane > .title {
+        -fx-background-color: derive(red, 80%);
+    }

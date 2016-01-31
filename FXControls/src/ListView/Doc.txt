@@ -1,0 +1,62 @@
+ListView is used to allow a user to select one item or multiple items from a list of items. Each item in
+ListView is represented by an instance of the ListCell class, which can be customized. The items list in a
+ListView may contain any type of objects. ListView is a parameterized class. The parameter type is the type
+of the items in the list. If you want to store mixed types of items in a ListView, you can use its raw type, as
+shown in the following code:
+    // Create a ListView for any type of items
+    ListView seasons = new ListView();
+    // Create a ListView for String items
+    ListView<String> seasons = new ListView<String>();
+
+You can specify the list items while creating a ListView, as in the following code:
+    ObservableList<String> seasonList = FXCollections.<String>observableArrayList("Spring", "Summer", "Fall", "Winter");
+    ListView<String> seasons = new ListView<>(seasonList);
+
+After you create a ListView, you can add items to its list of items using the items property, which is of
+the ObjectProperty<ObservableList<T>> type in which T is the type parameter for the ListView, as in the
+following code:
+    ListView<String> seasons = new ListView<>();
+    seasons.getItems().addAll("Spring", "Summer", "Fall", "Winter");
+
+ListView sets its preferred width and height, which are normally not the width and height that you
+want for your control. It would have helped developers if the control had provided a property such as
+visibleItemCount. Unfortunately, the ListView API does not support such a property. You need to set them
+to reasonable values in your code, as follows:
+    // Set preferred width = 100px and height = 120px
+    seasons.setPrefSize(100, 120);
+If the space needed to display items is larger than what is available, a vertical, a horizontal, or both
+scrollbars are automatically added.
+
+The ListView class contains a placeholder property, which stores a Node reference. When the items
+list is empty or null, the placeholder node is shown in the list area of the ListView. The following snippet of
+code sets a Label as a placeholder:
+    Label placeHolder = new Label("No seasons available for selection.");
+    seasons.setPlaceholder(placeHolder);
+
+ListView offers a scrolling feature. Use the scrollTo(int index) or scrollTo(T item) method to
+scroll to a specified index or item in the list. The specified index or item is made visible, if it is not already
+visible. The ListView class fires a ScrollToEvent when scrolling takes place using the scrollTo() method
+or by the user. You can set an event handler using the setOnScrollTo() method to handle scrolling.
+
+Each item in a ListView is displayed using an instance of the ListCell class. In essence, a ListCell is
+a labeled control that is capable of displaying text and a graphic. Several subclasses of ListCell exist to give
+ListView items a custom look. ListView lets you specify a Callback object as a cell factory(см. ComboBoxCellFactory.java), 
+which can create custom list cells. A ListView does not need to create as many ListCell objects as the number items. It can
+have only as many ListCell object as the number of visible items on the screen. As items are scrolled,
+it can reuse the ListCell objects to display different items.
+
+The items in a ListView may be arranged vertically in a single column (default) or horizontally in a single
+row. It is controlled by the orientation property, as shown in the following code:
+    // Arrange list of seasons horizontally
+    seasons.setOrientation(Orientation.HORIZONTAL);
+
+
+
+
+
+
+
+
+
+
+

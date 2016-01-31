@@ -1,0 +1,55 @@
+
+The default CSS style-class name for a tab and for a TabPane is tab-pane. You can style Tabs directly using
+the tab style class or using the substructure of TabPane. The later approach is commonly used.
+TabPane supports four CSS pseudo-classes, which correspond to the four values for its side property:
+    • top
+    • right
+    • bottom
+    • left
+
+You can set the minimum and maximum sizes of the tab titles in a TabPane using the following CSS
+properties. They correspond to the four properties in the TabPane class. 
+    • -fx-tab-min-width
+    • -fx-tab-max-width
+    • -fx-tab-min-height
+    • -fx-tab-max-height
+
+A TabPane divides its layout bounds into two areas: header area and content area. 
+The header area is called the tab-header-area substructure, which contains the following substructures:
+    • headers-region
+    • tab-header-background
+    • control-buttons-tab
+    • tab
+The control-buttons-tab substructure contains a tab-down-button substructure, which contains
+an arrow substructure. The tab substructure contains tab-label and tab-close-button substructures.
+The tab-content-area substructure represents the content area of the TabPane. Substructures let you style
+different parts of TabPane.
+
+The following code removes the background color for the header area as is done when the TabPane is in
+the floating mode:
+    .tab-pane > .tab-header-area > .tab-header-background {
+        -fx-background-color: null;
+    }
+
+The following code shows the text of the selected tab in boldface. Notice the use of the selected pseudoclass
+for the tab in the selector .tab:selected:
+    .tab-pane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-label {
+        -fx-font-weight: bold;
+    }
+
+The following code shows Tabs in a TabPane in blue background with 10pt white title text:
+
+    .tab-pane > .tab-header-area > .headers-region > .tab {
+        -fx-background-color: blue;
+    }
+    .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+        -fx-text-fill: white;
+        -fx-font-size: 10pt;
+    }
+
+Use the floating style-class for the TabPane when styling it for the floating mode. The following style
+sets the border color to blue in floating mode:
+
+    .tab-pane.floating > .tab-content-area {
+        -fx-border-color: blue;
+    }

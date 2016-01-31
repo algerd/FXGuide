@@ -1,0 +1,10 @@
+
+All transition classes inherit from the Transition class, which, in turn, inherits from the Animation
+class. All methods and properties in the Animation class are also available for use in creating transitions.
+The transition classes take care of creating the key frames and setting up the timeline. You need to specify
+the node, duration for the animation, and end values that are interpolated. Special transition classes are
+available to combine multiple animations that may run sequentially or in parallel.
+
+The Transition class contains an interpolator property that specifies the interpolator to be used
+during animation. By default, it uses Interpolator.EASE_BOTH, which starts the animation slowly,
+accelerates it, and slows it down toward the end.

@@ -1,0 +1,4 @@
+
+Substructure:
+
+first-titled-pane — the first TitledPane

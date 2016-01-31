@@ -1,0 +1,38 @@
+ 
+/*
+JavaFX предлагает два типа наследования свойств CSS:
+    1) Наследование типов свойств CSS (согласно JavaFX иерархии наследования):
+        Все CSS-свойства (типы) Java-суперкласса наследуются Java-сабклассами.
+
+    2) Наследование значений свойств CSS (согласно вложению в классы-контейнеры):
+        Значения CSS-свойств родителя-контейнера наследуются вложенным в контейнер детьми.
+        По умолчанию наследуются значения только следующих CSS-свойств:
+          - cursor: -fx-cursor (default : javafx.scene.Cursor.DEFAULT) 
+          - textAlignment: -fx-text-alignment (default : javafx.scene.text.TextAlignment.LEFT)
+          - font: -fx-font, -fx-font-family, -fx-font-size, -fx-font-weight, -fx-font-style	(default : Font.DEFAULT (12px system))         
+        Для принудительного наследования значений других свойств надо явно указать значение свойству: inherit. 
+        Чтобы переопределить наследуемое значение свойства, надо просто задать ему новое значение.
+*/
+
+/* Parent Node (HBox)*/
+#box {
+    /* переопределить значение по умолчанию(определено в default style sheet JavaFx) наследуемого свойства суперкласса Node*/
+    -fx-cursor: hand;
+    /* наследуемый тип свойства -fx-border-color из суперкласса Region */
+    -fx-border-color: blue;
+    /* наследуемый тип свойства -fx-border-width из суперкласса Region */
+    -fx-border-width: 5px;    
+    /* переопределить значение по умолчанию(определено в default style sheet JavaFx) наследуемого свойства суперкласса 
+       Все дети этого контейнера (#okButton и #cancelButton) получат это значение как наследуемое значение по умолчанию */
+    -fx-font: italic bold 20px Arial;
+} 
+
+/* Child Node (OK Button)*/
+#okButton {
+    /* наследуемый тип свойства -fx-border-color из суперкласса Region */
+    -fx-border-color: red;
+    /* наследовать значение свойства из контейнера-родителя (#box) -fx-border-width: 5px; */
+    -fx-border-width: inherit;   
+}
+        
+

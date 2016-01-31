@@ -1,0 +1,75 @@
+
+-fx-side
+	Values: Side
+	Default: null
+	Field: ObjectProperty<Side> side
+	Property: ObjectProperty<Side> sideProperty()
+	Methods: getSide(), setSide(Side)
+	Description:
+		The side of the plot which this axis is being drawn on
+	
+-fx-tick-length
+	Values: <size>
+	Default: 8
+	Field: DoubleProperty tickLength
+	Property: DoubleProperty tickLengthProperty()
+	Methods: getTickLength(), setTickLength(double)
+	Description:
+		The length of tick mark lines
+	
+-fx-tick-label-font
+	Values: <font>
+	Default: 8 system (8px font:system)
+	Field: ObjectProperty<Font> tickLabelFont
+	Property: ObjectProperty<Font> tickLabelFontProperty()
+	Methods: getTickLabelFont(), setTickLabelFont(Font)
+	Description:
+		The font for all tick labels
+	
+-fx-tick-label-fill
+	Values: <paint>
+	Default: black
+	Field: ObjectProperty<Paint> tickLabelFill
+	Property: ObjectProperty<Paint> tickLabelFillProperty()
+	Methods: getTickLabelFill(), setTickLabelFill(Paint)
+	Description:
+		The fill for all tick labels
+	
+-fx-tick-label-gap
+	Values: <size>
+	Default: 3
+	Field: DoubleProperty tickLabelGap
+	Property: DoubleProperty tickLabelGapProperty()
+	Methods: getTickLabelGap(), setTickLabelGap(double)
+	Description:
+		The gap between tick labels and the tick mark lines
+	
+-fx-tick-mark-visible
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty tickMarkVisible 
+	Property: BooleanProperty tickMarkVisibleProperty()
+	Methods: isTickMarkVisible(), setTickMarkVisible(boolean)
+	Description:
+		true if tick marks should be displayed
+	
+-fx-tick-labels-visible
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty tickLabelsVisible
+	Property: BooleanProperty tickLabelsVisibleProperty()
+	Methods: isTickLabelsVisible(), setTickLabelsVisible(boolean)
+	Description:
+		true if tick mark labels should be displayed
+
+		
+**************	Substructure *****************
+		
+axis-label — Text
+axis-tick-mark — Path	
+
+
+	
+		
+	
+	

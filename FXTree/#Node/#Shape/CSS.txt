@@ -1,0 +1,111 @@
+Стилевые свойства могут быть заданы также через аттрибуты или тег-свойства fxml-документа, или через геттер/сеттеры javaFX API.
+
+-fx-fill
+	Values: <paint>
+	Default: BLACK
+	Field: ObjectProperty<Paint> fill
+	Property: ObjectProperty<Paint> fillProperty()
+	Methods: getFill(), setFill(Paint)
+	Description:
+		Defines parameters to fill the interior of an Shape using the settings of the Paint context. 
+		The default value is Color.BLACK for all shapes except Line, Polyline, and Path. The default value is null for those shapes.
+		
+-fx-smooth
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty smooth
+	Property: BooleanProperty smoothProperty()
+	Methods: isSmooth(), setSmooth(boolean)
+	Description:
+		Defines whether antialiasing hints are used or not for this Shape. If the value equals true the rendering hints are applied.
+
+-fx-stroke
+	Values: <paint>
+	Default: null
+	Field: ObjectProperty<Paint> strokeProperty
+	Property: ObjectProperty<Paint> strokeProperty()
+	Methods: getStroke(), setStroke(Paint)
+	Description:
+		Defines parameters of a stroke that is drawn around the outline of a Shape using the settings of the specified Paint. 
+		The default value is null for all shapes except Line, Polyline, and Path. The default value is Color.BLACK for those shapes.
+		
+-fx-stroke-type	
+	Values: [ inside | outside | centered ]
+	Default: centered
+	Field: StrokeAttributes strokeAttributes : ObjectProperty<StrokeType> type
+	Property: ObjectProperty<StrokeType> strokeTypeProperty()		
+	Methods: getStrokeType(), setStrokeType(StrokeType)
+	Description:
+		Defines the direction (inside, centered, or outside) that the strokeWidth is applied to the boundary of the shape.
+		The image shows a shape without stroke and with a thick stroke applied inside, centered and outside.
+		
+-fx-stroke-dash-array
+	Values: <size>[ <size>]+
+	Default: The initial value is that of an empty array, effectively a solid line.
+	Field: StrokeAttributes strokeAttributes : ObservableList<Double> dashArray
+	Property: none
+	Methods: getStrokeDashArray()  
+	Description:
+		(смотреть в JavaDoc описание метода getStrokeDashArray())
+		Defines the array representing the lengths of the dash segments. Alternate entries in the array represent 
+		the user space lengths of the opaque and transparent segments of the dashes. As the pen moves along the outline 
+		of the Shape to be stroked, the user space distance that the pen travels is accumulated. The distance value 
+		is used to index into the dash array. The pen is opaque when its current cumulative distance maps to an even 
+		element of the dash array (counting from 0) and transparent otherwise.
+		An empty strokeDashArray indicates a solid line with no spaces. An odd length strokeDashArray 
+		behaves the same as an even length array constructed by implicitly repeating the indicated 
+		odd length array twice in succession ([20, 5, 15] behaves as if it were [20, 5, 15, 20, 5, 15]).
+		Note that each dash segment will be capped by the decoration specified by the current stroke line cap.
+			
+-fx-stroke-dash-offset	
+	Values: <number>
+	Default: 0
+	Field: StrokeAttributes strokeAttributes : DoubleProperty dashOffset
+	Property: DoubleProperty strokeDashOffsetProperty()	
+	Methods: getStrokeDashOffset(), setStrokeDashOffset(double)
+	Description:
+		Defines a distance specified in user coordinates that represents an offset into the dashing pattern. 
+		In other words, the dash phase defines the point in the dashing pattern that will correspond to the beginning of the stroke.
+		The image shows a stroke with dash array [25, 20, 5, 20] and a stroke with the same pattern 
+		and offset 45 which shifts the pattern about the length of the first dash segment and the following space.
+		- . - . -
+	
+-fx-stroke-line-cap	
+	Values: [ square | butt | round ]
+	Default: square
+	Field: StrokeAttributes strokeAttributes : ObjectProperty<StrokeLineCap> lineCap
+	Property: ObjectProperty<StrokeLineCap> strokeLineCapProperty()
+	Methods: getStrokeLineCap(), setStrokeLineCap(StrokeLineCap)
+	Description:
+		The end cap style of this Shape as one of the following values that define possible end cap styles: 
+		StrokeLineCap.BUTT, StrokeLineCap.ROUND, and StrokeLineCap.SQUARE. The image shows a line using the values in the mentioned order.
+	
+-fx-stroke-line-join
+	Values: [ miter | bevel | round ]
+	Default: miter
+	Field: StrokeAttributes strokeAttributes : ObjectProperty<StrokeLineJoin> lineJoin
+	Property: ObjectProperty<StrokeLineJoin> strokeLineJoinProperty()
+	Methods: getStrokeLineJoin(), setStrokeLineJoin(StrokeLineJoin)
+	Description:
+		Defines the decoration applied where path segments meet. The value must have one of the following values: 
+		StrokeLineJoin.MITER, StrokeLineJoin.BEVEL, and StrokeLineJoin.ROUND. The image shows a shape using the values in the mentioned order.
+
+-fx-stroke-miter-limit
+	Values: <number>
+	Default: 10
+	Field: StrokeAttributes strokeAttributes : DoubleProperty miterLimit
+	Property: DoubleProperty strokeMiterLimitProperty()
+	Methods: getStrokeMiterLimit(), setStrokeMiterLimit(double)
+	Description:
+		Defines the limit for the StrokeLineJoin.MITER line join style. A value of less than 1.0 will be treated as 1.0.
+		√рафическое объ€снение свойства дано в JavaDoc на класс Shape свойство strokeMiterLimitProperty.
+	
+-fx-stroke-width	
+	Values: <size>
+	Default: 1
+	Field: StrokeAttributes strokeAttributes : DoubleProperty width
+	Property: DoubleProperty strokeWidthProperty()
+	Methods: getStrokeWidth(), setStrokeWidth(double)
+	Description: 
+		Defines a square pen line width. A value of 0.0 specifies a hairline stroke. A value of less than 0.0 will be treated as 0.0.
+	

@@ -1,0 +1,45 @@
+Tools:
+------
+    NetBeans plugins for javafx
+    SceneBuilder
+    Gluon tools
+
+
+
+---------------------------------------------------------------------------------
+Core:
+----------
+    Aplication
+    Animation
+    Beans
+    Collections - (? у меня объединена с Bean)
+    Concurrent
+    CSS
+    Event
+    Fxml
+    Geometry
+    Print
+    Stage
+    Util
+    JavaScript
+
+
+Scene:
+----------
+    Canvas
+    Chart
+    Control
+    Effect
+    Image
+    Input - (Drag And Drop, пересекается с Event)
+    Layout
+    Media
+    Paint - (Color, Gradient, Material)
+    Shape
+    Text
+    Transform
+    Web
+
+
+
+Сделать FXTree - дерево наследования классов с CSS-свойствами (из проекта FXScene)

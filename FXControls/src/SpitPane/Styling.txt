@@ -1,0 +1,22 @@
+The default CSS style-class name for a SplitPane control is split-pane. SplitPane contains -fx-orientation
+CSS properties, which determine its orientation. The possible values are horizontal and vertical.
+SplitPane supports horizontal and vertical CSS pseudo-classes that apply to horizontal and vertical
+SplitPanes, respectively. The divider is a split-pane-divider substructure of the SplitPane, which is a
+StackPane. The following code sets a blue background color for dividers, 5px preferred width for dividers in
+a horizontal SplitPane, and 5px preferred height for dividers in a vertical SplitPane:
+
+    .split-pane > .split-pane-divider {
+        -fx-background-color: blue;
+    }
+
+    .split-pane:horizontal > .split-pane-divider {
+        -fx-pref-width: 5;
+    }
+
+    .split-pane:vertical > .split-pane-divider {
+        -fx-pref-height: 5;
+    }
+
+The split-pane-divider substructure contains a grabber substructure, which is a StackPane. Its CSS
+style-class name is horizontal-grabber for a horizontal SplitPane and vertical-grabber for a vertical
+SplitPane. The grabber is shown in the middle of the divider.

@@ -1,0 +1,50 @@
+
+Whether a TableColumn is resizable by the user is specified by its resizable property. By default,
+a TableColumn is resizable. How a column in a TableView is resized is specified by the columnResizePolicy
+property of the TableView. The property is a Callback object. Its call() method takes an object of the
+ResizeFeatures class, which is a static inner class of the TableView class. The ResizeFeatures object
+encapsulates the delta by which the column is resized, the TableColumn being resized, and the TableView.
+The call() method returns true if the column was resized by the delta amount successfully. Otherwise,
+it returns false.
+
+The TableView class provides two built-in resize policies as constants:
+• CONSTRAINED_RESIZE_POLICY
+• UNCONSTRAINED_RESIZE_POLICY
+
+CONSTRAINED_RESIZE_POLICY ensures that the sum of the width of all visible leaf columns is equal to
+the width of the TableView. Resizing a column adjusts the width of all columns to the right of the resized
+column. When the column width is increased, the width of the rightmost column is decreased up to its
+minimum width. If the increased width is still not compensated, the width of the second rightmost column
+is decreased up to its minimum width and so on. When all columns to the right have their minimum widths,
+the column width cannot be increased any more. The same rule applies in the opposite direction when a
+column is resized to decrease its width.
+
+When the width of a column is increased, UNCONSTRAINED_RESIZE_POLICY shifts all columns to its right
+by the amount the width is increased. When the width is decreased, columns to the right are shifted to the
+left by the same amount. If a column has nested columns, resizing the column evenly distributes the delta
+among the immediate children columns. This is the default column-resize policy for a TableView:
+
+    TableView<Person> table = ...;
+    // Set the column resize policy to constrained resize policy
+    table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+You can also create a custom column resize policy. The following snippet of code will serve as a
+template. You will need to write the logic to consume the delta, which is the difference between the new and
+old width of the column:
+
+    TableView<Person> table = new TableView<>(PersonTableUtil.getPersonList());
+    table.setColumnResizePolicy(resizeFeatures -> {
+        boolean consumedDelta = false; double delta = resizeFeatures.getDelta();
+        TableColumn<Person, ?> column = resizeFeatures.getColumn();
+        TableView<Person> tableView = resizeFeatures.getTable();
+        // Adjust the delta here...
+        return consumedDelta;
+    });
+
+You can disable column resizing by setting a trivial callback that does nothing. Its call() simply returns
+true indicating that it has consumed the delta:
+
+    // Disable column resizing
+    table.setColumnResizePolicy(resizeFeatures -> true);
+
+

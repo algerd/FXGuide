@@ -1,0 +1,8 @@
+The default CSS style-class name for a ContextMenu is context-menu. Please refer to the modena.css file
+for sample styles for customizing the appearance of context menus. By default, a context menu uses a drop
+shadow effect. The following style sets the font size to 8pt and removes the default effect:
+
+    .context-menu {
+        -fx-font-size: 8pt;
+        -fx-effect: null;
+    }

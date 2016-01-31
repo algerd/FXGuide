@@ -1,0 +1,16 @@
+
+The ColorPicker control's appearance can be styled in three ways: a simple Button mode, MenuButton mode or SplitMenuButton mode. 
+The default is MenuButton mode DEFAULT_STYLE_CLASS = "color-picker". 
+For a Button like appearance the style class to use is STYLE_CLASS_BUTTON = "button" 
+For SplitMenuButton appearance and behavior, the style class to use is STYLE_CLASS_SPLIT_BUTTON = "split-button".
+
+Style classes:
+	DEFAULT_STYLE_CLASS = "color-picker"
+	STYLE_CLASS_BUTTON = "button" - The style class to specify a Button like appearance of ColorPicker control.
+	STYLE_CLASS_SPLIT_BUTTON = "split-button" - The style class to specify a SplitMenuButton like appearance of ColorPicker control.
+		
+******** Substructure: *******
+
+color display node — Label
+arrow-button — StackPane
+	arrow — StackPane

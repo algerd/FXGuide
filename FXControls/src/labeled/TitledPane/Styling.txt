@@ -1,0 +1,54 @@
+The default CSS style-class name for a TitledPane is titled-pane. TitledPane adds two style properties
+of boolean type:
+    • -fx-animated
+    • -fx-collapsible
+The default values for both properties are true. The -fx-animated property indicates whether the
+expanding and collapsing actions are animated. The -fx-collapsible property indicates whether
+the control can be collapsed.
+
+TitledPane supports two CSS pseudo-classes:
+    • collapsed
+    • expanded
+The collapsed pseudo-class applies when the control is collapsed and the expanded pseudo-class
+applies when it is expanded.
+
+TitledPane contains two substructures:
+    • title
+    • Content
+The title substructure is a StackPane that contains the content of the title bar. The title substructure
+contains text and arrow-button substructures. The text substructure is a Label and it holds the title text and
+the graphic. The arrow-button substructure is a StackPane that contains an arrow substructure, which is
+also a StackPane. The arrow substructure is an indicator that shows whether the control is in an expanded or
+collapsed state. The content substructure is a StackPane that contains the content of the control.
+
+Let’s look at an example of the effects of applying the four different styles to a TitledPane control, as
+presented in the following code:
+
+    /* #1 */
+    .titled-pane > .title {
+        -fx-background-color: lightgray;
+        -fx-alignment: center-right;
+    }
+
+    /* #2 */
+    .titled-pane > .title > .text {
+        -fx-font-size: 14px;
+        -fx-underline: true;
+    }
+
+    /* #3 */
+    .titled-pane > .title > .arrow-button > .arrow {
+        -fx-background-color: blue;
+    }
+
+    /* #4 */
+    .titled-pane > .content {
+        -fx-background-color: burlywood;
+        -fx-padding: 10;
+    }
+
+Style #1 sets the background color of the title to light gray and places the graphic and title at the center
+right in the title bar. Style #2 changes the font size of the title text to 14px and underlines it. Setting the text
+color of the title using the -fx-text-fill property does not work at the time of this writing and setting the
+-fx-text-fill property on the TitledPane itself affects the text color of the content as well. Style #3 sets the
+background color of the arrow to blue. Style #4 sets the background color and padding of the content region.

@@ -1,0 +1,72 @@
+
+Tabs in a TabPane may be positioned at the top, right, bottom, or left. The side property of the TabPane
+specifies the position of tabs. It is set to one of the constants of the Side enum:
+    • TOP
+    • RIGHT
+    • BOTTOM
+    • LEFT
+
+The default value for the side property is Side.TOP. The following snippet of code creates a TabPane and
+sets the side property to Side.LEFT to position tabs on the left:
+    TabPane tabPane = new TabPane();
+    tabPane.setSide(Side.LEFT);
+
+Tip: The actual placement of tabs also uses the node orientation. For example, if the side property is set to
+Side.LEFT and the node orientation of the TabPane is set to RIGHT_TO_LEFT, the tabs will be positioned on the
+right side.
+
+The TabPane class contains a rotateGraphic property, which is a boolean property. The property is
+related to the side property. When the side property is Side.TOP or Side.BOTTOM, the graphics of all tabs in
+their title bars are in the upright position. By default, when the side property changes to Side.LEFT or Side.
+RIGHT, the title text is rotated, keeping the graphic upright. The rotateGraphic property specifies whether
+the graphic is rotated with the text, as shown in the following code. By default, it is set to false.
+    // Rotate the graphic with the text for left and right sides
+    tabPane.setRotateGraphic(true);
+
+
+Sizing Tabs in a TabPane:
+--------------------------
+TabPane divides its layout into two parts:
+    • Header area
+    • Content area
+
+The header area displays the titles of tabs. The content area displays the content of the selected tab.
+The size of the content area is automatically computed based on the content of all tabs. TabPane contains the
+following properties that allow you to set the minimum and maximum sizes of the title bars of tabs:
+    • tabMinHeight
+    • tabMaxHeight
+    • tabMinWidth
+    • tabMaxWidth
+
+The default values are zero for minimum width and height, and Double.MAX_VALUE for maximum width
+and height. The default size is computed based on the context of the tab titles. If you want all tab titles to be
+of a fixed size, set the minimum and maximum width and height to the same value. Note that for the fixed
+size tabs, the longer text in the title bar will be truncated.
+
+The following snippet of code creates a TabPane and sets the properties, so all tabs are 100px wide and 30px tall:
+    TabPane tabPane = new TabPane();
+    tabPane.setTabMinHeight(30);
+    tabPane.setTabMaxHeight(30);
+    tabPane.setTabMinWidth(100);
+    tabPane.setTabMaxWidth(100);
+
+
+Using Recessed and Floating TabPanes:
+--------------------------------------
+A TabPane can be in recessed or floating mode. The default mode is recessed mode. In the recessed mode,
+it appears to be fixed. In floating mode, it appearance is changed to make it look like it is floating. In the
+floating mode, the background color of the header area is removed and a border around the content area is
+added. Here is a rule of thumb in deciding which mode to use:
+    • If you are using a TabPane along with other controls in a window, use floating mode.
+    • If the TabPane is the only one control on the window, use recessed mode.
+
+The floating mode of a TabPane is specified by a style class. The TabPane class contains a STYLE_CLASS_
+FLOATING constant. If you add this style class to a TabPane, it is in the floating mode. Otherwise, it is in the
+recessed mode. The following snippet of code shows how to turn the floating mode for a TabPane on and off:
+
+    TabPane tabPane = new TabPane();
+    // Turn on the floating mode
+    tabPane.getStyleClass().add(TabPane.STYLE_CLASS_FLOATING);
+    ...
+    // Turn off the floating mode
+    tabPane.getStyleClass().remove(TabPane.STYLE_CLASS_FLOATING);

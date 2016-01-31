@@ -1,0 +1,21 @@
+
+-fx-cursor: переопределено значение на hand		
+	
+
+***** CSS Pseudo-class: ****
+
+visited	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty visited
+	Property: BooleanProperty visitedProperty()
+	Methods: isVisited(), setVisited(boolean)
+	Description:
+		Applies when the visited variable is true.
+		Indicates whether this link has already been "visited".
+
+
+****** Substructure ******
+
+label — Label
+

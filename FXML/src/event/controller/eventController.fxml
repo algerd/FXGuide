@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- 
+    Имя контроллера - задаётся полное его имя.
+    Можно задать только один контроллер на fxml-документ.
+    Задание контроллера указывается только в корневом элементе документа (root).
+-->
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="event.controller.EventControllerController">    
+    <Label fx:id="msgLbl" text="FXML is cool!" prefWidth="150"/>
+    <!-- 
+        JavaFX классы имеют onXxx-свойства чтобы установить обработчик события для Xxx-события.
+        Напр, Button наследуетя от ButtonBase свойство onAction, в котором задаётся обработчик
+        события Action.
+        Перед именем метода контроллера нужно ставить знак #.
+    -->
+    <Button fx:id="sayHelloBtn" text="Say Hello from Controller" onAction="#sayHello"/>
+    
+</VBox>

@@ -1,0 +1,13 @@
+CSS Pseudo-classes:
+
+expanded	
+	Values: <boolean>
+	Default: false
+	Description: 
+		Applies if this cell is expanded.
+	
+collapsed	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this cell is collapsed (is not expanded).

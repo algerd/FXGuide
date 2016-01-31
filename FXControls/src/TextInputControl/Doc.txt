@@ -1,0 +1,121 @@
+
+JavaFX supports text input controls that let users work with single line or multiple lines of plain text. I will
+discuss TextField, PasswordField, and TextArea text input controls in this section. All text input controls
+are inherited from the TextInputControl class.
+
+Properties Declared in the TextInputControl Class
+--------------------------------------------------------------------------------
+Property        Type                            Description
+--------------------------------------------------------------------------------
+anchor          ReadOnlyIntegerProperty         It is the anchor of the text selection. It is at the
+                                                opposite end of the caret position in the selection.
+caretPosition   ReadOnlyIntegerProperty         It is the current position of the caret within the text.
+editable        BooleanProperty                 It is true if the control is editable. Otherwise, it is false.
+font            ObjectProperty<Font>            It is the default font for the control.
+length          ReadOnlyIntegerProperty         It is the number of characters in the control.
+promptText      StringProperty                  It is the prompt text. It is displayed in the control when
+                                                control has no content.
+selectedText    ReadOnlyStringProperty          It is the selected text in the control.
+selection   ReadOnlyObjectProperty<IndexRange>  It is the selected text index range.
+                                                text StringProperty It is the text in the control.
+--------------------------------------------------------------------------------
+
+All text input controls provide a caret. By default, a caret is a blinking vertical line when the control has focus.
+The current caret position is the target for the next input character from the keyboard. The caret position
+starts at zero, which is before the first character. Position 1 is after the first character and before the second
+character and so on. 
+The number of characters in the text determines the valid range for the caret position, which is zero to the
+length of the text. Zero is the only valid caret position if the control does not contain text.
+
+Several methods take a caret position as an argument. Those methods clamp the argument value to the
+valid caret position range. Passing a caret position outside the valid range will not throw an exception. For
+example, if the control has four characters and you want to move the caret to position 10, the caret will be
+positioned at position 4.
+
+The read-only caretPosition property contains the current caret position. Use the positionCaret
+(int pos) method to position the caret at the specified pos. The backward() and forward() methods move
+the caret one character backward and forward, respectively, if there is no selection. If there is a selection, they
+move the caret position to the beginning and end and clear the selection. The home() and end() methods
+move the caret before the first character and after the last character, respectively, and clear the selection.
+The nextWord() method moves the caret to the beginning of the next word and clears the selection.
+The endOfNextWord() method moves the caret to the end of the next word and clears the selection. The
+previousWord() method moves the caret to the beginning of the previous word and clears the selection.
+
+The TextInputControl class provides a rich API through its properties and methods to deal with text
+selection. Using the selection API, you can select the entire or partial text and get the selection information.
+
+The selectedText property contains the value of the selected text. Its value is an empty string if there
+is no selection. The selection property contains an IndexRange that holds the index range of the selection.
+The getStart() and getEnd() methods of the IndexRange class return the start index and end index of the
+selection, respectively, and its getLength() method returns the length of the selection. If there is no selection,
+the lower and upper limits of the range are the same and they are equal to the caretPosition value.
+
+The anchor and caretPosition properties play a vital role in text selection. The value of these
+properties defines the selection range. The same value for both properties indicates no selection. Either
+property may indicate the start or end of the selection range. The anchor value is the caret position when
+the selection started. You can select characters by moving the caret backward or forward. For example, you
+can use the left or right arrow key with the Shift key pressed to select a range of characters. If you move the
+caret forward during the selection process, the anchor value will be less than the caretPosition value.
+If you move the caret backward during the selection process, the anchor value will be greater than the
+caretPosition value.
+
+Apart from the selection properties, the TextInputControl contains several useful selection-related
+methods:
+    • selectAll()
+    • deselect()
+    • selectRange(int anchor, int caretPosition)
+    • selectHome()
+    • selectEnd()
+    • extendSelection(int pos)
+    • selectBackward()
+    • selectForward()
+    • selectPreviousWord()
+    • selectEndOfNextWord()
+    • selectNextWord()
+    • selectPositionCaret(int pos)
+    • replaceSelection(String replacement)
+Notice that you have a positionCaret(int pos) method and a selectPositionCaret(int pos)
+method. The former positions the caret at the specified position and clears the selection. The latter moves
+the caret to the specified pos and extends the selection if one exists. If no selection exists, it forms a selection
+by the current caret position as the anchor and moving the caret to the specified pos.
+The replaceSelection(String replacement) method replaces the selected text by the specified
+replacement. If there is no selection, it clears the selection and inserts the specified replacement at the
+current caret position.
+
+
+Modifying the Content:
+----------------------
+The text property of the TextInputControl class represents the textual content of text input controls. You
+can change the content using the setText(String text) method and get it using the getText() method.
+The clear() method sets the content to an empty string.
+
+The insertText(int index, String text) method inserts the specified text at the specified index.
+It throws an IndexOutOfBoundsException if the specified index is outside the valid range (zero to the length
+of the content). The appendText(String text) method appends the specified text to the content. The
+deleteText() method lets you delete a range of characters from the content. You can specify the range as
+an IndexRange object or start and end index. The deleteNextChar() and deletePreviousChar() methods
+delete the next and previous character, respectively, from the current caret position if there is no selection.
+If there is a selection, they delete the selection. They return true if the deletion was successful. Otherwise,
+they return false.
+
+The read-only length property represents the length of the content. It changes as you modify the
+content. Practically, the length value can be very big. There is no direct way to restrict the number of
+characters in a text input control. I will cover an example of restricting the length of text shortly.
+
+
+Cutting, Copying, and Pasting Text:
+-----------------------------------
+The text input controls supports cut, copy, and paste features programmatically, using the mouse and
+keyboard. To use these features using the mouse and keyboard, use the standard steps supported on your
+platform. Use the cut(), copy(), and paste() methods to use these features programmatically. The cut()
+method transfers the currently selected text to the clipboard and removes the current selection. The copy()
+method transfers the currently selected text to the clipboard without removing the current selection. The
+paste() method replaces the current selection with the content in the clipboard. If there is no selection, it
+inserts the clipboard content at the current caret position.
+
+
+
+
+
+
+

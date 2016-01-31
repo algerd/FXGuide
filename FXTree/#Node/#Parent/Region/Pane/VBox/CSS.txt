@@ -1,0 +1,31 @@
+
+-fx-spacing
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty spacing
+	Property: DoubleProperty spacingProperty()
+	Methods: getSpacing(), setSpacing(double)
+	Description:
+		The amount of vertical space between each child in the vbox.
+	 
+-fx-alignment 	 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The overall alignment of children within the vbox's width and height.
+
+-fx-fill-width			 
+	Values: <boolean>
+	Default: true
+	Field: BooleanProperty fillWidthProperty
+	Property: BooleanProperty fillWidthProperty()
+	Methods: isFillWidth(), setFillWidth(boolean)
+	Description:
+		Whether or not resizable children will be resized to fill the full width of the vbox or 
+		be kept to their preferred width and aligned according to the alignment hpos value.	
+	
+	
+	

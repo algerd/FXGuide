@@ -1,0 +1,44 @@
+﻿
+-fx-max-page-indicator-count
+	Values: <number>
+	Default: 10
+	Field:
+	Property:
+	Methods:
+	Description:
+	
+	
+***** Свойства, которые не нашёл в классе, но они указаны в документации. Проверить их и искать их корни. ****
+	
+-fx-arrows-visible		
+	Values: <boolean>
+	Default: true		
+-fx-tooltip-visible				
+	Values: <boolean>
+	Default: false
+	Description:
+		When set to true, a tooltip which shows the page number is set on the page indicators. 
+		This property controls whether or not the tooltip is visible on the page indicators and 
+		does not affect the visibility of the tooltip set or installed on the Pagination control itself.
+-fx-page-information-visible		
+	Values: <boolean>
+	Default:true
+-fx-page-information-alignment		
+	Values: [ top | bottom | left | right ]
+	Default: bottom	
+	
+	
+***** Substructure: **********
+
+page - StackPane
+pagination-control - StackPane
+	leftArrowButton - Button
+		leftArrow - StackPane
+	rightArrowButton - Button
+		rightArrow - StackPane
+	bullet-button - ToggleButton
+	number-button - ToogleButton
+	page-information - Label	
+	
+	
+	

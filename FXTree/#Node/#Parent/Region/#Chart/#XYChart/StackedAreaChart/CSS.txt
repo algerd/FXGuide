@@ -1,0 +1,9 @@
+
+-fx-create-symbols
+	Values: <boolean>	
+	Default: true
+	Field: BooleanProperty createSymbols
+	Property: BooleanProperty createSymbolsProperty()
+	Methods: getCreateSymbols(), setCreateSymbols(boolean)
+	Description:
+		When true, CSS styleable symbols are created for any data items that don't have a symbol node specified.

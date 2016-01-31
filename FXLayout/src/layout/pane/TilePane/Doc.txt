@@ -1,0 +1,69 @@
+
+The List of Properties Declared in the TilePane Class:
+--------------------------------------------------------------------------------
+Property            Type                    Description
+--------------------------------------------------------------------------------
+alignment       ObjectProperty<Pos>     It specifies the alignment of the content of the TilePane
+                                        relative to its content area. It defaults to Pos.TOP_LEFT.
+                                        tileAlignment ObjectProperty<Pos> It specifies the default alignment of all children within their
+                                        tiles. It defaults to Pos.CENTER.
+
+hgap, vgap      DoubleProperty          The hgap property specifies the horizontal gap between
+                                        adjacent children in a row. The vgap property specifies the
+                                        vertical gap between adjacent children in a column. The
+                                        default is zero for both properties.
+
+orientation     ObjectProperty          It specifies the orientation of the TilePane – horizontal
+                <Orientation>           or vertical. It defaults to HORIZONTAL.
+
+prefRows        IntegerProperty         It specifies the preferred number of rows for a vertical
+                                        TilePane. It is ignored for a horizontal TilePane.
+
+prefColumns     IntegerProperty         It specifies the preferred number of columns for a
+                                        horizontal TilePane. It is ignored for a vertical TilePane.
+
+prefTileWidth   DoubleProperty          It specifies the preferred width of each tile. The default is to
+                                        use the width of the widest children.
+
+prefTileHeight  DoubleProperty          It specifies the preferred height of each tile. The default is to
+                                        use the height of the tallest children.
+
+tileHeight      ReadOnlyDoubleProperty  It is a read-only property that stores the actual height of
+                                        each tile.
+
+tileWidth       ReadOnlyDoubleProperty  It is a read-only property that stores the actual width of
+                                        each tile.
+--------------------------------------------------------------------------------
+
+The orientation property specifies the flow of content in a TilePane. If it is set to Orientation.HORIZONTAL,
+which is the default value, the content flows in rows. If it is set to Orientation.VERTICAL, the content flows
+in columns. You can specify the orientation in the constructors or using the setter method.
+    // Create a horizontal TilePane
+    TilePane tpane = new TilePane();
+    ...
+    // Change the orientation of the TilePane to vertical
+    tpane.setOrientation(Orientation.VERTICAL);
+
+
+A TilePane computes the preferred size of its tiles based on the widest and the tallest children. You can
+override the computed width and height of tiles using the prefTileWidth and prefTileHeight properties.
+They default to Region.USE_COMPUTED_SIZE. The TilePane attempts to resize its children to fit in the tile size,
+provided their minimum and maximum size allows them to be resized.
+    // Create a TilePane and set its preferred tile width and height to 40px
+    TilePane tpane = new TilePane();
+    tpane.setPrefTileWidth(40);
+    tpane.setPrefTileHeight(40);
+
+
+The prefRows property specifies the preferred number of rows for a vertical TilePane. It is ignored for a
+horizontal TilePane.
+The prefColumns specifies the preferred number of columns for a horizontal TilePane. It is ignored for
+a vertical TilePane.
+The default values for prefRows and prefColumns is 5. It is recommended that you use a sensible value
+for these properties.
+Note that these properties are only used to compute the preferred size of the TilePane. If the TilePane
+is resized to a size other than its preferred size, these values may not reflect the actual number of rows or
+columns. 
+Tip: Recall the prefWrapLength property of the FlowPane that is used to determine the preferred width or
+height of the FlowPane. The prefRows and prefColumns properties serve the same purpose in a TilePane,
+as does the prefWrapLength in a FlowPane.

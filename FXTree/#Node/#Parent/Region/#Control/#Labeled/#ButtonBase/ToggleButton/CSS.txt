@@ -1,0 +1,12 @@
+
+CSS Pseudo-class:
+
+selected	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty selected
+	Property: BooleanProperty selectedProperty()
+	Methods: isSelected(), setSelected(boolean)
+	Description:
+		Applies if this ToggleButton is selected.
+		Indicates whether this toggle button is selected. This can be manipulated programmatically.

@@ -1,0 +1,19 @@
+
+The default CSS style-class name for a Tooltip control is tooltip. Tooltip add several CSS properties:
+    • -fx-text-alignment
+    • -fx-text-overrun
+    • -fx-wrap-text
+    • -fx-graphic
+    • -fx-content-display
+    • -fx-graphic-text-gap
+    • -fx-font
+
+All of the CSS properties correspond to the content-related properties in the Tooltip class. Please refer
+to TooltipTest.java for the description of all these properties. The following code sets the background
+color, text color, and the wrap text properties for Tooltip:
+
+    .tooltip {
+        -fx-background-color: yellow;
+        -fx-text-fill: black;
+        -fx-wrap-text: true;
+    }

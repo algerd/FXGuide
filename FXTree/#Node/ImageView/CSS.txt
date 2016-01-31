@@ -1,0 +1,10 @@
+
+-fx-image
+	Values: <uri>
+	Default: null
+	Field: ObjectProperty<Image> image
+	Property: ObjectProperty<Image> imageProperty()
+	Methods: getImage(), setImage(Image)
+	Description:
+		The Image to be painted by this ImageView.	
+		Relative URLs are resolved against the URL of the stylesheet.

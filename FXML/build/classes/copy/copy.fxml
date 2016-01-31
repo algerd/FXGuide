@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import copy.Item?>
+
+<!--
+    С помощью fx:copy можно копировать объект, указав его fx:id в
+    аттрибуте source:
+        <fx:copy source="fx:id of the source object" />
+    Чтобы копировать объект, он должен предоставлять конструктор для копирования.
+-->
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <fx:define>
+        <Item name="Kishori" id="100" fx:id="myItem"/>
+    </fx:define>
+    
+    <ComboBox value="$myItem">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <!-- Передать ссылку на объект -->
+                <fx:reference source="myItem"/>
+                <!-- Копировать объект -->
+                <fx:copy source="myItem" />
+                <fx:copy source="myItem" />
+                <fx:copy source="myItem" />
+                <fx:copy source="myItem" />
+            </FXCollections>
+        </items>
+    </ComboBox>    
+           
+</VBox>    

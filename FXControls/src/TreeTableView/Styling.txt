@@ -1,0 +1,37 @@
+
+The default CSS style-class name for a TreeTableView is tree-table-view.
+The default CSS style-class names for a cell, a row, and a column header are tree-table-cell, tree-table-row-cell,
+and column-header, respectively. The following code shows how to set the font for cells and set the font size
+and text color for column headers in a TreeTableView:
+
+    /* Set the font for the cells */
+    .tree-table-row-cell {
+        -fx-font-size: 10pt;
+        -fx-font-family: Arial;
+    }
+    /* Set the font size and text color for column headers */
+    .tree-table-view .column-header .label {
+        -fx-font-size: 10pt;
+        -fx-text-fill: blue;
+    }
+
+TreeTableView supports the following CSS pseudo-classes:
+    • cell-selection
+    • row-selection
+    • constrained-resize
+The cell-selection pseudo-class is applied when the cell-level selection is enabled, whereas the
+row-selection pseudo-class is applied for row-level selection. The constrained-resize pseudo-class is
+applied when the column resize policy is CONSTRAINED_RESIZE_POLICY.
+
+You can also set the shape of the disclosure node in CSS using the SVG path. The following styles set
+plus and minus signs as the disclosure nodes for expanded and collapsed nodes, respectively:
+
+    tree-table-row-cell .tree-disclosure-node .arrow {
+        -fx-shape: "M0 -0.5 h2 v2 h1 v-2 h2 v-1 h-2 v-2 h-1 v2 h-2 v1z";
+    }
+    .tree-table-row-cell:expanded .tree-disclosure-node .arrow {
+        -fx-shape: "M0 -0.5 h5 v-1 h-5 v1z";
+        -fx-padding: 4 0.25 4 0.25;
+    }
+
+A TreeTableView contains all substructures of a TableView.

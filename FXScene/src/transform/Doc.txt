@@ -1,0 +1,67 @@
+
+An instance of the abstract Transform class represents a transformation in JavaFX. The Transform
+class contains common methods and properties used by all types of transformations on nodes. It contains
+factory methods to create specific types of transformations.
+Classes:
+    abstract Transform 
+        Affine
+        Scale
+        Rotate
+        Shear
+        Translate
+
+An affine transformation is the generalized transformation that preserves the points, straight lines, and
+planes. The parallel lines remain parallel after the transformation. It may not preserve the angles between
+lines or the distances between points. However, the ratios of distances between points on a straight line are
+preserved. Translation, scale, homothetic transformation, similarity transformation, reflection, rotation,
+shear, and so on are examples of the affine transformation.
+
+An instance of the Affine class represents an affine transformation. The class is not easy to use for
+beginners. Its use requires advanced knowledge of mathematics such as matrix. If you need a specific
+type of transformation, use the specific subclasses such as Translate, Shear, and so on, rather than using
+the generalized Affine class. You can also combine multiple individual transformations to create a more
+complex one .
+
+There are two ways to create a Transform instance.
+    • Use one of the factory methods of the Transform class—for example, the translate()
+    method for creating a Translate object, the rotate() method to create a Rotate
+    object, etc.
+    • Use the specific class to create a specific type of transform—for example, the
+    Translate class for a translation, the Rotate class for a rotation, etc.
+    Both of the following Translate objects represent the same translation:
+
+    double tx = 20.0;
+    double ty = 10.0;
+    // Using the factory method in the Transform class
+    Translate translate1 = Transform.translate(tx, ty);
+    // Using the Translate class constructor
+    Translate translate2 = new Translate(tx, ty);
+
+There are two ways to apply a transformation to a node.
+    • Use the specific properties in the Node class. For example, use the translateX,
+    translateY, and translateZ properties of the Node class to apply a translation to a
+    node. Note that you cannot apply a shear transformation this way.
+    • Use the transforms sequence of a node. The getTransforms() method of the
+    Node class returns an ObservableList<Transform>. Populate this list with all the
+    Transform objects. The Transforms will be applied in sequence. You can apply a
+    shear transformation only using this method.
+
+The two methods of applying Transforms work little differently. We will discuss the differences when we
+discuss the specific types of transformation. Sometimes, it is possible to use both of the foregoing methods to
+apply transformations, and in that case, the transformations in the transforms sequence are applied before
+the transformation set on the properties of the node.
+
+    Rectangle rect = new Rectangle(100, 50, Color.LIGHTGRAY);
+    // Apply transforms using the transforms sequence of the Rectangle
+    Transform shear = Transform.shear(2.0, 1.2);
+    Transform scale = Transform.scale(1.1, 1.2);
+    rect.getTransforms().addAll(shear, scale);
+
+    // Apply a translation using the translatex and translateY
+    // properties of the Node class
+    rect.setTranslateX(10);
+    rect.setTranslateY(10);
+
+The shear and scale are applied using the transforms sequence. The translation is applied using the
+translateX and translateY properties of the Node class. The transformations in the transforms sequence,
+shear and scale, are applied in sequence followed by the translation.

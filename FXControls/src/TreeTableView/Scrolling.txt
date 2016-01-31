@@ -1,0 +1,34 @@
+
+TreeTableView automatically provides vertical and horizontal scrollbars when rows or columns fall beyond
+the available space. Users can use the scrollbars to scroll to a specific row or column. Sometimes you may
+need to add programmatic support for scrolling. For example, when you append a row to a TreeTableView,
+you may want to scroll the new row to the view. The TreeTableView class contains three methods that can be
+used to scroll to a specific row or column:
+    • scrollTo(int rowIndex)
+    • scrollToColumn(TreeTableColumn<S,?> column)
+    • scrollToColumnIndex(int columnIndex)
+
+The scrollTo() method scrolls the row with the specified rowIndex to the view. The scrollToColumn()
+and scrollToColumnIndex() methods scroll to the specified column and columnIndex, respectively.
+
+TreeTableView fires a ScrollToEvent when there is a request to scroll to a row or column using one
+of the above-mentioned scrolling methods. The ScrollToEvent class contains a getScrollTarget()
+method that returns the row index or the column reference, depending on the scroll type, as shown in the
+following code:
+
+    TreeTableView<Person> treeTable = ...
+
+    // Add a ScrollToEvent for row scrolling
+    treeTable.setOnScrollTo(e -> {
+        int rowIndex = e.getScrollTarget();
+        System.out.println("Scrolled to row " + rowIndex);
+    });
+
+    // Add a ScrollToEvent for column scrolling
+    treeTable.setOnScrollToColumn(e -> {
+        TreeTableColumn<Person, ?> column = e.getScrollTarget();
+        System.out.println("Scrolled to column " + column.getText());
+    });
+
+Tip: The ScrollToEvent is not fired when the user scrolls through the rows and columns. It is fired when
+you call one of the scrolling-related methods of the TreeTableView class.

@@ -1,0 +1,18 @@
+
+-fx-text-alignment
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		Defines horizontal text alignment.
+
+-fx-line-spacing
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty lineSpacing
+	Property: DoubleProperty lineSpacingProperty()
+	Methods: getLineSpacing(), setLineSpacing(double)
+	Description:
+		Defines the vertical space in pixel between lines.

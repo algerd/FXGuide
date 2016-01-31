@@ -1,0 +1,50 @@
+
+The default CSS style-class name for an HTMLEditor is html-editor. The HTMLEditor uses styles of a Control
+such as padding, borders, and background color.
+You can style each button in the toolbar separately. The following are the list of style-class names for
+the toolbar buttons. The names are self-explanatory, for example, html-editor-align-right and
+html-editor-hr are the style-class names for the toolbar buttons used to right align text and draw a
+horizontal ruler, respectively.
+    • html-editor-cut
+    • html-editor-copy
+    • html-editor-paste
+    • html-editor-align-left
+    • html-editor-align-center
+    • html-editor-align-right
+    • html-editor-align-justify
+    • html-editor-outdent
+    • html-editor-indent
+    • html-editor-bullets
+    • html-editor-numbers
+    • html-editor-bold
+    • html-editor-italic
+    • html-editor-underline
+    • html-editor-strike
+    • html-editor-hr
+
+The following code sets a custom image for the Cut button in the toolbar:
+
+    .html-editor-cut {
+        -fx-graphic: url("my_html_editor_cut.jpg");
+    }
+
+Use the button and toggle-button style-class names if you want to apply styles to all toolbar buttons
+and toggle buttons:
+
+/* Set the background colors for all buttons and toggle buttons */
+.html-editor .button, .html-editor .toggle-button {
+    -fx-background-color: lightblue;
+}
+
+The HTMLEditor shows two ColorPickers for users to select the background and foreground colors.
+Their style-class names are html-editor-background and html-editor-foreground. The following code
+shows the selected color labels in the ColorPickers:
+
+    .html-editor-background {
+        -fx-color-label-visible: true;
+    }
+    .html-editor-foreground {
+        -fx-color-label-visible: true;
+    }
+
+

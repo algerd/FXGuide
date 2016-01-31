@@ -1,0 +1,75 @@
+
+TableView is a powerful, but not simple, control. You need to write a few lines of code to use even the
+simplest TableView that displays some meaningful data to users. There are several classes involved in working
+with TableView. I will discuss these classes in detail when I discuss the different features of the TableView:
+
+    • TableView extends Control
+    • TableColumn extends TableColumnBase implements EventTarget
+    • TableRow extends IndexedCell -> Cell -> Labeled -> Control
+    • TableCell extends IndexedCell -> Cell -> Labeled -> Control
+    • TablePosition 
+    • TableView.TableViewFocusModel
+    • TableView.TableViewSelectionModel
+
+The TableView class represents a TableView control. The TableColumn class represents a column in a
+TableView. Typically, a TableView contains multiple instances of TableColumn. A TableColumn consists of
+cells, which are instances of the TableCell class. A TableColumn uses two properties to populate cells and
+render values in them. It uses a cell value factory to extract the value for its cells from the list of items. It uses
+a cell factory to render data in a cell. You must specify a cell value factory for a TableColumn to see some data
+in it. A TableColumn uses a default cell factory that knows how to render text and a graphic node.
+The TableRow class inherits from the IndexedCell class. An instance of TableRow represents a row in a
+TableView. You would almost never use this class in an application unless you want to provide a customized
+implementation for rows. Typically, you customize cells, not rows.
+
+An instance of the TableCell class represents a cell in a TableView. Cells are highly customizable.
+They display data from the underlying data model for the TableView. They are capable of displaying data as
+well as graphics.
+
+The TableColumn, TableRow, and TableCell classes contain a tableView property that holds
+the reference of the TableView that contains them. The tableView property contains null when the
+TableColumn does not belong to a TableView.
+
+A TablePosition represents the position of a cell. Its getRow() and getColumn() methods return the
+indices of the row and column, respectively, to which the cell belongs.
+
+The TableViewFocusModel class is an inner static class of the TableView class. It represents the focus
+model for the TableView to manage focus for rows and cells.
+
+The TableViewSelectionModel class is an inner static class of the TableView class. It represents the
+selection model for the TableView to manage selection for rows and cells.
+
+Like ListView and TreeView controls, TableView is virtualized. It creates just enough cells to display
+the visible content. As you scroll through the content, the cells are recycled. This helps keep the number of
+nodes in the scene graph to a minimum. 
+
+Cells in a TableView can display text and graphics. If the cell value factory returns an instance of the
+Node class, which could be an ImageView, the cell displays it as graphic. Otherwise, it displays the string
+returned from the toString() method of the object. It is possible to display other controls and containers in
+cells. However, a TableView is not meant for that and such uses are discouraged. Sometimes using a specific
+type of control in a cell, for example, a check box, to show or edit a boolean value provides a better user
+experience.
+
+
+You can rearrange columns in a TableView two ways:
+    • By dragging and dropping columns to a different position
+    • By changing their positions in the observable list of returned by the getColumns()
+method of the TableView class
+
+The first option is available by default. The user needs to drag and drop a column at the new position.
+When a column is reordered, its position in the columns list is changed. The second option will reorder the
+column directly in the columns list.
+
+There is no easy way to disable the default column-reordering feature. If you want to disable the feature,
+you would need to add a ChangeListener to the ObservableList returned by the getColumns() method of
+the TableView. When a change is reported, reset the columns so they are in the original order again.
+
+
+Порядок рассмотрения примеров:
+    SimplestTableView.java
+    EmptyTableView.java
+    TableViewDataTest.java
+    TableViewMapDataTest.java
+    TableViewCellFactoryTest.java
+    TableViewEditing.java
+    CustomTableCellTest.java + DatePickerTableCell.java (Главная идея в реализации класса DatePickerTableCell)
+    TableViewAddDeleteRows.java (+ Selecting Cells and Rows in a TableView)

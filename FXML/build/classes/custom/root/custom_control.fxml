@@ -1,0 +1,13 @@
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    С помощью fx:root элемента создаётся корневой элемент кастомного контрола.
+    Этот fx:root-элемент передаётся классу-загрузчику кастомного контрола.
+    Следует указать тип корневого элемента в аттрибуте type
+-->
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+    <TextField fx:id="textField"/>
+    <Button text="Click Me" onAction="#doSomething"/>
+</fx:root>

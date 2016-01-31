@@ -1,0 +1,18 @@
+
+AudioClip is used to play a short audio clip with minimal latency. Typically, this is useful for sound
+effects, which are usually short audio clips. Use the Media, MediaPlayer, and MediaView classes for playing
+audios and videos of longer length.
+
+The Media and MediaPlayer classes are used to play audios as well as videos. An instance of the Media
+class represents a media resource, which could be an audio or video. It provides the information about the
+media, for example, the duration of the media. An instance of the MediaPlayer class provides controls for
+playing a media.
+
+An instance of the MediaView class provides the view of a media being played by a MediaPlayer.
+A MediaView is used for viewing a video.
+
+Several things can go wrong when you attempt to play a media, for example, the media format may
+not be supported or the media content may be corrupt. An instance of the MediaException class represents
+a specific type of media error that may occur during media playback. When a media-related error occurs,
+a MediaErrorEvent is generated. You can handle the error by adding an appropriate event handler to the
+media objects.

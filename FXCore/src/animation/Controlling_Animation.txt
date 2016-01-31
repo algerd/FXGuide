@@ -1,0 +1,147 @@
+
+play:
+------
+The Animation class contains four methods to play an animation.
+    • play()
+    • playFrom(Duration time)
+    • playFrom(String cuePoint)
+    • playFromStart()
+The play() method plays an animation from its current position. If the animation was never started or
+stopped, it will play from the beginning. If the animation was paused, it will play from the position where it
+was paused. You can use the jumpTo(Duration time) and jumpTo(String cuePoint) methods to set the
+current position of the animation to a specific duration or a cue point, before calling the play() method.
+Calling the play() method is asynchronous. The animation may not start immediately. Calling the play()
+method while animation is running has no effect.
+
+The playFrom() method plays an animation from the specified duration or the specified cue point.
+Calling this method is equivalent to setting the current position using the jumpTo() method and then calling
+the play() method.
+The playFromStart() method plays the animation from the beginning (duration = 0).
+
+
+delay:
+-------
+You can specify a delay in starting the animation using the delay property. The value is specified in
+Duration. By default, it is 0 milliseconds.
+    Timeline timeline = ...
+    // Deplay the start of the animation by 2 seconds
+    timeline.setDelay(Duration.seconds(2));
+    // Play the animation
+    timeline.play();
+
+
+stop:
+------
+Use the stop() method to stop a running animation. The method has no effect if the animation is not
+running. The animation may not stop immediately when the method is called as the method executes
+asynchronously. The method resets the current position to the beginning. That is, calling play() after
+stop() will play the animation from the beginning.
+    Timeline timeline = ...
+    ...
+    timeline.play();
+    ...
+    timeline.stop();
+
+
+pause:
+------
+Use the pause() method to pause an animation. Calling this method when animation is not running
+has no effect. This method executes asynchronously. Calling the play() method when the animation
+is paused plays it from the current position. If you want to play the animation from the start, call the
+playFromStart() method.
+
+
+state:
+-------
+An animation can be one of the following three states:
+    • Running
+    • Paused
+    • Stopped
+The three states are represented by RUNNING, STOPPED, and PAUSED constants of the Animation.Status
+enum. You do not change the state of an animation directly. It is changed by calling one of the methods of
+the Animation class. The class contains a read-only status property that can be used to know the state of the
+animation at any time.
+    Timeline timeline = ...
+    ...
+    Animation.Status status = timeline.getStatus();
+    switch(status) {
+        case RUNNING:
+            System.out.println("Running");
+            break;
+        case STOPPED:
+            System.out.println("Stopped");
+            break;
+        case PAUSED:
+            System.out.println("Paused");
+            break;
+    }
+
+
+cycle:
+-------
+An animation can cycle multiple times, even indefinitely. The cycleCount property specifies the number
+of cycles in an animation, which defaults to 1. If you want to run the animation in an infinite loop, specify
+Animation.INDEFINITE as the cycleCount. The cycleCount must be set to a value greater than zero. If the
+cycleCount is changed while the animation is running, the animation must be stopped and restarted to pick
+up the new value.
+    Timeline timeline1 = ...
+    Timeline1.setCycleCount(Timeline.INDEFINITE); // Run the animation forever
+    Timeline timeline2 = ...
+    Timeline2.setCycleCount(2); // Run the animation for two cycles
+
+
+reverse:
+---------
+By default, an animation runs only in the forward direction. For example, our scrolling text animation
+scrolled the text from right to left in one cycle. In the next cycle, the scrolling occurs again from right to left.
+Using the autoReverse property, you can define whether the animation is performed in the reverse
+direction for alternating cycles. By default, it is set to false. Set it to true to reverse the direction of the
+animation.
+    Timeline timeline = ...
+    timeline.setAutoReverse(true); // Reverse direction on alternating cycles
+If you change the autoReverse, you need to stop and restart the animation for the new value to
+take effect.
+
+
+onFinished:
+-----------
+You can execute an ActionEvent handler when an animation finishes. Stopping the animation or
+terminating the application while the animation is running will not execute the handler. You can specify
+the handler in the onFinished property of the Animation class. The following snippet of code sets the
+onFinished property to an ActionEvent handler that prints a message on the standard output:
+    Timeline timeline = ...
+    timeline.setOnFinished(e -> System.out.print("Animation finished."));
+
+Note that an animation with an Animation.INDEFINITE cycle count will not finish and attaching such
+an action to the animation will never execute.
+
+
+speed(rate):
+------------
+The rate property of the Animation class specifies the direction and the speed for the animation. The sign of
+its value indicates the direction. The magnitude of the value indicates the speed. A positive value indicates
+the play in the forward direction. A negative value indicates the play in the backward direction. A value of 1.0
+is considered the normal rate of play, a value of 2.0 double the normal rate, 0.50 half the normal rate, and so
+on. A rate of 0.0 stops the play.
+
+It is possible to invert the rate of a running animation. In that case, the animation is played in the
+reverse direction from the current position for the duration that has already elapsed. Note that you cannot
+start an animation using a negative rate. An animation with a negative rate will not start. You can change
+the rate to be negative only when the animation has played for a while.
+    Timeline timeline = ...
+    // Play the animation at double the normal rate
+    Timeline.setRate(2.0);
+    ...
+    timeline.play();
+    ...
+    // Invert the rate of the play
+    timeline.setRate(-1.0 * timeline.getRate());
+
+The read-only currentRate property indicates the current rate (the direction and speed) at which
+the animation is playing. The values for the rate and currentRate properties may not be equal. The rate
+property indicates the rate at which the animation is expected to play when it runs, whereas the currentRate
+indicates the rate at which the animation is being played. When the animation is stopped or paused, the
+currentRate value is 0.0. If the animation reverses its direction automatically, the currentRate will report a
+different direction during reversal; for example, if the rate is 1.0, the currentRate reports 1.0 for the forward
+play cycle and -1.0 for the reverse play cycle.
+

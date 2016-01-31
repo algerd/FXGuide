@@ -1,0 +1,31 @@
+The default CSS style-class name for a Separator control is separator. Separator contains CSS properties,
+which corresponds to its Java properties:
+    • -fx-orientation
+    • -fx-halignment
+    • -fx-valignment
+
+Separator supports horizontal and vertical CSS pseudo-classes that apply to horizontal and vertical
+separators, respectively. It contains a line substructure that is a Region. The line you see in a separator
+is created by specifying the border for the line substructure. 
+    .separator > .line {
+        -fx-border-style: solid;
+        -fx-border-width: 1;
+    }
+
+You can use an image as a separator. Set the appropriate width or height of the separator and use an
+image as the background image. The following code assumes that the separator.jpg image file exists in
+the same directory as the CSS file containing the style. The styles set the preferred height of the horizontal
+separator and the preferred width of the vertical separator to 10px.
+
+    .separator {
+        -fx-background-image: url("separator.jpg");
+        -fx-background-repeat: repeat;
+        -fx-background-position: center;
+        -fx-background-size: cover;
+    }
+    .separator:horizontal {
+        -fx-pref-height: 10;
+    }
+    .separator:vertical {
+        -fx-pref-width: 10;
+    }

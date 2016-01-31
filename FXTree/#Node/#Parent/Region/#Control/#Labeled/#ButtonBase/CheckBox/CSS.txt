@@ -1,0 +1,41 @@
+
+CSS Pseudo-class:
+
+selected	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty selected
+	Property: BooleanProperty selectedProperty()
+	Methods: isSelected(), setSelected(boolean)
+	Description:
+		Applies when the selected variable is true.
+		Indicates whether this CheckBox is checked.
+
+determinate	
+	Values: <boolean>
+	Default: false
+	Field: !BooleanProperty indeterminate
+	Property: !BooleanProperty indeterminateProperty
+	Methods: !isIndeterminate(), setIndeterminate(boolean)
+	Description:
+		Applies when the indeterminate variable is false.
+		Determines whether the CheckBox is not in the indeterminate state.
+
+indeterminate	
+	Values: <boolean>
+	Default: false
+	Field: BooleanProperty indeterminate
+	Property: BooleanProperty indeterminateProperty()
+	Methods: isIndeterminate(), setIndeterminate(boolean)
+	Description:
+		Applies when the indeterminate variable is true.
+		Determines whether the CheckBox is in the indeterminate state.
+
+		
+		
+******** Substructure ************
+
+text - LabeledText
+box — a StackPane
+	mark — a StackPane		
+

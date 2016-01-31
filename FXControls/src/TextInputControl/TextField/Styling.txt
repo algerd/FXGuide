@@ -1,0 +1,4 @@
+
+The default CSS style-class name for a TextField is text-field. It adds an -fx-alignment property that is
+the alignment of its text within its content area. There is nothing special that needs to be said about styling
+TextField.

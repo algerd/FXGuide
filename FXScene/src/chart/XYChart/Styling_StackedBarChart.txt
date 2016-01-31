@@ -1,0 +1,10 @@
+By default, a StackedBarChart is given style-class names: chart and stacked-bar-chart.
+The following style sets the default value for the categoryGap properties for all stacked bar charts to
+20px. The bars in a category will be placed next to each other.
+
+    .stacked-bar-chart {
+        -fx-category-gap: 20;
+    }
+
+In a stacked bar chart, the style-class names assigned to the nodes representing bars and legend items
+are the same as that of a bar chart. Please refer to Styling_BarChart.txt for more details.

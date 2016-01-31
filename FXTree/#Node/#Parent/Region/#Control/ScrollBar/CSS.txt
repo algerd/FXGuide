@@ -1,0 +1,60 @@
+
+-fx-orientation			
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of the ScrollBar can either be HORIZONTAL or VERTICAL.
+ 
+-fx-block-increment		
+	Values: <number>
+	Default: 10
+	Field: DoubleProperty blockIncrement
+	Property: DoubleProperty blockIncrementProperty()
+	Methods: getBlockIncrement(), setBlockIncrement(double)
+	Description:
+		The amount by which to adjust the scrollbar if the track of the bar is clicked.
+ 
+-fx-unit-increment
+	Values: <number>
+	Default: 1
+	Field: DoubleProperty unitIncrement
+	Property: DoubleProperty unitIncrementProperty()
+	Methods: getUnitIncrement(), setUnitIncrement(double)
+	Description:
+		The amount by which to adjust the ScrollBar when the increment or decrement methods are called.
+		
+
+****** CSS Pseudo-classes: ***********
+
+vertical	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this ScrollBar is vertical.
+		vertical = (orientationProperty == Orientation.VERTICAL)
+		ObjectProperty<Orientation> orientationProperty:
+			The orientation of the ScrollBar can either be HORIZONTAL or VERTICAL.
+		
+horizontal	
+	Values: <boolean>
+	Default: false
+	Description:
+		Applies if this ScrollBar is horizontal.
+		horizontal = (orientationProperty != Orientation.VERTICAL)
+		ObjectProperty<Orientation> orientationProperty:
+			The orientation of the ScrollBar can either be HORIZONTAL or VERTICAL.
+
+		
+****** Substructure ********
+
+decrement-button — StackPane
+	decrement-arrow — StackPane
+track — StackPane
+thumb — StackPane
+increment-button — StackPane
+	increment-arrow — StackPane
+
+		

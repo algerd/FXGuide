@@ -1,0 +1,109 @@
+
+-fx-orientation		
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of this tilepane. A horizontal tilepane lays out children in tiles, left to right, 
+		wrapping tiles at the tilepane's width boundary. A vertical tilepane lays out children in tiles, 
+		top to bottom, wrapping at the tilepane's height. The default is horizontal.
+	 
+-fx-pref-rows
+	Values: <integer>
+	Default: 5
+	Field: IntegerProperty prefRows
+	Property: IntegerProperty prefRowsProperty()
+	Methods: getPrefRows(), setPrefRows(int)
+	Description:
+		The preferred number of rows for a vertical tilepane. This value is used only to compute 
+		the preferred size of the tilepane and may not reflect the actual number of rows, 
+		which may change if the tilepane is resized to something other than its preferred height. 
+		This property is ignored for a horizontal tilepane.
+		It is recommended that the application initialize this value for a vertical tilepane.
+ 
+-fx-pref-columns
+	Values: <integer>
+	Default: 5
+	Field: IntegerProperty prefColumns
+	Property: IntegerProperty prefColumnsProperty()
+	Methods: getPrefColumns(), setPrefColumns(int)
+	Description:
+		The preferred number of columns for a horizontal tilepane. This value is used only to compute 
+		the preferred size of the tilepane and may not reflect the actual number of rows, 
+		which may change if the tilepane is resized to something other than its preferred height. 
+		This property is ignored for a vertical tilepane.
+		It is recommended that the application initialize this value for a horizontal tilepane.
+  
+-fx-pref-tile-width	
+	Values: <size>
+	Default: -1
+	Field: DoubleProperty prefTileWidth
+	Property: DoubleProperty prefTileWidthProperty()
+	Methods: getPrefTileWidth(), setPrefTileWidth(double)
+	Description:
+		The preferred width of each tile. If equal to USE_COMPUTED_SIZE (the default) the tile width wlll be automatically 
+		recomputed by the tilepane when the preferred size of children changes to accommodate the widest child. 
+		If the application sets this property to value greater than 0, then tiles will be set to that width 
+		and the tilepane will attempt to resize children to fit within that width 
+		(if they are resizable and their min-max width range allows it).
+	
+-fx-pref-tile-height	
+	Values: <size>
+	Default: -1
+	Field: DoubleProperty prefTileHeight
+	Property: DoubleProperty prefTileHeightProperty()
+	Methods: getPrefTileHeight(), setPrefTileHeight(double)
+	Description:
+		The preferred height of each tile. If equal to USE_COMPUTED_SIZE (the default) the tile height wlll be automatically 
+		recomputed by the tilepane when the preferred size of children changes to accommodate the tallest child. 
+		If the application sets this property to value greater than 0, then tiles will be set to that height
+		and the tilepane will attempt to resize children to fit within that height 
+		(if they are resizable and their min-max height range allows it).
+ 
+-fx-hgap
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty hgap
+	Property: DoubleProperty hgapProperty()
+	Methods: getHgap(), setHgap(double)
+	Description:
+		The amount of horizontal space between each tile in a row.
+ 
+-fx-vgap
+	Values: <size>
+	Default: 0
+	Field: DoubleProperty vgap
+	Property: DoubleProperty vgapProperty()
+	Methods: getVgap(), setVgap(double)
+	Description:
+		The amount of vertical space between each tile in a column.
+	 
+-fx-alignment			 
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: top-left
+	Field: ObjectProperty<Pos> alignment
+	Property: ObjectProperty<Pos> alignmentProperty()
+	Methods: getAlignment(), setAlignment(Pos)
+	Description:
+		The overall alignment of the tilepane's content within its width and height.
+		For a horizontal tilepane, each row will be aligned within the tilepane's width using the alignment's hpos value, 
+		and the rows will be aligned within the tilepane's height using the alignment's vpos value.
+		For a vertical tilepane, each column will be aligned within the tilepane's height using the alignment's vpos value, 
+		and the columns will be aligned within the tilepane's width using the alignment's hpos value.
+
+-fx-tile-alignment		
+	Values: [ top-left | top-center | top-right | center-left | center | center-right bottom-left | bottom-center | bottom-right | baseline-left | baseline-center | baseline-right ]
+	Default: center
+	Field: ObjectProperty<Pos> tileAlignment
+	Property: ObjectProperty<Pos> tileAlignmentProperty()
+	Methods: getTileAlignment(), setTileAlignment(Pos)
+	Description:
+		The default alignment of each child within its tile. This may be overridden on individual children by setting the child's alignment constraint.
+
+
+
+
+
+	 

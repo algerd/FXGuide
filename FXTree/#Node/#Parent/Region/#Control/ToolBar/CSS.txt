@@ -1,0 +1,32 @@
+﻿
+-fx-orientation
+	Values: [ horizontal | vertical ]
+	Default: horizontal
+	Field: ObjectProperty<Orientation> orientation 
+	Property: ObjectProperty<Orientation> orientationProperty()
+	Methods: getOrientation(), setOrientation(Orientation)
+	Description:
+		The orientation of the ToolBar can either be horizontal or vertical.
+
+
+******* CSS Pseudo-classes: ****************
+
+¬ зависимости от orientationProperty мен¤ютс¤ значени¤ псевдоклассов.
+
+horizontal
+	Values: <boolean>
+	Default: orientationProperty != Orientation.VERTICAL
+	Description:
+		Applies if this ToolBar is horizontal.
+	
+vertical	
+	Values: <boolean>
+	Default: orientationProperty == Orientation.VERTICAL
+	Description:
+		Applies if this ToolBar is vertical.
+	
+	
+****** Substructure *******
+
+tool-bar-overflow-button - StackPane
+	arrow - StackPane

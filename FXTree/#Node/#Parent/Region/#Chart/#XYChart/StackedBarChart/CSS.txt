@@ -1,0 +1,9 @@
+
+-fx-category-gap
+	Values: <number> 
+	Default: 10
+	Field: DoubleProperty categoryGap
+	Property: DoubleProperty categoryGapProperty()
+	Methods: getCategoryGap(), setCategoryGap(double)
+	Description:
+		The gap to leave between bars in separate categories
