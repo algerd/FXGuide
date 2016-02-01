@@ -76,8 +76,7 @@ public class ObservableListUpdateCallback {
 
 		// Create an empty observable list with a callback to extract the
 		// observable values for each element of the list
-		ObservableList<IntegerProperty> list =
-			FXCollections.observableArrayList(extractor);
+		ObservableList<IntegerProperty> list = FXCollections.observableArrayList(extractor);
 
 		// Add two elements to the list
 		System.out.println("Before adding two elements...");
