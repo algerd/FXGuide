@@ -1,0 +1,45 @@
+http://www.javaworld.com/article/2991463/core-java/javafx-improvements-in-java-se-8u40.html?page=2
+
+How do I create custom dialogs?
+
+You create custom dialogs by working with the javafx.scene.control.Dialog<R> class, 
+which serves as a wrapper for the javafx.scene.control.DialogPane class in which the real work takes place. 
+(DialogPane knows nothing of the dialog's underlying implementation, which currently consists of being shown inside a stage, 
+but may also be shown in lightweight or internal dialog contexts in future JavaFX releases.
+Dialog<R> is simply a wrapper that attempts to present a common API for all possible implementations.) 
+Furthermore, Dialog<R> is the superclass of the Alert, ChoiceDialog<T>, and TextInputDialog classes. 
+Diagramm illustrates the relationships between these classes:
+
+    DialogPane
+    Dialog
+        Alert
+        ChoiceDialog
+        TextInputDialog
+
+The R parameter in Dialog<R> identifies the type of the object that is returned when the dialog is dismissed. 
+This object contains the values that were selected by the user via the dialog's various controls. 
+For example, a search dialog might contain a text field for entering search text and a check box 
+for selecting whether a search is case-sensitive or not. This object would contain these settings upon dialog dismissal.
+
+The object that is returned upon dialog dismissal is managed by the dialog's result property. 
+When the dialog is dismissed, a result converter converts the values in the dialog's controls 
+to the object that is managed by result. The result converter is an instance of a class 
+that implements the javafx.util.Callback<P, R> interface, where P is the type of the argument 
+passed to Callback<P, R>'s R call(P param) method and R is this method's return type. 
+The callback is installed by calling Dialog<R>'s void setResultConverter(Callback<ButtonType, R> value) method. 
+Here, P is set to one of the javafx.scene.control.ButtonType class's constants (such as OK or CANCEL) and R is the type passed to Dialog<R>. 
+Behind the scenes, the converter callback's call() method is called when the button whose button type is associated with the converter is clicked.
+
+When is a result converter required?
+Unless R is set to Void (in the java.lang package) or ButtonType, a result converter is required. 
+Otherwise, you will observe thrown java.lang.ClassCastException instances.
+
+Additionally, you can call the following methods to customize a dialog:
+    void setGraphic(Node graphic)
+    void setHeaderText(String headerText)
+    void setTitle(String title)
+
+You'll also need to access the wrapped DialogPane and you can do so by calling Dialog<R>'s DialogPane getDialogPane() method. 
+You would then call DialogPane methods such as ObservableList<ButtonType> getButtonTypes() 
+(obtain an observable list of the dialog's button types so that you can specify the buttons that are displayed by the dialog) 
+and void setContent(Node content) (install the dialog's controls as a node hierarchy).

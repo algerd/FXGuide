@@ -1,0 +1,44 @@
+http://www.javaworld.com/article/2991463/core-java/javafx-improvements-in-java-se-8u40.html
+
+Accessibility is the degree to which a product, device, service, or environment 
+is available to as many people as possible. For example, graphical user interfaces 
+can be made more accessible by providing screen reader devices, which speak graphical content, 
+to blind people.
+
+JavaFX supports accessibility on Windows and Mac OS X platforms in the following ways:
+    - By providing support for reading JavaFX controls via a screen reader (e.g., Apple's VoiceOver for the Mac, Microsoft's Narrator for Windows, Freedom Scientific's JAWS for Windows)
+    - By providing JavaFX controls that are traversable using the keyboard
+    - By supporting a special high-contrast mode that makes controls more visible to users -- this mode is activated on Windows by pressing Alt+Left Shift+Print Screen
+
+JavaFX supports accessibility by adding the following properties to the javafx.scene.Node class:
+    - accessibleRoleProperty: 
+        the node's accessible role, which is a value of the javafx.scene.AccessibleRole enumerated type that identifies the kind of control to the screen reader 
+        (e.g., AccessibleRole.BUTTON or AccessibleRole.MENU). The screen reader uses a node's role to identify supported attributes and actions.
+
+    - accessibleRoleDescriptionProperty: 
+        the node's role description, which is a string. Normally, when a role is provided for a node, the screen reader speaks the role along with the node's contents. 
+        When this value is set, it's possible to override the default, which is useful because the set of roles is predefined. 
+        For example, it's possible to set a node's role to a button while having the role description be arbitrary text.
+
+    - accessibleTextProperty: 
+        the node's accessible text, which is a string. This property identifies the text that the screen reader will speak. 
+        If a node normally speaks text, that text is overridden. For example, a button usually speaks using the text in the control but will no longer do so when this property is set. 
+        This property is especially useful for non-text-oriented controls such as image view.    
+
+    - accessibleHelpProperty: 
+        the node's accessible help, which is a string. The help text provides a more detailed description of the node's accessible text. 
+        By default, if the node has a tool tip, this text is used.   
+
+Additionally, javafx.scene.control.Label's labelFor property is used by a screen reader to provide more information to the user. 
+For example, suppose a text field contains Joe and labelFor connects this text field to a label that states First Name. 
+When the text field receives focus, the screen reader will utter "First name, editable text, Joe".
+ 
+Finally, JavaFX provides a more advanced API for interacting with the screen reader and accessing accessibility state. 
+You would use this API to introduce accessibility support to your own controls or other nodes.
+
+The advanced API includes the javafx.scene.AccessibleAction and javafx.scene.AccessibleAttribute enumerated types along with the following Node methods:
+    Object queryAccessibleAttribute(AccessibleAttribute attribute, Object... parameters)
+    void executeAccessibleAction(AccessibleAction action, Object... parameters)
+    void notifyAccessibleAttributeChanged(AccessibleAttribute attributes)
+
+

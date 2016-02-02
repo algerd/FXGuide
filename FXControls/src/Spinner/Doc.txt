@@ -1,0 +1,25 @@
+http://www.javaworld.com/article/2991463/core-java/javafx-improvements-in-java-se-8u40.html?page=3
+
+A spinner is a single-line text field control that lets the user select a number 
+or an object value from an ordered sequence of such values. Spinners typically provide 
+a pair of tiny arrow buttons for stepping through the elements of the sequence. 
+The keyboard's up arrow/down arrow keys also cycle through the elements. 
+The user may also be allowed to type a (legal) value directly into the spinner. 
+Although combo boxes provide similar functionality, spinners are sometimes preferred 
+because they don't require a drop-down list that can obscure important data, 
+and also because they allow for features such as wrapping from the maximum value 
+back to the minimum value (e.g., from the largest positive integer to 0).
+
+A spinner is implemented as an instance of the javafx.scene.control.Spinner control class. 
+This class relies on the abstract javafx.scene.control.SpinnerValueFactory class to provide the control's model 
+(range of user-selectable values of a specific type). 
+Currently, the only supported models are defined by its nested DoubleSpinnerValueFactory, IntegerSpinnerValueFactory, and ListSpinnerValueFactory classes.
+
+You create a spinner by calling one of Spinner's constructors. 
+For example, Spinner(int min, int max, int initialValue) creates a spinner for selecting one of the integer values from min through max. 
+The initially selected value is identified by initialValue. If this value isn't in the min/max range, min's value becomes the initially selected value.
+
+Spinner(int min, int max, int initialValue) is a convenience constructor that installs an instance of the IntegerSpinnerValueFactory class with these values as the model. 
+If you prefer to work directly with IntegerSpinnerValueFactory, you can instantiate this class and pass its reference to the Spinner(SpinnerValueFactory<T> valueFactory) constructor. 
+Alternatively, you can create an empty spinner via the Spinner() constructor and invoke Spinner's void setValueFactory(SpinnerValueFactory<T> value) method to install this factory object.
+
