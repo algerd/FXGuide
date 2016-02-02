@@ -1,0 +1,39 @@
+http://www.javaworld.com/article/2991463/core-java/javafx-improvements-in-java-se-8u40.html?page=4
+
+JavaFX supports text formatting by providing the javafx.scene.control.TextFormatter<V> class 
+with its nested Change class. Furthermore, the abstract javafx.scene.control.TextInputControl class 
+(the parent class of TextField and javafx.scene.control.TextArea) has been given a textFormatter property 
+so that any subclass automatically supports text formatting.
+
+TextFormatter supports two kinds of text formatting: value and change.
+A value formatter is called when you press the Enter key after entering the text. 
+A change formatter is called for every text-deletion, text-addition, 
+and text-replacement change for the focused text-input control. These formatters can be used separately or together.
+
+A value formatter is specified as an instance of a StringConverter<T> subclass. 
+A change formatter is specified as an instance of a class that implements the java.util.function.UnaryOperator<T> functional interface 
+with TextFormatter.Change passed to T. A Change instance contains the state representing a change in the content 
+or selection for a TextInputControl subclass object. You override UnaryOperator's T apply(T t) method to obtain and take action based on what has changed. 
+The Change instance is returned to commit the change; null is returned to reject the change.
+
+After creating value and change formatters, pass them to an appropriate TextFormatter constructor:
+    TextFormatter(StringConverter<V> valueConverter) (install a value formatter)
+    TextFormatter(UnaryOperator<TextFormatter.Change> filter) (install a change formatter)
+    TextFormatter(StringConverter<V> valueConverter, V defaultValue, UnaryOperator<TextFormatter.Change> filter) (install value and change formatters)
+
+You install the TextFormatter object by calling TextInputControl's void setTextFormatter(TextFormatter<?> value) method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
