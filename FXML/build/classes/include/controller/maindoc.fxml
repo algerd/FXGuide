@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 
@@ -14,6 +19,9 @@
     Имя ссылки вложенного контроллера в главном контроллере должна соответствовать правилу:
         - fx:id элемента fx:include + Controller = includedCloseBtn + Controller 
 -->
-<VBox fx:controller="include.controller.MainDocController" xmlns:fx="http://javafx.com/fxml">	
-	<fx:include source="closebutton.fxml" fx:id="includedCloseBtn"/>    
+
+<VBox prefHeight="83.0" prefWidth="82.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="include.controller.MainDocController">
+   <Button mnemonicParsing="false" text="Run Close" />
+   <Button mnemonicParsing="false" text="Run Open" />	
+	<fx:include fx:id="includedCloseBtn" source="closebutton.fxml" />    
 </VBox>

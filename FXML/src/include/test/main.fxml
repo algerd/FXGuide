@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -20,8 +21,20 @@
         - fx:id элемента fx:include + Controller = includedCloseBtn + Controller 
 -->
 
-<VBox prefHeight="83.0" prefWidth="82.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="include.controller.MainDocController">
-   <Button mnemonicParsing="false" text="Run Close" />
-   <Button mnemonicParsing="false" text="Run Open" />	
-	<fx:include fx:id="includedCloseBtn" source="closebutton.fxml" />    
+<VBox fx:id="root" prefHeight="100.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="include.test.MainController">
+   <HBox>
+      <children>
+         <Button fx:id="addCloseBtn" mnemonicParsing="false" onAction="#addCloseBtn" text="Add CloseButton">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="addOpenBtn" mnemonicParsing="false" onAction="#addOpenBtn" prefHeight="25.0" prefWidth="112.0" text="Add OpenButton">
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
+   <AnchorPane fx:id="newPane" prefHeight="100.0" />		   
 </VBox>

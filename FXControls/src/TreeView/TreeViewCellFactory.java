@@ -50,7 +50,8 @@ public class TreeViewCellFactory extends Application {
 						String value = this.getTreeItem().getValue();
 						this.setText(this.getIndex() + ". " + value);
 					}
-				}};
+				}
+            };
 			return cell;
 		});
 				

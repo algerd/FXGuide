@@ -1,5 +1,5 @@
 
-package include.controller;
+package include.test;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class IncludeControllerMain  extends Application {
+public class Main extends Application {
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
@@ -18,7 +18,7 @@ public class IncludeControllerMain  extends Application {
 	@Override
 	public void start(Stage stage) throws MalformedURLException, IOException {
 		
-        URL fxmlUrl = this.getClass().getClassLoader().getResource("include/controller/maindoc.fxml");
+        URL fxmlUrl = this.getClass().getClassLoader().getResource("include/test/main.fxml");
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(fxmlUrl);
         
